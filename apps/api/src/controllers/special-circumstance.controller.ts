@@ -2,8 +2,8 @@ import { Controller, Get, Param } from '@nestjs/common';
 
 import { DatabaseService } from '../database/database.service';
 
-@Controller('special-circumstance')
-export class SpecialCircumstanceController {
+@Controller('special-circumstances')
+export class SpecialCircumstancesController {
     constructor(private readonly db: DatabaseService) { }
 
     @Get()

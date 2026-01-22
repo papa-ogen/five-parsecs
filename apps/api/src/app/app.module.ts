@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { BackgroundController } from '../controllers/background.controller';
-import { CharacterClassController } from '../controllers/character-class.controller';
-import { CrewTypeController } from '../controllers/crew-type.controller';
-import { ModuleController } from '../controllers/module.controller';
-import { SpecialCircumstanceController } from '../controllers/special-circumstance.controller';
+import { BackgroundsController } from '../controllers/background.controller';
+import { CharacterClassesController } from '../controllers/character-class.controller';
+import { CrewTypesController } from '../controllers/crew-type.controller';
+import { ModulesController } from '../controllers/module.controller';
+import { SpecialCircumstancesController } from '../controllers/special-circumstance.controller';
 import { SpeciesController } from '../controllers/species.controller';
 import { DatabaseModule } from '../database/database.module';
 
@@ -15,12 +15,12 @@ import { AppService } from './app.service';
   imports: [DatabaseModule],
   controllers: [
     AppController,
-    ModuleController,
+    ModulesController,
     SpeciesController,
-    BackgroundController,
-    CharacterClassController,
-    CrewTypeController,
-    SpecialCircumstanceController,
+    BackgroundsController,
+    CharacterClassesController,
+    CrewTypesController,
+    SpecialCircumstancesController,
   ],
   providers: [AppService],
 })
