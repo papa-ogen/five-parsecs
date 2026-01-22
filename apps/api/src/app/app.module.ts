@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { BackgroundsController } from '../controllers/background.controller';
+import { CampaignsController } from '../controllers/campaigns.controller';
 import { CharacterClassesController } from '../controllers/character-class.controller';
 import { CrewTypesController } from '../controllers/crew-type.controller';
 import { ModulesController } from '../controllers/module.controller';
@@ -21,6 +22,7 @@ import { AppService } from './app.service';
     CharacterClassesController,
     CrewTypesController,
     SpecialCircumstancesController,
+    CampaignsController,
   ],
   providers: [AppService],
 })

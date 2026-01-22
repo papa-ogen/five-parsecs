@@ -7,6 +7,9 @@ import {
     ICharacterClass,
     ICrewType,
     ISpecialCircumstance,
+    ICampaign,
+    ICampaignCrew,
+    ICampaignCharacter,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -18,6 +21,9 @@ interface DatabaseSchema {
     characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
     specialCircumstances: ISpecialCircumstance[];
+    campaigns: ICampaign[];
+    campaignCrews: ICampaignCrew[];
+    campaignCharacters: ICampaignCharacter[];
 }
 
 @Injectable()
@@ -35,6 +41,9 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            campaigns: [],
+            campaignCrews: [],
+            campaignCharacters: [],
         };
 
         this.db = await JSONFilePreset<DatabaseSchema>(dbPath, defaultData);
@@ -158,6 +167,81 @@ export class DatabaseService implements OnModuleInit {
         return specialCircumstance;
     }
 
+    // Campaign methods
+    async getAllCampaigns(): Promise<ICampaign[]> {
+        await this.db.read();
+        return this.db.data.campaigns;
+    }
+
+    async getCampaignById(id: string): Promise<ICampaign | undefined> {
+        await this.db.read();
+        return this.db.data.campaigns.find((c) => c.id === id);
+    }
+
+    async addCampaign(campaign: ICampaign): Promise<ICampaign> {
+        await this.db.read();
+        this.db.data.campaigns.push(campaign);
+        await this.db.write();
+        return campaign;
+    }
+
+    async updateCampaign(id: string, updates: Partial<ICampaign>): Promise<ICampaign | undefined> {
+        await this.db.read();
+        const campaign = this.db.data.campaigns.find((c) => c.id === id);
+        if (campaign) {
+            Object.assign(campaign, updates);
+            await this.db.write();
+        }
+        return campaign;
+    }
+
+    async deleteCampaign(id: string): Promise<boolean> {
+        await this.db.read();
+        const index = this.db.data.campaigns.findIndex((c) => c.id === id);
+        if (index !== -1) {
+            this.db.data.campaigns.splice(index, 1);
+            await this.db.write();
+            return true;
+        }
+        return false;
+    }
+
+    // Campaign Crew methods
+    async getAllCampaignCrews(): Promise<ICampaignCrew[]> {
+        await this.db.read();
+        return this.db.data.campaignCrews;
+    }
+
+    async getCampaignCrewById(id: string): Promise<ICampaignCrew | undefined> {
+        await this.db.read();
+        return this.db.data.campaignCrews.find((c) => c.id === id);
+    }
+
+    async addCampaignCrew(crew: ICampaignCrew): Promise<ICampaignCrew> {
+        await this.db.read();
+        this.db.data.campaignCrews.push(crew);
+        await this.db.write();
+        return crew;
+    }
+
+    // Campaign Character methods
+    async getAllCampaignCharacters(): Promise<ICampaignCharacter[]> {
+        await this.db.read();
+        return this.db.data.campaignCharacters;
+    }
+
+    async getCampaignCharacterById(id: string): Promise<ICampaignCharacter | undefined> {
+        await this.db.read();
+        return this.db.data.campaignCharacters.find((c) => c.id === id);
+    }
+
+    async addCampaignCharacter(character: ICampaignCharacter): Promise<ICampaignCharacter> {
+        await this.db.read();
+        this.db.data.campaignCharacters.push(character);
+        await this.db.write();
+        return character;
+    }
+
     // Utility method to reset database
     async resetDatabase(): Promise<void> {
         await this.db.read();
@@ -168,6 +252,9 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            campaigns: [],
+            campaignCrews: [],
+            campaignCharacters: [],
         };
         await this.db.write();
     }
