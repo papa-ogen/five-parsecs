@@ -1,0 +1,70 @@
+{
+  "species": [
+    {
+      "id": "1",
+      "name": "Human",
+      "description": "Versatile and adaptable, humans are found across the galaxy."
+    },
+    {
+      "id": "2",
+      "name": "K'Erin",
+      "description": "Swift and agile feline-descended species."
+    },
+    {
+      "id": "3",
+      "name": "Soulless",
+      "description": "Artificial beings with no organic components."
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "1",
+      "name": "Military",
+      "description": "Trained in formal military operations and tactics."
+    },
+    {
+      "id": "2",
+      "name": "Trader",
+      "description": "Experienced in commerce and negotiation across the stars."
+    },
+    {
+      "id": "3",
+      "name": "Colonist",
+      "description": "Grew up on the frontier, skilled in survival."
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "name": "Soldier",
+      "description": "Trained combatant specializing in direct engagement."
+    },
+    {
+      "id": "2",
+      "name": "Technician",
+      "description": "Expert in repairing and modifying equipment."
+    },
+    {
+      "id": "3",
+      "name": "Medic",
+      "description": "Skilled in treating injuries and keeping the crew healthy."
+    }
+  ],
+  "crewTypes": [
+    {
+      "id": "1",
+      "name": "Captain",
+      "description": "Leader of the crew, providing bonuses to morale and command."
+    },
+    {
+      "id": "2",
+      "name": "Crew Member",
+      "description": "Standard crew member capable of various tasks."
+    },
+    {
+      "id": "3",
+      "name": "Specialist",
+      "description": "Expert in a specific field, providing unique advantages."
+    }
+  ]
+}

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@five-parsecs/api": ["apps/api/src/index.ts"],
-      "@five-parsecs/frontend": ["apps/frontend/src/main.tsx"]
+      "@five-parsecs/frontend": ["apps/frontend/src/main.tsx"],
+      "@five-parsecs/parsec-api": ["libs/parsec-api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
