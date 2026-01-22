@@ -2,8 +2,8 @@ import { Controller, Get, Param } from '@nestjs/common';
 
 import { DatabaseService } from '../database/database.service';
 
-@Controller('modules')
-export class ModulesController {
+@Controller('module')
+export class ModuleController {
     constructor(private readonly db: DatabaseService) { }
 
     @Get()

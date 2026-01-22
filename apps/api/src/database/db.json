@@ -71,23 +71,6 @@
       "description": "Grew up on the frontier, skilled in survival."
     }
   ],
-  "classes": [
-    {
-      "id": "1",
-      "name": "Soldier",
-      "description": "Trained combatant specializing in direct engagement."
-    },
-    {
-      "id": "2",
-      "name": "Technician",
-      "description": "Expert in repairing and modifying equipment."
-    },
-    {
-      "id": "3",
-      "name": "Medic",
-      "description": "Skilled in treating injuries and keeping the crew healthy."
-    }
-  ],
   "crewTypes": [
     {
       "id": "1",
@@ -403,7 +386,7 @@
       "rollMax": 100
     }
   ],
-  "characterClass": [
+  "characterClasses": [
     {
       "id": "working-class",
       "name": "Working class",
@@ -740,6 +723,267 @@
       "name": "Mundane",
       "description": "Just an ordinary, every day human being with big hopes.",
       "rollMin": 91,
+      "rollMax": 100
+    }
+  ],
+  "talents": [
+    {
+      "id": "sharp-shooter",
+      "name": "Sharp shooter",
+      "description": "Once per game, may roll 1 extra Kill die for any attack.",
+      "rollMin": 1,
+      "rollMax": 3
+    },
+    {
+      "id": "rapid-fire",
+      "name": "Rapid fire",
+      "description": "Once per game, may roll 1 extra Shock die for any attack.",
+      "rollMin": 4,
+      "rollMax": 6
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "description": "If deployed as sentry against a stealth mission, increase all sight ranges by 2\".",
+      "rollMin": 7,
+      "rollMax": 9
+    },
+    {
+      "id": "brave",
+      "name": "Brave",
+      "description": "All Bail results on this figure are treated as Flinching instead.",
+      "rollMin": 10,
+      "rollMax": 12
+    },
+    {
+      "id": "tough",
+      "name": "Tough",
+      "description": "The figure may ignore the first hit taken each game.",
+      "rollMin": 13,
+      "rollMax": 15
+    },
+    {
+      "id": "brawler",
+      "name": "Brawler",
+      "description": "+1 bonus to all Brawling rolls.",
+      "rollMin": 16,
+      "rollMax": 18
+    },
+    {
+      "id": "quick",
+      "name": "Quick",
+      "description": "Standard move increased by 2\". No impact on Dash moves.",
+      "rollMin": 19,
+      "rollMax": 21
+    },
+    {
+      "id": "runner",
+      "name": "Runner",
+      "description": "When Dashing, roll twice and pick the higher score.",
+      "rollMin": 22,
+      "rollMax": 24
+    },
+    {
+      "id": "right-place",
+      "name": "Right Place",
+      "description": "During non-Scurry and non-Fire Fight turns, if this figure is not activated, it may take a 2\" move at the end of your turn.",
+      "rollMin": 25,
+      "rollMax": 27
+    },
+    {
+      "id": "shoot-and-scoot",
+      "name": "Shoot and Scoot",
+      "description": "When a Fire Fight is rolled, this figure may be moved up to 4\" before firing.",
+      "rollMin": 28,
+      "rollMax": 29
+    },
+    {
+      "id": "covering-fire",
+      "name": "Covering Fire",
+      "description": "When a Scurry is rolled, this figure may fire after moving.",
+      "rollMin": 30,
+      "rollMax": 31
+    },
+    {
+      "id": "evasive-move",
+      "name": "Evasive Move",
+      "description": "This figure is never subject to Guard Fire.",
+      "rollMin": 32,
+      "rollMax": 34
+    },
+    {
+      "id": "assault",
+      "name": "Assault",
+      "description": "This figure is never subject to Snap Fire.",
+      "rollMin": 35,
+      "rollMax": 37
+    },
+    {
+      "id": "accurate",
+      "name": "Accurate",
+      "description": "Weapons with limited range increase it by 4\".",
+      "rollMin": 38,
+      "rollMax": 40
+    },
+    {
+      "id": "defensive-fire",
+      "name": "Defensive Fire",
+      "description": "Figure may Snap Fire out to 8\" range.",
+      "rollMin": 41,
+      "rollMax": 43
+    },
+    {
+      "id": "over-watch",
+      "name": "Over Watch",
+      "description": "Once per turn, when Guard Firing the figure may trade 1 Shock die for 1 Kill die.",
+      "rollMin": 44,
+      "rollMax": 45
+    },
+    {
+      "id": "guts",
+      "name": "Guts",
+      "description": "When activated, this figure will automatically rally from having Bailed.",
+      "rollMin": 46,
+      "rollMax": 47
+    },
+    {
+      "id": "motivator",
+      "name": "Motivator",
+      "description": "If moving into contact with a Bailed figure, the figure recovers automatically.",
+      "rollMin": 48,
+      "rollMax": 50
+    },
+    {
+      "id": "ambush",
+      "name": "Ambush",
+      "description": "If Displaced, the figure may choose where to Displace to, provided it is within 6\".",
+      "rollMin": 51,
+      "rollMax": 53
+    },
+    {
+      "id": "infiltrator",
+      "name": "Infiltrator",
+      "description": "After all figures have set up, the figure may take a free Scurry move.",
+      "rollMin": 54,
+      "rollMax": 56
+    },
+    {
+      "id": "strong-arm",
+      "name": "Strong Arm",
+      "description": "The figure always counts as stationary when firing, even if it moved.",
+      "rollMin": 57,
+      "rollMax": 59
+    },
+    {
+      "id": "field-craft",
+      "name": "Field Craft",
+      "description": "All rough terrain may be treated as cover.",
+      "rollMin": 60,
+      "rollMax": 61
+    },
+    {
+      "id": "throwing",
+      "name": "Throwing",
+      "description": "When throwing grenades, the direction and distance of the first bounce may be rolled twice and either result chosen.",
+      "rollMin": 62,
+      "rollMax": 63
+    },
+    {
+      "id": "skilled",
+      "name": "Skilled",
+      "description": "Once per mission, may roll twice for a Task roll.",
+      "rollMin": 64,
+      "rollMax": 66
+    },
+    {
+      "id": "charisma",
+      "name": "Charisma",
+      "description": "+1 to all Persuasion attempts and re-roll one Bluff per game.",
+      "rollMin": 67,
+      "rollMax": 69
+    },
+    {
+      "id": "rallying-cry",
+      "name": "Rallying Cry",
+      "description": "When this figure is activated, any friendly figure within 4\" may roll to recover from having Bailed.",
+      "rollMin": 70,
+      "rollMax": 71
+    },
+    {
+      "id": "stealthy",
+      "name": "Stealthy",
+      "description": "During Stealth segments, this figure may move 6\" per turn.",
+      "rollMin": 72,
+      "rollMax": 74
+    },
+    {
+      "id": "aggressive",
+      "name": "Aggressive",
+      "description": "If a Brawl ends in a draw, the player may choose to have both sides roll again.",
+      "rollMin": 75,
+      "rollMax": 76
+    },
+    {
+      "id": "inspiring",
+      "name": "Inspiring",
+      "description": "While this figure is on their feet, any friends within 4\" treat Bail results as Flinching.",
+      "rollMin": 77,
+      "rollMax": 78
+    },
+    {
+      "id": "last-gasp",
+      "name": "Last Gasp",
+      "description": "If this figure goes out of action for any reason, they may immediately fire at a target in range and line of sight.",
+      "rollMin": 79,
+      "rollMax": 80
+    },
+    {
+      "id": "intrusion",
+      "name": "Intrusion",
+      "description": "Once per game, get one Hack for free.",
+      "rollMin": 81,
+      "rollMax": 83
+    },
+    {
+      "id": "people-skills",
+      "name": "People Skills",
+      "description": "One other figure in group may ignore 1 Shock die result per game.",
+      "rollMin": 84,
+      "rollMax": 86
+    },
+    {
+      "id": "repair",
+      "name": "Repair",
+      "description": "Once per game, may roll twice for a Repair.",
+      "rollMin": 87,
+      "rollMax": 89
+    },
+    {
+      "id": "lucky-dodge",
+      "name": "Lucky Dodge",
+      "description": "First time figure is defeated in a Brawl, move 3\" in a random direction instead.",
+      "rollMin": 90,
+      "rollMax": 92
+    },
+    {
+      "id": "maintenance",
+      "name": "Maintenance",
+      "description": "May ignore one unreliable item per game.",
+      "rollMin": 93,
+      "rollMax": 94
+    },
+    {
+      "id": "bargain",
+      "name": "Bargain",
+      "description": "Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item.",
+      "rollMin": 95,
+      "rollMax": 97
+    },
+    {
+      "id": "counter-attack",
+      "name": "Counter Attack",
+      "description": "If attacked in Brawl, may re-roll dice roll.",
+      "rollMin": 98,
       "rollMax": 100
     }
   ]

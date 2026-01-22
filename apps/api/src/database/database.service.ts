@@ -15,7 +15,7 @@ interface DatabaseSchema {
     modules: IModule[];
     species: ISpecies[];
     backgrounds: IBackground[];
-    characterClass: ICharacterClass[];
+    characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
     specialCircumstances: ISpecialCircumstance[];
 }
@@ -32,7 +32,7 @@ export class DatabaseService implements OnModuleInit {
             modules: [],
             species: [],
             backgrounds: [],
-            characterClass: [],
+            characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
         };
@@ -107,17 +107,17 @@ export class DatabaseService implements OnModuleInit {
     // Class methods
     async getAllCharacterClasses(): Promise<ICharacterClass[]> {
         await this.db.read();
-        return this.db.data.characterClass;
+        return this.db.data.characterClasses;
     }
 
     async getCharacterClassById(id: string): Promise<ICharacterClass | undefined> {
         await this.db.read();
-        return this.db.data.characterClass.find((c) => c.id === id);
+        return this.db.data.characterClasses.find((c) => c.id === id);
     }
 
     async addCharacterClass(characterClass: ICharacterClass): Promise<ICharacterClass> {
         await this.db.read();
-        this.db.data.characterClass.push(characterClass);
+        this.db.data.characterClasses.push(characterClass);
         await this.db.write();
         return characterClass;
     }
@@ -165,7 +165,7 @@ export class DatabaseService implements OnModuleInit {
             modules: [],
             species: [],
             backgrounds: [],
-            characterClass: [],
+            characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
         };
