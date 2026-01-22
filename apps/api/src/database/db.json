@@ -986,5 +986,226 @@
       "rollMin": 98,
       "rollMax": 100
     }
+  ],
+  "gear": [
+    {
+      "id": "frag-vest",
+      "name": "Frag Vest",
+      "description": "Frag Vest",
+      "rollMin": 1,
+      "rollMax": 5
+    },
+    {
+      "id": "combat-armour",
+      "name": "Combat armour",
+      "description": "Combat armour",
+      "rollMin": 6,
+      "rollMax": 10
+    },
+    {
+      "id": "screen-generator",
+      "name": "Screen generator",
+      "description": "Screen generator",
+      "rollMin": 11,
+      "rollMax": 15
+    },
+    {
+      "id": "displacer",
+      "name": "Displacer",
+      "description": "Displacer",
+      "rollMin": 16,
+      "rollMax": 20
+    },
+    {
+      "id": "communicator",
+      "name": "Communicator",
+      "description": "Communicator",
+      "rollMin": 21,
+      "rollMax": 25
+    },
+    {
+      "id": "purifier",
+      "name": "Purifier",
+      "description": "Purifier",
+      "rollMin": 26,
+      "rollMax": 30
+    },
+    {
+      "id": "fixer",
+      "name": "Fixer",
+      "description": "Fixer",
+      "rollMin": 31,
+      "rollMax": 35
+    },
+    {
+      "id": "insta-wall",
+      "name": "Insta-wall",
+      "description": "Insta-wall",
+      "rollMin": 36,
+      "rollMax": 40
+    },
+    {
+      "id": "duplicator",
+      "name": "Duplicator",
+      "description": "Duplicator",
+      "rollMin": 41,
+      "rollMax": 45
+    },
+    {
+      "id": "scanbot",
+      "name": "Scanbot",
+      "description": "Scanbot",
+      "rollMin": 46,
+      "rollMax": 50
+    },
+    {
+      "id": "nano-doc",
+      "name": "Nano-Doc",
+      "description": "Nano-Doc",
+      "rollMin": 51,
+      "rollMax": 55
+    },
+    {
+      "id": "concealed-blade",
+      "name": "Concealed blade",
+      "description": "Concealed blade",
+      "rollMin": 56,
+      "rollMax": 60
+    },
+    {
+      "id": "stabilizer",
+      "name": "Stabilizer",
+      "description": "Stabilizer",
+      "rollMin": 61,
+      "rollMax": 65
+    },
+    {
+      "id": "jump-belt",
+      "name": "Jump belt",
+      "description": "Jump belt",
+      "rollMin": 66,
+      "rollMax": 70
+    },
+    {
+      "id": "micro-launcher",
+      "name": "Micro launcher",
+      "description": "Micro launcher",
+      "rollMin": 71,
+      "rollMax": 75
+    },
+    {
+      "id": "sonic-wave-emitter",
+      "name": "Sonic wave emitter",
+      "description": "Sonic wave emitter",
+      "rollMin": 76,
+      "rollMax": 80
+    },
+    {
+      "id": "assault-attachment",
+      "name": "Assault attachment",
+      "description": "Assault attachment",
+      "rollMin": 81,
+      "rollMax": 85
+    },
+    {
+      "id": "booster-pills",
+      "name": "Booster pills",
+      "description": "Booster pills",
+      "rollMin": 86,
+      "rollMax": 90
+    },
+    {
+      "id": "stim-pack",
+      "name": "Stim pack",
+      "description": "Stim pack",
+      "rollMin": 91,
+      "rollMax": 95
+    },
+    {
+      "id": "loaded-dice",
+      "name": "Loaded dice",
+      "description": "Loaded dice",
+      "rollMin": 96,
+      "rollMax": 100
+    }
+  ],
+  "shipTypes": [
+    {
+      "id": "worn-freighter",
+      "name": "Worn freighter",
+      "description": "Worn freighter",
+      "rollMin": 1,
+      "rollMax": 18
+    },
+    {
+      "id": "retired-troop-transport",
+      "name": "Retired troop transport",
+      "description": "Retired troop transport",
+      "rollMin": 19,
+      "rollMax": 30
+    },
+    {
+      "id": "strange-alien-vessel",
+      "name": "Strange alien vessel",
+      "description": "Strange alien vessel",
+      "rollMin": 31,
+      "rollMax": 35
+    },
+    {
+      "id": "upgraded-shuttle",
+      "name": "Upgraded shuttle",
+      "description": "Upgraded shuttle",
+      "rollMin": 36,
+      "rollMax": 44
+    },
+    {
+      "id": "retired-scout-ship",
+      "name": "Retired scout ship",
+      "description": "Retired scout ship",
+      "rollMin": 45,
+      "rollMax": 53
+    },
+    {
+      "id": "re-purposed-science-vessel",
+      "name": "Re-purposed science vessel",
+      "description": "Re-purposed science vessel",
+      "rollMin": 54,
+      "rollMax": 59
+    },
+    {
+      "id": "battered-mining-ship",
+      "name": "Battered mining ship",
+      "description": "Battered mining ship",
+      "rollMin": 60,
+      "rollMax": 69
+    },
+    {
+      "id": "unreliable-merchant-cruiser",
+      "name": "Unreliable merchant cruiser",
+      "description": "Unreliable merchant cruiser",
+      "rollMin": 70,
+      "rollMax": 79
+    },
+    {
+      "id": "former-unity-diplomatic-vessel",
+      "name": "Former UNITY diplomatic vessel",
+      "description": "Former UNITY diplomatic vessel",
+      "rollMin": 80,
+      "rollMax": 85
+    },
+    {
+      "id": "ancient-low-tech-craft",
+      "name": "Ancient low tech craft",
+      "description": "How does it even have a jump drive?",
+      "rollMin": 86,
+      "rollMax": 93
+    },
+    {
+      "id": "built-from-salvaged-wrecks",
+      "name": "Built from salvaged wrecks",
+      "description": "It's a miracle she flies.",
+      "rollMin": 94,
+      "rollMax": 100
+    }
   ]
 }

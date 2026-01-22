@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "antd": "^6.2.1",
     "lowdb": "^7.0.1"
   },
   "devDependencies": {
