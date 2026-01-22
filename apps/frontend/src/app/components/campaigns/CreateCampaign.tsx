@@ -1,4 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
+import { CampaignStatus } from '@five-parsecs/parsec-api';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button, message } from 'antd';
 import { useState } from 'react';
@@ -19,6 +20,7 @@ export function CreateCampaign() {
         id: crypto.randomUUID(),
         name: data.name,
         description: data.description,
+        status: CampaignStatus.NO_STARTED, // Initial status
         crewId: '', // Will be created separately
         campaignTurn: 0,
         credits: 1000, // Starting credits

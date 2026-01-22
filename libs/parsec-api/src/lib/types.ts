@@ -106,12 +106,26 @@ export interface IArmor {
     rollMin: number;
     rollMax: number;
 }
+
+
 // Campaign System Interfaces
+export enum CampaignDifficulty {
+    EASY = 'easy',
+    MEDIUM = 'medium',
+    HARD = 'hard',
+}
+export enum CampaignStatus {
+    NO_STARTED = 'no_started',
+    IN_PROGRESS = 'in_progress',
+    COMPLETED = 'completed',
+    ABANDONED = 'abandoned',
+}
 
 export interface ICampaign {
     id: string;
     name: string;
     description?: string;
+    status: CampaignStatus;
     crewId: string; // Reference to ICampaignCrew
 
     // Campaign Progress
@@ -125,7 +139,7 @@ export interface ICampaign {
 
     // Settings
     enabledModuleIds: string[]; // Which expansions are active
-    difficulty?: string;
+    difficulty?: CampaignDifficulty;
 
     // Timestamps
     createdAt: string;

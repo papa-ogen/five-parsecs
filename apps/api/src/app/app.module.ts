@@ -5,6 +5,7 @@ import { CampaignsController } from '../controllers/campaigns.controller';
 import { CharacterClassesController } from '../controllers/character-class.controller';
 import { CrewTypesController } from '../controllers/crew-type.controller';
 import { ModulesController } from '../controllers/module.controller';
+import { ShipTypesController } from '../controllers/ship-types.controller';
 import { SpecialCircumstancesController } from '../controllers/special-circumstance.controller';
 import { SpeciesController } from '../controllers/species.controller';
 import { DatabaseModule } from '../database/database.module';
@@ -22,6 +23,7 @@ import { AppService } from './app.service';
     CharacterClassesController,
     CrewTypesController,
     SpecialCircumstancesController,
+    ShipTypesController,
     CampaignsController,
   ],
   providers: [AppService],

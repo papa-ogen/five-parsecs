@@ -10,6 +10,7 @@ import {
     ICampaign,
     ICampaignCrew,
     ICampaignCharacter,
+    IShipType,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -21,6 +22,7 @@ interface DatabaseSchema {
     characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
     specialCircumstances: ISpecialCircumstance[];
+    shipTypes: IShipType[];
     campaigns: ICampaign[];
     campaignCrews: ICampaignCrew[];
     campaignCharacters: ICampaignCharacter[];
@@ -41,6 +43,7 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            shipTypes: [],
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],
@@ -242,6 +245,17 @@ export class DatabaseService implements OnModuleInit {
         return character;
     }
 
+    // Ship Type methods
+    async getAllShipTypes(): Promise<IShipType[]> {
+        await this.db.read();
+        return this.db.data.shipTypes;
+    }
+
+    async getShipTypeById(id: string): Promise<IShipType | undefined> {
+        await this.db.read();
+        return this.db.data.shipTypes.find((s) => s.id === id);
+    }
+
     // Utility method to reset database
     async resetDatabase(): Promise<void> {
         await this.db.read();
@@ -252,6 +266,7 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            shipTypes: [],
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],

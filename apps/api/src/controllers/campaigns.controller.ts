@@ -1,6 +1,8 @@
+import { ICampaign } from '@five-parsecs/parsec-api';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
 import { DatabaseService } from '../database/database.service';
+
 
 @Controller('campaigns')
 export class CampaignsController {
@@ -17,12 +19,12 @@ export class CampaignsController {
     }
 
     @Post()
-    async create(@Body() campaign: any) {
+    async create(@Body() campaign: ICampaign) {
         return this.db.addCampaign(campaign);
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() campaign: any) {
+    async update(@Param('id') id: string, @Body() campaign: ICampaign) {
         return this.db.updateCampaign(id, campaign);
     }
 
