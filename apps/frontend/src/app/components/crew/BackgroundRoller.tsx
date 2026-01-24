@@ -1,4 +1,4 @@
-import type { ISpecialCircumstance } from '@five-parsecs/parsec-api';
+import type { IBackground } from '@five-parsecs/parsec-api';
 import { useQuery } from '@tanstack/react-query';
 import { Alert, Card, Spin } from 'antd';
 import { useState } from 'react';
@@ -6,36 +6,36 @@ import { useState } from 'react';
 import { api } from '../../../services/api';
 import DiceRoller from '../common/DiceRoller';
 
-interface CircumstancesRollerProps {
-  onSelect: (circumstance: ISpecialCircumstance) => void;
-  selectedCircumstance?: ISpecialCircumstance | null;
+interface BackgroundRollerProps {
+  onSelect: (background: IBackground) => void;
+  selectedBackground?: IBackground | null;
 }
 
-export function CircumstancesRoller({ onSelect, selectedCircumstance }: CircumstancesRollerProps) {
+export function BackgroundRoller({ onSelect, selectedBackground }: BackgroundRollerProps) {
   const [isRolling, setIsRolling] = useState(false);
   const [rollingText, setRollingText] = useState('');
 
-  const { data: circumstances, isLoading } = useQuery({
-    queryKey: ['specialCircumstances'],
-    queryFn: api.specialCircumstances.getAll,
+  const { data: backgrounds, isLoading } = useQuery({
+    queryKey: ['backgrounds'],
+    queryFn: api.backgrounds.getAll,
   });
 
   const rollDice = () => {
-    if (!circumstances || circumstances.length === 0) return;
+    if (!backgrounds || backgrounds.length === 0) return;
 
     setIsRolling(true);
 
     let rollCount = 0;
     const rollInterval = setInterval(() => {
-      const randomCircumstance = circumstances[Math.floor(Math.random() * circumstances.length)];
-      setRollingText(randomCircumstance.name);
+      const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+      setRollingText(randomBackground.name);
       rollCount++;
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        const finalCircumstance = circumstances[Math.floor(Math.random() * circumstances.length)];
+        const finalBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
         
-        onSelect(finalCircumstance);
+        onSelect(finalBackground);
         setRollingText('');
         setIsRolling(false);
       }
@@ -55,15 +55,15 @@ export function CircumstancesRoller({ onSelect, selectedCircumstance }: Circumst
       <DiceRoller
         isRolling={isRolling}
         rollingText={rollingText}
-        resultText={selectedCircumstance?.name}
+        resultText={selectedBackground?.name}
         onRoll={rollDice}
       />
 
-      {selectedCircumstance && !isRolling && (
+      {selectedBackground && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedCircumstance.name}
-            description={selectedCircumstance.description}
+            message={selectedBackground.name}
+            description={selectedBackground.description}
             type="success"
             showIcon
           />
@@ -73,4 +73,4 @@ export function CircumstancesRoller({ onSelect, selectedCircumstance }: Circumst
   );
 }
 
-export default CircumstancesRoller;
+export default BackgroundRoller;

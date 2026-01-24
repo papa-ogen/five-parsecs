@@ -15,12 +15,6 @@ export interface ISpeciesAbility {
     luck?: number;
 }
 
-export interface IOrigin {
-    id: string;
-    name: string;
-    description: string;
-}
-
 export interface IMotivation {
     id: string;
     name: string;
@@ -37,12 +31,6 @@ export interface ICharacterClass {
     effect: string;
     resources: string;
     startingRolls: string;
-}
-
-export interface ISpecialCircumstance {
-    id: string;
-    name: string;
-    description: string;
 }
 
 export interface ITalent {
@@ -173,10 +161,8 @@ export interface ICampaignCharacter {
     // Character Creation References (from templates)
     speciesId: string; // Reference to ISpecies
     backgroundId: string; // Reference to IBackground
-    originId: string; // Reference to IOrigin
     motivationId: string; // Reference to IMotivation
     characterClassId: string; // Reference to ICharacterClass
-    specialCircumstanceId?: string; // Reference to ISpecialCircumstance
     talentIds: string[]; // References to ITalent
 
     // Character Stats
@@ -200,6 +186,7 @@ export interface ICampaignCharacter {
     // Character State
     isActive: boolean; // Is character in the active crew?
     isDead: boolean;
+    isLeader: boolean;
 
     createdAt: string;
     updatedAt: string;

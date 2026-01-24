@@ -65,16 +65,19 @@ export function Crew() {
   };
 
   const handleCreateMember = (data: CrewMemberData) => {
+    // Map crew type to species ID
+    // Crew Type IDs: 1=Baseline Human, 2=Primary Alien, 3=Bot, 4=Strange Character
+    // For now, use crew type ID as species ID (they should match in the data model)
+    const speciesId = data.crewType?.id || '1';
+    
     // Create crew member with all rolled data
     const characterData: Partial<ICampaignCharacter> = {
       name: data.name,
       crewId: selectedCampaign.crewId,
-      speciesId: '1', // TODO: Get from crew type roll
-      backgroundId: '1', // TODO: Implement background selection
-      originId: data.origin?.id || '',
+      speciesId: speciesId,
+      backgroundId: data.background?.id || '1',
       motivationId: data.motivation?.id || '',
       characterClassId: data.characterClass?.id || '',
-      specialCircumstanceId: data.circumstances?.id,
       talentIds: [],
       reactions: 1,
       speed: 4,
@@ -90,6 +93,7 @@ export function Crew() {
       gear: [],
       isActive: true,
       isDead: false,
+      isLeader: false,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };

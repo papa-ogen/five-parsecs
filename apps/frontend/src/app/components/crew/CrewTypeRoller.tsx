@@ -1,4 +1,4 @@
-import type { IOrigin } from '@five-parsecs/parsec-api';
+import type { ICrewType } from '@five-parsecs/parsec-api';
 import { useQuery } from '@tanstack/react-query';
 import { Alert, Card, Spin } from 'antd';
 import { useState } from 'react';
@@ -6,41 +6,40 @@ import { useState } from 'react';
 import { api } from '../../../services/api';
 import DiceRoller from '../common/DiceRoller';
 
-interface OriginRollerProps {
-  onSelect: (origin: IOrigin) => void;
-  selectedOrigin?: IOrigin | null;
+interface CrewTypeRollerProps {
+  onSelect: (crewType: ICrewType) => void;
+  selectedCrewType?: ICrewType | null;
 }
 
-export function OriginRoller({ onSelect, selectedOrigin }: OriginRollerProps) {
+export function CrewTypeRoller({ onSelect, selectedCrewType }: CrewTypeRollerProps) {
   const [isRolling, setIsRolling] = useState(false);
   const [rollingText, setRollingText] = useState('');
 
-  const { data: origins, isLoading } = useQuery({
-    queryKey: ['origins'],
-    queryFn: api.origins.getAll,
+  const { data: crewTypes, isLoading } = useQuery({
+    queryKey: ['crewTypes'],
+    queryFn: api.crewTypes.getAll,
   });
 
   const rollDice = () => {
-    if (!origins || origins.length === 0) return;
+    if (!crewTypes || crewTypes.length === 0) return;
 
     setIsRolling(true);
 
-    // Simulate dice rolling with random text changes
     let rollCount = 0;
     const rollInterval = setInterval(() => {
-      const randomOrigin = origins[Math.floor(Math.random() * origins.length)];
-      setRollingText(randomOrigin.name);
+      const randomCrewType = crewTypes[Math.floor(Math.random() * crewTypes.length)];
+      setRollingText(randomCrewType.name);
       rollCount++;
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        // Final roll - use actual dice roll logic
+        // Roll 1-100 and find matching crew type based on rollMin/rollMax
         const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalOrigin = origins.find(
-          (origin) => diceRoll >= origin.rollMin && diceRoll <= origin.rollMax
-        ) || origins[0];
+        const finalCrewType = crewTypes.find(
+          (ct) => diceRoll >= ct.rollMin && diceRoll <= ct.rollMax
+        ) || crewTypes[0];
         
-        onSelect(finalOrigin);
+        onSelect(finalCrewType);
         setRollingText('');
         setIsRolling(false);
       }
@@ -60,15 +59,15 @@ export function OriginRoller({ onSelect, selectedOrigin }: OriginRollerProps) {
       <DiceRoller
         isRolling={isRolling}
         rollingText={rollingText}
-        resultText={selectedOrigin?.name}
+        resultText={selectedCrewType?.name}
         onRoll={rollDice}
       />
 
-      {selectedOrigin && !isRolling && (
+      {selectedCrewType && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedOrigin.name}
-            description={selectedOrigin.description}
+            message={selectedCrewType.name}
+            description={selectedCrewType.description || 'Roll to determine crew member type'}
             type="success"
             showIcon
           />
@@ -78,4 +77,4 @@ export function OriginRoller({ onSelect, selectedOrigin }: OriginRollerProps) {
   );
 }
 
-export default OriginRoller;
+export default CrewTypeRoller;

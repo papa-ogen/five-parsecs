@@ -5,12 +5,10 @@ import {
     IBackground,
     ICharacterClass,
     ICrewType,
-    ISpecialCircumstance,
     ICampaign,
     ICampaignCrew,
     ICampaignCharacter,
     IShipType,
-    IOrigin,
     IMotivation,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
@@ -21,8 +19,6 @@ interface DatabaseSchema {
     backgrounds: IBackground[];
     characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
-    specialCircumstances: ISpecialCircumstance[];
-    origins: IOrigin[];
     motivations: IMotivation[];
     shipTypes: IShipType[];
     campaigns: ICampaign[];
@@ -43,8 +39,6 @@ export class DatabaseService implements OnModuleInit {
             backgrounds: [],
             characterClasses: [],
             crewTypes: [],
-            specialCircumstances: [],
-            origins: [],
             motivations: [],
             shipTypes: [],
             campaigns: [],
@@ -127,24 +121,6 @@ export class DatabaseService implements OnModuleInit {
         return crewType;
     }
 
-    // Special Circumstance methods
-    async getAllSpecialCircumstances(): Promise<ISpecialCircumstance[]> {
-        await this.db.read();
-        return this.db.data.specialCircumstances;
-    }
-
-    async getSpecialCircumstanceById(id: string): Promise<ISpecialCircumstance | undefined> {
-        await this.db.read();
-        return this.db.data.specialCircumstances.find((s) => s.id === id);
-    }
-
-    async addSpecialCircumstance(specialCircumstance: ISpecialCircumstance): Promise<ISpecialCircumstance> {
-        await this.db.read();
-        this.db.data.specialCircumstances.push(specialCircumstance);
-        await this.db.write();
-        return specialCircumstance;
-    }
-
     // Campaign methods
     async getAllCampaigns(): Promise<ICampaign[]> {
         await this.db.read();
@@ -218,11 +194,10 @@ export class DatabaseService implements OnModuleInit {
             name: data.name || '',
             speciesId: data.speciesId || '',
             backgroundId: data.backgroundId || '',
-            originId: data.originId || '',
             motivationId: data.motivationId || '',
             characterClassId: data.characterClassId || '',
-            specialCircumstanceId: data.specialCircumstanceId,
             talentIds: data.talentIds || [],
+            isLeader: data.isLeader || false,
             reactions: data.reactions || 1,
             speed: data.speed || 4,
             combat: data.combat || 0,
@@ -281,17 +256,6 @@ export class DatabaseService implements OnModuleInit {
         return this.db.data.shipTypes.find((s) => s.id === id);
     }
 
-    // Origins
-    async getAllOrigins(): Promise<IOrigin[]> {
-        await this.db.read();
-        return this.db.data.origins;
-    }
-
-    async getOriginById(id: string): Promise<IOrigin | undefined> {
-        await this.db.read();
-        return this.db.data.origins.find((o) => o.id === id);
-    }
-
     // Motivations
     async getAllMotivations(): Promise<IMotivation[]> {
         await this.db.read();
@@ -311,8 +275,6 @@ export class DatabaseService implements OnModuleInit {
             backgrounds: [],
             characterClasses: [],
             crewTypes: [],
-            specialCircumstances: [],
-            origins: [],
             motivations: [],
             shipTypes: [],
             campaigns: [],

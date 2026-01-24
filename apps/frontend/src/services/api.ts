@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, IShipType, IOrigin, IMotivation, ICharacterClass, ISpecialCircumstance } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -59,16 +59,6 @@ export const api = {
         },
     },
 
-    origins: {
-        getAll: async (): Promise<IOrigin[]> => {
-            const response = await fetch(`${API_BASE_URL}/origins`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch origins');
-            }
-            return response.json();
-        },
-    },
-
     motivations: {
         getAll: async (): Promise<IMotivation[]> => {
             const response = await fetch(`${API_BASE_URL}/motivations`);
@@ -89,11 +79,21 @@ export const api = {
         },
     },
 
-    specialCircumstances: {
-        getAll: async (): Promise<ISpecialCircumstance[]> => {
-            const response = await fetch(`${API_BASE_URL}/special-circumstances`);
+    crewTypes: {
+        getAll: async (): Promise<ICrewType[]> => {
+            const response = await fetch(`${API_BASE_URL}/crew-types`);
             if (!response.ok) {
-                throw new Error('Failed to fetch special circumstances');
+                throw new Error('Failed to fetch crew types');
+            }
+            return response.json();
+        },
+    },
+
+    backgrounds: {
+        getAll: async (): Promise<IBackground[]> => {
+            const response = await fetch(`${API_BASE_URL}/backgrounds`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch backgrounds');
             }
             return response.json();
         },

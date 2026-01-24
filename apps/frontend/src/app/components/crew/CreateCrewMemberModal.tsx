@@ -1,18 +1,18 @@
-import type { IOrigin, IMotivation, ICharacterClass, ISpecialCircumstance } from '@five-parsecs/parsec-api';
+import type { IMotivation, ICharacterClass, ICrewType, IBackground } from '@five-parsecs/parsec-api';
 import { App, Button, Divider, Form, Input, Modal, Segmented, Space } from 'antd';
 import { useState } from 'react';
 
-import CircumstancesRoller from './CircumstancesRoller';
+import BackgroundRoller from './BackgroundRoller';
 import ClassRoller from './ClassRoller';
+import CrewTypeRoller from './CrewTypeRoller';
 import MotivationRoller from './MotivationRoller';
-import OriginRoller from './OriginRoller';
 
 export interface CrewMemberData {
   name: string;
-  origin: IOrigin | null;
+  crewType: ICrewType | null;
+  background: IBackground | null;
   motivation: IMotivation | null;
   characterClass: ICharacterClass | null;
-  circumstances: ISpecialCircumstance | null;
 }
 
 interface CreateCrewMemberModalProps {
@@ -21,18 +21,18 @@ interface CreateCrewMemberModalProps {
   onSubmit: (data: CrewMemberData) => void;
 }
 
-type CrewSection = 'origin' | 'motivation' | 'class' | 'circumstances';
+type CrewSection = 'crewType' | 'background' | 'motivation' | 'class';
 
 export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMemberModalProps) {
   const [name, setName] = useState('');
-  const [activeSection, setActiveSection] = useState<CrewSection>('origin');
+  const [activeSection, setActiveSection] = useState<CrewSection>('crewType');
   const { message } = App.useApp();
 
   // Crew member attributes
-  const [origin, setOrigin] = useState<IOrigin | null>(null);
+  const [crewType, setCrewType] = useState<ICrewType | null>(null);
+  const [background, setBackground] = useState<IBackground | null>(null);
   const [motivation, setMotivation] = useState<IMotivation | null>(null);
   const [characterClass, setCharacterClass] = useState<ICharacterClass | null>(null);
-  const [circumstances, setCircumstances] = useState<ISpecialCircumstance | null>(null);
 
   const handleSubmit = () => {
     if (!name.trim()) {
@@ -42,41 +42,48 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
     
     onSubmit({
       name,
-      origin,
+      crewType,
+      background,
       motivation,
       characterClass,
-      circumstances,
     });
     
     // Reset form
     setName('');
-    setOrigin(null);
+    setCrewType(null);
+    setBackground(null);
     setMotivation(null);
     setCharacterClass(null);
-    setCircumstances(null);
-    setActiveSection('origin');
+    setActiveSection('crewType');
   };
 
   // Check if all required data is generated
-  const isComplete = name.trim() && origin && motivation && characterClass && circumstances;
+  const isComplete = name.trim() && crewType && background && motivation && characterClass;
 
   const handleCancel = () => {
     setName('');
-    setOrigin(null);
+    setCrewType(null);
+    setBackground(null);
     setMotivation(null);
     setCharacterClass(null);
-    setCircumstances(null);
-    setActiveSection('origin');
+    setActiveSection('crewType');
     onClose();
   };
 
   const renderSectionContent = () => {
     switch (activeSection) {
-      case 'origin':
+      case 'crewType':
         return (
-          <OriginRoller
-            selectedOrigin={origin}
-            onSelect={setOrigin}
+          <CrewTypeRoller
+            selectedCrewType={crewType}
+            onSelect={setCrewType}
+          />
+        );
+      case 'background':
+        return (
+          <BackgroundRoller
+            selectedBackground={background}
+            onSelect={setBackground}
           />
         );
       case 'motivation':
@@ -91,13 +98,6 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
           <ClassRoller
             selectedClass={characterClass}
             onSelect={setCharacterClass}
-          />
-        );
-      case 'circumstances':
-        return (
-          <CircumstancesRoller
-            selectedCircumstance={circumstances}
-            onSelect={setCircumstances}
           />
         );
       default:
@@ -145,10 +145,10 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
             value={activeSection}
             onChange={(value) => setActiveSection(value as CrewSection)}
             options={[
-              { label: 'Origin', value: 'origin' },
+              { label: 'Crew Type', value: 'crewType' },
+              { label: 'Background', value: 'background' },
               { label: 'Motivation', value: 'motivation' },
               { label: 'Class', value: 'class' },
-              { label: 'Circumstances', value: 'circumstances' },
             ]}
             block
           />
