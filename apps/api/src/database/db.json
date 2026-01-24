@@ -183,7 +183,7 @@
       "combat": 0,
       "toughness": 1,
       "savvy": 0
-    }, 
+    },
     {
       "id": "2",
       "reactions": 2,
@@ -344,1225 +344,934 @@
     {
       "id": "peaceful-high-tech-colony",
       "name": "Peaceful high tech colony",
-      "description": "Not the most exciting origins but plenty of people born into a relatively comfortable existence decide to seek adventure elsewhere.",
-      "rollMin": 1,
-      "rollMax": 4
+      "description": "Not the most exciting origins but plenty of people born into a relatively comfortable existence decide to seek adventure elsewhere."
     },
     {
       "id": "overcrowded-dystopian-urban-hell-hole",
       "name": "Overcrowded dystopian urban hell hole",
-      "description": "Years of breathing recycled air, eating algae-based slob and dealing with gangs, psychos and 99.7% unemployment makes a gun battle on the Fringe look like a nice afternoon.",
-      "rollMin": 5,
-      "rollMax": 9
+      "description": "Years of breathing recycled air, eating algae-based slob and dealing with gangs, psychos and 99.7% unemployment makes a gun battle on the Fringe look like a nice afternoon."
     },
     {
       "id": "low-tech-colony",
       "name": "Low tech colony",
-      "description": "It's common for colonies to revert to lower levels of technology than their parent world, since simple, sustainable technologies that can be easily reproduced improves survival chances. Such a life prepares you well for hardship.",
-      "rollMin": 10,
-      "rollMax": 13
+      "description": "It's common for colonies to revert to lower levels of technology than their parent world, since simple, sustainable technologies that can be easily reproduced improves survival chances. Such a life prepares you well for hardship."
     },
     {
       "id": "mining-colony",
       "name": "Mining colony",
-      "description": "Worlds rich in minerals or other resources but too expensive to terraform tend to become mining colonies. Brutish life under brutish conditions. Occasionally it pays well.",
-      "rollMin": 14,
-      "rollMax": 17
+      "description": "Worlds rich in minerals or other resources but too expensive to terraform tend to become mining colonies. Brutish life under brutish conditions. Occasionally it pays well."
     },
     {
       "id": "military-brat",
       "name": "Military brat",
-      "description": "Your family all served in the military and expectations were high for you as well.",
-      "rollMin": 18,
-      "rollMax": 21
+      "description": "Your family all served in the military and expectations were high for you as well."
     },
     {
       "id": "space-station",
       "name": "Space station",
-      "description": "The largest Unity stations are floating city states in themselves. You got used to cramped conditions, seeing interesting people and occasional explosive decompression.",
-      "rollMin": 22,
-      "rollMax": 25
+      "description": "The largest Unity stations are floating city states in themselves. You got used to cramped conditions, seeing interesting people and occasional explosive decompression."
     },
     {
       "id": "military-outpost",
       "name": "Military outpost",
-      "description": "While Unity Core space is quite peaceful, the borders of reclaimed territory tend to be prone to military aggression. While outposts are intended to be temporary, they tend to grow into settlements over time.",
-      "rollMin": 26,
-      "rollMax": 29
+      "description": "While Unity Core space is quite peaceful, the borders of reclaimed territory tend to be prone to military aggression. While outposts are intended to be temporary, they tend to grow into settlements over time."
     },
     {
       "id": "drifter",
       "name": "Drifter",
-      "description": "Never quite fitting in, never quite settling down, you spent your youth trying to make do as well as you could, wherever you ended up.",
-      "rollMin": 30,
-      "rollMax": 34
+      "description": "Never quite fitting in, never quite settling down, you spent your youth trying to make do as well as you could, wherever you ended up."
     },
     {
       "id": "lower-classes-of-mega-city",
       "name": "Lower classes of mega-city",
-      "description": "A city of billions, the lower class conditions are stable if incredibly dull, repetitive and uninspiring. Many turn to drugs, gang warfare or become anarchists to pass the time.",
-      "rollMin": 35,
-      "rollMax": 39
+      "description": "A city of billions, the lower class conditions are stable if incredibly dull, repetitive and uninspiring. Many turn to drugs, gang warfare or become anarchists to pass the time."
     },
     {
       "id": "wealthy-merchant-family",
       "name": "Wealthy merchant family",
-      "description": "Commerce makes everything go around and your family has done very well indeed. So why are you out here?",
-      "rollMin": 40,
-      "rollMax": 42
+      "description": "Commerce makes everything go around and your family has done very well indeed. So why are you out here?"
     },
     {
       "id": "frontier-gang",
       "name": "Frontier gang",
-      "description": "The frontiers are tough and often rife with madmen and dangerous lifeforms. Some gangs are opportunistic thugs, others act as local police forces with a bit of friendly racketeering on the side.",
-      "rollMin": 43,
-      "rollMax": 46
+      "description": "The frontiers are tough and often rife with madmen and dangerous lifeforms. Some gangs are opportunistic thugs, others act as local police forces with a bit of friendly racketeering on the side."
     },
     {
       "id": "religious-cult",
       "name": "Religious cult",
-      "description": "The only two things that are considered beyond counting by Unity Bureaucracy are people and religions. Whether they believe in human transcendence, the cannibal machine of the thousand hells or the aggravated coming of the third pie god, they do so with fervour.",
-      "rollMin": 47,
-      "rollMax": 49
+      "description": "The only two things that are considered beyond counting by Unity Bureaucracy are people and religions. Whether they believe in human transcendence, the cannibal machine of the thousand hells or the aggravated coming of the third pie god, they do so with fervour."
     },
     {
       "id": "war-torn-hell-hole",
       "name": "War torn hell hole",
-      "description": "Growing up in the trenches was not exactly a happy childhood but it seemed natural to you. Sometimes, you even get a little lonely when no one is throwing grenades at you.",
-      "rollMin": 50,
-      "rollMax": 52
+      "description": "Growing up in the trenches was not exactly a happy childhood but it seemed natural to you. Sometimes, you even get a little lonely when no one is throwing grenades at you."
     },
     {
       "id": "tech-guild",
       "name": "Tech guild",
-      "description": "Modern technology is incredibly complex and several guilds have formed to further the exploration of specific forms of applied or theoretical science. They're often accused of being, or mistaken for, cultists",
-      "rollMin": 53,
-      "rollMax": 55
+      "description": "Modern technology is incredibly complex and several guilds have formed to further the exploration of specific forms of applied or theoretical science. They're often accused of being, or mistaken for, cultists"
     },
     {
       "id": "subjugated-colony-on-alien-world",
       "name": "Subjugated colony on alien world",
-      "description": "While Unity tends to win out in long term military conflicts, some worlds can't be reclaimed or are simply forgotten about. While some aliens will do horrible things to their new subjects, in most cases, some sort of liveable agreement occurs. You have some rather different views on intra-species relations.",
-      "rollMin": 56,
-      "rollMax": 59
+      "description": "While Unity tends to win out in long term military conflicts, some worlds can't be reclaimed or are simply forgotten about. While some aliens will do horrible things to their new subjects, in most cases, some sort of liveable agreement occurs. You have some rather different views on intra-species relations."
     },
     {
       "id": "long-term-space-mission",
       "name": "Long term space mission",
-      "description": "The galaxy is large and at any time there's scores of exploration fleets going in any direction. Many of these are generation ships, leading to generations brought up in the confines of the space ship. You tend to treat complex machinery like you'd treat organic beings.",
-      "rollMin": 60,
-      "rollMax": 64
+      "description": "The galaxy is large and at any time there's scores of exploration fleets going in any direction. Many of these are generation ships, leading to generations brought up in the confines of the space ship. You tend to treat complex machinery like you'd treat organic beings."
     },
     {
       "id": "research-outpost",
       "name": "Research outpost",
-      "description": "Larger research outposts require a significant amount of manual labour and day to day maintenance, so over time they will tend to morph into general settlements.",
-      "rollMin": 65,
-      "rollMax": 68
+      "description": "Larger research outposts require a significant amount of manual labour and day to day maintenance, so over time they will tend to morph into general settlements."
     },
     {
       "id": "primitive-or-regressed-world",
       "name": "Primitive or regressed world",
-      "description": "When cut off from main stream trade and contact, worlds will eventually settle on a level of technology they can sustain themselves. On some of these worlds, electricity is a rare sight. How did you make it off world?",
-      "rollMin": 69,
-      "rollMax": 72
+      "description": "When cut off from main stream trade and contact, worlds will eventually settle on a level of technology they can sustain themselves. On some of these worlds, electricity is a rare sight. How did you make it off world?"
     },
     {
       "id": "unity-orphan-utility-program",
       "name": "Unity Orphan Utility Program",
-      "description": "Officially, Unity takes care of every sentient citizen in the galaxy. The UOUP exists to ensure that every citizen finds something constructive to do with themselves. In most cases, the Bureaucracy, military and various agencies use it as a recruiting pool for the most qualified individuals.",
-      "rollMin": 73,
-      "rollMax": 76
+      "description": "Officially, Unity takes care of every sentient citizen in the galaxy. The UOUP exists to ensure that every citizen finds something constructive to do with themselves. In most cases, the Bureaucracy, military and various agencies use it as a recruiting pool for the most qualified individuals."
     },
     {
       "id": "isolationist-enclave",
       "name": "Isolationist enclave",
-      "description": "Unity worlds are littered with occasionally sizeable enclaves that prefer to keep the rest of the galaxy at arms (or guns) length. Some are survivalist crazies, some follow philosophies that require isolation and some simply prefer minding their own business. As long as they pay taxes, Unity tends to leave them alone.",
-      "rollMin": 77,
-      "rollMax": 80
+      "description": "Unity worlds are littered with occasionally sizeable enclaves that prefer to keep the rest of the galaxy at arms (or guns) length. Some are survivalist crazies, some follow philosophies that require isolation and some simply prefer minding their own business. As long as they pay taxes, Unity tends to leave them alone."
     },
     {
       "id": "comfortable-mega-city-class",
       "name": "Comfortable mega-city class",
-      "description": "You had a quiet job, fiddling with databases, an office you only shared with 14 other people and even breathing fresh air on every other Friday. What happened?",
-      "rollMin": 81,
-      "rollMax": 84
+      "description": "You had a quiet job, fiddling with databases, an office you only shared with 14 other people and even breathing fresh air on every other Friday. What happened?"
     },
     {
       "id": "industrial-world",
       "name": "Industrial world",
-      "description": "While diversification of colonial assets is a Unity mandate, many worlds are dominated by industry, especially if under corporate management. While this is not at all a healthy way of living, it tends to breed resourceful, tough people, if a little prone to wearing red armbands and blowing things up.",
-      "rollMin": 85,
-      "rollMax": 89
+      "description": "While diversification of colonial assets is a Unity mandate, many worlds are dominated by industry, especially if under corporate management. While this is not at all a healthy way of living, it tends to breed resourceful, tough people, if a little prone to wearing red armbands and blowing things up."
     },
     {
       "id": "unity-bureaucracy",
       "name": "Unity Bureaucracy",
-      "description": "The Bureaucracy runs everything. It numbers in the billions and is involved with every possible aspect of life in Unity. Most people who wish to transfer out must first discover how to file the correct forms to discharge them. Due to the great difficulties, the position is often viewed as hereditary.",
-      "rollMin": 90,
-      "rollMax": 93
+      "description": "The Bureaucracy runs everything. It numbers in the billions and is involved with every possible aspect of life in Unity. Most people who wish to transfer out must first discover how to file the correct forms to discharge them. Due to the great difficulties, the position is often viewed as hereditary."
     },
     {
       "id": "wasteland-nomads",
       "name": "Wasteland nomads",
-      "description": "On hard, dangerous worlds, most colonists perish. A few however prosper and \"go native\", roaming the lands in a sort of brutal equilibrium with nature.",
-      "rollMin": 94,
-      "rollMax": 97
+      "description": "On hard, dangerous worlds, most colonists perish. A few however prosper and \"go native\", roaming the lands in a sort of brutal equilibrium with nature."
     },
     {
       "id": "xeno-culture",
       "name": "Xeno-Culture",
-      "description": "Whether a colony that seceded, a diplomats family or simply a group that migrated, you grew up in a non-human culture, adopting it's values and customs as your own. Humans are pretty strange, now that you think about it.",
-      "rollMin": 98,
-      "rollMax": 100
+      "description": "Whether a colony that seceded, a diplomats family or simply a group that migrated, you grew up in a non-human culture, adopting it's values and customs as your own. Humans are pretty strange, now that you think about it."
     }
   ],
   "motivations": [
     {
       "id": "wealth",
       "name": "Wealth",
-      "description": "Get rich, strike it big and retire somewhere that serves food you can recognize.",
-      "rollMin": 1,
-      "rollMax": 8
+      "description": "Get rich, strike it big and retire somewhere that serves food you can recognize."
     },
     {
       "id": "fame",
       "name": "Fame",
-      "description": "Whatever your cause, you want to be known as the one behind it.",
-      "rollMin": 9,
-      "rollMax": 14
+      "description": "Whatever your cause, you want to be known as the one behind it."
     },
     {
       "id": "glory",
       "name": "Glory",
-      "description": "Defeat the strongest fighter, immortality lies in great battle deeds.",
-      "rollMin": 15,
-      "rollMax": 19
+      "description": "Defeat the strongest fighter, immortality lies in great battle deeds."
     },
     {
       "id": "survival",
       "name": "Survival",
-      "description": "Being alive beats the alternatives and you intend to keep it that way.",
-      "rollMin": 20,
-      "rollMax": 26
+      "description": "Being alive beats the alternatives and you intend to keep it that way."
     },
     {
       "id": "escape",
       "name": "Escape",
-      "description": "Big, unpleasant people with big, unpleasant guns are after you. Life isn't so bad on the fringe.",
-      "rollMin": 27,
-      "rollMax": 32
+      "description": "Big, unpleasant people with big, unpleasant guns are after you. Life isn't so bad on the fringe."
     },
     {
       "id": "adventure",
       "name": "Adventure",
-      "description": "New places to see! Aliens, strange technology and strange worlds under stranger suns. You live for this stuff.",
-      "rollMin": 33,
-      "rollMax": 39
+      "description": "New places to see! Aliens, strange technology and strange worlds under stranger suns. You live for this stuff."
     },
     {
       "id": "truth",
       "name": "Truth",
-      "description": "Your entire life has been shrouded in lies. Now you are starting to realize that something is wrong, and you're determined to get to the bottom of it.",
-      "rollMin": 40,
-      "rollMax": 44
+      "description": "Your entire life has been shrouded in lies. Now you are starting to realize that something is wrong, and you're determined to get to the bottom of it."
     },
     {
       "id": "technology",
       "name": "Technology",
-      "description": "Fantastic artefacts and alien tech is what you crave. Whether from scientific curiosity, a desire to build a doomsday device or to advance human knowledge, you can't resist a shiny gadget.",
-      "rollMin": 45,
-      "rollMax": 49
+      "description": "Fantastic artefacts and alien tech is what you crave. Whether from scientific curiosity, a desire to build a doomsday device or to advance human knowledge, you can't resist a shiny gadget."
     },
     {
       "id": "discovery",
       "name": "Discovery",
-      "description": "The idea that there is uncharted space seems like a wrong that must be corrected.",
-      "rollMin": 50,
-      "rollMax": 56
+      "description": "The idea that there is uncharted space seems like a wrong that must be corrected."
     },
     {
       "id": "loyalty",
       "name": "Loyalty",
-      "description": "You don't care too much where you are going or why you are there, as long as your crew knows they can depend on you. You've pulled each other out of the fire plenty of times.",
-      "rollMin": 57,
-      "rollMax": 63
+      "description": "You don't care too much where you are going or why you are there, as long as your crew knows they can depend on you. You've pulled each other out of the fire plenty of times."
     },
     {
       "id": "revenge",
       "name": "Revenge",
-      "description": "Someone did you wrong and you intend to set things right. Whether a single person or a massive organization, you are driven towards that end.",
-      "rollMin": 64,
-      "rollMax": 69
+      "description": "Someone did you wrong and you intend to set things right. Whether a single person or a massive organization, you are driven towards that end."
     },
     {
       "id": "romance",
       "name": "Romance",
-      "description": "They say that on a thousand worlds in the Fringe, everyone eventually finds someone who will put up with them for the rest of their lives. You don't want that though. You want the perfect one.",
-      "rollMin": 70,
-      "rollMax": 74
+      "description": "They say that on a thousand worlds in the Fringe, everyone eventually finds someone who will put up with them for the rest of their lives. You don't want that though. You want the perfect one."
     },
     {
       "id": "faith",
       "name": "Faith",
-      "description": "You've seen that there's more to the universe than physical existence and it keeps you going in the darkest of times.",
-      "rollMin": 75,
-      "rollMax": 79
+      "description": "You've seen that there's more to the universe than physical existence and it keeps you going in the darkest of times."
     },
     {
       "id": "political",
       "name": "Political",
-      "description": "Unlike most, you have a coherent view of what the world should look like and the optimal way things should be organized. If only people would stop and listen.",
-      "rollMin": 80,
-      "rollMax": 84
+      "description": "Unlike most, you have a coherent view of what the world should look like and the optimal way things should be organized. If only people would stop and listen."
     },
     {
       "id": "power",
       "name": "Power",
-      "description": "You dream of one day being on top, legions at your beck and call. The Fringes have broken as many as it has elevated. Which will you be?",
-      "rollMin": 85,
-      "rollMax": 90
+      "description": "You dream of one day being on top, legions at your beck and call. The Fringes have broken as many as it has elevated. Which will you be?"
     },
     {
       "id": "order",
       "name": "Order",
-      "description": "Disorder and anarchy upset you. Only under a semblance of order can civilization truly prosper.",
-      "rollMin": 91,
-      "rollMax": 95
+      "description": "Disorder and anarchy upset you. Only under a semblance of order can civilization truly prosper."
     },
     {
       "id": "freedom",
       "name": "Freedom",
-      "description": "You may not be an anarchist but you value freedom above all else. The Fringes represent the last true free space and you want to keep it that way.",
-      "rollMin": 96,
-      "rollMax": 100
+      "description": "You may not be an anarchist but you value freedom above all else. The Fringes represent the last true free space and you want to keep it that way."
     }
   ],
   "characterClasses": [
     {
       "id": "working-class",
       "name": "Working class",
-      "description": "There’s a million dirty, menial jobs that need doing and a million employers paying terrible wages for them. No particular skill set. No special skills applicable to the battle field.",
-      "rollMin": 1,
-      "rollMax": 5
+      "description": "There’s a million dirty, menial jobs that need doing and a million employers paying terrible wages for them. No particular skill set. No special skills applicable to the battle field."
     },
     {
       "id": "technician",
       "name": "Technician",
-      "description": "A piece of equipment in perfect condition is a rare sight and people with a knack for fixing things tend to be a valuable addition to any team. Re-roll one Repair attempt per game.",
-      "rollMin": 6,
-      "rollMax": 9
+      "description": "A piece of equipment in perfect condition is a rare sight and people with a knack for fixing things tend to be a valuable addition to any team. Re-roll one Repair attempt per game."
     },
     {
       "id": "scientist",
       "name": "Scientist",
-      "description": "Some pursue science because they feel a calling to discover the world. Others want to build killer robots. Re-roll Task rolls related to figuring out puzzles and problems.",
-      "rollMin": 10,
-      "rollMax": 13
+      "description": "Some pursue science because they feel a calling to discover the world. Others want to build killer robots. Re-roll Task rolls related to figuring out puzzles and problems."
     },
     {
       "id": "hacker",
       "name": "Hacker",
-      "description": "The lack of stream lined, planet wide computer systems means that \"Hacker\" tends to imply any talent for intrusion, not just computer based ones. Re-roll one Hack or intrusion based Task per mission.",
-      "rollMin": 14,
-      "rollMax": 17
+      "description": "The lack of stream lined, planet wide computer systems means that \"Hacker\" tends to imply any talent for intrusion, not just computer based ones. Re-roll one Hack or intrusion based Task per mission."
     },
     {
       "id": "soldier",
       "name": "Soldier",
-      "description": "\"Professional Military\" on the Fringes can mean anything from Unity troops to local goons with (mostly) the same colour helmets. On a roll of 6, begin the game with a random Talent. Add an auto rifle to groups armoury.",
-      "rollMin": 18,
-      "rollMax": 22
+      "description": "\"Professional Military\" on the Fringes can mean anything from Unity troops to local goons with (mostly) the same colour helmets. On a roll of 6, begin the game with a random Talent. Add an auto rifle to groups armoury."
     },
     {
       "id": "mercenary",
       "name": "Mercenary",
-      "description": "The Fringes are rich in opportunities for people who don't mind supplying violence for money. On a roll of 6, begin the game with a random Talent. Add 1D3 Frakk grenades to groups armoury.",
-      "rollMin": 23,
-      "rollMax": 27
+      "description": "The Fringes are rich in opportunities for people who don't mind supplying violence for money. On a roll of 6, begin the game with a random Talent. Add 1D3 Frakk grenades to groups armoury."
     },
     {
       "id": "agitator",
       "name": "Agitator",
-      "description": "Outside the reaches of Unity's stifling social engineering, there's a million causes and a billion spokes people for said causes. +1 to Persuasion rolls.",
-      "rollMin": 28,
-      "rollMax": 32
+      "description": "Outside the reaches of Unity's stifling social engineering, there's a million causes and a billion spokes people for said causes. +1 to Persuasion rolls."
     },
     {
       "id": "primitive",
       "name": "Primitive",
-      "description": "For whatever reason you’ve rejected technology or just never got the hang of it. Add old fashioned blade to armoury.",
-      "rollMin": 33,
-      "rollMax": 36
+      "description": "For whatever reason you’ve rejected technology or just never got the hang of it. Add old fashioned blade to armoury."
     },
     {
       "id": "artist",
       "name": "Artist",
-      "description": "Life on the Fringes isn’t all violence and explosions. Sometimes it’s paintings of violence and explosions. Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item from performing or selling art.",
-      "rollMin": 37,
-      "rollMax": 40
+      "description": "Life on the Fringes isn’t all violence and explosions. Sometimes it’s paintings of violence and explosions. Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item from performing or selling art."
     },
     {
       "id": "negotiator",
       "name": "Negotiator",
-      "description": "Unlike the Agitator, the Negotiator is usually employed by someone else to make their points. Some are just charismatic leader types or know how to say the right thing. +1 to Persuasion rolls.",
-      "rollMin": 41,
-      "rollMax": 44
+      "description": "Unlike the Agitator, the Negotiator is usually employed by someone else to make their points. Some are just charismatic leader types or know how to say the right thing. +1 to Persuasion rolls."
     },
     {
       "id": "trader",
       "name": "Trader",
-      "description": "The erratic flow of any good imaginable is either an economists dream or nightmare. Many pursue a career of essentially moving (or liberating) goods to be bartered away later. When trading, roll twice on the Trade table and choose.",
-      "rollMin": 45,
-      "rollMax": 49
+      "description": "The erratic flow of any good imaginable is either an economists dream or nightmare. Many pursue a career of essentially moving (or liberating) goods to be bartered away later. When trading, roll twice on the Trade table and choose."
     },
     {
       "id": "star-crew",
       "name": "Star crew",
-      "description": "Star ships are pretty complex machines and require a variety of specialized crew to operate. No special skills applicable to the battle field.",
-      "rollMin": 50,
-      "rollMax": 54
+      "description": "Star ships are pretty complex machines and require a variety of specialized crew to operate. No special skills applicable to the battle field."
     },
     {
       "id": "petty-criminal",
       "name": "Petty criminal",
-      "description": "In polite company, you say you work in \"Localized Trade Item Acquisitions\". When arriving on a new planet, receive a free Trade item.",
-      "rollMin": 55,
-      "rollMax": 58
+      "description": "In polite company, you say you work in \"Localized Trade Item Acquisitions\". When arriving on a new planet, receive a free Trade item."
     },
     {
       "id": "ganger",
       "name": "Ganger",
-      "description": "Depending on the world, gangs may be the local law, a criminal racket or a matter of survival. Add a handgun to armoury.",
-      "rollMin": 59,
-      "rollMax": 63
+      "description": "Depending on the world, gangs may be the local law, a criminal racket or a matter of survival. Add a handgun to armoury."
     },
     {
       "id": "scoundrel",
       "name": "Scoundrel",
-      "description": "Generic star port scum. Your parents are probably disappointed. If you had marketable skills, you would be something different.",
-      "rollMin": 64,
-      "rollMax": 67
+      "description": "Generic star port scum. Your parents are probably disappointed. If you had marketable skills, you would be something different."
     },
     {
       "id": "enforcer",
       "name": "Enforcer",
-      "description": "The Law requires representatives and most of them tend to be pretty no-nonsense about how they do the representing. When fighting criminals, roll 1D6. On a 1 or 6, add a goon with a shotgun to assist during this mission only.",
-      "rollMin": 68,
-      "rollMax": 71
+      "description": "The Law requires representatives and most of them tend to be pretty no-nonsense about how they do the representing. When fighting criminals, roll 1D6. On a 1 or 6, add a goon with a shotgun to assist during this mission only."
     },
     {
       "id": "unity-agent",
       "name": "Unity agent",
-      "description": "Countless Unity agents prowl the Fringes trying to subtly enforce the will of Unity. Many defect or simply \"go native\" while others are true believers. When fighting mutants, anarchists and other dissidents, roll 1D6. On a 1 or 6, add a goon with an auto rifle to assist during this mission only.",
-      "rollMin": 72,
-      "rollMax": 75
+      "description": "Countless Unity agents prowl the Fringes trying to subtly enforce the will of Unity. Many defect or simply \"go native\" while others are true believers. When fighting mutants, anarchists and other dissidents, roll 1D6. On a 1 or 6, add a goon with an auto rifle to assist during this mission only."
     },
     {
       "id": "trouble-shooter",
       "name": "Trouble shooter",
-      "description": "When people need a problem solved, they call you. The problem is usually not a smoking crater in the ground until after it's been solved. Roll 1D6. On a 1 or 6, begin with a random Talent.",
-      "rollMin": 76,
-      "rollMax": 79
+      "description": "When people need a problem solved, they call you. The problem is usually not a smoking crater in the ground until after it's been solved. Roll 1D6. On a 1 or 6, begin with a random Talent."
     },
     {
       "id": "bounty-hunter",
       "name": "Bounty hunter",
-      "description": "Whether you work for the Law or take private jobs, you've made a living out of acquiring those others will pay to have acquired. Can find patrons on rolls of 1 and 6 (instead of just 6). However any patrons will be one-time only and are not available for recurring missions.",
-      "rollMin": 80,
-      "rollMax": 83
+      "description": "Whether you work for the Law or take private jobs, you've made a living out of acquiring those others will pay to have acquired. Can find patrons on rolls of 1 and 6 (instead of just 6). However any patrons will be one-time only and are not available for recurring missions."
     },
     {
       "id": "traveller",
       "name": "Traveller",
-      "description": "Travel the frontier, see new worlds and eat strange food. Roll 1D6 when arriving at a new world. On a 1 or 6, generate a patron immediately.",
-      "rollMin": 84,
-      "rollMax": 88
+      "description": "Travel the frontier, see new worlds and eat strange food. Roll 1D6 when arriving at a new world. On a 1 or 6, generate a patron immediately."
     },
     {
       "id": "reclaimer",
       "name": "Reclaimer",
-      "description": "Reclaiming is the long process of integrating a world into formal Unity space. Reclaimer agents tend to be pretty crafty and innovative idealists. Works to reclaim worlds for Unity. Roll 1D6. On a 1 or 6, begin with a random gadget.",
-      "rollMin": 89,
-      "rollMax": 92
+      "description": "Reclaiming is the long process of integrating a world into formal Unity space. Reclaimer agents tend to be pretty crafty and innovative idealists. Works to reclaim worlds for Unity. Roll 1D6. On a 1 or 6, begin with a random gadget."
     },
     {
       "id": "punk",
       "name": "Punk",
-      "description": "Strange hair colours, loud music and a foul demeanour. No measurable skills but plenty of attitude.",
-      "rollMin": 93,
-      "rollMax": 96
+      "description": "Strange hair colours, loud music and a foul demeanour. No measurable skills but plenty of attitude."
     },
     {
       "id": "scavenger",
       "name": "Scavenger",
-      "description": "You have a unique knack for finding uses of discarded garbage. After each mission, roll 1D6. On a 1 or 6, get a roll on the Trade table.",
-      "rollMin": 97,
-      "rollMax": 100
+      "description": "You have a unique knack for finding uses of discarded garbage. After each mission, roll 1D6. On a 1 or 6, get a roll on the Trade table."
     }
   ],
   "specialCircumstances": [
     {
       "id": "gadgets",
       "name": "Gadgets",
-      "description": "Roll on the Gadget table below.",
-      "rollMin": 1,
-      "rollMax": 8
+      "description": "Roll on the Gadget table below."
     },
     {
       "id": "fire-power",
       "name": "Fire power",
-      "description": "Roll on the Weapon list below.",
-      "rollMin": 9,
-      "rollMax": 16
+      "description": "Roll on the Weapon list below."
     },
     {
       "id": "talent",
       "name": "Talent",
-      "description": "Roll on the Talent list below.",
-      "rollMin": 17,
-      "rollMax": 31
+      "description": "Roll on the Talent list below."
     },
     {
       "id": "genetically-enhanced",
       "name": "Genetically enhanced",
-      "description": "Your strength, speed and reflexes have been improved with the best techniques money can buy. Increase base movement by 2, add +2 to Dash moves and when resolving post-game injuries, roll twice and pick the better result.",
-      "rollMin": 32,
-      "rollMax": 34
+      "description": "Your strength, speed and reflexes have been improved with the best techniques money can buy. Increase base movement by 2, add +2 to Dash moves and when resolving post-game injuries, roll twice and pick the better result."
     },
     {
       "id": "mutant",
       "name": "Mutant",
-      "description": "Whether due to rogue genetics, a horrible accident or a botched experiment, you are a thing unto yourself. Roll once on the Alien Traits table below.",
-      "rollMin": 35,
-      "rollMax": 36
+      "description": "Whether due to rogue genetics, a horrible accident or a botched experiment, you are a thing unto yourself. Roll once on the Alien Traits table below."
     },
     {
       "id": "former-unity-marine",
       "name": "Former Unity Marine",
-      "description": "Unity Marines are heavily indoctrinated but occasionally one of them goes rogue. Receive an additional roll on the Weapons table and a suit of Combat Armour.",
-      "rollMin": 37,
-      "rollMax": 39
+      "description": "Unity Marines are heavily indoctrinated but occasionally one of them goes rogue. Receive an additional roll on the Weapons table and a suit of Combat Armour."
     },
     {
       "id": "unhinged",
       "name": "Unhinged",
-      "description": "Whenever the Event die scores a 6, this figure will move 1D6\" in a random direction. This does not prevent the figure from acting normally during the turn.",
-      "rollMin": 40,
-      "rollMax": 42
+      "description": "Whenever the Event die scores a 6, this figure will move 1D6\" in a random direction. This does not prevent the figure from acting normally during the turn."
     },
     {
       "id": "ordnance",
       "name": "Ordnance",
-      "description": "Roll on the Ordnance list below.",
-      "rollMin": 43,
-      "rollMax": 47
+      "description": "Roll on the Ordnance list below."
     },
     {
       "id": "genetic-renegade",
       "name": "Genetic Renegade",
-      "description": "Illegal, cosmetic genetic manipulation is all the rage. Characters may sport purple skin, gleaming red eyes or cat ears.",
-      "rollMin": 48,
-      "rollMax": 49
+      "description": "Illegal, cosmetic genetic manipulation is all the rage. Characters may sport purple skin, gleaming red eyes or cat ears."
     },
     {
       "id": "hulker",
       "name": "Hulker",
-      "description": "Before the process was outlawed, \"volunteers\" were genetically modified to act as labourers. Hulkers have spread throughout the Fringes. They are absurdly muscled, with crude and often primitive-looking facial features. They're not generally renowned for great intellectual feats. Their loyalty to friends would be endearing if they didn't have a tendency to break things (and people) when angry. +1 to Brawls, when suffering any result from a Kill or Shock die, roll 1D6. On a 6, the Hulker ignores the result and immediately charges 6\" towards the shooter.",
-      "rollMin": 50,
-      "rollMax": 51
+      "description": "Before the process was outlawed, \"volunteers\" were genetically modified to act as labourers. Hulkers have spread throughout the Fringes. They are absurdly muscled, with crude and often primitive-looking facial features. They're not generally renowned for great intellectual feats. Their loyalty to friends would be endearing if they didn't have a tendency to break things (and people) when angry. +1 to Brawls, when suffering any result from a Kill or Shock die, roll 1D6. On a 6, the Hulker ignores the result and immediately charges 6\" towards the shooter."
     },
     {
       "id": "street-samurai",
       "name": "Street Samurai",
-      "description": "Following a strange code of mercenary ethics, the street samurai is often wired with cutting edge enhancements. Choose between the Brawler and Runner talents.",
-      "rollMin": 52,
-      "rollMax": 53
+      "description": "Following a strange code of mercenary ethics, the street samurai is often wired with cutting edge enhancements. Choose between the Brawler and Runner talents."
     },
     {
       "id": "psionic",
       "name": "Psionic",
-      "description": "Roll once on the Psionic Abilities table.",
-      "rollMin": 54,
-      "rollMax": 56
+      "description": "Roll once on the Psionic Abilities table."
     },
     {
       "id": "sanctioned-alien",
       "name": "Sanctioned Alien",
-      "description": "One of the many alien races that mingle with humanity on the Fringes. Roll for 3 Alien Traits.",
-      "rollMin": 57,
-      "rollMax": 63
+      "description": "One of the many alien races that mingle with humanity on the Fringes. Roll for 3 Alien Traits."
     },
     {
       "id": "cybernetic-enhancement",
       "name": "Cybernetic Enhancement",
-      "description": "Roll on the Talent table below. The figure has cybernetic implants that emulate the effect of the indicated Talent. Whenever the figure goes Out of Action, roll 1D6. On a 6, the figure is Knocked Down instead and the implant is inoperable until repaired.",
-      "rollMin": 64,
-      "rollMax": 68
+      "description": "Roll on the Talent table below. The figure has cybernetic implants that emulate the effect of the indicated Talent. Whenever the figure goes Out of Action, roll 1D6. On a 6, the figure is Knocked Down instead and the implant is inoperable until repaired."
     },
     {
       "id": "droid",
       "name": "Droid",
-      "description": "Droids cannot learn Talents however, if they become casualties, they can be repaired. One repair attempt can be made each campaign turn. Droids ignore Shock dice results.",
-      "rollMin": 69,
-      "rollMax": 71
+      "description": "Droids cannot learn Talents however, if they become casualties, they can be repaired. One repair attempt can be made each campaign turn. Droids ignore Shock dice results."
     },
     {
       "id": "stalker",
       "name": "Stalker",
-      "description": "No one is sure where this breed came from. Likely a mutation or military experiment, Stalkers have spread throughout the Fringes. They have dark blue, crimson or purple skin tones with gleaming, unnatural eyes. On any event roll of a 6, the Stalker may teleport to another location within 3\". This does not prevent it's normal activation.",
-      "rollMin": 72,
-      "rollMax": 73
+      "description": "No one is sure where this breed came from. Likely a mutation or military experiment, Stalkers have spread throughout the Fringes. They have dark blue, crimson or purple skin tones with gleaming, unnatural eyes. On any event roll of a 6, the Stalker may teleport to another location within 3\". This does not prevent it's normal activation."
     },
     {
       "id": "war-bot",
       "name": "War Bot",
-      "description": "Humanoid battle robots are common in mercenary service since they are somewhat less likely to act for pay raises or get emotional objections. Roll for two weapon systems that are built into the war bot. These cannot be replaced. War bots may fire all carried weapons during the same turn and may fire at multiple targets. War bots completely ignore Shock dice and may ignore the first 2 \"Out of Action\" results each mission. If the bot does become a casualty, it must be repaired to be functional in future missions.",
-      "rollMin": 74,
-      "rollMax": 75
+      "description": "Humanoid battle robots are common in mercenary service since they are somewhat less likely to act for pay raises or get emotional objections. Roll for two weapon systems that are built into the war bot. These cannot be replaced. War bots may fire all carried weapons during the same turn and may fire at multiple targets. War bots completely ignore Shock dice and may ignore the first 2 \"Out of Action\" results each mission. If the bot does become a casualty, it must be repaired to be functional in future missions."
     },
     {
       "id": "orange-alien",
       "name": "ORANGE Alien",
-      "description": "An alien from a species not permitted in Unity space. Roll for 3 alien traits. The group starts the game with one Enemy (Unity enforcers)",
-      "rollMin": 76,
-      "rollMax": 77
+      "description": "An alien from a species not permitted in Unity space. Roll for 3 alien traits. The group starts the game with one Enemy (Unity enforcers)"
     },
     {
       "id": "true-believer",
       "name": "True Believer",
-      "description": "A true fanatic with a cause. If a Bail result is applied against this figure, immediately move 6\" towards the nearest enemy and attempt to initiate a Brawl.",
-      "rollMin": 78,
-      "rollMax": 80
+      "description": "A true fanatic with a cause. If a Bail result is applied against this figure, immediately move 6\" towards the nearest enemy and attempt to initiate a Brawl."
     },
     {
       "id": "infiltration-unit",
       "name": "Infiltration unit",
-      "description": "The result of Unity black ops technology, these genetically modified super soldiers are occasionally found doing mercenary work in the Fringes. They have no concept of emotions and are never subject to friendship or rivalry. During Stealth missions, they may take a free 4\" move at the beginning of the turn, which does not prevent them from moving normally.",
-      "rollMin": 81,
-      "rollMax": 82
+      "description": "The result of Unity black ops technology, these genetically modified super soldiers are occasionally found doing mercenary work in the Fringes. They have no concept of emotions and are never subject to friendship or rivalry. During Stealth missions, they may take a free 4\" move at the beginning of the turn, which does not prevent them from moving normally."
     },
     {
       "id": "alien-mind-slave",
       "name": "Alien Mind Slave",
-      "description": "The character is under the mental control of a hostile alien being for unfathomable reasons. Roll a random psychic ability. Character can never receive Talents. If the character becomes a casualty in a mission, re-roll the psychic ability.",
-      "rollMin": 83,
-      "rollMax": 84
+      "description": "The character is under the mental control of a hostile alien being for unfathomable reasons. Roll a random psychic ability. Character can never receive Talents. If the character becomes a casualty in a mission, re-roll the psychic ability."
     },
     {
       "id": "born-to-greatness",
       "name": "Born to Greatness",
-      "description": "Some people are just destined for something bigger and better. Receive a random Talent and +1 to all Persuasion rolls",
-      "rollMin": 85,
-      "rollMax": 86
+      "description": "Some people are just destined for something bigger and better. Receive a random Talent and +1 to all Persuasion rolls"
     },
     {
       "id": "lucky",
       "name": "Lucky",
-      "description": "Whenever something bad happens to this figure (lose brawl, affected by Shock or Kill dice, random events), roll 1D6. On a 6, the figure escapes with no ill effects whatsoever.",
-      "rollMin": 87,
-      "rollMax": 89
+      "description": "Whenever something bad happens to this figure (lose brawl, affected by Shock or Kill dice, random events), roll 1D6. On a 6, the figure escapes with no ill effects whatsoever."
     },
     {
       "id": "innocent",
       "name": "Innocent",
-      "description": "A truly rare thing: A truly innocent soul. On the Fringes, this is a pretty rare sight and evokes reactions in even the most battle hardened enemies. Until the Innocent has attacked in some manner, enemies cannot fire upon the Innocent though they may enter Brawls.",
-      "rollMin": 90,
-      "rollMax": 90
+      "description": "A truly rare thing: A truly innocent soul. On the Fringes, this is a pretty rare sight and evokes reactions in even the most battle hardened enemies. Until the Innocent has attacked in some manner, enemies cannot fire upon the Innocent though they may enter Brawls."
     },
     {
       "id": "mundane",
       "name": "Mundane",
-      "description": "Just an ordinary, every day human being with big hopes.",
-      "rollMin": 91,
-      "rollMax": 100
+      "description": "Just an ordinary, every day human being with big hopes."
     }
   ],
   "talents": [
     {
       "id": "sharp-shooter",
       "name": "Sharp shooter",
-      "description": "Once per game, may roll 1 extra Kill die for any attack.",
-      "rollMin": 1,
-      "rollMax": 3
+      "description": "Once per game, may roll 1 extra Kill die for any attack."
     },
     {
       "id": "rapid-fire",
       "name": "Rapid fire",
-      "description": "Once per game, may roll 1 extra Shock die for any attack.",
-      "rollMin": 4,
-      "rollMax": 6
+      "description": "Once per game, may roll 1 extra Shock die for any attack."
     },
     {
       "id": "sentry",
       "name": "Sentry",
-      "description": "If deployed as sentry against a stealth mission, increase all sight ranges by 2\".",
-      "rollMin": 7,
-      "rollMax": 9
+      "description": "If deployed as sentry against a stealth mission, increase all sight ranges by 2\"."
     },
     {
       "id": "brave",
       "name": "Brave",
-      "description": "All Bail results on this figure are treated as Flinching instead.",
-      "rollMin": 10,
-      "rollMax": 12
+      "description": "All Bail results on this figure are treated as Flinching instead."
     },
     {
       "id": "tough",
       "name": "Tough",
-      "description": "The figure may ignore the first hit taken each game.",
-      "rollMin": 13,
-      "rollMax": 15
+      "description": "The figure may ignore the first hit taken each game."
     },
     {
       "id": "brawler",
       "name": "Brawler",
-      "description": "+1 bonus to all Brawling rolls.",
-      "rollMin": 16,
-      "rollMax": 18
+      "description": "+1 bonus to all Brawling rolls."
     },
     {
       "id": "quick",
       "name": "Quick",
-      "description": "Standard move increased by 2\". No impact on Dash moves.",
-      "rollMin": 19,
-      "rollMax": 21
+      "description": "Standard move increased by 2\". No impact on Dash moves."
     },
     {
       "id": "runner",
       "name": "Runner",
-      "description": "When Dashing, roll twice and pick the higher score.",
-      "rollMin": 22,
-      "rollMax": 24
+      "description": "When Dashing, roll twice and pick the higher score."
     },
     {
       "id": "right-place",
       "name": "Right Place",
-      "description": "During non-Scurry and non-Fire Fight turns, if this figure is not activated, it may take a 2\" move at the end of your turn.",
-      "rollMin": 25,
-      "rollMax": 27
+      "description": "During non-Scurry and non-Fire Fight turns, if this figure is not activated, it may take a 2\" move at the end of your turn."
     },
     {
       "id": "shoot-and-scoot",
       "name": "Shoot and Scoot",
-      "description": "When a Fire Fight is rolled, this figure may be moved up to 4\" before firing.",
-      "rollMin": 28,
-      "rollMax": 29
+      "description": "When a Fire Fight is rolled, this figure may be moved up to 4\" before firing."
     },
     {
       "id": "covering-fire",
       "name": "Covering Fire",
-      "description": "When a Scurry is rolled, this figure may fire after moving.",
-      "rollMin": 30,
-      "rollMax": 31
+      "description": "When a Scurry is rolled, this figure may fire after moving."
     },
     {
       "id": "evasive-move",
       "name": "Evasive Move",
-      "description": "This figure is never subject to Guard Fire.",
-      "rollMin": 32,
-      "rollMax": 34
+      "description": "This figure is never subject to Guard Fire."
     },
     {
       "id": "assault",
       "name": "Assault",
-      "description": "This figure is never subject to Snap Fire.",
-      "rollMin": 35,
-      "rollMax": 37
+      "description": "This figure is never subject to Snap Fire."
     },
     {
       "id": "accurate",
       "name": "Accurate",
-      "description": "Weapons with limited range increase it by 4\".",
-      "rollMin": 38,
-      "rollMax": 40
+      "description": "Weapons with limited range increase it by 4\"."
     },
     {
       "id": "defensive-fire",
       "name": "Defensive Fire",
-      "description": "Figure may Snap Fire out to 8\" range.",
-      "rollMin": 41,
-      "rollMax": 43
+      "description": "Figure may Snap Fire out to 8\" range."
     },
     {
       "id": "over-watch",
       "name": "Over Watch",
-      "description": "Once per turn, when Guard Firing the figure may trade 1 Shock die for 1 Kill die.",
-      "rollMin": 44,
-      "rollMax": 45
+      "description": "Once per turn, when Guard Firing the figure may trade 1 Shock die for 1 Kill die."
     },
     {
       "id": "guts",
       "name": "Guts",
-      "description": "When activated, this figure will automatically rally from having Bailed.",
-      "rollMin": 46,
-      "rollMax": 47
+      "description": "When activated, this figure will automatically rally from having Bailed."
     },
     {
       "id": "motivator",
       "name": "Motivator",
-      "description": "If moving into contact with a Bailed figure, the figure recovers automatically.",
-      "rollMin": 48,
-      "rollMax": 50
+      "description": "If moving into contact with a Bailed figure, the figure recovers automatically."
     },
     {
       "id": "ambush",
       "name": "Ambush",
-      "description": "If Displaced, the figure may choose where to Displace to, provided it is within 6\".",
-      "rollMin": 51,
-      "rollMax": 53
+      "description": "If Displaced, the figure may choose where to Displace to, provided it is within 6\"."
     },
     {
       "id": "infiltrator",
       "name": "Infiltrator",
-      "description": "After all figures have set up, the figure may take a free Scurry move.",
-      "rollMin": 54,
-      "rollMax": 56
+      "description": "After all figures have set up, the figure may take a free Scurry move."
     },
     {
       "id": "strong-arm",
       "name": "Strong Arm",
-      "description": "The figure always counts as stationary when firing, even if it moved.",
-      "rollMin": 57,
-      "rollMax": 59
+      "description": "The figure always counts as stationary when firing, even if it moved."
     },
     {
       "id": "field-craft",
       "name": "Field Craft",
-      "description": "All rough terrain may be treated as cover.",
-      "rollMin": 60,
-      "rollMax": 61
+      "description": "All rough terrain may be treated as cover."
     },
     {
       "id": "throwing",
       "name": "Throwing",
-      "description": "When throwing grenades, the direction and distance of the first bounce may be rolled twice and either result chosen.",
-      "rollMin": 62,
-      "rollMax": 63
+      "description": "When throwing grenades, the direction and distance of the first bounce may be rolled twice and either result chosen."
     },
     {
       "id": "skilled",
       "name": "Skilled",
-      "description": "Once per mission, may roll twice for a Task roll.",
-      "rollMin": 64,
-      "rollMax": 66
+      "description": "Once per mission, may roll twice for a Task roll."
     },
     {
       "id": "charisma",
       "name": "Charisma",
-      "description": "+1 to all Persuasion attempts and re-roll one Bluff per game.",
-      "rollMin": 67,
-      "rollMax": 69
+      "description": "+1 to all Persuasion attempts and re-roll one Bluff per game."
     },
     {
       "id": "rallying-cry",
       "name": "Rallying Cry",
-      "description": "When this figure is activated, any friendly figure within 4\" may roll to recover from having Bailed.",
-      "rollMin": 70,
-      "rollMax": 71
+      "description": "When this figure is activated, any friendly figure within 4\" may roll to recover from having Bailed."
     },
     {
       "id": "stealthy",
       "name": "Stealthy",
-      "description": "During Stealth segments, this figure may move 6\" per turn.",
-      "rollMin": 72,
-      "rollMax": 74
+      "description": "During Stealth segments, this figure may move 6\" per turn."
     },
     {
       "id": "aggressive",
       "name": "Aggressive",
-      "description": "If a Brawl ends in a draw, the player may choose to have both sides roll again.",
-      "rollMin": 75,
-      "rollMax": 76
+      "description": "If a Brawl ends in a draw, the player may choose to have both sides roll again."
     },
     {
       "id": "inspiring",
       "name": "Inspiring",
-      "description": "While this figure is on their feet, any friends within 4\" treat Bail results as Flinching.",
-      "rollMin": 77,
-      "rollMax": 78
+      "description": "While this figure is on their feet, any friends within 4\" treat Bail results as Flinching."
     },
     {
       "id": "last-gasp",
       "name": "Last Gasp",
-      "description": "If this figure goes out of action for any reason, they may immediately fire at a target in range and line of sight.",
-      "rollMin": 79,
-      "rollMax": 80
+      "description": "If this figure goes out of action for any reason, they may immediately fire at a target in range and line of sight."
     },
     {
       "id": "intrusion",
       "name": "Intrusion",
-      "description": "Once per game, get one Hack for free.",
-      "rollMin": 81,
-      "rollMax": 83
+      "description": "Once per game, get one Hack for free."
     },
     {
       "id": "people-skills",
       "name": "People Skills",
-      "description": "One other figure in group may ignore 1 Shock die result per game.",
-      "rollMin": 84,
-      "rollMax": 86
+      "description": "One other figure in group may ignore 1 Shock die result per game."
     },
     {
       "id": "repair",
       "name": "Repair",
-      "description": "Once per game, may roll twice for a Repair.",
-      "rollMin": 87,
-      "rollMax": 89
+      "description": "Once per game, may roll twice for a Repair."
     },
     {
       "id": "lucky-dodge",
       "name": "Lucky Dodge",
-      "description": "First time figure is defeated in a Brawl, move 3\" in a random direction instead.",
-      "rollMin": 90,
-      "rollMax": 92
+      "description": "First time figure is defeated in a Brawl, move 3\" in a random direction instead."
     },
     {
       "id": "maintenance",
       "name": "Maintenance",
-      "description": "May ignore one unreliable item per game.",
-      "rollMin": 93,
-      "rollMax": 94
+      "description": "May ignore one unreliable item per game."
     },
     {
       "id": "bargain",
       "name": "Bargain",
-      "description": "Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item.",
-      "rollMin": 95,
-      "rollMax": 97
+      "description": "Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item."
     },
     {
       "id": "counter-attack",
       "name": "Counter Attack",
-      "description": "If attacked in Brawl, may re-roll dice roll.",
-      "rollMin": 98,
-      "rollMax": 100
+      "description": "If attacked in Brawl, may re-roll dice roll."
     }
   ],
   "gear": [
     {
       "id": "frag-vest",
       "name": "Frag Vest",
-      "description": "Frag Vest",
-      "rollMin": 1,
-      "rollMax": 5
+      "description": "Frag Vest"
     },
     {
       "id": "combat-armour",
       "name": "Combat armour",
-      "description": "Combat armour",
-      "rollMin": 6,
-      "rollMax": 10
+      "description": "Combat armour"
     },
     {
       "id": "screen-generator",
       "name": "Screen generator",
-      "description": "Screen generator",
-      "rollMin": 11,
-      "rollMax": 15
+      "description": "Screen generator"
     },
     {
       "id": "displacer",
       "name": "Displacer",
-      "description": "Displacer",
-      "rollMin": 16,
-      "rollMax": 20
+      "description": "Displacer"
     },
     {
       "id": "communicator",
       "name": "Communicator",
-      "description": "Communicator",
-      "rollMin": 21,
-      "rollMax": 25
+      "description": "Communicator"
     },
     {
       "id": "purifier",
       "name": "Purifier",
-      "description": "Purifier",
-      "rollMin": 26,
-      "rollMax": 30
+      "description": "Purifier"
     },
     {
       "id": "fixer",
       "name": "Fixer",
-      "description": "Fixer",
-      "rollMin": 31,
-      "rollMax": 35
+      "description": "Fixer"
     },
     {
       "id": "insta-wall",
       "name": "Insta-wall",
-      "description": "Insta-wall",
-      "rollMin": 36,
-      "rollMax": 40
+      "description": "Insta-wall"
     },
     {
       "id": "duplicator",
       "name": "Duplicator",
-      "description": "Duplicator",
-      "rollMin": 41,
-      "rollMax": 45
+      "description": "Duplicator"
     },
     {
       "id": "scanbot",
       "name": "Scanbot",
-      "description": "Scanbot",
-      "rollMin": 46,
-      "rollMax": 50
+      "description": "Scanbot"
     },
     {
       "id": "nano-doc",
       "name": "Nano-Doc",
-      "description": "Nano-Doc",
-      "rollMin": 51,
-      "rollMax": 55
+      "description": "Nano-Doc"
     },
     {
       "id": "concealed-blade",
       "name": "Concealed blade",
-      "description": "Concealed blade",
-      "rollMin": 56,
-      "rollMax": 60
+      "description": "Concealed blade"
     },
     {
       "id": "stabilizer",
       "name": "Stabilizer",
-      "description": "Stabilizer",
-      "rollMin": 61,
-      "rollMax": 65
+      "description": "Stabilizer"
     },
     {
       "id": "jump-belt",
       "name": "Jump belt",
-      "description": "Jump belt",
-      "rollMin": 66,
-      "rollMax": 70
+      "description": "Jump belt"
     },
     {
       "id": "micro-launcher",
       "name": "Micro launcher",
-      "description": "Micro launcher",
-      "rollMin": 71,
-      "rollMax": 75
+      "description": "Micro launcher"
     },
     {
       "id": "sonic-wave-emitter",
       "name": "Sonic wave emitter",
-      "description": "Sonic wave emitter",
-      "rollMin": 76,
-      "rollMax": 80
+      "description": "Sonic wave emitter"
     },
     {
       "id": "assault-attachment",
       "name": "Assault attachment",
-      "description": "Assault attachment",
-      "rollMin": 81,
-      "rollMax": 85
+      "description": "Assault attachment"
     },
     {
       "id": "booster-pills",
       "name": "Booster pills",
-      "description": "Booster pills",
-      "rollMin": 86,
-      "rollMax": 90
+      "description": "Booster pills"
     },
     {
       "id": "stim-pack",
       "name": "Stim pack",
-      "description": "Stim pack",
-      "rollMin": 91,
-      "rollMax": 95
+      "description": "Stim pack"
     },
     {
       "id": "loaded-dice",
       "name": "Loaded dice",
-      "description": "Loaded dice",
-      "rollMin": 96,
-      "rollMax": 100
+      "description": "Loaded dice"
     }
   ],
   "shipTypes": [
     {
       "id": "worn-freighter",
       "name": "Worn freighter",
-      "description": "Worn freighter",
-      "rollMin": 1,
-      "rollMax": 18
+      "description": "Worn freighter"
     },
     {
       "id": "retired-troop-transport",
       "name": "Retired troop transport",
-      "description": "Retired troop transport",
-      "rollMin": 19,
-      "rollMax": 30
+      "description": "Retired troop transport"
     },
     {
       "id": "strange-alien-vessel",
       "name": "Strange alien vessel",
-      "description": "Strange alien vessel",
-      "rollMin": 31,
-      "rollMax": 35
+      "description": "Strange alien vessel"
     },
     {
       "id": "upgraded-shuttle",
       "name": "Upgraded shuttle",
-      "description": "Upgraded shuttle",
-      "rollMin": 36,
-      "rollMax": 44
+      "description": "Upgraded shuttle"
     },
     {
       "id": "retired-scout-ship",
       "name": "Retired scout ship",
-      "description": "Retired scout ship",
-      "rollMin": 45,
-      "rollMax": 53
+      "description": "Retired scout ship"
     },
     {
       "id": "re-purposed-science-vessel",
       "name": "Re-purposed science vessel",
-      "description": "Re-purposed science vessel",
-      "rollMin": 54,
-      "rollMax": 59
+      "description": "Re-purposed science vessel"
     },
     {
       "id": "battered-mining-ship",
       "name": "Battered mining ship",
-      "description": "Battered mining ship",
-      "rollMin": 60,
-      "rollMax": 69
+      "description": "Battered mining ship"
     },
     {
       "id": "unreliable-merchant-cruiser",
       "name": "Unreliable merchant cruiser",
-      "description": "Unreliable merchant cruiser",
-      "rollMin": 70,
-      "rollMax": 79
+      "description": "Unreliable merchant cruiser"
     },
     {
       "id": "former-unity-diplomatic-vessel",
       "name": "Former UNITY diplomatic vessel",
-      "description": "Former UNITY diplomatic vessel",
-      "rollMin": 80,
-      "rollMax": 85
+      "description": "Former UNITY diplomatic vessel"
     },
     {
       "id": "ancient-low-tech-craft",
       "name": "Ancient low tech craft",
-      "description": "How does it even have a jump drive?",
-      "rollMin": 86,
-      "rollMax": 93
+      "description": "How does it even have a jump drive?"
     },
     {
       "id": "built-from-salvaged-wrecks",
       "name": "Built from salvaged wrecks",
-      "description": "It's a miracle she flies.",
-      "rollMin": 94,
-      "rollMax": 100
+      "description": "It's a miracle she flies."
     }
   ],
   "campaigns": [
     {
-      "id": "e2bd5979-c427-4386-a5cc-ee6049cf3857",
+      "id": "5ceedc3d-02de-4ae7-b9df-c3b130eb0296",
       "name": "Test",
-      "description": "hello world\n",
-      "status": "no_started",
-      "difficulty": "easy",
-      "crewId": "",
-      "campaignTurn": 0,
-      "credits": 1000,
-      "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T13:41:43.762Z",
-      "updatedAt": "2026-01-22T15:22:30.576Z",
-      "shipName": "Worn freighter",
-      "shipType": "worn-freighter"
-    },
-    {
-      "id": "7e614111-a3c8-4e62-a66d-c01d6727e216",
-      "name": "viggis",
-      "description": "",
-      "status": "no_started",
-      "difficulty": "easy",
-      "crewId": "",
-      "campaignTurn": 0,
-      "credits": 1000,
-      "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T13:42:03.029Z",
-      "updatedAt": "2026-01-22T15:26:23.862Z",
-      "shipName": "Didde drake",
-      "shipType": "worn-freighter"
-    },
-    {
-      "id": "74f9e2c7-2e79-4627-a27d-3e68cb76c32a",
-      "name": "leon",
-      "description": "",
-      "status": "no_started",
-      "difficulty": "easy",
-      "crewId": "",
-      "campaignTurn": 0,
-      "credits": 1000,
-      "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T13:42:10.314Z",
-      "updatedAt": "2026-01-22T15:31:24.695Z",
-      "shipName": "Leon",
-      "shipType": "retired-scout-ship"
-    },
-    {
-      "id": "9ce593f8-8fb0-4f9e-a420-3fa6cc3938a2",
-      "name": "jhjjkjh",
-      "description": "gkhgkgkh",
-      "status": "no_started",
-      "crewId": "",
-      "campaignTurn": 0,
-      "credits": 1000,
-      "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T15:33:08.330Z",
-      "updatedAt": "2026-01-22T16:10:44.862Z",
-      "shipName": "vbbv vcb cv",
-      "shipType": "worn-freighter"
-    },
-    {
-      "id": "fb39636b-5977-4021-9e73-de6213cb4b36",
-      "name": "hj j jh h jh j",
       "description": "",
       "status": "no_started",
       "crewId": "",
       "campaignTurn": 0,
       "credits": 1000,
       "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T15:35:15.818Z",
-      "updatedAt": "2026-01-22T15:35:15.818Z"
-    },
-    {
-      "id": "f66e3e58-2ffc-4348-b072-da4c5df08dea",
-      "name": "b n n n n n ",
-      "description": "",
-      "status": "no_started",
-      "crewId": "",
-      "campaignTurn": 0,
-      "credits": 1000,
-      "storyPoints": 0,
-      "enabledModuleIds": [
-        "core"
-      ],
-      "createdAt": "2026-01-22T15:36:48.002Z",
-      "updatedAt": "2026-01-22T15:36:48.002Z"
+      "createdAt": "2026-01-24T19:13:14.620Z",
+      "updatedAt": "2026-01-24T19:13:29.035Z",
+      "shipName": "Denzel",
+      "shipType": "re-purposed-science-vessel"
     }
   ],
   "campaignCrews": [],
-  "campaignCharacters": []
+  "campaignCharacters": [
+    {
+      "id": "1769282207782",
+      "crewId": "",
+      "name": "Didde",
+      "speciesId": "1",
+      "backgroundId": "1",
+      "originId": "",
+      "motivationId": "",
+      "characterClassId": "",
+      "talentIds": [],
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-24T19:16:47.738Z",
+      "updatedAt": "2026-01-24T19:16:47.782Z"
+    },
+    {
+      "id": "1769282234933",
+      "crewId": "",
+      "name": "dsdsds",
+      "speciesId": "1",
+      "backgroundId": "1",
+      "originId": "peaceful-high-tech-colony",
+      "motivationId": "survival",
+      "characterClassId": "trouble-shooter",
+      "specialCircumstanceId": "stalker",
+      "talentIds": [],
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-24T19:17:14.902Z",
+      "updatedAt": "2026-01-24T19:17:14.933Z"
+    },
+    {
+      "id": "1769282425020",
+      "crewId": "",
+      "name": "bläää",
+      "speciesId": "1",
+      "backgroundId": "1",
+      "originId": "peaceful-high-tech-colony",
+      "motivationId": "political",
+      "characterClassId": "trader",
+      "specialCircumstanceId": "lucky",
+      "talentIds": [],
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-24T19:20:24.984Z",
+      "updatedAt": "2026-01-24T19:20:25.020Z"
+    },
+    {
+      "id": "1769282506632",
+      "crewId": "",
+      "name": "asdasds",
+      "speciesId": "1",
+      "backgroundId": "1",
+      "originId": "peaceful-high-tech-colony",
+      "motivationId": "faith",
+      "characterClassId": "trouble-shooter",
+      "specialCircumstanceId": "ordnance",
+      "talentIds": [],
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-24T19:21:46.586Z",
+      "updatedAt": "2026-01-24T19:21:46.632Z"
+    }
+  ]
 }

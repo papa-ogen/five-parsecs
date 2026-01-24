@@ -33,10 +33,7 @@ export function MotivationRoller({ onSelect, selectedMotivation }: MotivationRol
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalMotivation = motivations.find(
-          (motivation) => diceRoll >= motivation.rollMin && diceRoll <= motivation.rollMax
-        ) || motivations[0];
+        const finalMotivation = motivations[Math.floor(Math.random() * motivations.length)];
         
         onSelect(finalMotivation);
         setRollingText('');

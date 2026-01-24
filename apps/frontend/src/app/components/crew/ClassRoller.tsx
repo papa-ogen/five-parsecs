@@ -33,10 +33,7 @@ export function ClassRoller({ onSelect, selectedClass }: ClassRollerProps) {
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalClass = classes.find(
-          (cls) => diceRoll >= cls.rollMin && diceRoll <= cls.rollMax
-        ) || classes[0];
+        const finalClass = classes[Math.floor(Math.random() * classes.length)];
         
         onSelect(finalClass);
         setRollingText('');

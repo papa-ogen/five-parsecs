@@ -70,11 +70,7 @@ export function ShipGeneratorModal({ open, onClose, onConfirm }: ShipGeneratorMo
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        // Final roll - use actual dice roll logic
-        const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalShip = shipTypes.find(
-          (ship) => diceRoll >= ship.rollMin && diceRoll <= ship.rollMax
-        ) || shipTypes[0];
+        const finalShip = shipTypes[Math.floor(Math.random() * shipTypes.length)];
         
         setSelectedShip(finalShip);
         setRollingText('');

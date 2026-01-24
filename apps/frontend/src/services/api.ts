@@ -1,4 +1,4 @@
-import type { ICampaign, IShipType, IOrigin, IMotivation, ICharacterClass, ISpecialCircumstance } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, IShipType, IOrigin, IMotivation, ICharacterClass, ISpecialCircumstance } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -96,6 +96,61 @@ export const api = {
                 throw new Error('Failed to fetch special circumstances');
             }
             return response.json();
+        },
+    },
+
+    campaignCharacters: {
+        getAll: async (): Promise<ICampaignCharacter[]> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-characters`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch campaign characters');
+            }
+            return response.json();
+        },
+
+        getById: async (id: string): Promise<ICampaignCharacter> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-characters/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch campaign character');
+            }
+            return response.json();
+        },
+
+        create: async (data: Partial<ICampaignCharacter>): Promise<ICampaignCharacter> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-characters`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to create campaign character');
+            }
+            return response.json();
+        },
+
+        update: async (id: string, data: Partial<ICampaignCharacter>): Promise<ICampaignCharacter> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-characters/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update campaign character');
+            }
+            return response.json();
+        },
+
+        delete: async (id: string): Promise<void> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-characters/${id}`, {
+                method: 'DELETE',
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete campaign character');
+            }
         },
     },
 };

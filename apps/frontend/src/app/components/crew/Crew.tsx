@@ -1,10 +1,13 @@
-import { PlusOutlined, TeamOutlined } from '@ant-design/icons';
-import { App, Button, Card, Empty, Space, Typography } from 'antd';
+import { PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import type { ICampaignCharacter } from '@five-parsecs/parsec-api';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { App, Button, Card, Empty, List, Space, Spin, Tag, Typography } from 'antd';
 import { useState } from 'react';
 
+import { api } from '../../../services/api';
 import { useCampaign } from '../../contexts/AppContext';
 
-import CreateCrewMemberModal from './CreateCrewMemberModal';
+import CreateCrewMemberModal, { type CrewMemberData } from './CreateCrewMemberModal';
 
 const { Title, Text } = Typography;
 
@@ -12,6 +15,32 @@ export function Crew() {
   const { selectedCampaign } = useCampaign();
   const [modalOpen, setModalOpen] = useState(false);
   const { message } = App.useApp();
+  const queryClient = useQueryClient();
+
+  // Fetch all campaign characters
+  const { data: allCharacters, isLoading } = useQuery({
+    queryKey: ['campaignCharacters'],
+    queryFn: api.campaignCharacters.getAll,
+  });
+
+  const createCharacterMutation = useMutation({
+    mutationFn: (data: Partial<ICampaignCharacter>) => api.campaignCharacters.create(data),
+    onSuccess: (newCharacter) => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
+      // Optionally update cache directly for instant feedback
+      queryClient.setQueryData<ICampaignCharacter[]>(
+        ['campaignCharacters'],
+        (old) => (old ? [...old, newCharacter] : [newCharacter])
+      );
+      message.success('Crew member created successfully!');
+      setModalOpen(false);
+    },
+    onError: (error) => {
+      console.error('Failed to create crew member:', error);
+      message.error('Failed to create crew member');
+    },
+  });
 
   if (!selectedCampaign) {
     return null;
@@ -22,6 +51,11 @@ export function Crew() {
     return null;
   }
 
+  // Filter characters for this campaign's crew
+  const crewMembers = allCharacters?.filter(
+    (char) => char.crewId === selectedCampaign.crewId
+  ) || [];
+
   const handleCreateCrew = () => {
     setModalOpen(true);
   };
@@ -30,14 +64,48 @@ export function Crew() {
     setModalOpen(false);
   };
 
-  const handleCreateMember = (name: string) => {
-    // TODO: Create crew member via API
-    message.success(`Crew member "${name}" created!`);
-    setModalOpen(false);
+  const handleCreateMember = (data: CrewMemberData) => {
+    // Create crew member with all rolled data
+    const characterData: Partial<ICampaignCharacter> = {
+      name: data.name,
+      crewId: selectedCampaign.crewId,
+      speciesId: '1', // TODO: Get from crew type roll
+      backgroundId: '1', // TODO: Implement background selection
+      originId: data.origin?.id || '',
+      motivationId: data.motivation?.id || '',
+      characterClassId: data.characterClass?.id || '',
+      specialCircumstanceId: data.circumstances?.id,
+      talentIds: [],
+      reactions: 1,
+      speed: 4,
+      combat: 0,
+      toughness: 3,
+      savvy: 0,
+      xp: 0,
+      level: 1,
+      isInjured: false,
+      injuries: [],
+      weapons: [],
+      armor: [],
+      gear: [],
+      isActive: true,
+      isDead: false,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    createCharacterMutation.mutate(characterData);
   };
 
-  // TODO: Check if crew already exists
-  const hasCrewMembers = false;
+  if (isLoading) {
+    return (
+      <Card style={{ width: '100%', textAlign: 'center', padding: '50px' }}>
+        <Spin size="large" />
+      </Card>
+    );
+  }
+
+  const hasCrewMembers = crewMembers.length > 0;
 
   if (hasCrewMembers) {
     return (
@@ -46,14 +114,79 @@ export function Crew() {
           <Space>
             <TeamOutlined />
             <Title level={4} style={{ margin: 0 }}>
-              Crew Members
+              Crew Members ({crewMembers.length})
             </Title>
           </Space>
         }
+        extra={
+          <Button type="primary" icon={<PlusOutlined />} onClick={handleCreateCrew}>
+            Add Member
+          </Button>
+        }
         style={{ width: '100%' }}
       >
-        <Text>Crew members will be displayed here</Text>
-        {/* TODO: Display crew members */}
+        <List
+          itemLayout="horizontal"
+          dataSource={crewMembers}
+          renderItem={(character) => (
+            <List.Item
+              actions={[
+                <Button key="view" type="link">
+                  View
+                </Button>,
+              ]}
+            >
+              <List.Item.Meta
+                avatar={
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <UserOutlined />
+                  </div>
+                }
+                title={
+                  <Space>
+                    <Text strong>{character.name}</Text>
+                    {character.isDead && <Tag color="red">Dead</Tag>}
+                    {character.isInjured && <Tag color="orange">Injured</Tag>}
+                    {!character.isActive && <Tag color="default">Inactive</Tag>}
+                  </Space>
+                }
+                description={
+                  <Space direction="vertical" size="small">
+                    <Space size="small" wrap>
+                      <Tag>Level {character.level}</Tag>
+                      <Tag>XP: {character.xp}</Tag>
+                    </Space>
+                    <Space size="small" wrap>
+                      <Text type="secondary" style={{ fontSize: '12px' }}>
+                        Reactions: {character.reactions} | Speed: {character.speed} | 
+                        Combat: {character.combat} | Toughness: {character.toughness} | 
+                        Savvy: {character.savvy}
+                      </Text>
+                    </Space>
+                  </Space>
+                }
+              />
+            </List.Item>
+          )}
+        />
+        
+        <CreateCrewMemberModal
+          open={modalOpen}
+          onClose={handleModalClose}
+          onSubmit={handleCreateMember}
+        />
       </Card>
     );
   }

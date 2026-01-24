@@ -7,10 +7,18 @@ import ClassRoller from './ClassRoller';
 import MotivationRoller from './MotivationRoller';
 import OriginRoller from './OriginRoller';
 
+export interface CrewMemberData {
+  name: string;
+  origin: IOrigin | null;
+  motivation: IMotivation | null;
+  characterClass: ICharacterClass | null;
+  circumstances: ISpecialCircumstance | null;
+}
+
 interface CreateCrewMemberModalProps {
   open: boolean;
   onClose: () => void;
-  onSubmit: (name: string) => void;
+  onSubmit: (data: CrewMemberData) => void;
 }
 
 type CrewSection = 'origin' | 'motivation' | 'class' | 'circumstances';
@@ -31,9 +39,26 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
       message.error('Please enter a crew member name');
       return;
     }
-    onSubmit(name);
+    
+    onSubmit({
+      name,
+      origin,
+      motivation,
+      characterClass,
+      circumstances,
+    });
+    
+    // Reset form
     setName('');
+    setOrigin(null);
+    setMotivation(null);
+    setCharacterClass(null);
+    setCircumstances(null);
+    setActiveSection('origin');
   };
+
+  // Check if all required data is generated
+  const isComplete = name.trim() && origin && motivation && characterClass && circumstances;
 
   const handleCancel = () => {
     setName('');
@@ -90,7 +115,12 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
         <Button key="cancel" onClick={handleCancel}>
           Cancel
         </Button>,
-        <Button key="submit" type="primary" onClick={handleSubmit}>
+        <Button 
+          key="submit" 
+          type="primary" 
+          onClick={handleSubmit}
+          disabled={!isComplete}
+        >
           Create
         </Button>,
       ]}

@@ -203,21 +203,71 @@ export class DatabaseService implements OnModuleInit {
     }
 
     // Campaign Character methods
-    async getAllCampaignCharacters(): Promise<ICampaignCharacter[]> {
-        await this.db.read();
+    getCampaignCharacters(): ICampaignCharacter[] {
         return this.db.data.campaignCharacters;
     }
 
-    async getCampaignCharacterById(id: string): Promise<ICampaignCharacter | undefined> {
-        await this.db.read();
+    getCampaignCharacterById(id: string): ICampaignCharacter | undefined {
         return this.db.data.campaignCharacters.find((c) => c.id === id);
     }
 
-    async addCampaignCharacter(character: ICampaignCharacter): Promise<ICampaignCharacter> {
-        await this.db.read();
+    createCampaignCharacter(data: Partial<ICampaignCharacter>): ICampaignCharacter {
+        const character: ICampaignCharacter = {
+            id: Date.now().toString(),
+            crewId: data.crewId || '',
+            name: data.name || '',
+            speciesId: data.speciesId || '',
+            backgroundId: data.backgroundId || '',
+            originId: data.originId || '',
+            motivationId: data.motivationId || '',
+            characterClassId: data.characterClassId || '',
+            specialCircumstanceId: data.specialCircumstanceId,
+            talentIds: data.talentIds || [],
+            reactions: data.reactions || 1,
+            speed: data.speed || 4,
+            combat: data.combat || 0,
+            toughness: data.toughness || 3,
+            savvy: data.savvy || 0,
+            xp: data.xp || 0,
+            level: data.level || 1,
+            isInjured: data.isInjured || false,
+            injuries: data.injuries || [],
+            weapons: data.weapons || [],
+            armor: data.armor || [],
+            gear: data.gear || [],
+            isActive: data.isActive !== undefined ? data.isActive : true,
+            isDead: data.isDead || false,
+            createdAt: data.createdAt || new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        };
         this.db.data.campaignCharacters.push(character);
-        await this.db.write();
+        this.db.write();
         return character;
+    }
+
+    updateCampaignCharacter(id: string, data: Partial<ICampaignCharacter>): ICampaignCharacter {
+        const index = this.db.data.campaignCharacters.findIndex((c) => c.id === id);
+        if (index === -1) {
+            throw new Error(`Campaign character with id ${id} not found`);
+        }
+        const updated = {
+            ...this.db.data.campaignCharacters[index],
+            ...data,
+            id,
+            updatedAt: new Date().toISOString(),
+        };
+        this.db.data.campaignCharacters[index] = updated;
+        this.db.write();
+        return updated;
+    }
+
+    deleteCampaignCharacter(id: string): void {
+        const index = this.db.data.campaignCharacters.findIndex((c) => c.id === id);
+        if (index === -1) {
+            throw new Error(`Campaign character with id ${id} not found`);
+        }
+        this.db.data.campaignCharacters.splice(index, 1);
+        this.db.write();
     }
 
     // Ship Type methods

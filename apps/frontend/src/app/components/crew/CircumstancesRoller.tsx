@@ -33,10 +33,7 @@ export function CircumstancesRoller({ onSelect, selectedCircumstance }: Circumst
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalCircumstance = circumstances.find(
-          (circ) => diceRoll >= circ.rollMin && diceRoll <= circ.rollMax
-        ) || circumstances[0];
+        const finalCircumstance = circumstances[Math.floor(Math.random() * circumstances.length)];
         
         onSelect(finalCircumstance);
         setRollingText('');
