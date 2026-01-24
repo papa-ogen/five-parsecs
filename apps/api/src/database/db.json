@@ -3,17 +3,181 @@
     {
       "id": "1",
       "name": "Human",
-      "description": "Versatile and adaptable, humans are found across the galaxy."
+      "description": "Versatile and adaptable, humans are found across the galaxy.",
+      "abilitiesId": "1"
     },
     {
       "id": "2",
-      "name": "K'Erin",
-      "description": "Swift and agile feline-descended species."
+      "name": "Engingeer",
+      "description": "Primary alien species",
+      "abilitiesId": "1"
     },
     {
       "id": "3",
+      "name": "K'Erin",
+      "description": "Swift and agile feline-descended species",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "4",
       "name": "Soulless",
-      "description": "Artificial beings with no organic components."
+      "description": "Artificial beings with no organic components",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "5",
+      "name": "Precursor",
+      "description": "Ancient alien species",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "6",
+      "name": "Feral",
+      "description": "Wild and untamed species",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "7",
+      "name": "Swift",
+      "description": "Extremely fast species",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "8",
+      "name": "De-converted",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "9",
+      "name": "Unity Agent",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "10",
+      "name": "Mysterious Past",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "11",
+      "name": "Hakshan",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "12",
+      "name": "Stalker",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "13",
+      "name": "Manipulator",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "14",
+      "name": "Feeler",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "15",
+      "name": "Empath",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "16",
+      "name": "Primitive",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "17",
+      "name": "Bot",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "18",
+      "name": "Genetic Uplift",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "19",
+      "name": "Alien Cyborg",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "20",
+      "name": "Hulker",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "21",
+      "name": "Hopeful Rookie",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "22",
+      "name": "Mutant",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "23",
+      "name": "Assault Bot",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "24",
+      "name": "Skulker",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "25",
+      "name": "Emo-suppressed",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "26",
+      "name": "Minor Alien",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "27",
+      "name": "Traveler",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    },
+    {
+      "id": "28",
+      "name": "Bio-upgrade",
+      "description": "Strange character type",
+      "abilitiesId": "1"
+    }
+  ],
+  "speciesAbilities": [
+    {
+      "id": "1",
+      "reactions": 1,
+      "speed": 1,
+      "combat": 1,
+      "toughness": 1,
+      "savvy": 1,
+      "luck": 1
     }
   ],
   "backgrounds": [
@@ -66,43 +230,37 @@
   "primaryAliens": [
     {
       "id": "1",
-      "name": "Engingeer",
-      "description": "",
+      "speciesId": "2",
       "rollMin": 1,
       "rollMax": 20
     },
     {
       "id": "2",
-      "name": "K'Erin",
-      "description": "",
+      "speciesId": "3",
       "rollMin": 21,
       "rollMax": 40
     },
     {
       "id": "3",
-      "name": "Soulless",
-      "description": "",
+      "speciesId": "4",
       "rollMin": 41,
       "rollMax": 55
     },
     {
       "id": "4",
-      "name": "Precursor",
-      "description": "",
+      "speciesId": "5",
       "rollMin": 56,
       "rollMax": 70
     },
     {
       "id": "5",
-      "name": "Feral",
-      "description": "",
+      "speciesId": "6",
       "rollMin": 71,
       "rollMax": 90
     },
     {
       "id": "6",
-      "name": "ShSwiftade",
-      "description": "",
+      "speciesId": "7",
       "rollMin": 91,
       "rollMax": 100
     }
@@ -110,127 +268,109 @@
   "strangeCharacters": [
     {
       "id": "1",
-      "name": "De-converted",
-      "description": "",
+      "speciesId": "8",
       "rollMin": 1,
       "rollMax": 2
     },
     {
       "id": "2",
-      "name": "Unity Agent",
-      "description": "",
+      "speciesId": "9",
       "rollMin": 3,
       "rollMax": 8
     },
     {
       "id": "3",
-      "name": "Mysterious Past",
-      "description": "",
+      "speciesId": "10",
       "rollMin": 9,
       "rollMax": 17
     },
     {
       "id": "4",
-      "name": "Hakshan",
-      "description": "",
+      "speciesId": "11",
       "rollMin": 18,
       "rollMax": 22
     },
     {
       "id": "5",
-      "name": "Stalker",
-      "description": "",
+      "speciesId": "12",
       "rollMin": 23,
       "rollMax": 27
     },
     {
       "id": "6",
-      "name": "Hulker",
-      "description": "",
+      "speciesId": "20",
       "rollMin": 28,
       "rollMax": 34
     },
     {
       "id": "7",
-      "name": "Hopeful Rookie",
-      "description": "",
+      "speciesId": "21",
       "rollMin": 35,
       "rollMax": 41
     },
     {
       "id": "8",
-      "name": "Genetic Uplift",
-      "description": "",
+      "speciesId": "19",
       "rollMin": 42,
       "rollMax": 47
     },
     {
       "id": "9",
-      "name": "Mutant",
-      "description": "",
+      "speciesId": "22",
       "rollMin": 48,
       "rollMax": 53
     },
     {
       "id": "10",
-      "name": "Assault Bot",
-      "description": "",
+      "speciesId": "23",
       "rollMin": 54,
       "rollMax": 58
     },
     {
       "id": "11",
-      "name": "Manipulator",
-      "description": "",
+      "speciesId": "13",
       "rollMin": 59,
       "rollMax": 62
     },
     {
       "id": "12",
-      "name": "Primitive",
-      "description": "",
+      "speciesId": "17",
       "rollMin": 63,
       "rollMax": 67
     },
     {
       "id": "13",
-      "name": "Feeler",
-      "description": "",
+      "speciesId": "15",
       "rollMin": 68,
       "rollMax": 73
     },
     {
       "id": "14",
-      "name": "Emo-suppressed",
-      "description": "",
+      "speciesId": "25",
       "rollMin": 74,
       "rollMax": 79
     },
     {
       "id": "15",
-      "name": "Minor Alien",
-      "description": "",
+      "speciesId": "26",
       "rollMin": 80,
       "rollMax": 85
     },
     {
       "id": "16",
-      "name": "Traveler",
-      "description": "",
+      "speciesId": "27",
       "rollMin": 86,
       "rollMax": 87
     },
     {
       "id": "17",
-      "name": "Empath",
-      "description": "",
-      "rollMin": 98,
+      "speciesId": "16",
+      "rollMin": 88,
       "rollMax": 93
     },
     {
       "id": "18",
-      "name": "Bio-upgrade",
-      "description": "",
+      "speciesId": "28",
       "rollMin": 94,
       "rollMax": 100
     }
