@@ -1,5 +1,5 @@
 import { CampaignStatus } from '@five-parsecs/parsec-api';
-import { Badge, Card, Descriptions, Space, Statistic, Tag } from 'antd';
+import { Badge, Card, Descriptions, Space, Statistic } from 'antd';
 
 import { useCampaign } from '../../contexts/AppContext';
 
@@ -57,19 +57,6 @@ export function CampaignDetails() {
             </Descriptions>
           </Card>
         )}
-
-        <div>
-          <strong>Active Modules:</strong>
-          <div style={{ marginTop: '8px' }}>
-            <Space size={4} wrap>
-              {selectedCampaign.enabledModuleIds.map((moduleId) => (
-                <Tag key={moduleId} color="blue">
-                  {moduleId}
-                </Tag>
-              ))}
-            </Space>
-          </div>
-        </div>
       </Space>
     </Card>
     </Badge.Ribbon>

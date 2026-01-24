@@ -4,7 +4,6 @@ import { BackgroundsController } from '../controllers/background.controller';
 import { CampaignsController } from '../controllers/campaigns.controller';
 import { CharacterClassesController } from '../controllers/character-class.controller';
 import { CrewTypesController } from '../controllers/crew-type.controller';
-import { ModulesController } from '../controllers/module.controller';
 import { MotivationsController } from '../controllers/motivations.controller';
 import { OriginsController } from '../controllers/origins.controller';
 import { ShipTypesController } from '../controllers/ship-types.controller';
@@ -19,7 +18,6 @@ import { AppService } from './app.service';
   imports: [DatabaseModule],
   controllers: [
     AppController,
-    ModulesController,
     SpeciesController,
     BackgroundsController,
     CharacterClassesController,

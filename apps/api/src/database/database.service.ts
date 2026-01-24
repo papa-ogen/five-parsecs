@@ -1,7 +1,6 @@
 import { join } from 'path';
 
 import {
-    IModule,
     ISpecies,
     IBackground,
     ICharacterClass,
@@ -18,7 +17,6 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
 
 interface DatabaseSchema {
-    modules: IModule[];
     species: ISpecies[];
     backgrounds: IBackground[];
     characterClasses: ICharacterClass[];
@@ -41,7 +39,6 @@ export class DatabaseService implements OnModuleInit {
 
         // Initialize the database with default data
         const defaultData: DatabaseSchema = {
-            modules: [],
             species: [],
             backgrounds: [],
             characterClasses: [],
@@ -56,34 +53,6 @@ export class DatabaseService implements OnModuleInit {
         };
 
         this.db = await JSONFilePreset<DatabaseSchema>(dbPath, defaultData);
-    }
-
-    // Module methods
-    async getAllModules(): Promise<IModule[]> {
-        await this.db.read();
-        return this.db.data.modules;
-    }
-
-    async getModuleById(id: string): Promise<IModule | undefined> {
-        await this.db.read();
-        return this.db.data.modules.find((m) => m.id === id);
-    }
-
-    async toggleModule(id: string, enabled: boolean): Promise<IModule | undefined> {
-        await this.db.read();
-        const module = this.db.data.modules.find((m) => m.id === id);
-        if (module) {
-            module.enabled = enabled;
-            await this.db.write();
-        }
-        return module;
-    }
-
-    async addModule(module: IModule): Promise<IModule> {
-        await this.db.read();
-        this.db.data.modules.push(module);
-        await this.db.write();
-        return module;
     }
 
     // Species methods
@@ -288,7 +257,6 @@ export class DatabaseService implements OnModuleInit {
     async resetDatabase(): Promise<void> {
         await this.db.read();
         this.db.data = {
-            modules: [],
             species: [],
             backgrounds: [],
             characterClasses: [],

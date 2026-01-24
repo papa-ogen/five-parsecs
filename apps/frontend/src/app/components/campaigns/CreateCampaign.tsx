@@ -28,7 +28,6 @@ export function CreateCampaign() {
         campaignTurn: 0,
         credits: 1000, // Starting credits
         storyPoints: 0,
-        enabledModuleIds: ['core'], // Start with core module
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       };

@@ -1,42 +1,4 @@
 {
-  "modules": [
-    {
-      "id": "core",
-      "name": "Five Parsecs From Home (Core)",
-      "description": "Core rulebook content",
-      "enabled": true
-    },
-    {
-      "id": "bug-hunt",
-      "name": "Bug Hunt",
-      "description": "Face terrifying alien creatures and swarms",
-      "enabled": false
-    },
-    {
-      "id": "trailblazers-toolkit",
-      "name": "Trailblazer's Toolkit",
-      "description": "Expanded options for exploration and survival",
-      "enabled": false
-    },
-    {
-      "id": "salvage-jobs",
-      "name": "Salvage Jobs",
-      "description": "Scavenge derelict ships and ancient ruins",
-      "enabled": false
-    },
-    {
-      "id": "freelancers-handbook",
-      "name": "Freelancer's Handbook",
-      "description": "New crew options and specialist roles",
-      "enabled": false
-    },
-    {
-      "id": "five-parsecs-terra",
-      "name": "Five Parsecs From Terra",
-      "description": "Warhammer 40K inspired module",
-      "enabled": false
-    }
-  ],
   "species": [
     {
       "id": "1",
@@ -74,18 +36,203 @@
   "crewTypes": [
     {
       "id": "1",
-      "name": "Captain",
-      "description": "Leader of the crew, providing bonuses to morale and command."
+      "name": "Baseline Human",
+      "description": "",
+      "rollMin": 1,
+      "rollMax": 60
     },
     {
       "id": "2",
-      "name": "Crew Member",
-      "description": "Standard crew member capable of various tasks."
+      "name": "Primary Alien",
+      "description": "",
+      "rollMin": 61,
+      "rollMax": 80
     },
     {
       "id": "3",
-      "name": "Specialist",
-      "description": "Expert in a specific field, providing unique advantages."
+      "name": "Bot",
+      "description": "",
+      "rollMin": 81,
+      "rollMax": 90
+    },
+    {
+      "id": "4",
+      "name": "Strange Character",
+      "description": "",
+      "rollMin": 91,
+      "rollMax": 100
+    }
+  ],
+  "primaryAliens": [
+    {
+      "id": "1",
+      "name": "Engingeer",
+      "description": "",
+      "rollMin": 1,
+      "rollMax": 20
+    },
+    {
+      "id": "2",
+      "name": "K'Erin",
+      "description": "",
+      "rollMin": 21,
+      "rollMax": 40
+    },
+    {
+      "id": "3",
+      "name": "Soulless",
+      "description": "",
+      "rollMin": 41,
+      "rollMax": 55
+    },
+    {
+      "id": "4",
+      "name": "Precursor",
+      "description": "",
+      "rollMin": 56,
+      "rollMax": 70
+    },
+    {
+      "id": "5",
+      "name": "Feral",
+      "description": "",
+      "rollMin": 71,
+      "rollMax": 90
+    },
+    {
+      "id": "6",
+      "name": "ShSwiftade",
+      "description": "",
+      "rollMin": 91,
+      "rollMax": 100
+    }
+  ],
+  "strangeCharacters": [
+    {
+      "id": "1",
+      "name": "De-converted",
+      "description": "",
+      "rollMin": 1,
+      "rollMax": 2
+    },
+    {
+      "id": "2",
+      "name": "Unity Agent",
+      "description": "",
+      "rollMin": 3,
+      "rollMax": 8
+    },
+    {
+      "id": "3",
+      "name": "Mysterious Past",
+      "description": "",
+      "rollMin": 9,
+      "rollMax": 17
+    },
+    {
+      "id": "4",
+      "name": "Hakshan",
+      "description": "",
+      "rollMin": 18,
+      "rollMax": 22
+    },
+    {
+      "id": "5",
+      "name": "Stalker",
+      "description": "",
+      "rollMin": 23,
+      "rollMax": 27
+    },
+    {
+      "id": "6",
+      "name": "Hulker",
+      "description": "",
+      "rollMin": 28,
+      "rollMax": 34
+    },
+    {
+      "id": "7",
+      "name": "Hopeful Rookie",
+      "description": "",
+      "rollMin": 35,
+      "rollMax": 41
+    },
+    {
+      "id": "8",
+      "name": "Genetic Uplift",
+      "description": "",
+      "rollMin": 42,
+      "rollMax": 47
+    },
+    {
+      "id": "9",
+      "name": "Mutant",
+      "description": "",
+      "rollMin": 48,
+      "rollMax": 53
+    },
+    {
+      "id": "10",
+      "name": "Assault Bot",
+      "description": "",
+      "rollMin": 54,
+      "rollMax": 58
+    },
+    {
+      "id": "11",
+      "name": "Manipulator",
+      "description": "",
+      "rollMin": 59,
+      "rollMax": 62
+    },
+    {
+      "id": "12",
+      "name": "Primitive",
+      "description": "",
+      "rollMin": 63,
+      "rollMax": 67
+    },
+    {
+      "id": "13",
+      "name": "Feeler",
+      "description": "",
+      "rollMin": 68,
+      "rollMax": 73
+    },
+    {
+      "id": "14",
+      "name": "Emo-suppressed",
+      "description": "",
+      "rollMin": 74,
+      "rollMax": 79
+    },
+    {
+      "id": "15",
+      "name": "Minor Alien",
+      "description": "",
+      "rollMin": 80,
+      "rollMax": 85
+    },
+    {
+      "id": "16",
+      "name": "Traveler",
+      "description": "",
+      "rollMin": 86,
+      "rollMax": 87
+    },
+    {
+      "id": "17",
+      "name": "Empath",
+      "description": "",
+      "rollMin": 98,
+      "rollMax": 93
+    },
+    {
+      "id": "18",
+      "name": "Bio-upgrade",
+      "description": "",
+      "rollMin": 94,
+      "rollMax": 100
     }
   ],
   "origins": [

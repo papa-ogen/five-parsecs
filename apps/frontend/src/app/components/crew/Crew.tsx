@@ -31,7 +31,6 @@ export function Crew() {
   };
 
   const handleCreateMember = (name: string) => {
-    console.log('Creating crew member:', name, 'for campaign:', selectedCampaign.name);
     // TODO: Create crew member via API
     message.success(`Crew member "${name}" created!`);
     setModalOpen(false);
