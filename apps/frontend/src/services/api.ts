@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -94,6 +94,33 @@ export const api = {
             const response = await fetch(`${API_BASE_URL}/backgrounds`);
             if (!response.ok) {
                 throw new Error('Failed to fetch backgrounds');
+            }
+            return response.json();
+        },
+    },
+
+    species: {
+        getAll: async (): Promise<ISpecies[]> => {
+            const response = await fetch(`${API_BASE_URL}/species`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch species');
+            }
+            return response.json();
+        },
+        getById: async (id: string): Promise<ISpecies> => {
+            const response = await fetch(`${API_BASE_URL}/species/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch species');
+            }
+            return response.json();
+        },
+    },
+
+    speciesAbilities: {
+        getById: async (id: string): Promise<ISpeciesAbility> => {
+            const response = await fetch(`${API_BASE_URL}/species-abilities/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch species abilities');
             }
             return response.json();
         },

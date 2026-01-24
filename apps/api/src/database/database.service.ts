@@ -10,12 +10,14 @@ import {
     ICampaignCharacter,
     IShipType,
     IMotivation,
+    ISpeciesAbility,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
 
 interface DatabaseSchema {
     species: ISpecies[];
+    speciesAbilities: ISpeciesAbility[];
     backgrounds: IBackground[];
     characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
@@ -36,6 +38,7 @@ export class DatabaseService implements OnModuleInit {
         // Initialize the database with default data
         const defaultData: DatabaseSchema = {
             species: [],
+            speciesAbilities: [],
             backgrounds: [],
             characterClasses: [],
             crewTypes: [],
@@ -58,6 +61,17 @@ export class DatabaseService implements OnModuleInit {
     async getSpeciesById(id: string): Promise<ISpecies | undefined> {
         await this.db.read();
         return this.db.data.species.find((s) => s.id === id);
+    }
+
+    // Species Abilities
+    async getAllSpeciesAbilities(): Promise<ISpeciesAbility[]> {
+        await this.db.read();
+        return this.db.data.speciesAbilities;
+    }
+
+    async getSpeciesAbilityById(id: string): Promise<ISpeciesAbility | undefined> {
+        await this.db.read();
+        return this.db.data.speciesAbilities.find((sa) => sa.id === id);
     }
 
     async addSpecies(species: ISpecies): Promise<ISpecies> {
@@ -272,6 +286,7 @@ export class DatabaseService implements OnModuleInit {
         await this.db.read();
         this.db.data = {
             species: [],
+            speciesAbilities: [],
             backgrounds: [],
             characterClasses: [],
             crewTypes: [],

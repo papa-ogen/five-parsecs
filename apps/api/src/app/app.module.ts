@@ -7,6 +7,7 @@ import { CharacterClassesController } from '../controllers/character-class.contr
 import { CrewTypesController } from '../controllers/crew-type.controller';
 import { MotivationsController } from '../controllers/motivations.controller';
 import { ShipTypesController } from '../controllers/ship-types.controller';
+import { SpeciesAbilitiesController } from '../controllers/species-abilities.controller';
 import { SpeciesController } from '../controllers/species.controller';
 import { DatabaseModule } from '../database/database.module';
 
@@ -18,6 +19,7 @@ import { AppService } from './app.service';
   controllers: [
     AppController,
     SpeciesController,
+    SpeciesAbilitiesController,
     BackgroundsController,
     CharacterClassesController,
     CrewTypesController,
