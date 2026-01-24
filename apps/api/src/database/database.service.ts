@@ -11,6 +11,8 @@ import {
     ICampaignCrew,
     ICampaignCharacter,
     IShipType,
+    IOrigin,
+    IMotivation,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -22,6 +24,8 @@ interface DatabaseSchema {
     characterClasses: ICharacterClass[];
     crewTypes: ICrewType[];
     specialCircumstances: ISpecialCircumstance[];
+    origins: IOrigin[];
+    motivations: IMotivation[];
     shipTypes: IShipType[];
     campaigns: ICampaign[];
     campaignCrews: ICampaignCrew[];
@@ -43,6 +47,8 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            origins: [],
+            motivations: [],
             shipTypes: [],
             campaigns: [],
             campaignCrews: [],
@@ -256,6 +262,28 @@ export class DatabaseService implements OnModuleInit {
         return this.db.data.shipTypes.find((s) => s.id === id);
     }
 
+    // Origins
+    async getAllOrigins(): Promise<IOrigin[]> {
+        await this.db.read();
+        return this.db.data.origins;
+    }
+
+    async getOriginById(id: string): Promise<IOrigin | undefined> {
+        await this.db.read();
+        return this.db.data.origins.find((o) => o.id === id);
+    }
+
+    // Motivations
+    async getAllMotivations(): Promise<IMotivation[]> {
+        await this.db.read();
+        return this.db.data.motivations;
+    }
+
+    async getMotivationById(id: string): Promise<IMotivation | undefined> {
+        await this.db.read();
+        return this.db.data.motivations.find((m) => m.id === id);
+    }
+
     // Utility method to reset database
     async resetDatabase(): Promise<void> {
         await this.db.read();
@@ -266,6 +294,8 @@ export class DatabaseService implements OnModuleInit {
             characterClasses: [],
             crewTypes: [],
             specialCircumstances: [],
+            origins: [],
+            motivations: [],
             shipTypes: [],
             campaigns: [],
             campaignCrews: [],

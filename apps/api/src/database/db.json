@@ -1259,7 +1259,56 @@
         "core"
       ],
       "createdAt": "2026-01-22T13:42:10.314Z",
-      "updatedAt": "2026-01-22T13:42:10.314Z"
+      "updatedAt": "2026-01-22T15:31:24.695Z",
+      "shipName": "Leon",
+      "shipType": "retired-scout-ship"
+    },
+    {
+      "id": "9ce593f8-8fb0-4f9e-a420-3fa6cc3938a2",
+      "name": "jhjjkjh",
+      "description": "gkhgkgkh",
+      "status": "no_started",
+      "crewId": "",
+      "campaignTurn": 0,
+      "credits": 1000,
+      "storyPoints": 0,
+      "enabledModuleIds": [
+        "core"
+      ],
+      "createdAt": "2026-01-22T15:33:08.330Z",
+      "updatedAt": "2026-01-22T16:10:44.862Z",
+      "shipName": "vbbv vcb cv",
+      "shipType": "worn-freighter"
+    },
+    {
+      "id": "fb39636b-5977-4021-9e73-de6213cb4b36",
+      "name": "hj j jh h jh j",
+      "description": "",
+      "status": "no_started",
+      "crewId": "",
+      "campaignTurn": 0,
+      "credits": 1000,
+      "storyPoints": 0,
+      "enabledModuleIds": [
+        "core"
+      ],
+      "createdAt": "2026-01-22T15:35:15.818Z",
+      "updatedAt": "2026-01-22T15:35:15.818Z"
+    },
+    {
+      "id": "f66e3e58-2ffc-4348-b072-da4c5df08dea",
+      "name": "b n n n n n ",
+      "description": "",
+      "status": "no_started",
+      "crewId": "",
+      "campaignTurn": 0,
+      "credits": 1000,
+      "storyPoints": 0,
+      "enabledModuleIds": [
+        "core"
+      ],
+      "createdAt": "2026-01-22T15:36:48.002Z",
+      "updatedAt": "2026-01-22T15:36:48.002Z"
     }
   ],
   "campaignCrews": [],

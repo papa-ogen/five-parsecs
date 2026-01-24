@@ -1,4 +1,3 @@
-import { TrophyOutlined } from '@ant-design/icons';
 import type { IShipType } from '@five-parsecs/parsec-api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
@@ -8,6 +7,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { api } from '../../../services/api';
+import DiceRoller from '../common/DiceRoller';
 
 const shipNameSchema = z.object({
   shipName: z.string().min(1, 'Ship name is required').max(50, 'Ship name must be less than 50 characters'),
@@ -132,69 +132,13 @@ export function ShipGeneratorModal({ open, onClose, onConfirm }: ShipGeneratorMo
       ]}
       width={600}
     >
-      <div style={{ textAlign: 'center', padding: '20px' }}>
-        {/* Dice Rolling Area */}
-        <div
-          style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            borderRadius: '12px',
-            padding: '40px',
-            marginBottom: '24px',
-            boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-          }}
-        >
-          {isRolling ? (
-            <div
-              style={{
-                fontSize: '32px',
-                fontWeight: 'bold',
-                color: 'white',
-                animation: 'pulse 0.5s infinite',
-                minHeight: '80px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              🎰 {rollingText} 🎰
-            </div>
-          ) : selectedShip ? (
-            <div>
-              <TrophyOutlined
-                style={{
-                  fontSize: '48px',
-                  color: '#ffd700',
-                  marginBottom: '16px',
-                }}
-              />
-              <div style={{ fontSize: '28px', fontWeight: 'bold', color: 'white' }}>
-                {selectedShip.name}
-              </div>
-            </div>
-          ) : (
-            <div style={{ fontSize: '48px', color: 'white' }}>
-              🎲
-            </div>
-          )}
-        </div>
-
-        {/* Roll Button */}
-        <Button
-          type="primary"
-          size="large"
-          onClick={rollDice}
-          disabled={isRolling}
-          loading={isRolling}
-          style={{
-            fontSize: '18px',
-            height: '50px',
-            paddingLeft: '40px',
-            paddingRight: '40px',
-            marginBottom: '24px',
-          }}
-        >
-          {isRolling ? 'Rolling...' : selectedShip ? 'Roll Again' : 'Roll the Dice!'}
-        </Button>
+      <div style={{ padding: '20px' }}>
+        <DiceRoller
+          isRolling={isRolling}
+          rollingText={rollingText}
+          resultText={selectedShip?.name}
+          onRoll={rollDice}
+        />
 
         {/* Selected Ship Details */}
         {selectedShip && !isRolling && (
@@ -233,13 +177,6 @@ export function ShipGeneratorModal({ open, onClose, onConfirm }: ShipGeneratorMo
             </Form>
           </>
         )}
-
-        <style>{`
-          @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-          }
-        `}</style>
       </div>
     </Modal>
   );

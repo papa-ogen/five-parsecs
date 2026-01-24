@@ -5,6 +5,8 @@ import { CampaignsController } from '../controllers/campaigns.controller';
 import { CharacterClassesController } from '../controllers/character-class.controller';
 import { CrewTypesController } from '../controllers/crew-type.controller';
 import { ModulesController } from '../controllers/module.controller';
+import { MotivationsController } from '../controllers/motivations.controller';
+import { OriginsController } from '../controllers/origins.controller';
 import { ShipTypesController } from '../controllers/ship-types.controller';
 import { SpecialCircumstancesController } from '../controllers/special-circumstance.controller';
 import { SpeciesController } from '../controllers/species.controller';
@@ -23,6 +25,8 @@ import { AppService } from './app.service';
     CharacterClassesController,
     CrewTypesController,
     SpecialCircumstancesController,
+    OriginsController,
+    MotivationsController,
     ShipTypesController,
     CampaignsController,
   ],

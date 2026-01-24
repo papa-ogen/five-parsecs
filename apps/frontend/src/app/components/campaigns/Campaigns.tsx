@@ -13,15 +13,19 @@ export function Campaigns() {
     queryFn: api.campaigns.getAll,
   });
 
-  const selectedCampaignData = campaigns?.find((c) => c.id === selectedCampaignId);
-
+  // Single effect: Update selectedCampaign based on selectedCampaignId
   useEffect(() => {
-    if (selectedCampaignData) {
-      setSelectedCampaign(selectedCampaignData);
+    if (selectedCampaignId && campaigns) {
+      const campaign = campaigns.find((c) => c.id === selectedCampaignId);
+      if (campaign) {
+        setSelectedCampaign(campaign);
+      } else {
+        setSelectedCampaign(null);
+      }
     } else {
       setSelectedCampaign(null);
     }
-  }, [selectedCampaignData, setSelectedCampaign]);
+  }, [selectedCampaignId, campaigns, setSelectedCampaign]);
 
   if (isLoading) {
     return (

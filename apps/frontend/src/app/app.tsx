@@ -5,6 +5,7 @@ import CampaignDetails from './components/campaigns/CampaignDetails';
 import Campaigns from './components/campaigns/Campaigns';
 import CampaignShip from './components/campaigns/CampaignShip';
 import CreateCampaign from './components/campaigns/CreateCampaign';
+import Crew from './components/crew/Crew';
 import { AppProvider } from './contexts/AppContext';
 
 const { Header, Content, Footer } = Layout;
@@ -39,6 +40,8 @@ export function App() {
               <CampaignDetails />
               
               <CampaignShip />
+              
+              <Crew />
             </Space>
           </div>
         </Content>

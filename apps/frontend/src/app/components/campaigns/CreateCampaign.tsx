@@ -1,10 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { CampaignStatus } from '@five-parsecs/parsec-api';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, message } from 'antd';
+import { App, Button } from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../../services/api';
+import { useCampaign } from '../../contexts/AppContext';
 
 import type { CampaignFormData } from './campaignSchema';
 import CreateCampaignModal from './CreateCampaignModal';
@@ -12,6 +13,8 @@ import CreateCampaignModal from './CreateCampaignModal';
 export function CreateCampaign() {
   const [modalOpen, setModalOpen] = useState(false);
   const queryClient = useQueryClient();
+  const { setSelectedCampaignId } = useCampaign();
+  const { message } = App.useApp();
 
   const createMutation = useMutation({
     mutationFn: (data: CampaignFormData) => {
@@ -31,8 +34,10 @@ export function CreateCampaign() {
       };
       return api.campaigns.create(campaignData);
     },
-    onSuccess: () => {
+    onSuccess: (newCampaign) => {
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
+      // Automatically select the newly created campaign by ID
+      setSelectedCampaignId(newCampaign.id);
       message.success('Campaign created successfully!');
       setModalOpen(false);
     },
@@ -57,7 +62,6 @@ export function CreateCampaign() {
     <>
       <Button
         type="primary"
-        size="large"
         icon={<PlusOutlined />}
         onClick={handleCreateCampaign}
       >
