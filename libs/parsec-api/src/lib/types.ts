@@ -12,7 +12,7 @@ export interface ISpeciesAbility {
     combat: number;
     toughness: number;
     savvy: number;
-    luck: number;
+    luck?: number;
 }
 
 export interface IOrigin {
@@ -27,6 +27,9 @@ export interface IMotivation {
     id: string;
     name: string;
     description: string;
+    effect: string;
+    resources: string;
+    startingRolls: string;
     rollMin: number;
     rollMax: number;
 }
@@ -35,6 +38,9 @@ export interface ICharacterClass {
     id: string;
     name: string;
     description: string;
+    effect: string;
+    resources: string;
+    startingRolls: string;
     rollMin: number;
     rollMax: number;
 }
@@ -60,6 +66,11 @@ export interface IBackground {
     id: string;
     name: string;
     description: string;
+    effect: string;
+    resources: string;
+    startinRolls: string
+    rollMin: number;
+    rollMax: number;
 }
 
 export interface ICrewType {
@@ -73,15 +84,11 @@ export interface ICrewType {
 export interface IPrimaryAlien {
     id: string;
     speciesId: string;
-    rollMin: number;
-    rollMax: number;
 }
 
 export interface IStrangeCharacter {
     id: string;
     speciesId: string;
-    rollMin: number;
-    rollMax: number;
 }
 
 export interface IGear {
