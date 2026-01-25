@@ -161,13 +161,15 @@ export class DatabaseService implements OnModuleInit {
             reputation: 0,
             patrons: 0,
             rivals: 0,
+            questRumors: 0,
+            rumors: 0,
             credits: 0,
             inBattle: false,
             gear: [],
             weapons: [],
-            gadgets: 0,
-            gears: 0,
-            lowTechWeapons: 0,
+            gadgets: 1,
+            gears: 1,
+            lowTechWeapons: 3,
             militaryWeapons: 0,
             highTechWeapons: 0,
             createdAt: now,
@@ -245,6 +247,62 @@ export class DatabaseService implements OnModuleInit {
     }
 
     createCampaignCharacter(data: Partial<ICampaignCharacter>): ICampaignCharacter {
+        // Get species abilities to determine base stats
+        const species = this.db.data.species.find(s => s.id === data.speciesId);
+        const speciesAbilities = species?.abilitiesId
+            ? this.db.data.speciesAbilities.find(sa => sa.id === species.abilitiesId)
+            : null;
+
+        // Initialize base stats from species abilities
+        let reactions = speciesAbilities?.reactions || 1;
+        let speed = speciesAbilities?.speed || 4;
+        let combat = speciesAbilities?.combat || 0;
+        let toughness = speciesAbilities?.toughness || 3;
+        let savvy = speciesAbilities?.savvy || 0;
+        let xp = 0;
+
+        // Get background, motivation, and character class for effects
+        const background = data.backgroundId
+            ? this.db.data.backgrounds.find(b => b.id === data.backgroundId)
+            : null;
+        const motivation = data.motivationId
+            ? this.db.data.motivations.find(m => m.id === data.motivationId)
+            : null;
+        const characterClass = data.characterClassId
+            ? this.db.data.characterClasses.find(c => c.id === data.characterClassId)
+            : null;
+
+        // Apply effects from background, motivation, and class
+        const allEffects = [
+            ...(background?.effect || []),
+            ...(motivation?.effect || []),
+            ...(characterClass?.effect || []),
+        ];
+
+        for (const effect of allEffects) {
+            switch (effect.abilityId) {
+                case 'reactions':
+                    reactions += effect.amount;
+                    break;
+                case 'speed':
+                    speed += effect.amount;
+                    break;
+                case 'combat':
+                    combat += effect.amount;
+                    break;
+                case 'toughness':
+                    toughness += effect.amount;
+                    break;
+                case 'savvy':
+                    savvy += effect.amount;
+                    break;
+                case 'xp':
+                    xp += effect.amount;
+                    break;
+            }
+        }
+
+        // Create the character with calculated stats
         const character: ICampaignCharacter = {
             id: Date.now().toString(),
             crewId: data.crewId || '',
@@ -255,12 +313,12 @@ export class DatabaseService implements OnModuleInit {
             characterClassId: data.characterClassId || '',
             talentIds: data.talentIds || [],
             isLeader: data.isLeader || false,
-            reactions: data.reactions || 1,
-            speed: data.speed || 4,
-            combat: data.combat || 0,
-            toughness: data.toughness || 3,
-            savvy: data.savvy || 0,
-            xp: data.xp || 0,
+            reactions,
+            speed,
+            combat,
+            toughness,
+            savvy,
+            xp,
             level: data.level || 1,
             isInjured: data.isInjured || false,
             injuries: data.injuries || [],
@@ -276,17 +334,97 @@ export class DatabaseService implements OnModuleInit {
         // Add character to the database
         this.db.data.campaignCharacters.push(character);
 
-        // Update the crew's characterIds array
+        // Update the crew with resources and starting rolls
         if (character.crewId) {
             const crew = this.db.data.campaignCrews.find((c) => c.id === character.crewId);
             if (crew) {
+                // Add character ID to crew
                 crew.characterIds.push(character.id);
+
+                // Apply resources from background, motivation, and class
+                const allResources = [
+                    ...(background?.resources || []),
+                    ...(motivation?.resources || []),
+                    ...(characterClass?.resources || []),
+                ];
+
+                for (const resource of allResources) {
+                    const amount = typeof resource.amount === 'number'
+                        ? resource.amount
+                        : this.rollDice(resource.amount.numDice, resource.amount.diceSize, resource.amount.modifier);
+
+                    switch (resource.resourceType) {
+                        case 'credits':
+                            crew.credits += amount;
+                            break;
+                        case 'reputation':
+                            crew.reputation += amount;
+                            break;
+                        case 'patrons':
+                            crew.patrons += amount;
+                            break;
+                        case 'rivals':
+                            crew.rivals += amount;
+                            break;
+                        case 'questRumors':
+                            crew.questRumors += amount;
+                            break;
+                        case 'rumor':
+                            crew.rumors += amount;
+                            break;
+                        case 'storyPoints': {
+                            // Story points go to the campaign, not the crew
+                            const campaign = this.db.data.campaigns.find(c => c.id === crew.campaignId);
+                            if (campaign) {
+                                campaign.storyPoints += amount;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                // Track starting rolls (items to be rolled for later)
+                const allStartingRolls = [
+                    ...(background?.startingRolls || []),
+                    ...(motivation?.startingRolls || []),
+                    ...(characterClass?.startingRolls || []),
+                ];
+
+                for (const item of allStartingRolls) {
+                    switch (item.itemType) {
+                        case 'weapon':
+                            if (item.subtype === 'lowTech') {
+                                crew.lowTechWeapons += item.amount;
+                            } else if (item.subtype === 'military') {
+                                crew.militaryWeapons += item.amount;
+                            } else if (item.subtype === 'highTech') {
+                                crew.highTechWeapons += item.amount;
+                            }
+                            break;
+                        case 'gear':
+                            crew.gears += item.amount;
+                            break;
+                        case 'gadget':
+                            crew.gadgets += item.amount;
+                            break;
+                    }
+                }
+
                 crew.updatedAt = new Date().toISOString();
             }
         }
 
         this.db.write();
         return character;
+    }
+
+    // Helper method to roll dice
+    private rollDice(numDice: number, diceSize: number, modifier: number = 0): number {
+        let total = modifier;
+        for (let i = 0; i < numDice; i++) {
+            total += Math.floor(Math.random() * diceSize) + 1;
+        }
+        return total;
     }
 
     updateCampaignCharacter(id: string, data: Partial<ICampaignCharacter>): ICampaignCharacter {

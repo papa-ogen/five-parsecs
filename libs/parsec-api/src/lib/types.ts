@@ -162,6 +162,8 @@ export interface ICampaignCrew {
     reputation: number;
     patrons: number;
     rivals: number;
+    questRumors: number;
+    rumors: number;
     location?: string;
     inBattle: boolean;
     shipName?: string;

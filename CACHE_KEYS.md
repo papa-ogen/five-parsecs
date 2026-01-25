@@ -14,6 +14,7 @@ This document outlines all React Query cache keys used in the application and wh
 - Creating a new campaign (`CreateCampaign.tsx`)
 - Updating a campaign (`campaigns.update`)
 - Deleting a campaign
+- Creating a crew member (`Crew.tsx` - because backend may add story points to campaign)
 
 ---
 
@@ -128,8 +129,9 @@ This document outlines all React Query cache keys used in the application and wh
 
 ### When Creating a Crew Member:
 1. ✅ Invalidate `['campaignCharacters']` - Refresh character list
-2. ✅ Invalidate `['campaignCrew', crewId]` - Refresh crew (backend updates characterIds)
-3. ✅ Optimistic update to `['campaignCharacters']` - Instant UI feedback
+2. ✅ Invalidate `['campaignCrew', crewId]` - Refresh crew (backend updates characterIds, credits, patrons, etc.)
+3. ✅ Invalidate `['campaigns']` - Refresh campaign (backend may add story points)
+4. ✅ Optimistic update to `['campaignCharacters']` - Instant UI feedback
 
 ### When Creating a Campaign:
 1. ✅ Invalidate `['campaigns']` - Refresh campaign list

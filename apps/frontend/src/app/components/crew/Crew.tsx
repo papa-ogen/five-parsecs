@@ -1,7 +1,7 @@
 import { PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import type { ICampaignCharacter } from '@five-parsecs/parsec-api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { App, Button, Card, Empty, List, Space, Spin, Tag, Typography } from 'antd';
+import { App, Button, Card, Empty, List, Space, Spin, Tag, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../../services/api';
@@ -36,8 +36,11 @@ export function Crew() {
       // Invalidate campaign characters
       queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
       
-      // Invalidate campaign crew (because characterIds array is updated)
+      // Invalidate campaign crew (because characterIds array and resources are updated)
       queryClient.invalidateQueries({ queryKey: ['campaignCrew', selectedCampaign?.crewId] });
+      
+      // Invalidate campaigns (because story points may be added)
+      queryClient.invalidateQueries({ queryKey: ['campaigns'] });
       
       // Optionally update cache directly for instant feedback
       queryClient.setQueryData<ICampaignCharacter[]>(
@@ -79,24 +82,25 @@ export function Crew() {
   const handleCreateMember = (data: CrewMemberData) => {
     // Map crew type to species ID
     // Crew Type IDs: 1=Baseline Human, 2=Primary Alien, 3=Bot, 4=Strange Character
-    // For now, use crew type ID as species ID (they should match in the data model)
-    const speciesId = data.crewType?.id || '1';
+    let speciesId = '1'; // Default to human
+    
+    if (data.crewType?.id === '3') {
+      speciesId = '29'; // Bot
+    } else if (data.crewType?.id === '1') {
+      speciesId = '1'; // Baseline Human
+    }
+    // TODO: Add logic for Primary Alien and Strange Character
     
     // Create crew member with all rolled data
+    // Backend will calculate stats based on species abilities and effects
     const characterData: Partial<ICampaignCharacter> = {
       name: data.name,
       crewId: selectedCampaign.crewId,
       speciesId: speciesId,
-      backgroundId: data.background?.id || '1',
+      backgroundId: data.background?.id || '',
       motivationId: data.motivation?.id || '',
       characterClassId: data.characterClass?.id || '',
       talentIds: [],
-      reactions: 1,
-      speed: 4,
-      combat: 0,
-      toughness: 3,
-      savvy: 0,
-      xp: 0,
       level: 1,
       isInjured: false,
       injuries: [],
@@ -106,8 +110,6 @@ export function Crew() {
       isActive: true,
       isDead: false,
       isLeader: false,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     };
 
     createCharacterMutation.mutate(characterData);
@@ -122,6 +124,7 @@ export function Crew() {
   }
 
   const hasCrewMembers = crewMembers.length > 0;
+  const isCrewFull = crewMembers.length >= 6;
 
   if (hasCrewMembers) {
     return (
@@ -130,14 +133,21 @@ export function Crew() {
           <Space>
             <TeamOutlined />
             <Title level={4} style={{ margin: 0 }}>
-              Crew Members ({crewMembers.length})
+              Crew Members ({crewMembers.length}/6)
             </Title>
           </Space>
         }
         extra={
-          <Button type="primary" icon={<PlusOutlined />} onClick={handleCreateCrew}>
-            Add Member
-          </Button>
+          <Tooltip title={isCrewFull ? "Maximum crew size reached (6 members)" : ""}>
+            <Button 
+              type="primary" 
+              icon={<PlusOutlined />} 
+              onClick={handleCreateCrew}
+              disabled={isCrewFull}
+            >
+              Add Member
+            </Button>
+          </Tooltip>
         }
         style={{ width: '100%' }}
       >
@@ -232,9 +242,16 @@ export function Crew() {
           </Space>
         }
       >
-        <Button type="primary" size="large" onClick={handleCreateCrew}>
-          <PlusOutlined /> Add Crew Member
-        </Button>
+        <Tooltip title={isCrewFull ? "Maximum crew size reached (6 members)" : ""}>
+          <Button 
+            type="primary" 
+            size="large" 
+            onClick={handleCreateCrew}
+            disabled={isCrewFull}
+          >
+            <PlusOutlined /> Add Crew Member
+          </Button>
+        </Tooltip>
       </Empty>
 
       <CreateCrewMemberModal
