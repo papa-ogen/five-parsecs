@@ -1,7 +1,9 @@
 import { CampaignStatus } from '@five-parsecs/parsec-api';
-import { Badge, Card, Descriptions, Space, Statistic } from 'antd';
+import { Badge, Card, Space, Statistic } from 'antd';
 
 import { useCampaign } from '../../contexts/AppContext';
+
+
 
 function getStatusRibbon(status: CampaignStatus) {
   switch (status) {
@@ -33,32 +35,20 @@ export function CampaignDetails() {
 
   return (
     <Badge.Ribbon text={ribbon.text} color={ribbon.color}>
-      <Card title={selectedCampaign.name}>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
-        {selectedCampaign.description && (
-          <div>
-            <strong>Description:</strong> {selectedCampaign.description}
-          </div>
-        )}
+      <Card title={`Campaign Details - ${selectedCampaign.name}`}>
+        <Space orientation="horizontal" style={{ width: '100%' }} size="large">
+          {selectedCampaign.description && (
+            <div>
+              <strong>Description:</strong> {selectedCampaign.description}
+            </div>
+          )}
 
-        <Space size="large" wrap>
-          <Statistic title="Turn" value={selectedCampaign.campaignTurn} />
-          <Statistic title="Credits" value={selectedCampaign.credits} prefix="¤" />
-          <Statistic title="Story Points" value={selectedCampaign.storyPoints} />
+          <Space size="large" wrap>
+            <Statistic title="Turn" value={selectedCampaign.campaignTurn} />
+            <Statistic title="Story Points" value={selectedCampaign.storyPoints} />
+          </Space>
         </Space>
-
-        {selectedCampaign.shipName && (
-          <Card size="small" title="🚀 Ship Information" type="inner">
-            <Descriptions size="small" column={1}>
-              <Descriptions.Item label="Ship Name">{selectedCampaign.shipName}</Descriptions.Item>
-              {selectedCampaign.shipType && (
-                <Descriptions.Item label="Ship Type">{selectedCampaign.shipType}</Descriptions.Item>
-              )}
-            </Descriptions>
-          </Card>
-        )}
-      </Space>
-    </Card>
+      </Card>
     </Badge.Ribbon>
   );
 }

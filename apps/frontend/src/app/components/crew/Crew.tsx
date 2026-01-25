@@ -17,6 +17,13 @@ export function Crew() {
   const { message } = App.useApp();
   const queryClient = useQueryClient();
 
+  // Fetch crew data for the selected campaign
+  const { data: crew } = useQuery({
+    queryKey: ['campaignCrew', selectedCampaign?.crewId],
+    queryFn: () => api.campaignCrews.getById(selectedCampaign!.crewId),
+    enabled: !!selectedCampaign?.crewId,
+  });
+
   // Fetch all campaign characters
   const { data: allCharacters, isLoading } = useQuery({
     queryKey: ['campaignCharacters'],
@@ -26,13 +33,18 @@ export function Crew() {
   const createCharacterMutation = useMutation({
     mutationFn: (data: Partial<ICampaignCharacter>) => api.campaignCharacters.create(data),
     onSuccess: (newCharacter) => {
-      // Invalidate and refetch
+      // Invalidate campaign characters
       queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
+      
+      // Invalidate campaign crew (because characterIds array is updated)
+      queryClient.invalidateQueries({ queryKey: ['campaignCrew', selectedCampaign?.crewId] });
+      
       // Optionally update cache directly for instant feedback
       queryClient.setQueryData<ICampaignCharacter[]>(
         ['campaignCharacters'],
         (old) => (old ? [...old, newCharacter] : [newCharacter])
       );
+      
       message.success('Crew member created successfully!');
       setModalOpen(false);
     },
@@ -42,12 +54,12 @@ export function Crew() {
     },
   });
 
-  if (!selectedCampaign) {
+  if (!selectedCampaign || !crew) {
     return null;
   }
 
   // Only show crew setup for campaigns that have a ship
-  if (!selectedCampaign.shipName) {
+  if (!crew.shipName) {
     return null;
   }
 

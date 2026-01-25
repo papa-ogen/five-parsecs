@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, ICampaignCrew, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -121,6 +121,36 @@ export const api = {
             const response = await fetch(`${API_BASE_URL}/species-abilities/${id}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch species abilities');
+            }
+            return response.json();
+        },
+    },
+
+    campaignCrews: {
+        getAll: async (): Promise<ICampaignCrew[]> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-crews`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch campaign crews');
+            }
+            return response.json();
+        },
+        getById: async (id: string): Promise<ICampaignCrew> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-crews/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch campaign crew');
+            }
+            return response.json();
+        },
+        update: async (id: string, data: Partial<ICampaignCrew>): Promise<ICampaignCrew> => {
+            const response = await fetch(`${API_BASE_URL}/campaign-crews/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update campaign crew');
             }
             return response.json();
         },

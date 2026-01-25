@@ -1,7 +1,7 @@
 import { RocketOutlined } from '@ant-design/icons';
-import { CampaignStatus, ICampaign } from '@five-parsecs/parsec-api';
+import { CampaignStatus, ICampaignCrew } from '@five-parsecs/parsec-api';
 import type { IShipType } from '@five-parsecs/parsec-api';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { App, Button, Card, Empty } from 'antd';
 import { useState } from 'react';
 
@@ -11,28 +11,34 @@ import { useCampaign } from '../../contexts/AppContext';
 import ShipGeneratorModal from './ShipGeneratorModal';
 
 export function CampaignShip() {
-  const { selectedCampaign, setSelectedCampaign } = useCampaign();
+  const { selectedCampaign } = useCampaign();
   const [modalOpen, setModalOpen] = useState(false);
   const queryClient = useQueryClient();
   const { message } = App.useApp();
 
-  const updateCampaignMutation = useMutation({
-    mutationFn: ({ id, data }: { id: string; data: Partial<ICampaign> }) =>
-      api.campaigns.update(id, data),
-    onSuccess: (updatedCampaign) => {
+  // Fetch crew data for the selected campaign
+  const { data: crew } = useQuery({
+    queryKey: ['campaignCrew', selectedCampaign?.crewId],
+    queryFn: () => api.campaignCrews.getById(selectedCampaign!.crewId),
+    enabled: !!selectedCampaign?.crewId,
+  });
+
+  const updateCrewMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: Partial<ICampaignCrew> }) =>
+      api.campaignCrews.update(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['campaignCrew'] });
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
-      // Update the selected campaign with the new ship data
-      setSelectedCampaign(updatedCampaign);
       message.success('Ship configured successfully!');
     },
   });
 
-  if (!selectedCampaign) {
+  if (!selectedCampaign || !crew) {
     return null;
   }
 
   // Only show ship setup for campaigns that haven't started AND don't have a ship yet
-  if (selectedCampaign.status !== CampaignStatus.NO_STARTED || selectedCampaign.shipName) {
+  if (selectedCampaign.status !== CampaignStatus.NO_STARTED || crew.shipName) {
     return null;
   }
 
@@ -41,12 +47,11 @@ export function CampaignShip() {
   };
 
   const handleConfirmShip = (ship: IShipType, shipName: string) => {
-    updateCampaignMutation.mutate({
-      id: selectedCampaign.id,
+    updateCrewMutation.mutate({
+      id: crew.id,
       data: {
         shipName: shipName,
         shipType: ship.id,
-        updatedAt: new Date().toISOString(),
       },
     });
     setModalOpen(false);

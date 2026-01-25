@@ -5,6 +5,7 @@ import CampaignDetails from './components/campaigns/CampaignDetails';
 import Campaigns from './components/campaigns/Campaigns';
 import CampaignShip from './components/campaigns/CampaignShip';
 import CreateCampaign from './components/campaigns/CreateCampaign';
+import CrewDetails from './components/campaigns/CrewDetails';
 import Crew from './components/crew/Crew';
 import { AppProvider } from './contexts/AppContext';
 
@@ -38,6 +39,8 @@ export function App() {
               </Card>
               
               <CampaignDetails />
+              
+              <CrewDetails />
               
               <CampaignShip />
               

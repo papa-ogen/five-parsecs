@@ -76,6 +76,7 @@ export interface IGear {
 export interface IShipType {
     id: string;
     name: string;
+    hull: number;
     description: string;
 }
 
@@ -110,43 +111,28 @@ export interface ICampaign {
     name: string;
     description?: string;
     status: CampaignStatus;
-    crewId: string; // Reference to ICampaignCrew
-
-    // Campaign Progress
+    crewId: string;
     campaignTurn: number;
-    credits: number;
     storyPoints: number;
-
-    // Ship Info
-    shipName?: string;
-    shipType?: string;
-
-    // Settings
     difficulty?: CampaignDifficulty;
-
-    // Timestamps
     createdAt: string;
     updatedAt: string;
 }
 
 export interface ICampaignCrew {
     id: string;
-    campaignId: string; // Reference to ICampaign
+    campaignId: string;
     name: string;
     description?: string;
-
-    // Character References
-    characterIds: string[]; // Array of ICampaignCharacter IDs
-
-    // Crew Resources
+    characterIds: string[];
     reputation: number;
     patrons: number;
     rivals: number;
-
-    // Crew Status
     location?: string;
     inBattle: boolean;
-
+    shipName?: string;
+    shipType?: string;
+    credits: number;
     createdAt: string;
     updatedAt: string;
 }

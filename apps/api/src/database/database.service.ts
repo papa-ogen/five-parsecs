@@ -148,6 +148,32 @@ export class DatabaseService implements OnModuleInit {
 
     async addCampaign(campaign: ICampaign): Promise<ICampaign> {
         await this.db.read();
+
+        // Create a campaign crew automatically
+        const crewId = `crew-${Date.now()}`;
+        const now = new Date().toISOString();
+        const campaignCrew: ICampaignCrew = {
+            id: crewId,
+            campaignId: campaign.id,
+            name: `${campaign.name} Crew`,
+            description: `Crew for ${campaign.name}`,
+            characterIds: [],
+            reputation: 0,
+            patrons: 0,
+            rivals: 0,
+            credits: 0,
+            inBattle: false,
+            createdAt: now,
+            updatedAt: now,
+        };
+
+        // Add the crew to the database
+        this.db.data.campaignCrews.push(campaignCrew);
+
+        // Link the crew to the campaign
+        campaign.crewId = crewId;
+
+        // Add the campaign
         this.db.data.campaigns.push(campaign);
         await this.db.write();
         return campaign;
@@ -192,6 +218,16 @@ export class DatabaseService implements OnModuleInit {
         return crew;
     }
 
+    async updateCampaignCrew(id: string, updates: Partial<ICampaignCrew>): Promise<ICampaignCrew | undefined> {
+        await this.db.read();
+        const crew = this.db.data.campaignCrews.find((c) => c.id === id);
+        if (crew) {
+            Object.assign(crew, updates, { updatedAt: new Date().toISOString() });
+            await this.db.write();
+        }
+        return crew;
+    }
+
     // Campaign Character methods
     getCampaignCharacters(): ICampaignCharacter[] {
         return this.db.data.campaignCharacters;
@@ -229,7 +265,19 @@ export class DatabaseService implements OnModuleInit {
             createdAt: data.createdAt || new Date().toISOString(),
             updatedAt: new Date().toISOString(),
         };
+
+        // Add character to the database
         this.db.data.campaignCharacters.push(character);
+
+        // Update the crew's characterIds array
+        if (character.crewId) {
+            const crew = this.db.data.campaignCrews.find((c) => c.id === character.crewId);
+            if (crew) {
+                crew.characterIds.push(character.id);
+                crew.updatedAt = new Date().toISOString();
+            }
+        }
+
         this.db.write();
         return character;
     }
@@ -255,7 +303,22 @@ export class DatabaseService implements OnModuleInit {
         if (index === -1) {
             throw new Error(`Campaign character with id ${id} not found`);
         }
+
+        // Get the character before deleting to access crewId
+        const character = this.db.data.campaignCharacters[index];
+
+        // Remove character from database
         this.db.data.campaignCharacters.splice(index, 1);
+
+        // Remove character ID from crew's characterIds array
+        if (character.crewId) {
+            const crew = this.db.data.campaignCrews.find((c) => c.id === character.crewId);
+            if (crew) {
+                crew.characterIds = crew.characterIds.filter((charId) => charId !== id);
+                crew.updatedAt = new Date().toISOString();
+            }
+        }
+
         this.db.write();
     }
 
