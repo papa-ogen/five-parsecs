@@ -38,7 +38,7 @@ export function CampaignShip() {
   }
 
   // Only show ship setup for campaigns that haven't started AND don't have a ship yet
-  if (selectedCampaign.status !== CampaignStatus.NO_STARTED || crew.shipName) {
+  if (selectedCampaign.status !== CampaignStatus.NO_STARTED || crew.ship) {
     return null;
   }
 
@@ -50,8 +50,10 @@ export function CampaignShip() {
     updateCrewMutation.mutate({
       id: crew.id,
       data: {
-        shipName: shipName,
-        shipType: ship.id,
+        ship: {
+          ...ship,
+          name: shipName, // Override the ship type's name with the custom name
+        },
       },
     });
     setModalOpen(false);

@@ -166,8 +166,7 @@ export interface ICampaignCrew {
     rumors: number;
     location?: string;
     inBattle: boolean;
-    shipName?: string;
-    shipType?: string;
+    ship?: IShipType & { name: string };
     credits: number;
     createdAt: string;
     updatedAt: string;

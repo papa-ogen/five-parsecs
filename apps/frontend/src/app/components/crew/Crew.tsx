@@ -91,7 +91,7 @@ export function Crew() {
   }
 
   // Only show crew setup for campaigns that have a ship
-  if (!crew.shipName) {
+  if (!crew.ship) {
     return null;
   }
 
@@ -297,7 +297,7 @@ export function Crew() {
           okText="Confirm"
           okButtonProps={{ danger: true }}
         >
-          <Space direction="vertical" size="large" style={{ width: '100%' }}>
+          <Space orientation="vertical" size="large" style={{ width: '100%' }}>
             <Text>
               Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
             </Text>
@@ -382,7 +382,7 @@ export function Crew() {
         okText="Confirm"
         okButtonProps={{ danger: true }}
       >
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Text>
             Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
           </Text>

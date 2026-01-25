@@ -1814,21 +1814,25 @@
     {
       "id": "worn-freighter",
       "name": "Worn freighter",
+      "hull": 5,
       "description": "Worn freighter"
     },
     {
       "id": "retired-troop-transport",
       "name": "Retired troop transport",
+      "hull": 6,
       "description": "Retired troop transport"
     },
     {
       "id": "strange-alien-vessel",
       "name": "Strange alien vessel",
+      "hull": 4,
       "description": "Strange alien vessel"
     },
     {
       "id": "upgraded-shuttle",
       "name": "Upgraded shuttle",
+      "hull": 4,
       "description": "Upgraded shuttle"
     },
     {
@@ -1849,21 +1853,25 @@
     {
       "id": "unreliable-merchant-cruiser",
       "name": "Unreliable merchant cruiser",
+      "hull": 5,
       "description": "Unreliable merchant cruiser"
     },
     {
       "id": "former-unity-diplomatic-vessel",
       "name": "Former UNITY diplomatic vessel",
+      "hull": 6,
       "description": "Former UNITY diplomatic vessel"
     },
     {
       "id": "ancient-low-tech-craft",
       "name": "Ancient low tech craft",
+      "hull": 3,
       "description": "How does it even have a jump drive?"
     },
     {
       "id": "built-from-salvaged-wrecks",
       "name": "Built from salvaged wrecks",
+      "hull": 4,
       "description": "It's a miracle she flies."
     }
   ],
@@ -1903,8 +1911,12 @@
       "inBattle": false,
       "createdAt": "2026-01-25T13:22:30.393Z",
       "updatedAt": "2026-01-25T13:57:09.903Z",
-      "shipName": "dsfsdfsdf",
-      "shipType": "former-unity-diplomatic-vessel",
+      "ship": {
+        "id": "former-unity-diplomatic-vessel",
+        "name": "dsfsdfsdf",
+        "hull": 6,
+        "description": "Former UNITY diplomatic vessel"
+      },
       "gear": [],
       "weapons": [],
       "gadgets": 2,
