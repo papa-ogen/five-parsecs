@@ -195,19 +195,204 @@
   ],
   "backgrounds": [
     {
-      "id": "1",
-      "name": "Military",
-      "description": "Trained in formal military operations and tactics."
+      "id": "peaceful-high-tech-colony",
+      "name": "Peaceful, High-Tech Colony",
+      "description": "Not the most exciting origins but plenty of people born into a relatively comfortable existence decide to seek adventure elsewhere.",
+      "effect": "+1 Savvy",
+      "resources": "+1D6 credits",
+      "startinRolls": "-"
     },
     {
-      "id": "2",
-      "name": "Trader",
-      "description": "Experienced in commerce and negotiation across the stars."
+      "id": "giant-overcrowded-dystopian-city",
+      "name": "Giant, Overcrowded, Dystopian City",
+      "description": "Years of breathing recycled air, eating algae-based slob and dealing with gangs, psychos and 99.7% unemployment makes a gun battle on the Fringe look like a nice afternoon.",
+      "effect": "+1 Speed",
+      "resources": "-",
+      "startinRolls": "-"
     },
     {
-      "id": "3",
-      "name": "Colonist",
-      "description": "Grew up on the frontier, skilled in survival."
+      "id": "low-tech-colony",
+      "name": "Low-Tech Colony",
+      "description": "It's common for colonies to revert to lower levels of technology than their parent world, since simple, sustainable technologies that can be easily reproduced improves survival chances.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Low-tech Weapon"
+    },
+    {
+      "id": "mining-colony",
+      "name": "Mining Colony",
+      "description": "Worlds rich in minerals or other resources but too expensive to terraform tend to become mining colonies. Brutish life under brutish conditions.",
+      "effect": "+1 Toughness",
+      "resources": "-",
+      "startinRolls": "-"
+    },
+    {
+      "id": "military-brat",
+      "name": "Military Brat",
+      "description": "Your family all served in the military and expectations were high for you as well.",
+      "effect": "+1 Combat Skill",
+      "resources": "-",
+      "startinRolls": "-"
+    },
+    {
+      "id": "space-station",
+      "name": "Space Station",
+      "description": "The largest Unity stations are floating city states in themselves. You got used to cramped conditions, seeing interesting people and occasional explosive decompression.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Gear"
+    },
+    {
+      "id": "military-outpost",
+      "name": "Military Outpost",
+      "description": "While Unity Core space is quite peaceful, the borders of reclaimed territory tend to be prone to military aggression.",
+      "effect": "+1 Reactions",
+      "resources": "-",
+      "startinRolls": "-"
+    },
+    {
+      "id": "drifter",
+      "name": "Drifter",
+      "description": "Never quite fitting in, never quite settling down, you spent your youth trying to make do as well as you could, wherever you ended up.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Gear"
+    },
+    {
+      "id": "lower-megacity-class",
+      "name": "Lower Megacity Class",
+      "description": "A city of billions, the lower class conditions are stable if incredibly dull, repetitive and uninspiring.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Low-tech Weapon"
+    },
+    {
+      "id": "wealthy-merchant-family",
+      "name": "Wealthy Merchant Family",
+      "description": "Commerce makes everything go around and your family has done very well indeed. So why are you out here?",
+      "effect": "-",
+      "resources": "+2D6 credits",
+      "startinRolls": "-"
+    },
+    {
+      "id": "frontier-gang",
+      "name": "Frontier Gang",
+      "description": "The frontiers are tough and often rife with madmen and dangerous lifeforms. Some gangs are opportunistic thugs, others act as local police forces.",
+      "effect": "+1 Combat Skill",
+      "resources": "-",
+      "startinRolls": "-"
+    },
+    {
+      "id": "religious-cult",
+      "name": "Religious Cult",
+      "description": "The only two things that are considered beyond counting by Unity Bureaucracy are people and religions. They do so with fervour.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startinRolls": "-"
+    },
+    {
+      "id": "war-torn-hell-hole",
+      "name": "War-Torn Hell-Hole",
+      "description": "Growing up in the trenches was not exactly a happy childhood but it seemed natural to you.",
+      "effect": "+1 Reactions",
+      "resources": "-",
+      "startinRolls": "+1 Military Weapon"
+    },
+    {
+      "id": "tech-guild",
+      "name": "Tech Guild",
+      "description": "Modern technology is incredibly complex and several guilds have formed to further the exploration of specific forms of science.",
+      "effect": "+1 Savvy",
+      "resources": "+1D6 credits",
+      "startinRolls": "+1 High-tech Weapon"
+    },
+    {
+      "id": "subjugated-colony-on-alien-world",
+      "name": "Subjugated Colony on Alien World",
+      "description": "While some aliens will do horrible things to their new subjects, in most cases, some sort of liveable agreement occurs.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Gadget"
+    },
+    {
+      "id": "long-term-space-mission",
+      "name": "Long-Term Space Mission",
+      "description": "The galaxy is large and at any time there's scores of exploration fleets. Many of these are generation ships.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startinRolls": "-"
+    },
+    {
+      "id": "research-outpost",
+      "name": "Research Outpost",
+      "description": "Larger research outposts require a significant amount of manual labour and day to day maintenance.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startinRolls": "+1 Gadget"
+    },
+    {
+      "id": "primitive-or-regressed-world",
+      "name": "Primitive or Regressed World",
+      "description": "When cut off from main stream trade and contact, worlds will eventually settle on a level of technology they can sustain themselves.",
+      "effect": "+1 Toughness",
+      "resources": "-",
+      "startinRolls": "+1 Low-tech Weapon"
+    },
+    {
+      "id": "orphan-utility-program",
+      "name": "Orphan Utility Program",
+      "description": "The UOUP exists to ensure that every citizen finds something constructive to do with themselves.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startinRolls": "-"
+    },
+    {
+      "id": "isolationist-enclave",
+      "name": "Isolationist Enclave",
+      "description": "Unity worlds are littered with occasionally sizeable enclaves that prefer to keep the rest of the galaxy at arms length.",
+      "effect": "-",
+      "resources": "2 Quest Rumors",
+      "startinRolls": "-"
+    },
+    {
+      "id": "comfortable-megacity-class",
+      "name": "Comfortable Megacity Class",
+      "description": "You had a quiet job, fiddling with databases, and even breathing fresh air on every other Friday.",
+      "effect": "-",
+      "resources": "+1D6 credits",
+      "startinRolls": "-"
+    },
+    {
+      "id": "industrial-world",
+      "name": "Industrial World",
+      "description": "Many worlds are dominated by industry. It tends to breed resourceful, tough people.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 Gear"
+    },
+    {
+      "id": "bureaucrat",
+      "name": "Bureaucrat",
+      "description": "The Bureaucracy runs everything. It numbers in the billions and is involved with every possible aspect of life in Unity.",
+      "effect": "-",
+      "resources": "+1D6 credits",
+      "startinRolls": "-"
+    },
+    {
+      "id": "wasteland-nomads",
+      "name": "Wasteland Nomads",
+      "description": "On hard, dangerous worlds, most colonists perish. A few however prosper and 'go native'.",
+      "effect": "+1 Reactions",
+      "resources": "-",
+      "startinRolls": "+1 Low-tech Weapon"
+    },
+    {
+      "id": "alien-culture",
+      "name": "Alien Culture",
+      "description": "Whether a colony that seceded or a group that migrated, you grew up in a non-human culture, adopting its values and customs as your own.",
+      "effect": "-",
+      "resources": "-",
+      "startinRolls": "+1 High-tech Weapon"
     }
   ],
   "crewTypes": [
@@ -344,204 +529,324 @@
     {
       "id": "wealth",
       "name": "Wealth",
-      "description": "Get rich, strike it big and retire somewhere that serves food you can recognize."
+      "description": "Get rich, strike it big and retire somewhere that serves food you can recognize.",
+      "effect": ".",
+      "resources": "+1D6 credits",
+      "startingRolls": "-"
     },
     {
       "id": "fame",
       "name": "Fame",
-      "description": "Whatever your cause, you want to be known as the one behind it."
+      "description": "Whatever your cause, you want to be known as the one behind it.",
+      "effect": ".",
+      "resources": "+1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "glory",
       "name": "Glory",
-      "description": "Defeat the strongest fighter, immortality lies in great battle deeds."
+      "description": "Defeat the strongest fighter, immortality lies in great battle deeds.",
+      "effect": "+1 Combat Skill",
+      "resources": "-",
+      "startingRolls": "+1 Military Weapon"
     },
     {
       "id": "survival",
       "name": "Survival",
-      "description": "Being alive beats the alternatives and you intend to keep it that way."
+      "description": "Being alive beats the alternatives and you intend to keep it that way.",
+      "effect": "+1 Toughness",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "escape",
       "name": "Escape",
-      "description": "Big, unpleasant people with big, unpleasant guns are after you. Life isn't so bad on the fringe."
+      "description": "Big, unpleasant people with big, unpleasant guns are after you. Life isn't so bad on the fringe.",
+      "effect": "+1 Speed",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "adventure",
       "name": "Adventure",
-      "description": "New places to see! Aliens, strange technology and strange worlds under stranger suns. You live for this stuff."
+      "description": "New places to see! Aliens, strange technology and strange worlds under stranger suns. You live for this stuff.",
+      "effect": "-",
+      "resources": "+1D6 credits",
+      "startingRolls": "+1 Low-tech Weapon"
     },
     {
       "id": "truth",
       "name": "Truth",
-      "description": "Your entire life has been shrouded in lies. Now you are starting to realize that something is wrong, and you're determined to get to the bottom of it."
+      "description": "Your entire life has been shrouded in lies. Now you are starting to realize that something is wrong, and you're determined to get to the bottom of it.",
+      "effect": "-",
+      "resources": "1 Rumor, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "technology",
       "name": "Technology",
-      "description": "Fantastic artefacts and alien tech is what you crave. Whether from scientific curiosity, a desire to build a doomsday device or to advance human knowledge, you can't resist a shiny gadget."
+      "description": "Fantastic artefacts and alien tech is what you crave. Whether from scientific curiosity, a desire to build a doomsday device or to advance human knowledge, you can't resist a shiny gadget.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startingRolls": "+1 Gadget"
     },
     {
       "id": "discovery",
       "name": "Discovery",
-      "description": "The idea that there is uncharted space seems like a wrong that must be corrected."
+      "description": "The idea that there is uncharted space seems like a wrong that must be corrected.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startingRolls": "+1 Gear"
     },
     {
       "id": "loyalty",
       "name": "Loyalty",
-      "description": "You don't care too much where you are going or why you are there, as long as your crew knows they can depend on you. You've pulled each other out of the fire plenty of times."
+      "description": "You don't care too much where you are going or why you are there, as long as your crew knows they can depend on you. You've pulled each other out of the fire plenty of times.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "revenge",
       "name": "Revenge",
-      "description": "Someone did you wrong and you intend to set things right. Whether a single person or a massive organization, you are driven towards that end."
+      "description": "Someone did you wrong and you intend to set things right. Whether a single person or a massive organization, you are driven towards that end.",
+      "effect": "+2 XP",
+      "resources": "Rival",
+      "startingRolls": "-"
     },
     {
       "id": "romance",
       "name": "Romance",
-      "description": "They say that on a thousand worlds in the Fringe, everyone eventually finds someone who will put up with them for the rest of their lives. You don't want that though. You want the perfect one."
+      "description": "They say that on a thousand worlds in the Fringe, everyone eventually finds someone who will put up with them for the rest of their lives. You don't want that though. You want the perfect one.",
+      "effect": "-",
+      "resources": "1 Rumor, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "faith",
       "name": "Faith",
-      "description": "You've seen that there's more to the universe than physical existence and it keeps you going in the darkest of times."
+      "description": "You've seen that there's more to the universe than physical existence and it keeps you going in the darkest of times.",
+      "effect": "-",
+      "resources": "1 Rumor, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "political",
       "name": "Political",
-      "description": "Unlike most, you have a coherent view of what the world should look like and the optimal way things should be organized. If only people would stop and listen."
+      "description": "Unlike most, you have a coherent view of what the world should look like and the optimal way things should be organized. If only people would stop and listen.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "power",
       "name": "Power",
-      "description": "You dream of one day being on top, legions at your beck and call. The Fringes have broken as many as it has elevated. Which will you be?"
+      "description": "You dream of one day being on top, legions at your beck and call. The Fringes have broken as many as it has elevated. Which will you be?",
+      "effect": "+2 XP",
+      "resources": "Rival",
+      "startingRolls": "-"
     },
     {
       "id": "order",
       "name": "Order",
-      "description": "Disorder and anarchy upset you. Only under a semblance of order can civilization truly prosper."
+      "description": "Disorder and anarchy upset you. Only under a semblance of order can civilization truly prosper.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "freedom",
       "name": "Freedom",
-      "description": "You may not be an anarchist but you value freedom above all else. The Fringes represent the last true free space and you want to keep it that way."
+      "description": "You may not be an anarchist but you value freedom above all else. The Fringes represent the last true free space and you want to keep it that way.",
+      "effect": "+2 XP",
+      "resources": "-",
+      "startingRolls": "-"
     }
   ],
   "characterClasses": [
     {
       "id": "working-class",
-      "name": "Working class",
-      "description": "There’s a million dirty, menial jobs that need doing and a million employers paying terrible wages for them. No particular skill set. No special skills applicable to the battle field."
+      "name": "Working Class",
+      "description": "There’s a million dirty, menial jobs that need doing and a million employers paying terrible wages for them. No particular skill set.",
+      "effect": "+1 Savvy, +1 Luck",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "technician",
       "name": "Technician",
-      "description": "A piece of equipment in perfect condition is a rare sight and people with a knack for fixing things tend to be a valuable addition to any team. Re-roll one Repair attempt per game."
+      "description": "A piece of equipment in perfect condition is a rare sight and people with a knack for fixing things tend to be a valuable addition to any team.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startingRolls": "+1 Gear"
     },
     {
       "id": "scientist",
       "name": "Scientist",
-      "description": "Some pursue science because they feel a calling to discover the world. Others want to build killer robots. Re-roll Task rolls related to figuring out puzzles and problems."
+      "description": "Some pursue science because they feel a calling to discover the world. Others want to build killer robots.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startingRolls": "+1 Gadget"
     },
     {
       "id": "hacker",
       "name": "Hacker",
-      "description": "The lack of stream lined, planet wide computer systems means that \"Hacker\" tends to imply any talent for intrusion, not just computer based ones. Re-roll one Hack or intrusion based Task per mission."
+      "description": "The lack of stream lined, planet wide computer systems means that \"Hacker\" tends to imply any talent for intrusion, not just computer based ones.",
+      "effect": "+1 Savvy",
+      "resources": "Rival",
+      "startingRolls": "-"
     },
     {
       "id": "soldier",
       "name": "Soldier",
-      "description": "\"Professional Military\" on the Fringes can mean anything from Unity troops to local goons with (mostly) the same colour helmets. On a roll of 6, begin the game with a random Talent. Add an auto rifle to groups armoury."
+      "description": "\"Professional Military\" on the Fringes can mean anything from Unity troops to local goons with (mostly) the same colour helmets.",
+      "effect": "+1 Combat Skill",
+      "resources": "+1D6 credits",
+      "startingRolls": "-"
     },
     {
       "id": "mercenary",
       "name": "Mercenary",
-      "description": "The Fringes are rich in opportunities for people who don't mind supplying violence for money. On a roll of 6, begin the game with a random Talent. Add 1D3 Frakk grenades to groups armoury."
+      "description": "The Fringes are rich in opportunities for people who don't mind supplying violence for money.",
+      "effect": "+1 Combat Skill",
+      "resources": "-",
+      "startingRolls": "+1 Military Weapon"
     },
     {
       "id": "agitator",
       "name": "Agitator",
-      "description": "Outside the reaches of Unity's stifling social engineering, there's a million causes and a billion spokes people for said causes. +1 to Persuasion rolls."
+      "description": "Outside the reaches of Unity's stifling social engineering, there's a million causes and a billion spokes people for said causes.",
+      "effect": "-",
+      "resources": "Rival",
+      "startingRolls": "-"
     },
     {
       "id": "primitive",
       "name": "Primitive",
-      "description": "For whatever reason you’ve rejected technology or just never got the hang of it. Add old fashioned blade to armoury."
+      "description": "For whatever reason you’ve rejected technology or just never got the hang of it.",
+      "effect": "+1 Speed",
+      "resources": "-",
+      "startingRolls": "+1 Low-tech Weapon"
     },
     {
       "id": "artist",
       "name": "Artist",
-      "description": "Life on the Fringes isn’t all violence and explosions. Sometimes it’s paintings of violence and explosions. Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item from performing or selling art."
+      "description": "Life on the Fringes isn’t all violence and explosions. Sometimes it’s paintings of violence and explosions.",
+      "effect": "-",
+      "resources": "+1D6 credits",
+      "startingRolls": "-"
     },
     {
       "id": "negotiator",
       "name": "Negotiator",
-      "description": "Unlike the Agitator, the Negotiator is usually employed by someone else to make their points. Some are just charismatic leader types or know how to say the right thing. +1 to Persuasion rolls."
+      "description": "The Negotiator is usually employed by someone else to make their points. Some are just charismatic leader types.",
+      "effect": "-",
+      "resources": "Patron, +1 story point",
+      "startingRolls": "-"
     },
     {
       "id": "trader",
       "name": "Trader",
-      "description": "The erratic flow of any good imaginable is either an economists dream or nightmare. Many pursue a career of essentially moving (or liberating) goods to be bartered away later. When trading, roll twice on the Trade table and choose."
+      "description": "The erratic flow of any good imaginable is either an economists dream or nightmare.",
+      "effect": "-",
+      "resources": "+2D6 credits",
+      "startingRolls": "-"
     },
     {
-      "id": "star-crew",
-      "name": "Star crew",
-      "description": "Star ships are pretty complex machines and require a variety of specialized crew to operate. No special skills applicable to the battle field."
+      "id": "starship-crew",
+      "name": "Starship Crew",
+      "description": "Star ships are pretty complex machines and require a variety of specialized crew to operate.",
+      "effect": "+1 Savvy",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "petty-criminal",
-      "name": "Petty criminal",
-      "description": "In polite company, you say you work in \"Localized Trade Item Acquisitions\". When arriving on a new planet, receive a free Trade item."
+      "name": "Petty Criminal",
+      "description": "In polite company, you say you work in \"Localized Trade Item Acquisitions\".",
+      "effect": "+1 Speed",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "ganger",
       "name": "Ganger",
-      "description": "Depending on the world, gangs may be the local law, a criminal racket or a matter of survival. Add a handgun to armoury."
+      "description": "Depending on the world, gangs may be the local law, a criminal racket or a matter of survival.",
+      "effect": "+1 Reactions",
+      "resources": "-",
+      "startingRolls": "+1 Low-tech Weapon"
     },
     {
       "id": "scoundrel",
       "name": "Scoundrel",
-      "description": "Generic star port scum. Your parents are probably disappointed. If you had marketable skills, you would be something different."
+      "description": "Generic star port scum. Your parents are probably disappointed. If you had marketable skills, you would be something different.",
+      "effect": "+1 Speed",
+      "resources": "-",
+      "startingRolls": "-"
     },
     {
       "id": "enforcer",
       "name": "Enforcer",
-      "description": "The Law requires representatives and most of them tend to be pretty no-nonsense about how they do the representing. When fighting criminals, roll 1D6. On a 1 or 6, add a goon with a shotgun to assist during this mission only."
+      "description": "The Law requires representatives and most of them tend to be pretty no-nonsense about how they do the representing.",
+      "effect": "+1 Combat Skill",
+      "resources": "Patron",
+      "startingRolls": "-"
     },
     {
-      "id": "unity-agent",
-      "name": "Unity agent",
-      "description": "Countless Unity agents prowl the Fringes trying to subtly enforce the will of Unity. Many defect or simply \"go native\" while others are true believers. When fighting mutants, anarchists and other dissidents, roll 1D6. On a 1 or 6, add a goon with an auto rifle to assist during this mission only."
+      "id": "special-agent",
+      "name": "Special Agent",
+      "description": "Countless agents prowl the Fringes trying to subtly enforce the will of their superiors. (Replaced Unity Agent)",
+      "effect": "+1 Reactions",
+      "resources": "Patron",
+      "startingRolls": "+1 Gadget"
     },
     {
-      "id": "trouble-shooter",
-      "name": "Trouble shooter",
-      "description": "When people need a problem solved, they call you. The problem is usually not a smoking crater in the ground until after it's been solved. Roll 1D6. On a 1 or 6, begin with a random Talent."
+      "id": "troubleshooter",
+      "name": "Troubleshooter",
+      "description": "When people need a problem solved, they call you. The problem is usually not a smoking crater until after you are done.",
+      "effect": "+1 Reactions",
+      "resources": "-",
+      "startingRolls": "+1 Low-tech Weapon"
     },
     {
       "id": "bounty-hunter",
-      "name": "Bounty hunter",
-      "description": "Whether you work for the Law or take private jobs, you've made a living out of acquiring those others will pay to have acquired. Can find patrons on rolls of 1 and 6 (instead of just 6). However any patrons will be one-time only and are not available for recurring missions."
+      "name": "Bounty Hunter",
+      "description": "Whether you work for the Law or take private jobs, you've made a living out of acquiring those others will pay for.",
+      "effect": "+1 Speed",
+      "resources": "1 Rumor",
+      "startingRolls": "+1 Low-tech Weapon"
     },
     {
-      "id": "traveller",
-      "name": "Traveller",
-      "description": "Travel the frontier, see new worlds and eat strange food. Roll 1D6 when arriving at a new world. On a 1 or 6, generate a patron immediately."
+      "id": "nomad",
+      "name": "Nomad",
+      "description": "Travel the frontier, see new worlds and eat strange food. (Replaces Traveller)",
+      "effect": "-",
+      "resources": "-",
+      "startingRolls": "+1 Gear"
     },
     {
-      "id": "reclaimer",
-      "name": "Reclaimer",
-      "description": "Reclaiming is the long process of integrating a world into formal Unity space. Reclaimer agents tend to be pretty crafty and innovative idealists. Works to reclaim worlds for Unity. Roll 1D6. On a 1 or 6, begin with a random gadget."
+      "id": "explorer",
+      "name": "Explorer",
+      "description": "Reclaiming is the long process of integrating a world. Explorer agents are crafty and innovative. (Replaces Reclaimer)",
+      "effect": "+2 XP",
+      "resources": "-",
+      "startingRolls": "+1 Gear"
     },
     {
       "id": "punk",
       "name": "Punk",
-      "description": "Strange hair colours, loud music and a foul demeanour. No measurable skills but plenty of attitude."
+      "description": "Strange hair colours, loud music and a foul demeanour. No measurable skills but plenty of attitude.",
+      "effect": "+2 XP",
+      "resources": "Rival",
+      "startingRolls": "-"
     },
     {
       "id": "scavenger",
       "name": "Scavenger",
-      "description": "You have a unique knack for finding uses of discarded garbage. After each mission, roll 1D6. On a 1 or 6, get a roll on the Trade table."
+      "description": "You have a unique knack for finding uses of discarded garbage.",
+      "effect": "-",
+      "resources": "1 Rumor",
+      "startingRolls": "+1 High-tech Weapon"
     }
   ],
   "talents": [
@@ -901,6 +1206,17 @@
       "storyPoints": 0,
       "createdAt": "2026-01-24T19:13:14.620Z",
       "updatedAt": "2026-01-24T19:13:29.035Z"
+    },
+    {
+      "id": "ca946243-8f87-47fa-a76d-a1d296d35376",
+      "name": "vvvv",
+      "description": "",
+      "status": "no_started",
+      "crewId": "crew-1769335581387",
+      "campaignTurn": 0,
+      "storyPoints": 0,
+      "createdAt": "2026-01-25T10:06:21.269Z",
+      "updatedAt": "2026-01-25T10:06:21.269Z"
     }
   ],
   "campaignCrews": [
@@ -927,6 +1243,24 @@
       "inBattle": false,
       "createdAt": "2026-01-24T19:13:14.620Z",
       "updatedAt": "2026-01-24T20:33:19.346Z"
+    },
+    {
+      "id": "crew-1769335581387",
+      "campaignId": "ca946243-8f87-47fa-a76d-a1d296d35376",
+      "name": "vvvv Crew",
+      "description": "Crew for vvvv",
+      "characterIds": [
+        "1769335632758"
+      ],
+      "reputation": 0,
+      "patrons": 0,
+      "rivals": 0,
+      "credits": 0,
+      "inBattle": false,
+      "createdAt": "2026-01-25T10:06:21.388Z",
+      "updatedAt": "2026-01-25T10:07:12.759Z",
+      "shipName": "vxcvxcvxcvc",
+      "shipType": "ancient-low-tech-craft"
     }
   ],
   "campaignCharacters": [
@@ -1121,6 +1455,33 @@
       "isDead": false,
       "createdAt": "2026-01-24T20:33:19.317Z",
       "updatedAt": "2026-01-24T20:33:19.346Z"
+    },
+    {
+      "id": "1769335632758",
+      "crewId": "crew-1769335581387",
+      "name": "dere",
+      "speciesId": "1",
+      "backgroundId": "space-station",
+      "motivationId": "wealth",
+      "characterClassId": "scoundrel",
+      "talentIds": [],
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T10:07:12.719Z",
+      "updatedAt": "2026-01-25T10:07:12.758Z"
     }
   ]
 }
