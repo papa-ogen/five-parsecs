@@ -8,6 +8,7 @@ import { api } from '../../../services/api';
 
 import BackgroundRoller from './BackgroundRoller';
 import ClassRoller from './ClassRoller';
+import CrewMemberDescription from './CrewMemberDescription';
 import CrewTypeRoller from './CrewTypeRoller';
 import MotivationRoller from './MotivationRoller';
 
@@ -243,9 +244,12 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
             </Space>
             <Space>
               {background ? (
+                <>
                 <Tag icon={<CheckCircleFilled />} color="success">
-                  Background: {background.name}
+                  Background: {background.name} 
                 </Tag>
+                <CrewMemberDescription data={background} />
+                </>
               ) : (
                 <Tag icon={<CloseCircleFilled />} color="default">
                   Background: Not rolled
@@ -254,9 +258,12 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
             </Space>
             <Space>
               {motivation ? (
+                <>
                 <Tag icon={<CheckCircleFilled />} color="success">
                   Motivation: {motivation.name}
                 </Tag>
+                <CrewMemberDescription data={motivation} />
+                </>
               ) : (
                 <Tag icon={<CloseCircleFilled />} color="default">
                   Motivation: Not rolled
@@ -265,9 +272,12 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
             </Space>
             <Space>
               {characterClass ? (
+                <>
                 <Tag icon={<CheckCircleFilled />} color="success">
                   Class: {characterClass.name}
                 </Tag>
+                <CrewMemberDescription data={characterClass} />
+                </>
               ) : (
                 <Tag icon={<CloseCircleFilled />} color="default">
                   Class: Not rolled

@@ -163,6 +163,13 @@ export class DatabaseService implements OnModuleInit {
             rivals: 0,
             credits: 0,
             inBattle: false,
+            gear: [],
+            weapons: [],
+            gadgets: 0,
+            gears: 0,
+            lowTechWeapons: 0,
+            militaryWeapons: 0,
+            highTechWeapons: 0,
             createdAt: now,
             updatedAt: now,
         };
