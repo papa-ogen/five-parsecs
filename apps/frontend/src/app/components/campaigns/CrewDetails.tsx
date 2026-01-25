@@ -80,7 +80,7 @@ export function CrewDetails() {
                           percent={hullPercent}
                           strokeColor={strokeColor}
                           showInfo={false}
-                          strokeWidth={20}
+                          size={{ width: 200 }}
                           style={{ marginTop: 4 }}
                         />
                       </>

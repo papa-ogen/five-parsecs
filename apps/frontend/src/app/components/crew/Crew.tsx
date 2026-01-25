@@ -1,7 +1,7 @@
 import { CrownOutlined, PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import type { ICampaignCharacter } from '@five-parsecs/parsec-api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { App, Button, Card, Empty, List, Modal, Space, Spin, Tag, Tooltip, Typography } from 'antd';
+import { App, Avatar, Button, Card, Empty, Modal, Space, Spin, Tag, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../../services/api';
@@ -202,11 +202,11 @@ export function Crew() {
         }
         style={{ width: '100%' }}
       >
-        <List
-          itemLayout="horizontal"
-          dataSource={crewMembers}
-          renderItem={(character) => (
-            <List.Item
+        <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
+          {crewMembers.map((character) => (
+            <Card
+              key={character.id}
+              size="small"
               actions={[
                 <Button key="view" type="link">
                   View
@@ -223,23 +223,15 @@ export function Crew() {
                 ] : []),
               ]}
             >
-              <List.Item.Meta
+              <Card.Meta
                 avatar={
-                  <div
+                  <Avatar
+                    size={48}
                     style={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: '50%',
                       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white',
-                      fontSize: '20px',
                     }}
-                  >
-                    <UserOutlined />
-                  </div>
+                    icon={<UserOutlined />}
+                  />
                 }
                 title={
                   <Space>
@@ -271,9 +263,9 @@ export function Crew() {
                   </Space>
                 }
               />
-            </List.Item>
-          )}
-        />
+            </Card>
+          ))}
+        </Space>
         
         <CreateCrewMemberModal
           open={modalOpen}
