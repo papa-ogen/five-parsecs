@@ -99,14 +99,14 @@ export function CrewDetails() {
         )}
 
         {/* Inventory Tracking - Items to roll for */}
-        {(crew.gadgets > 0 || crew.gears > 0 || crew.lowTechWeapons > 0 || crew.militaryWeapons > 0 || crew.highTechWeapons > 0) && (
+        {(crew.gadgetCount > 0 || crew.gearCount > 0 || crew.lowTechWeaponCount > 0 || crew.militaryWeaponCount > 0 || crew.highTechWeaponCount > 0) && (
           <Card size="small" title="📦 Pending Item Rolls" type="inner">
             <Space size="large" wrap>
-              {crew.gadgets > 0 && <Statistic title="Gadgets" value={crew.gadgets} />}
-              {crew.gears > 0 && <Statistic title="Gear" value={crew.gears} />}
-              {crew.lowTechWeapons > 0 && <Statistic title="Low-Tech Weapons" value={crew.lowTechWeapons} />}
-              {crew.militaryWeapons > 0 && <Statistic title="Military Weapons" value={crew.militaryWeapons} />}
-              {crew.highTechWeapons > 0 && <Statistic title="High-Tech Weapons" value={crew.highTechWeapons} />}
+              {crew.gadgetCount > 0 && <Statistic title="Gadgets" value={crew.gadgetCount} />}
+              {crew.gearCount > 0 && <Statistic title="Gear" value={crew.gearCount} />}
+              {crew.lowTechWeaponCount > 0 && <Statistic title="Low-Tech Weapons" value={crew.lowTechWeaponCount} />}
+              {crew.militaryWeaponCount > 0 && <Statistic title="Military Weapons" value={crew.militaryWeaponCount} />}
+              {crew.highTechWeaponCount > 0 && <Statistic title="High-Tech Weapons" value={crew.highTechWeaponCount} />}
             </Space>
           </Card>
         )}

@@ -62,7 +62,7 @@ export function BackgroundRoller({ onSelect, selectedBackground }: BackgroundRol
       {selectedBackground && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedBackground.name}
+            title={selectedBackground.name}
             description={selectedBackground.description}
             type="success"
             showIcon

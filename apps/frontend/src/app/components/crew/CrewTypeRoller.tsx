@@ -66,7 +66,7 @@ export function CrewTypeRoller({ onSelect, selectedCrewType }: CrewTypeRollerPro
       {selectedCrewType && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedCrewType.name}
+            title={selectedCrewType.name}
             description={selectedCrewType.description || 'Roll to determine crew member type'}
             type="success"
             showIcon

@@ -1709,391 +1709,292 @@
     }
   ],
   "gear": [
+    { "id": "assault-blade", "name": "Assault Blade", "description": "Standard assault blade for close quarters." },
+    { "id": "beam-light", "name": "Beam Light", "description": "High-intensity beam light for illumination." },
+    { "id": "bipod", "name": "Bipod", "description": "Stability attachment for long-range weapons." },
+    { "id": "booster-pills", "name": "Booster Pills", "description": "Chemical performance enhancers." },
+    { "id": "camo-cloak", "name": "Camo Cloak", "description": "Personal stealth and concealment field." },
+    { "id": "combat-armor", "name": "Combat Armor", "description": "Standard protection for frontline combatants." },
+    { "id": "communicator", "name": "Communicator", "description": "Short to mid-range communication device." },
+    { "id": "concealed-blade", "name": "Concealed Blade", "description": "Hidden melee weapon for emergency use." },
+    { "id": "fake-id", "name": "Fake ID", "description": "Forged identification for bypassing security." },
+    { "id": "fixer", "name": "Fixer", "description": "Emergency field repair tool." },
+    { "id": "frag-vest", "name": "Frag Vest", "description": "Lightweight protection against shrapnel." },
+    { "id": "grapple-launcher", "name": "Grapple Launcher", "description": "Tool for rapid vertical movement." },
+    { "id": "hazard-suit", "description": "Protection against environmental toxins.", "name": "Hazard Suit" },
+    { "id": "laser-sight", "name": "Laser Sight", "description": "Precision aiming attachment." },
+    { "id": "loaded-dice", "name": "Loaded Dice", "description": "Item used to manipulate games of chance." },
+    { "id": "med-patch", "name": "Med-patch", "description": "Disposable rapid-healing medical patch." },
+    { "id": "nano-doc", "name": "Nano-doc", "description": "Nanite-based medical intervention system." },
+    { "id": "purifier", "name": "Purifier", "description": "Device for cleaning contaminated air or water." },
+    { "id": "scanner-bot-gear", "name": "Scanner bot", "description": "Autonomous scanning and detection unit." },
+    { "id": "sector-permit", "name": "Sector Permit", "description": "Official documentation for restricted travel." },
+    { "id": "steel-boots", "name": "Steel Boots", "description": "Reinforced footwear for protection and brawling." },
+    { "id": "tracker-sight", "name": "Tracker Sight", "description": "Enhanced optics for following targets." }
+  ],
+  "gadgets": [
+    { "id": "ai-companion", "name": "AI Companion", "description": "Portable artificial intelligence for technical support." },
+    { "id": "analyzer", "name": "Analyzer", "description": "Device for examining unknown materials and tech." },
+    { "id": "battle-visor", "name": "Battle Visor", "description": "Heads-up display for combat tactical data." },
+    { "id": "boosted-arm", "name": "Boosted Arm", "description": "Cybernetic or mechanical arm enhancement." },
+    { "id": "boosted-leg", "name": "Boosted Leg", "description": "Cybernetic or mechanical leg enhancement." },
+    { "id": "cyber-hand", "name": "Cyber Hand", "description": "High-dexterity cybernetic hand replacement." },
+    { "id": "displacer", "name": "Displacer", "description": "Device used to shift physical position or appearance." },
+    { "id": "distraction-bot", "name": "Distraction Bot", "description": "Deployable unit designed to draw enemy fire." },
+    { "id": "duplicator", "name": "Duplicator", "description": "Advanced tech for copying signatures or data." },
+    { "id": "insta-wall", "name": "Insta-Wall", "description": "Rapid-deployable temporary defensive cover." },
+    { "id": "jump-belt", "name": "Jump Belt", "description": "Short-burst personal flight or leap enhancer." },
+    { "id": "nerve-adjuster", "name": "Nerve Adjuster", "description": "Neurological implant to suppress fear or pain." },
+    { "id": "repair-bot", "name": "Repair Bot", "description": "Autonomous unit for fixing mechanical casualties." },
+    { "id": "scanner-bot-gadget", "name": "Scanner Bot", "description": "Enhanced autonomous reconnaissance unit." },
+    { "id": "screen-generator", "name": "Screen Generator", "description": "Personal energy shield projection." },
+    { "id": "seeker-sight", "name": "Seeker Sight", "description": "Advanced targeting that identifies weak points." },
+    { "id": "shock-attachment", "name": "Shock Attachment", "description": "Weapon upgrade for electrical discharge." },
+    { "id": "snooper-bot", "name": "Snooper Bot", "description": "Small, stealthy drone for surveillance." },
+    { "id": "sonic-emitter", "name": "Sonic Emitter", "description": "Acoustic device for disorienting enemies." },
+    { "id": "stabilizer", "name": "Stabilizer", "description": "Device for recoil management and precision." },
+    { "id": "stealth-gear", "name": "Stealth Gear", "description": "Specialized equipment for avoiding detection." },
+    { "id": "stim-pack", "name": "Stim-pack", "description": "High-intensity chemical combat stimulant." }
+  ],
+  "weapons": [
     {
-      "id": "frag-vest",
-      "name": "Frag Vest",
-      "description": "Frag Vest"
+      "id": "military-rifle",
+      "name": "Military Rifle",
+      "type": "military",
+      "description": "Standard issue military grade rifle."
     },
     {
-      "id": "combat-armour",
-      "name": "Combat armour",
-      "description": "Combat armour"
+      "id": "infantry-laser-military",
+      "name": "Infantry Laser",
+      "type": "military",
+      "description": "Military infantry laser."
     },
     {
-      "id": "screen-generator",
-      "name": "Screen generator",
-      "description": "Screen generator"
+      "id": "marksmans-rifle",
+      "name": "Marksman's Rifle",
+      "type": "military",
+      "description": "Precision military rifle."
     },
     {
-      "id": "displacer",
-      "name": "Displacer",
-      "description": "Displacer"
+      "id": "needle-rifle",
+      "name": "Needle Rifle",
+      "type": "military",
+      "description": "Specialized military needle rifle."
     },
     {
-      "id": "communicator",
-      "name": "Communicator",
-      "description": "Communicator"
+      "id": "auto-rifle",
+      "name": "Auto Rifle",
+      "type": "military",
+      "description": "Automatic military rifle."
     },
     {
-      "id": "purifier",
-      "name": "Purifier",
-      "description": "Purifier"
+      "id": "rattle-gun",
+      "name": "Rattle Gun",
+      "type": "military",
+      "description": "Heavy rate of fire military weapon."
     },
     {
-      "id": "fixer",
-      "name": "Fixer",
-      "description": "Fixer"
+      "id": "boarding-saber",
+      "name": "Boarding Saber",
+      "type": "military",
+      "description": "Military grade melee weapon for ship actions."
     },
     {
-      "id": "insta-wall",
-      "name": "Insta-wall",
-      "description": "Insta-wall"
+      "id": "shatter-axe",
+      "name": "Shatter Axe",
+      "type": "military",
+      "description": "Heavy military melee weapon."
     },
     {
-      "id": "duplicator",
-      "name": "Duplicator",
-      "description": "Duplicator"
+      "id": "handgun",
+      "name": "Handgun",
+      "type": "lowTech",
+      "description": "Standard low tech pistol."
     },
     {
-      "id": "scanbot",
-      "name": "Scanbot",
-      "description": "Scanbot"
+      "id": "scrap-pistol",
+      "name": "Scrap Pistol",
+      "type": "lowTech",
+      "description": "Improvised low tech sidearm."
     },
     {
-      "id": "nano-doc",
-      "name": "Nano-Doc",
-      "description": "Nano-Doc"
+      "id": "machine-pistol",
+      "name": "Machine Pistol",
+      "type": "lowTech",
+      "description": "Rapid fire low tech sidearm."
     },
     {
-      "id": "concealed-blade",
-      "name": "Concealed blade",
-      "description": "Concealed blade"
+      "id": "colony-rifle",
+      "name": "Colony Rifle",
+      "type": "lowTech",
+      "description": "Standard issue long arm for colonists."
     },
     {
-      "id": "stabilizer",
-      "name": "Stabilizer",
-      "description": "Stabilizer"
+      "id": "shotgun",
+      "name": "Shotgun",
+      "type": "lowTech",
+      "description": "Reliable low tech scatter weapon."
     },
     {
-      "id": "jump-belt",
-      "name": "Jump belt",
-      "description": "Jump belt"
+      "id": "hunting-rifle",
+      "name": "Hunting Rifle",
+      "type": "lowTech",
+      "description": "Low tech rifle designed for long range."
     },
     {
-      "id": "micro-launcher",
-      "name": "Micro launcher",
-      "description": "Micro launcher"
+      "id": "blade",
+      "name": "Blade",
+      "type": "lowTech",
+      "description": "Common low tech edged weapon."
     },
     {
-      "id": "sonic-wave-emitter",
-      "name": "Sonic wave emitter",
-      "description": "Sonic wave emitter"
+      "id": "brutal-melee-weapon",
+      "name": "Brutal Melee Weapon",
+      "type": "lowTech",
+      "description": "Heavy or vicious low tech close combat weapon."
     },
     {
-      "id": "assault-attachment",
-      "name": "Assault attachment",
-      "description": "Assault attachment"
+      "id": "dueling-pistol",
+      "name": "Dueling Pistol",
+      "type": "highTech",
+      "description": "High tech precision sidearm."
     },
     {
-      "id": "booster-pills",
-      "name": "Booster pills",
-      "description": "Booster pills"
+      "id": "hand-cannon",
+      "name": "Hand Cannon",
+      "type": "highTech",
+      "description": "Powerful high tech sidearm."
     },
     {
-      "id": "stim-pack",
-      "name": "Stim pack",
-      "description": "Stim pack"
+      "id": "hand-laser",
+      "name": "Hand Laser",
+      "type": "highTech",
+      "description": "Standard high tech laser pistol."
     },
     {
-      "id": "loaded-dice",
-      "name": "Loaded dice",
-      "description": "Loaded dice"
+      "id": "beam-pistol",
+      "name": "Beam Pistol",
+      "type": "highTech",
+      "description": "High tech energy beam sidearm."
+    },
+    {
+      "id": "infantry-laser-hightech",
+      "name": "Infantry Laser",
+      "type": "highTech",
+      "description": "High tech version of the infantry laser."
+    },
+    {
+      "id": "blast-pistol",
+      "name": "Blast Pistol",
+      "type": "highTech",
+      "description": "High tech explosive or concussion sidearm."
+    },
+    {
+      "id": "blast-rifle",
+      "name": "Blast Rifle",
+      "type": "highTech",
+      "description": "Heavy high tech concussion or explosive rifle."
+    },
+    {
+      "id": "plasma-rifle",
+      "name": "Plasma Rifle",
+      "type": "highTech",
+      "description": "Advanced high tech energy weapon."
+    },
+    {
+      "id": "glare-sword",
+      "name": "Glare Sword",
+      "type": "highTech",
+      "description": "Advanced high tech energy melee weapon."
     }
   ],
   "shipTypes": [
     {
       "id": "worn-freighter",
       "name": "Worn freighter",
-      "hull": 5,
-      "description": "Worn freighter"
+      "hull": 30,
+      "description": "A standard reliable cargo vessel. Debt: 1D6 + 20."
     },
     {
       "id": "retired-troop-transport",
       "name": "Retired troop transport",
-      "hull": 6,
-      "description": "Retired troop transport"
+      "hull": 35,
+      "description": "Equipped with Emergency Drives. Debt: 1D6 + 30."
     },
     {
       "id": "strange-alien-vessel",
       "name": "Strange alien vessel",
-      "hull": 4,
-      "description": "Strange alien vessel"
+      "hull": 25,
+      "description": "A mysterious craft of unknown origin. Debt: 1D6 + 15."
     },
     {
       "id": "upgraded-shuttle",
       "name": "Upgraded shuttle",
-      "hull": 4,
-      "description": "Upgraded shuttle"
+      "hull": 20,
+      "description": "Small but highly customized. Debt: 1D6 + 10."
     },
     {
       "id": "retired-scout-ship",
       "name": "Retired scout ship",
-      "description": "Retired scout ship"
+      "hull": 25,
+      "description": "Fuel-efficient long-range vessel. Debt: 1D6 + 20."
     },
     {
-      "id": "re-purposed-science-vessel",
-      "name": "Re-purposed science vessel",
-      "description": "Re-purposed science vessel"
+      "id": "repurposed-science-vessel",
+      "name": "Repurposed science vessel",
+      "hull": 20,
+      "description": "Scientific ship converted for frontier use. Debt: 1D6 + 10."
     },
     {
       "id": "battered-mining-ship",
       "name": "Battered mining ship",
-      "description": "Battered mining ship"
+      "hull": 35,
+      "description": "Sturdy but considered a Fuel Hog. Debt: 1D6 + 20."
     },
     {
       "id": "unreliable-merchant-cruiser",
       "name": "Unreliable merchant cruiser",
-      "hull": 5,
-      "description": "Unreliable merchant cruiser"
+      "hull": 30,
+      "description": "Large merchant ship with some mechanical quirks. Debt: 1D6 + 20."
     },
     {
-      "id": "former-unity-diplomatic-vessel",
-      "name": "Former UNITY diplomatic vessel",
-      "hull": 6,
-      "description": "Former UNITY diplomatic vessel"
+      "id": "former-diplomatic-vessel",
+      "name": "Former diplomatic vessel",
+      "hull": 25,
+      "description": "Sleek ship used for previous negotiations. Debt: 1D6 + 15."
     },
     {
       "id": "ancient-low-tech-craft",
-      "name": "Ancient low tech craft",
-      "hull": 3,
-      "description": "How does it even have a jump drive?"
+      "name": "Ancient low-tech craft",
+      "hull": 35,
+      "description": "Features a Dodgy Drive. Debt: 1D6 + 20."
     },
     {
       "id": "built-from-salvaged-wrecks",
       "name": "Built from salvaged wrecks",
-      "hull": 4,
-      "description": "It's a miracle she flies."
+      "hull": 30,
+      "description": "A miracle it even flies. Debt: 1D6 + 20."
+    },
+    {
+      "id": "worn-colony-ship",
+      "name": "Worn colony ship",
+      "hull": 25,
+      "description": "Standard Issue vessel used for colonization. Debt: 1D6 + 20."
+    },
+    {
+      "id": "retired-military-patrol-ship",
+      "name": "Retired military patrol ship",
+      "hull": 40,
+      "description": "Heavily Armored patrol vessel. Debt: 1D6 + 35."
     }
   ],
   "campaigns": [
-    {
-      "id": "6f3ca8ee-b812-4893-810b-c5a96f3e948d",
-      "name": "Test",
-      "description": "",
-      "status": "no_started",
-      "crewId": "crew-1769347350393",
-      "campaignTurn": 0,
-      "storyPoints": 5,
-      "createdAt": "2026-01-25T13:22:30.364Z",
-      "updatedAt": "2026-01-25T13:22:30.364Z"
-    }
+  
   ],
   "campaignCrews": [
-    {
-      "id": "crew-1769347350393",
-      "campaignId": "6f3ca8ee-b812-4893-810b-c5a96f3e948d",
-      "name": "Test Crew",
-      "description": "Crew for Test",
-      "characterIds": [
-        "1769349042497",
-        "1769349261758",
-        "1769349302282",
-        "1769349355645",
-        "1769349393619",
-        "1769349429903"
-      ],
-      "reputation": 0,
-      "patrons": 2,
-      "rivals": 1,
-      "questRumors": 2,
-      "rumors": 2,
-      "credits": 16,
-      "inBattle": false,
-      "createdAt": "2026-01-25T13:22:30.393Z",
-      "updatedAt": "2026-01-25T13:57:09.903Z",
-      "ship": {
-        "id": "former-unity-diplomatic-vessel",
-        "name": "dsfsdfsdf",
-        "hull": 6,
-        "description": "Former UNITY diplomatic vessel"
-      },
-      "gear": [],
-      "weapons": [],
-      "gadgets": 2,
-      "gears": 1,
-      "lowTechWeapons": 5,
-      "militaryWeapons": 1,
-      "highTechWeapons": 0
-    }
+   
   ],
   "campaignCharacters": [
-    {
-      "id": "1769349042497",
-      "crewId": "crew-1769347350393",
-      "name": "dfsdfsdf",
-      "speciesId": "1",
-      "backgroundId": "wasteland-nomads",
-      "motivationId": "order",
-      "characterClassId": "troubleshooter",
-      "talentIds": [],
-      "isLeader": true,
-      "reactions": 3,
-      "speed": 4,
-      "combat": 0,
-      "toughness": 1,
-      "savvy": 0,
-      "luck": 1,
-      "xp": 0,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:50:42.497Z",
-      "updatedAt": "2026-01-25T16:06:01.456Z"
-    },
-    {
-      "id": "1769349261758",
-      "crewId": "crew-1769347350393",
-      "name": "vvvvvvv",
-      "speciesId": "1",
-      "backgroundId": "isolationist-enclave",
-      "motivationId": "political",
-      "characterClassId": "trader",
-      "talentIds": [],
-      "isLeader": false,
-      "reactions": 1,
-      "speed": 4,
-      "combat": 0,
-      "toughness": 1,
-      "savvy": 0,
-      "luck": 0,
-      "xp": 0,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:54:21.759Z",
-      "updatedAt": "2026-01-25T13:54:21.759Z"
-    },
-    {
-      "id": "1769349302282",
-      "crewId": "crew-1769347350393",
-      "name": "fghfgh",
-      "speciesId": "1",
-      "backgroundId": "drifter",
-      "motivationId": "fame",
-      "characterClassId": "punk",
-      "talentIds": [],
-      "isLeader": false,
-      "reactions": 1,
-      "speed": 4,
-      "combat": 0,
-      "toughness": 1,
-      "savvy": 0,
-      "luck": 0,
-      "xp": 2,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:55:02.282Z",
-      "updatedAt": "2026-01-25T13:55:02.282Z"
-    },
-    {
-      "id": "1769349355645",
-      "crewId": "crew-1769347350393",
-      "name": "fghfgh",
-      "speciesId": "29",
-      "backgroundId": "research-outpost",
-      "motivationId": "glory",
-      "characterClassId": "scientist",
-      "talentIds": [],
-      "isLeader": false,
-      "reactions": 2,
-      "speed": 4,
-      "combat": 2,
-      "toughness": 4,
-      "savvy": 4,
-      "luck": 0,
-      "xp": 0,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:55:55.645Z",
-      "updatedAt": "2026-01-25T13:55:55.645Z"
-    },
-    {
-      "id": "1769349393619",
-      "crewId": "crew-1769347350393",
-      "name": "ffghfgh",
-      "speciesId": "29",
-      "backgroundId": "wealthy-merchant-family",
-      "motivationId": "romance",
-      "characterClassId": "ganger",
-      "talentIds": [],
-      "isLeader": false,
-      "reactions": 3,
-      "speed": 4,
-      "combat": 1,
-      "toughness": 4,
-      "savvy": 2,
-      "luck": 0,
-      "xp": 0,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:56:33.619Z",
-      "updatedAt": "2026-01-25T13:56:33.619Z"
-    },
-    {
-      "id": "1769349429903",
-      "crewId": "crew-1769347350393",
-      "name": "vbnvbn",
-      "speciesId": "1",
-      "backgroundId": "wealthy-merchant-family",
-      "motivationId": "romance",
-      "characterClassId": "artist",
-      "talentIds": [],
-      "isLeader": false,
-      "reactions": 1,
-      "speed": 4,
-      "combat": 0,
-      "toughness": 1,
-      "savvy": 0,
-      "luck": 0,
-      "xp": 0,
-      "level": 1,
-      "isInjured": false,
-      "injuries": [],
-      "weapons": [],
-      "armor": [],
-      "gear": [],
-      "isActive": true,
-      "isDead": false,
-      "createdAt": "2026-01-25T13:57:09.903Z",
-      "updatedAt": "2026-01-25T13:57:09.903Z"
-    }
+   
   ]
 }

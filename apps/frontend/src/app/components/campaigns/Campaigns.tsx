@@ -38,7 +38,7 @@ export function Campaigns() {
   if (error) {
     return (
         <Alert
-          message="Error"
+          title="Error"
           description={error instanceof Error ? error.message : 'Failed to load campaigns'}
           type="error"
           showIcon

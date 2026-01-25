@@ -62,7 +62,7 @@ export function MotivationRoller({ onSelect, selectedMotivation }: MotivationRol
       {selectedMotivation && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedMotivation.name}
+            title={selectedMotivation.name}
             description={selectedMotivation.description}
             type="success"
             showIcon

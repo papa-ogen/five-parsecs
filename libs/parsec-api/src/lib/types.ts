@@ -107,6 +107,12 @@ export interface IGear {
     description: string;
 }
 
+export interface IGadget {
+    id: string;
+    name: string;
+    description: string;
+}
+
 export interface IShipType {
     id: string;
     name: string;
@@ -114,9 +120,12 @@ export interface IShipType {
     description: string;
 }
 
+export type WeaponType = 'military' | 'lowTech' | 'highTech'
+
 export interface IWeapon {
     id: string;
     name: string;
+    type: WeaponType;
     description: string;
 }
 
@@ -171,12 +180,13 @@ export interface ICampaignCrew {
     createdAt: string;
     updatedAt: string;
     gear: IGear[];
+    gadgets: IGadget[];
     weapons: IWeapon[];
-    gadgets: number;
-    gears: number;
-    lowTechWeapons: number;
-    militaryWeapons: number;
-    highTechWeapons: number;
+    gadgetCount: number;
+    gearCount: number;
+    lowTechWeaponCount: number;
+    militaryWeaponCount: number;
+    highTechWeaponCount: number;
 }
 
 export interface ICampaignCharacter {

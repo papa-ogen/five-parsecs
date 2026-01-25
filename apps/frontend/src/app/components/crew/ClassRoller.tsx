@@ -62,7 +62,7 @@ export function ClassRoller({ onSelect, selectedClass }: ClassRollerProps) {
       {selectedClass && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            message={selectedClass.name}
+            title={selectedClass.name}
             description={selectedClass.description}
             type="success"
             showIcon

@@ -166,12 +166,13 @@ export class DatabaseService implements OnModuleInit {
             credits: 0,
             inBattle: false,
             gear: [],
+            gadgets: [],
             weapons: [],
-            gadgets: 1,
-            gears: 1,
-            lowTechWeapons: 3,
-            militaryWeapons: 0,
-            highTechWeapons: 0,
+            gadgetCount: 0,
+            gearCount: 0,
+            lowTechWeaponCount: 0,
+            militaryWeaponCount: 0,
+            highTechWeaponCount: 0,
             createdAt: now,
             updatedAt: now,
         };
@@ -395,18 +396,18 @@ export class DatabaseService implements OnModuleInit {
                     switch (item.itemType) {
                         case 'weapon':
                             if (item.subtype === 'lowTech') {
-                                crew.lowTechWeapons += item.amount;
+                                crew.lowTechWeaponCount += item.amount;
                             } else if (item.subtype === 'military') {
-                                crew.militaryWeapons += item.amount;
+                                crew.militaryWeaponCount += item.amount;
                             } else if (item.subtype === 'highTech') {
-                                crew.highTechWeapons += item.amount;
+                                crew.highTechWeaponCount += item.amount;
                             }
                             break;
                         case 'gear':
-                            crew.gears += item.amount;
+                            crew.gearCount += item.amount;
                             break;
                         case 'gadget':
-                            crew.gadgets += item.amount;
+                            crew.gadgetCount += item.amount;
                             break;
                     }
                 }
