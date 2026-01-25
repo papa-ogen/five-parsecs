@@ -1,7 +1,7 @@
-import { PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { CrownOutlined, PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import type { ICampaignCharacter } from '@five-parsecs/parsec-api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { App, Button, Card, Empty, List, Space, Spin, Tag, Tooltip, Typography } from 'antd';
+import { App, Button, Card, Empty, List, Modal, Space, Spin, Tag, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../../services/api';
@@ -14,6 +14,8 @@ const { Title, Text } = Typography;
 export function Crew() {
   const { selectedCampaign } = useCampaign();
   const [modalOpen, setModalOpen] = useState(false);
+  const [leaderModalOpen, setLeaderModalOpen] = useState(false);
+  const [selectedCharacterForLeader, setSelectedCharacterForLeader] = useState<ICampaignCharacter | null>(null);
   const { message } = App.useApp();
   const queryClient = useQueryClient();
 
@@ -29,6 +31,18 @@ export function Crew() {
     queryKey: ['campaignCharacters'],
     queryFn: api.campaignCharacters.getAll,
   });
+
+  // Fetch all species for displaying species names
+  const { data: allSpecies } = useQuery({
+    queryKey: ['species'],
+    queryFn: api.species.getAll,
+  });
+
+  // Helper function to get species name by ID
+  const getSpeciesName = (speciesId: string) => {
+    const species = allSpecies?.find(s => s.id === speciesId);
+    return species?.name || 'Unknown';
+  };
 
   const createCharacterMutation = useMutation({
     mutationFn: (data: Partial<ICampaignCharacter>) => api.campaignCharacters.create(data),
@@ -54,6 +68,21 @@ export function Crew() {
     onError: (error) => {
       console.error('Failed to create crew member:', error);
       message.error('Failed to create crew member');
+    },
+  });
+
+  const updateCharacterMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: Partial<ICampaignCharacter> }) =>
+      api.campaignCharacters.update(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
+      message.success('Leader selected successfully!');
+      setLeaderModalOpen(false);
+      setSelectedCharacterForLeader(null);
+    },
+    onError: (error) => {
+      console.error('Failed to update character:', error);
+      message.error('Failed to select leader');
     },
   });
 
@@ -115,6 +144,27 @@ export function Crew() {
     createCharacterMutation.mutate(characterData);
   };
 
+  const handleSelectLeader = (character: ICampaignCharacter) => {
+    setSelectedCharacterForLeader(character);
+    setLeaderModalOpen(true);
+  };
+
+  const handleConfirmLeader = () => {
+    if (!selectedCharacterForLeader) return;
+
+    // Bots (speciesId "29") don't receive luck bonus
+    const isBot = selectedCharacterForLeader.speciesId === '29';
+    const luckBonus = isBot ? 0 : 1;
+
+    updateCharacterMutation.mutate({
+      id: selectedCharacterForLeader.id,
+      data: {
+        isLeader: true,
+        luck: selectedCharacterForLeader.luck + luckBonus,
+      },
+    });
+  };
+
   if (isLoading) {
     return (
       <Card style={{ width: '100%', textAlign: 'center', padding: '50px' }}>
@@ -125,6 +175,7 @@ export function Crew() {
 
   const hasCrewMembers = crewMembers.length > 0;
   const isCrewFull = crewMembers.length >= 6;
+  const hasLeader = crewMembers.some(char => char.isLeader);
 
   if (hasCrewMembers) {
     return (
@@ -160,6 +211,16 @@ export function Crew() {
                 <Button key="view" type="link">
                   View
                 </Button>,
+                ...(!hasLeader && !character.isLeader ? [
+                  <Button 
+                    key="leader" 
+                    type="link" 
+                    icon={<CrownOutlined />}
+                    onClick={() => handleSelectLeader(character)}
+                  >
+                    Select Leader
+                  </Button>
+                ] : []),
               ]}
             >
               <List.Item.Meta
@@ -183,13 +244,19 @@ export function Crew() {
                 title={
                   <Space>
                     <Text strong>{character.name}</Text>
+                    {character.isLeader && (
+                      <Tag color="gold" icon={<CrownOutlined />}>
+                        Leader
+                      </Tag>
+                    )}
+                    <Tag color="purple">{getSpeciesName(character.speciesId)}</Tag>
                     {character.isDead && <Tag color="red">Dead</Tag>}
                     {character.isInjured && <Tag color="orange">Injured</Tag>}
                     {!character.isActive && <Tag color="default">Inactive</Tag>}
                   </Space>
                 }
                 description={
-                  <Space direction="vertical" size="small">
+                  <Space orientation="vertical" size="small">
                     <Space size="small" wrap>
                       <Tag>Level {character.level}</Tag>
                       <Tag>XP: {character.xp}</Tag>
@@ -213,6 +280,45 @@ export function Crew() {
           onClose={handleModalClose}
           onSubmit={handleCreateMember}
         />
+
+        <Modal
+          title={
+            <Space>
+              <CrownOutlined style={{ color: '#faad14' }} />
+              <span>Confirm Leader Selection</span>
+            </Space>
+          }
+          open={leaderModalOpen}
+          onCancel={() => {
+            setLeaderModalOpen(false);
+            setSelectedCharacterForLeader(null);
+          }}
+          onOk={handleConfirmLeader}
+          okText="Confirm"
+          okButtonProps={{ danger: true }}
+        >
+          <Space direction="vertical" size="large" style={{ width: '100%' }}>
+            <Text>
+              Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
+            </Text>
+            <Text type="warning" strong>
+              ⚠️ This decision cannot be changed later!
+            </Text>
+            {selectedCharacterForLeader?.speciesId === '29' ? (
+              <Text type="secondary">
+                The selected character will be designated as the crew leader.
+                <br />
+                <Text type="secondary" italic>
+                  Note: Bots do not receive the +1 Luck bonus when selected as leader.
+                </Text>
+              </Text>
+            ) : (
+              <Text type="secondary">
+                The selected character will receive +1 Luck and will be designated as the crew leader.
+              </Text>
+            )}
+          </Space>
+        </Modal>
       </Card>
     );
   }
@@ -232,7 +338,7 @@ export function Crew() {
       <Empty
         image={<TeamOutlined style={{ fontSize: 48, color: '#1890ff' }} />}
         description={
-          <Space direction="vertical">
+          <Space orientation="vertical">
             <Text type="secondary">
               No crew members yet. Create your crew to start your adventure!
             </Text>
@@ -259,6 +365,45 @@ export function Crew() {
         onClose={handleModalClose}
         onSubmit={handleCreateMember}
       />
+
+      <Modal
+        title={
+          <Space>
+            <CrownOutlined style={{ color: '#faad14' }} />
+            <span>Confirm Leader Selection</span>
+          </Space>
+        }
+        open={leaderModalOpen}
+        onCancel={() => {
+          setLeaderModalOpen(false);
+          setSelectedCharacterForLeader(null);
+        }}
+        onOk={handleConfirmLeader}
+        okText="Confirm"
+        okButtonProps={{ danger: true }}
+      >
+        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+          <Text>
+            Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
+          </Text>
+          <Text type="warning" strong>
+            ⚠️ This decision cannot be changed later!
+          </Text>
+          {selectedCharacterForLeader?.speciesId === '29' ? (
+            <Text type="secondary">
+              The selected character will be designated as the crew leader.
+              <br />
+              <Text type="secondary" italic>
+                Note: Bots do not receive the +1 Luck bonus when selected as leader.
+              </Text>
+            </Text>
+          ) : (
+            <Text type="secondary">
+              The selected character will receive +1 Luck and will be designated as the crew leader.
+            </Text>
+          )}
+        </Space>
+      </Modal>
     </Card>
   );
 }

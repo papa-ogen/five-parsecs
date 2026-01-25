@@ -200,6 +200,7 @@ export interface ICampaignCharacter {
     combat: number;
     toughness: number;
     savvy: number;
+    luck: number;
 
     // Character Status
     xp: number;
