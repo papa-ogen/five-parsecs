@@ -15,22 +15,56 @@ export interface ISpeciesAbility {
     luck?: number;
 }
 
+
+export interface IEffect {
+    id: string;
+    abilityId: string;
+    amount: number;
+    description: string;
+}
+
+export type ResourceType = 'credits' | 'storyPoints' | 'reputation' | 'patrons' | 'rivals' | 'questRumors' | 'rumor';
+
+export interface IDiceRoll {
+    numDice: number;    // Number of dice to roll
+    diceSize: number;   // Size of each die (6 for D6, etc.)
+    modifier?: number;  // Optional fixed modifier (+1, +2, etc.)
+}
+
+export interface IResourceEffect {
+    id: string;
+    resourceType: ResourceType;
+    amount: number | IDiceRoll; // Fixed amount or dice roll
+    description: string;
+}
+
+export type ItemType = 'weapon' | 'gear' | 'gadget' | 'armor';
+export type WeaponSubtype = 'military' | 'lowTech' | 'highTech' | 'any';
+
+export interface IStartingItem {
+    id: string;
+    itemType: ItemType;
+    subtype?: WeaponSubtype;  // Only for weapons
+    amount: number;
+    description: string;
+}
+
 export interface IMotivation {
     id: string;
     name: string;
     description: string;
-    effect: string;
-    resources: string;
-    startingRolls: string;
+    effect: IEffect[];
+    resources: IResourceEffect[];
+    startingRolls: IStartingItem[];
 }
 
 export interface ICharacterClass {
     id: string;
     name: string;
     description: string;
-    effect: string;
-    resources: string;
-    startingRolls: string;
+    effect: IEffect[];
+    resources: IResourceEffect[];
+    startingRolls: IStartingItem[];
 }
 
 export interface ITalent {
@@ -44,9 +78,9 @@ export interface IBackground {
     id: string;
     name: string;
     description: string;
-    effect: string;
-    resources: string;
-    startinRolls: string
+    effect: IEffect[];
+    resources: IResourceEffect[];
+    startingRolls: IStartingItem[];
 }
 
 export interface ICrewType {
@@ -135,6 +169,13 @@ export interface ICampaignCrew {
     credits: number;
     createdAt: string;
     updatedAt: string;
+    gear: IGear[];
+    weapons: IWeapon[];
+    gadgets: number;
+    gears: number;
+    lowTechWeapons: number;
+    militaryWeapons: number;
+    highTechWeapons: number;
 }
 
 export interface ICampaignCharacter {
