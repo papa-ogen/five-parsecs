@@ -37,6 +37,14 @@ export function CrewDetails() {
 
         <Space size="large" wrap>
           <Statistic title="Credits" value={crew.credits} prefix={<DollarCircleOutlined />} />
+          {crew.debt > 0 && (
+            <Statistic 
+              title="Debt" 
+              value={crew.debt} 
+              prefix={<DollarCircleOutlined />}
+              formatter={(value) => <span style={{ color: '#ff4d4f' }}>{value}</span>}
+            />
+          )}
           <Statistic title="Reputation" value={crew.reputation} />
           <Statistic title="Patrons" value={crew.patrons} />
           <Statistic title="Rivals" value={crew.rivals} />

@@ -164,14 +164,15 @@ export class DatabaseService implements OnModuleInit {
             questRumors: 0,
             rumors: 0,
             credits: 0,
+            debt: 0,
             inBattle: false,
             gear: [],
             gadgets: [],
             weapons: [],
-            gadgetCount: 0,
-            gearCount: 0,
-            lowTechWeaponCount: 0,
-            militaryWeaponCount: 0,
+            gadgetCount: 1,
+            gearCount: 1,
+            lowTechWeaponCount: 3,
+            militaryWeaponCount: 3,
             highTechWeaponCount: 0,
             createdAt: now,
             updatedAt: now,
@@ -232,6 +233,14 @@ export class DatabaseService implements OnModuleInit {
         await this.db.read();
         const crew = this.db.data.campaignCrews.find((c) => c.id === id);
         if (crew) {
+            // If a ship is being added and crew doesn't have one yet, add ship cost to debt
+            // Ship cost is base cost + 1D6 roll
+            if (updates.ship && !crew.ship && updates.ship.cost !== undefined) {
+                const diceRoll = Math.floor(Math.random() * 6) + 1; // Roll 1D6
+                const totalCost = updates.ship.cost + diceRoll;
+                updates.debt = (crew.debt || 0) + totalCost;
+            }
+
             Object.assign(crew, updates, { updatedAt: new Date().toISOString() });
             await this.db.write();
         }
@@ -312,7 +321,6 @@ export class DatabaseService implements OnModuleInit {
             backgroundId: data.backgroundId || '',
             motivationId: data.motivationId || '',
             characterClassId: data.characterClassId || '',
-            talentIds: data.talentIds || [],
             isLeader: data.isLeader || false,
             reactions,
             speed,

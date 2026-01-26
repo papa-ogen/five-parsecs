@@ -129,7 +129,6 @@ export function Crew() {
       backgroundId: data.background?.id || '',
       motivationId: data.motivation?.id || '',
       characterClassId: data.characterClass?.id || '',
-      talentIds: [],
       level: 1,
       isInjured: false,
       injuries: [],
@@ -257,7 +256,7 @@ export function Crew() {
                       <Text type="secondary" style={{ fontSize: '12px' }}>
                         Reactions: {character.reactions} | Speed: {character.speed} | 
                         Combat: {character.combat} | Toughness: {character.toughness} | 
-                        Savvy: {character.savvy}
+                        Savvy: {character.savvy} {character.luck > 0 ? `| Luck: ${character.luck}` : ''}
                       </Text>
                     </Space>
                   </Space>

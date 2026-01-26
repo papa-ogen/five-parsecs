@@ -1521,240 +1521,229 @@
       ]
     }
   ],
-  "talents": [
+  "gear": [
     {
-      "id": "sharp-shooter",
-      "name": "Sharp shooter",
-      "description": "Once per game, may roll 1 extra Kill die for any attack."
+      "id": "assault-blade",
+      "name": "Assault Blade",
+      "description": "Standard assault blade for close quarters."
     },
     {
-      "id": "rapid-fire",
-      "name": "Rapid fire",
-      "description": "Once per game, may roll 1 extra Shock die for any attack."
+      "id": "beam-light",
+      "name": "Beam Light",
+      "description": "High-intensity beam light for illumination."
     },
     {
-      "id": "sentry",
-      "name": "Sentry",
-      "description": "If deployed as sentry against a stealth mission, increase all sight ranges by 2\"."
+      "id": "bipod",
+      "name": "Bipod",
+      "description": "Stability attachment for long-range weapons."
     },
     {
-      "id": "brave",
-      "name": "Brave",
-      "description": "All Bail results on this figure are treated as Flinching instead."
+      "id": "booster-pills",
+      "name": "Booster Pills",
+      "description": "Chemical performance enhancers."
     },
     {
-      "id": "tough",
-      "name": "Tough",
-      "description": "The figure may ignore the first hit taken each game."
+      "id": "camo-cloak",
+      "name": "Camo Cloak",
+      "description": "Personal stealth and concealment field."
     },
     {
-      "id": "brawler",
-      "name": "Brawler",
-      "description": "+1 bonus to all Brawling rolls."
+      "id": "combat-armor",
+      "name": "Combat Armor",
+      "description": "Standard protection for frontline combatants."
     },
     {
-      "id": "quick",
-      "name": "Quick",
-      "description": "Standard move increased by 2\". No impact on Dash moves."
+      "id": "communicator",
+      "name": "Communicator",
+      "description": "Short to mid-range communication device."
     },
     {
-      "id": "runner",
-      "name": "Runner",
-      "description": "When Dashing, roll twice and pick the higher score."
+      "id": "concealed-blade",
+      "name": "Concealed Blade",
+      "description": "Hidden melee weapon for emergency use."
     },
     {
-      "id": "right-place",
-      "name": "Right Place",
-      "description": "During non-Scurry and non-Fire Fight turns, if this figure is not activated, it may take a 2\" move at the end of your turn."
+      "id": "fake-id",
+      "name": "Fake ID",
+      "description": "Forged identification for bypassing security."
     },
     {
-      "id": "shoot-and-scoot",
-      "name": "Shoot and Scoot",
-      "description": "When a Fire Fight is rolled, this figure may be moved up to 4\" before firing."
+      "id": "fixer",
+      "name": "Fixer",
+      "description": "Emergency field repair tool."
     },
     {
-      "id": "covering-fire",
-      "name": "Covering Fire",
-      "description": "When a Scurry is rolled, this figure may fire after moving."
+      "id": "frag-vest",
+      "name": "Frag Vest",
+      "description": "Lightweight protection against shrapnel."
     },
     {
-      "id": "evasive-move",
-      "name": "Evasive Move",
-      "description": "This figure is never subject to Guard Fire."
+      "id": "grapple-launcher",
+      "name": "Grapple Launcher",
+      "description": "Tool for rapid vertical movement."
     },
     {
-      "id": "assault",
-      "name": "Assault",
-      "description": "This figure is never subject to Snap Fire."
+      "id": "hazard-suit",
+      "description": "Protection against environmental toxins.",
+      "name": "Hazard Suit"
     },
     {
-      "id": "accurate",
-      "name": "Accurate",
-      "description": "Weapons with limited range increase it by 4\"."
+      "id": "laser-sight",
+      "name": "Laser Sight",
+      "description": "Precision aiming attachment."
     },
     {
-      "id": "defensive-fire",
-      "name": "Defensive Fire",
-      "description": "Figure may Snap Fire out to 8\" range."
+      "id": "loaded-dice",
+      "name": "Loaded Dice",
+      "description": "Item used to manipulate games of chance."
     },
     {
-      "id": "over-watch",
-      "name": "Over Watch",
-      "description": "Once per turn, when Guard Firing the figure may trade 1 Shock die for 1 Kill die."
+      "id": "med-patch",
+      "name": "Med-patch",
+      "description": "Disposable rapid-healing medical patch."
     },
     {
-      "id": "guts",
-      "name": "Guts",
-      "description": "When activated, this figure will automatically rally from having Bailed."
+      "id": "nano-doc",
+      "name": "Nano-doc",
+      "description": "Nanite-based medical intervention system."
     },
     {
-      "id": "motivator",
-      "name": "Motivator",
-      "description": "If moving into contact with a Bailed figure, the figure recovers automatically."
+      "id": "purifier",
+      "name": "Purifier",
+      "description": "Device for cleaning contaminated air or water."
     },
     {
-      "id": "ambush",
-      "name": "Ambush",
-      "description": "If Displaced, the figure may choose where to Displace to, provided it is within 6\"."
+      "id": "scanner-bot-gear",
+      "name": "Scanner bot",
+      "description": "Autonomous scanning and detection unit."
     },
     {
-      "id": "infiltrator",
-      "name": "Infiltrator",
-      "description": "After all figures have set up, the figure may take a free Scurry move."
+      "id": "sector-permit",
+      "name": "Sector Permit",
+      "description": "Official documentation for restricted travel."
     },
     {
-      "id": "strong-arm",
-      "name": "Strong Arm",
-      "description": "The figure always counts as stationary when firing, even if it moved."
+      "id": "steel-boots",
+      "name": "Steel Boots",
+      "description": "Reinforced footwear for protection and brawling."
     },
     {
-      "id": "field-craft",
-      "name": "Field Craft",
-      "description": "All rough terrain may be treated as cover."
-    },
-    {
-      "id": "throwing",
-      "name": "Throwing",
-      "description": "When throwing grenades, the direction and distance of the first bounce may be rolled twice and either result chosen."
-    },
-    {
-      "id": "skilled",
-      "name": "Skilled",
-      "description": "Once per mission, may roll twice for a Task roll."
-    },
-    {
-      "id": "charisma",
-      "name": "Charisma",
-      "description": "+1 to all Persuasion attempts and re-roll one Bluff per game."
-    },
-    {
-      "id": "rallying-cry",
-      "name": "Rallying Cry",
-      "description": "When this figure is activated, any friendly figure within 4\" may roll to recover from having Bailed."
-    },
-    {
-      "id": "stealthy",
-      "name": "Stealthy",
-      "description": "During Stealth segments, this figure may move 6\" per turn."
-    },
-    {
-      "id": "aggressive",
-      "name": "Aggressive",
-      "description": "If a Brawl ends in a draw, the player may choose to have both sides roll again."
-    },
-    {
-      "id": "inspiring",
-      "name": "Inspiring",
-      "description": "While this figure is on their feet, any friends within 4\" treat Bail results as Flinching."
-    },
-    {
-      "id": "last-gasp",
-      "name": "Last Gasp",
-      "description": "If this figure goes out of action for any reason, they may immediately fire at a target in range and line of sight."
-    },
-    {
-      "id": "intrusion",
-      "name": "Intrusion",
-      "description": "Once per game, get one Hack for free."
-    },
-    {
-      "id": "people-skills",
-      "name": "People Skills",
-      "description": "One other figure in group may ignore 1 Shock die result per game."
-    },
-    {
-      "id": "repair",
-      "name": "Repair",
-      "description": "Once per game, may roll twice for a Repair."
-    },
-    {
-      "id": "lucky-dodge",
-      "name": "Lucky Dodge",
-      "description": "First time figure is defeated in a Brawl, move 3\" in a random direction instead."
-    },
-    {
-      "id": "maintenance",
-      "name": "Maintenance",
-      "description": "May ignore one unreliable item per game."
-    },
-    {
-      "id": "bargain",
-      "name": "Bargain",
-      "description": "Each campaign turn, roll 1D6. On a 1 or 6, get a free Trade item."
-    },
-    {
-      "id": "counter-attack",
-      "name": "Counter Attack",
-      "description": "If attacked in Brawl, may re-roll dice roll."
+      "id": "tracker-sight",
+      "name": "Tracker Sight",
+      "description": "Enhanced optics for following targets."
     }
   ],
-  "gear": [
-    { "id": "assault-blade", "name": "Assault Blade", "description": "Standard assault blade for close quarters." },
-    { "id": "beam-light", "name": "Beam Light", "description": "High-intensity beam light for illumination." },
-    { "id": "bipod", "name": "Bipod", "description": "Stability attachment for long-range weapons." },
-    { "id": "booster-pills", "name": "Booster Pills", "description": "Chemical performance enhancers." },
-    { "id": "camo-cloak", "name": "Camo Cloak", "description": "Personal stealth and concealment field." },
-    { "id": "combat-armor", "name": "Combat Armor", "description": "Standard protection for frontline combatants." },
-    { "id": "communicator", "name": "Communicator", "description": "Short to mid-range communication device." },
-    { "id": "concealed-blade", "name": "Concealed Blade", "description": "Hidden melee weapon for emergency use." },
-    { "id": "fake-id", "name": "Fake ID", "description": "Forged identification for bypassing security." },
-    { "id": "fixer", "name": "Fixer", "description": "Emergency field repair tool." },
-    { "id": "frag-vest", "name": "Frag Vest", "description": "Lightweight protection against shrapnel." },
-    { "id": "grapple-launcher", "name": "Grapple Launcher", "description": "Tool for rapid vertical movement." },
-    { "id": "hazard-suit", "description": "Protection against environmental toxins.", "name": "Hazard Suit" },
-    { "id": "laser-sight", "name": "Laser Sight", "description": "Precision aiming attachment." },
-    { "id": "loaded-dice", "name": "Loaded Dice", "description": "Item used to manipulate games of chance." },
-    { "id": "med-patch", "name": "Med-patch", "description": "Disposable rapid-healing medical patch." },
-    { "id": "nano-doc", "name": "Nano-doc", "description": "Nanite-based medical intervention system." },
-    { "id": "purifier", "name": "Purifier", "description": "Device for cleaning contaminated air or water." },
-    { "id": "scanner-bot-gear", "name": "Scanner bot", "description": "Autonomous scanning and detection unit." },
-    { "id": "sector-permit", "name": "Sector Permit", "description": "Official documentation for restricted travel." },
-    { "id": "steel-boots", "name": "Steel Boots", "description": "Reinforced footwear for protection and brawling." },
-    { "id": "tracker-sight", "name": "Tracker Sight", "description": "Enhanced optics for following targets." }
-  ],
   "gadgets": [
-    { "id": "ai-companion", "name": "AI Companion", "description": "Portable artificial intelligence for technical support." },
-    { "id": "analyzer", "name": "Analyzer", "description": "Device for examining unknown materials and tech." },
-    { "id": "battle-visor", "name": "Battle Visor", "description": "Heads-up display for combat tactical data." },
-    { "id": "boosted-arm", "name": "Boosted Arm", "description": "Cybernetic or mechanical arm enhancement." },
-    { "id": "boosted-leg", "name": "Boosted Leg", "description": "Cybernetic or mechanical leg enhancement." },
-    { "id": "cyber-hand", "name": "Cyber Hand", "description": "High-dexterity cybernetic hand replacement." },
-    { "id": "displacer", "name": "Displacer", "description": "Device used to shift physical position or appearance." },
-    { "id": "distraction-bot", "name": "Distraction Bot", "description": "Deployable unit designed to draw enemy fire." },
-    { "id": "duplicator", "name": "Duplicator", "description": "Advanced tech for copying signatures or data." },
-    { "id": "insta-wall", "name": "Insta-Wall", "description": "Rapid-deployable temporary defensive cover." },
-    { "id": "jump-belt", "name": "Jump Belt", "description": "Short-burst personal flight or leap enhancer." },
-    { "id": "nerve-adjuster", "name": "Nerve Adjuster", "description": "Neurological implant to suppress fear or pain." },
-    { "id": "repair-bot", "name": "Repair Bot", "description": "Autonomous unit for fixing mechanical casualties." },
-    { "id": "scanner-bot-gadget", "name": "Scanner Bot", "description": "Enhanced autonomous reconnaissance unit." },
-    { "id": "screen-generator", "name": "Screen Generator", "description": "Personal energy shield projection." },
-    { "id": "seeker-sight", "name": "Seeker Sight", "description": "Advanced targeting that identifies weak points." },
-    { "id": "shock-attachment", "name": "Shock Attachment", "description": "Weapon upgrade for electrical discharge." },
-    { "id": "snooper-bot", "name": "Snooper Bot", "description": "Small, stealthy drone for surveillance." },
-    { "id": "sonic-emitter", "name": "Sonic Emitter", "description": "Acoustic device for disorienting enemies." },
-    { "id": "stabilizer", "name": "Stabilizer", "description": "Device for recoil management and precision." },
-    { "id": "stealth-gear", "name": "Stealth Gear", "description": "Specialized equipment for avoiding detection." },
-    { "id": "stim-pack", "name": "Stim-pack", "description": "High-intensity chemical combat stimulant." }
+    {
+      "id": "ai-companion",
+      "name": "AI Companion",
+      "description": "Portable artificial intelligence for technical support."
+    },
+    {
+      "id": "analyzer",
+      "name": "Analyzer",
+      "description": "Device for examining unknown materials and tech."
+    },
+    {
+      "id": "battle-visor",
+      "name": "Battle Visor",
+      "description": "Heads-up display for combat tactical data."
+    },
+    {
+      "id": "boosted-arm",
+      "name": "Boosted Arm",
+      "description": "Cybernetic or mechanical arm enhancement."
+    },
+    {
+      "id": "boosted-leg",
+      "name": "Boosted Leg",
+      "description": "Cybernetic or mechanical leg enhancement."
+    },
+    {
+      "id": "cyber-hand",
+      "name": "Cyber Hand",
+      "description": "High-dexterity cybernetic hand replacement."
+    },
+    {
+      "id": "displacer",
+      "name": "Displacer",
+      "description": "Device used to shift physical position or appearance."
+    },
+    {
+      "id": "distraction-bot",
+      "name": "Distraction Bot",
+      "description": "Deployable unit designed to draw enemy fire."
+    },
+    {
+      "id": "duplicator",
+      "name": "Duplicator",
+      "description": "Advanced tech for copying signatures or data."
+    },
+    {
+      "id": "insta-wall",
+      "name": "Insta-Wall",
+      "description": "Rapid-deployable temporary defensive cover."
+    },
+    {
+      "id": "jump-belt",
+      "name": "Jump Belt",
+      "description": "Short-burst personal flight or leap enhancer."
+    },
+    {
+      "id": "nerve-adjuster",
+      "name": "Nerve Adjuster",
+      "description": "Neurological implant to suppress fear or pain."
+    },
+    {
+      "id": "repair-bot",
+      "name": "Repair Bot",
+      "description": "Autonomous unit for fixing mechanical casualties."
+    },
+    {
+      "id": "scanner-bot-gadget",
+      "name": "Scanner Bot",
+      "description": "Enhanced autonomous reconnaissance unit."
+    },
+    {
+      "id": "screen-generator",
+      "name": "Screen Generator",
+      "description": "Personal energy shield projection."
+    },
+    {
+      "id": "seeker-sight",
+      "name": "Seeker Sight",
+      "description": "Advanced targeting that identifies weak points."
+    },
+    {
+      "id": "shock-attachment",
+      "name": "Shock Attachment",
+      "description": "Weapon upgrade for electrical discharge."
+    },
+    {
+      "id": "snooper-bot",
+      "name": "Snooper Bot",
+      "description": "Small, stealthy drone for surveillance."
+    },
+    {
+      "id": "sonic-emitter",
+      "name": "Sonic Emitter",
+      "description": "Acoustic device for disorienting enemies."
+    },
+    {
+      "id": "stabilizer",
+      "name": "Stabilizer",
+      "description": "Device for recoil management and precision."
+    },
+    {
+      "id": "stealth-gear",
+      "name": "Stealth Gear",
+      "description": "Specialized equipment for avoiding detection."
+    },
+    {
+      "id": "stim-pack",
+      "name": "Stim-pack",
+      "description": "High-intensity chemical combat stimulant."
+    }
   ],
   "weapons": [
     {
@@ -1913,88 +1902,310 @@
       "id": "worn-freighter",
       "name": "Worn freighter",
       "hull": 30,
-      "description": "A standard reliable cargo vessel. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "A standard reliable cargo vessel."
     },
     {
       "id": "retired-troop-transport",
       "name": "Retired troop transport",
       "hull": 35,
-      "description": "Equipped with Emergency Drives. Debt: 1D6 + 30."
+      "cost": 30,
+      "description": "Equipped with Emergency Drives."
     },
     {
       "id": "strange-alien-vessel",
       "name": "Strange alien vessel",
       "hull": 25,
-      "description": "A mysterious craft of unknown origin. Debt: 1D6 + 15."
+      "cost": 15,
+      "description": "A mysterious craft of unknown origin."
     },
     {
       "id": "upgraded-shuttle",
       "name": "Upgraded shuttle",
       "hull": 20,
-      "description": "Small but highly customized. Debt: 1D6 + 10."
+      "cost": 10,
+      "description": "Small but highly customized."
     },
     {
       "id": "retired-scout-ship",
       "name": "Retired scout ship",
       "hull": 25,
-      "description": "Fuel-efficient long-range vessel. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "Fuel-efficient long-range vessel."
     },
     {
       "id": "repurposed-science-vessel",
       "name": "Repurposed science vessel",
       "hull": 20,
-      "description": "Scientific ship converted for frontier use. Debt: 1D6 + 10."
+      "cost": 10,
+      "description": "Scientific ship converted for frontier use."
     },
     {
       "id": "battered-mining-ship",
       "name": "Battered mining ship",
       "hull": 35,
-      "description": "Sturdy but considered a Fuel Hog. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "Sturdy but considered a Fuel Hog."
     },
     {
       "id": "unreliable-merchant-cruiser",
       "name": "Unreliable merchant cruiser",
       "hull": 30,
-      "description": "Large merchant ship with some mechanical quirks. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "Large merchant ship with some mechanical quirks."
     },
     {
       "id": "former-diplomatic-vessel",
       "name": "Former diplomatic vessel",
       "hull": 25,
-      "description": "Sleek ship used for previous negotiations. Debt: 1D6 + 15."
+      "cost": 15,
+      "description": "Sleek ship used for previous negotiations."
     },
     {
       "id": "ancient-low-tech-craft",
       "name": "Ancient low-tech craft",
       "hull": 35,
-      "description": "Features a Dodgy Drive. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "Features a Dodgy Drive."
     },
     {
       "id": "built-from-salvaged-wrecks",
       "name": "Built from salvaged wrecks",
       "hull": 30,
-      "description": "A miracle it even flies. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "A miracle it even flies."
     },
     {
       "id": "worn-colony-ship",
       "name": "Worn colony ship",
       "hull": 25,
-      "description": "Standard Issue vessel used for colonization. Debt: 1D6 + 20."
+      "cost": 20,
+      "description": "Standard Issue vessel used for colonization."
     },
     {
       "id": "retired-military-patrol-ship",
       "name": "Retired military patrol ship",
       "hull": 40,
-      "description": "Heavily Armored patrol vessel. Debt: 1D6 + 35."
+      "cost": 35,
+      "description": "Heavily Armored patrol vessel."
     }
   ],
   "campaigns": [
-  
+    {
+      "id": "21ed59e3-fa2c-4859-87bb-ae8a70e2a5d0",
+      "name": "lorem",
+      "description": "",
+      "status": "no_started",
+      "crewId": "crew-1769360208921",
+      "campaignTurn": 0,
+      "storyPoints": 1,
+      "createdAt": "2026-01-25T16:56:48.882Z",
+      "updatedAt": "2026-01-25T16:56:48.884Z"
+    }
   ],
   "campaignCrews": [
-   
+    {
+      "id": "crew-1769360208921",
+      "campaignId": "21ed59e3-fa2c-4859-87bb-ae8a70e2a5d0",
+      "name": "lorem Crew",
+      "description": "Crew for lorem",
+      "characterIds": [
+        "1769360721258",
+        "1769360777111",
+        "1769360803755",
+        "1769360837258",
+        "1769360975405",
+        "1769361012772"
+      ],
+      "reputation": 0,
+      "patrons": 1,
+      "rivals": 3,
+      "questRumors": 2,
+      "rumors": 1,
+      "credits": 16,
+      "inBattle": false,
+      "gear": [],
+      "gadgets": [],
+      "weapons": [],
+      "gadgetCount": 1,
+      "gearCount": 2,
+      "lowTechWeaponCount": 3,
+      "militaryWeaponCount": 3,
+      "highTechWeaponCount": 1,
+      "createdAt": "2026-01-25T16:56:48.921Z",
+      "updatedAt": "2026-01-25T17:10:12.772Z",
+      "ship": {
+        "id": "ancient-low-tech-craft",
+        "name": "vvvvv",
+        "hull": 35,
+        "cost": 20,
+        "description": "Features a Dodgy Drive."
+      },
+      "debt": 22
+    }
   ],
   "campaignCharacters": [
-   
+    {
+      "id": "1769360721258",
+      "crewId": "crew-1769360208921",
+      "name": "RD-D2",
+      "speciesId": "29",
+      "backgroundId": "tech-guild",
+      "motivationId": "freedom",
+      "characterClassId": "trader",
+      "isLeader": false,
+      "reactions": 2,
+      "speed": 4,
+      "combat": 1,
+      "toughness": 4,
+      "savvy": 3,
+      "luck": 0,
+      "xp": 2,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:05:21.258Z",
+      "updatedAt": "2026-01-25T17:05:21.258Z"
+    },
+    {
+      "id": "1769360777111",
+      "crewId": "crew-1769360208921",
+      "name": "Leia",
+      "speciesId": "1",
+      "backgroundId": "war-torn-hell-hole",
+      "motivationId": "escape",
+      "characterClassId": "agitator",
+      "isLeader": false,
+      "reactions": 2,
+      "speed": 5,
+      "combat": 0,
+      "toughness": 1,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:06:17.111Z",
+      "updatedAt": "2026-01-25T17:06:17.111Z"
+    },
+    {
+      "id": "1769360803755",
+      "crewId": "crew-1769360208921",
+      "name": "Luke",
+      "speciesId": "1",
+      "backgroundId": "lower-megacity-class",
+      "motivationId": "freedom",
+      "characterClassId": "agitator",
+      "isLeader": true,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 1,
+      "savvy": 0,
+      "luck": 1,
+      "xp": 2,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:06:43.755Z",
+      "updatedAt": "2026-01-25T17:10:33.513Z"
+    },
+    {
+      "id": "1769360837258",
+      "crewId": "crew-1769360208921",
+      "name": "Didde",
+      "speciesId": "1",
+      "backgroundId": "isolationist-enclave",
+      "motivationId": "order",
+      "characterClassId": "punk",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 1,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 2,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:07:17.258Z",
+      "updatedAt": "2026-01-25T17:07:17.258Z"
+    },
+    {
+      "id": "1769360975405",
+      "crewId": "crew-1769360208921",
+      "name": "Han Solo",
+      "speciesId": "1",
+      "backgroundId": "bureaucrat",
+      "motivationId": "survival",
+      "characterClassId": "working-class",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 2,
+      "savvy": 1,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:09:35.405Z",
+      "updatedAt": "2026-01-25T17:09:35.405Z"
+    },
+    {
+      "id": "1769361012772",
+      "crewId": "crew-1769360208921",
+      "name": "Chewie",
+      "speciesId": "1",
+      "backgroundId": "subjugated-colony-on-alien-world",
+      "motivationId": "discovery",
+      "characterClassId": "scavenger",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 1,
+      "savvy": 1,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-25T17:10:12.772Z",
+      "updatedAt": "2026-01-25T17:10:12.772Z"
+    }
   ]
 }

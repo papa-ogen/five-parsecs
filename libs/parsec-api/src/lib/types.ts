@@ -67,13 +67,6 @@ export interface ICharacterClass {
     startingRolls: IStartingItem[];
 }
 
-export interface ITalent {
-    id: string;
-    name: string;
-    description: string;
-}
-
-
 export interface IBackground {
     id: string;
     name: string;
@@ -117,6 +110,7 @@ export interface IShipType {
     id: string;
     name: string;
     hull: number;
+    cost: number;
     description: string;
 }
 
@@ -177,6 +171,7 @@ export interface ICampaignCrew {
     inBattle: boolean;
     ship?: IShipType & { name: string };
     credits: number;
+    debt: number;
     createdAt: string;
     updatedAt: string;
     gear: IGear[];
@@ -201,7 +196,6 @@ export interface ICampaignCharacter {
     backgroundId: string; // Reference to IBackground
     motivationId: string; // Reference to IMotivation
     characterClassId: string; // Reference to ICharacterClass
-    talentIds: string[]; // References to ITalent
 
     // Character Stats
     reactions: number;
