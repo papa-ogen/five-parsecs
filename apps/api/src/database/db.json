@@ -1995,7 +1995,7 @@
       "id": "21ed59e3-fa2c-4859-87bb-ae8a70e2a5d0",
       "name": "lorem",
       "description": "",
-      "status": "no_started",
+      "status": "in_progress",
       "crewId": "crew-1769360208921",
       "campaignTurn": 0,
       "storyPoints": 1,
@@ -2022,18 +2022,78 @@
       "rivals": 3,
       "questRumors": 2,
       "rumors": 1,
-      "credits": 16,
+      "credits": 22,
       "inBattle": false,
-      "gear": [],
-      "gadgets": [],
-      "weapons": [],
-      "gadgetCount": 1,
-      "gearCount": 2,
-      "lowTechWeaponCount": 3,
-      "militaryWeaponCount": 3,
-      "highTechWeaponCount": 1,
+      "gear": [
+        {
+          "id": "laser-sight",
+          "name": "Laser Sight",
+          "description": "Precision aiming attachment."
+        },
+        {
+          "id": "tracker-sight",
+          "name": "Tracker Sight",
+          "description": "Enhanced optics for following targets."
+        }
+      ],
+      "gadgets": [
+        {
+          "id": "ai-companion",
+          "name": "AI Companion",
+          "description": "Portable artificial intelligence for technical support."
+        }
+      ],
+      "weapons": [
+        {
+          "id": "shotgun",
+          "name": "Shotgun",
+          "type": "lowTech",
+          "description": "Reliable low tech scatter weapon."
+        },
+        {
+          "id": "colony-rifle",
+          "name": "Colony Rifle",
+          "type": "lowTech",
+          "description": "Standard issue long arm for colonists."
+        },
+        {
+          "id": "handgun",
+          "name": "Handgun",
+          "type": "lowTech",
+          "description": "Standard low tech pistol."
+        },
+        {
+          "id": "rattle-gun",
+          "name": "Rattle Gun",
+          "type": "military",
+          "description": "Heavy rate of fire military weapon."
+        },
+        {
+          "id": "military-rifle",
+          "name": "Military Rifle",
+          "type": "military",
+          "description": "Standard issue military grade rifle."
+        },
+        {
+          "id": "military-rifle",
+          "name": "Military Rifle",
+          "type": "military",
+          "description": "Standard issue military grade rifle."
+        },
+        {
+          "id": "hand-laser",
+          "name": "Hand Laser",
+          "type": "highTech",
+          "description": "Standard high tech laser pistol."
+        }
+      ],
+      "gadgetCount": 0,
+      "gearCount": 0,
+      "lowTechWeaponCount": 0,
+      "militaryWeaponCount": 0,
+      "highTechWeaponCount": 0,
       "createdAt": "2026-01-25T16:56:48.921Z",
-      "updatedAt": "2026-01-25T17:10:12.772Z",
+      "updatedAt": "2026-01-26T17:29:17.006Z",
       "ship": {
         "id": "ancient-low-tech-craft",
         "name": "vvvvv",

@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, ICampaignCrew, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, ICampaignCrew, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -208,6 +208,59 @@ export const api = {
             if (!response.ok) {
                 throw new Error('Failed to delete campaign character');
             }
+        },
+    },
+
+    items: {
+        getAllGear: async (): Promise<IGear[]> => {
+            const response = await fetch(`${API_BASE_URL}/items/gear`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch gear');
+            }
+            return response.json();
+        },
+
+        getGearById: async (id: string): Promise<IGear> => {
+            const response = await fetch(`${API_BASE_URL}/items/gear/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch gear');
+            }
+            return response.json();
+        },
+
+        getAllGadgets: async (): Promise<IGadget[]> => {
+            const response = await fetch(`${API_BASE_URL}/items/gadgets`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch gadgets');
+            }
+            return response.json();
+        },
+
+        getGadgetById: async (id: string): Promise<IGadget> => {
+            const response = await fetch(`${API_BASE_URL}/items/gadgets/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch gadget');
+            }
+            return response.json();
+        },
+
+        getAllWeapons: async (type?: 'military' | 'lowTech' | 'highTech'): Promise<IWeapon[]> => {
+            const url = type 
+                ? `${API_BASE_URL}/items/weapons?type=${type}`
+                : `${API_BASE_URL}/items/weapons`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Failed to fetch weapons');
+            }
+            return response.json();
+        },
+
+        getWeaponById: async (id: string): Promise<IWeapon> => {
+            const response = await fetch(`${API_BASE_URL}/items/weapons/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch weapon');
+            }
+            return response.json();
         },
     },
 };

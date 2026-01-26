@@ -5,6 +5,9 @@ import { Card, Descriptions, Progress, Space, Statistic } from 'antd';
 import { api } from '../../../services/api';
 import { useCampaign } from '../../contexts/AppContext';
 
+import CrewItems from './CrewItems';
+import PendingItemRolls from './PendingItemRolls';
+
 export function CrewDetails() {
   const { selectedCampaign } = useCampaign();
 
@@ -106,18 +109,8 @@ export function CrewDetails() {
           </div>
         )}
 
-        {/* Inventory Tracking - Items to roll for */}
-        {(crew.gadgetCount > 0 || crew.gearCount > 0 || crew.lowTechWeaponCount > 0 || crew.militaryWeaponCount > 0 || crew.highTechWeaponCount > 0) && (
-          <Card size="small" title="📦 Pending Item Rolls" type="inner">
-            <Space size="large" wrap>
-              {crew.gadgetCount > 0 && <Statistic title="Gadgets" value={crew.gadgetCount} />}
-              {crew.gearCount > 0 && <Statistic title="Gear" value={crew.gearCount} />}
-              {crew.lowTechWeaponCount > 0 && <Statistic title="Low-Tech Weapons" value={crew.lowTechWeaponCount} />}
-              {crew.militaryWeaponCount > 0 && <Statistic title="Military Weapons" value={crew.militaryWeaponCount} />}
-              {crew.highTechWeaponCount > 0 && <Statistic title="High-Tech Weapons" value={crew.highTechWeaponCount} />}
-            </Space>
-          </Card>
-        )}
+        <PendingItemRolls crew={crew} />
+        <CrewItems crew={crew} />
       </Space>
     </Card>
   );

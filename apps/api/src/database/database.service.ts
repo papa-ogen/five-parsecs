@@ -11,6 +11,9 @@ import {
     IShipType,
     IMotivation,
     ISpeciesAbility,
+    IGadget,
+    IGear,
+    IWeapon,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -26,6 +29,9 @@ interface DatabaseSchema {
     campaigns: ICampaign[];
     campaignCrews: ICampaignCrew[];
     campaignCharacters: ICampaignCharacter[];
+    gear: IGear[];
+    gadgets: IGadget[];
+    weapons: IWeapon[];
 }
 
 @Injectable()
@@ -47,6 +53,9 @@ export class DatabaseService implements OnModuleInit {
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],
+            gear: [],
+            gadgets: [],
+            weapons: [],
         };
 
         this.db = await JSONFilePreset<DatabaseSchema>(dbPath, defaultData);
@@ -499,6 +508,44 @@ export class DatabaseService implements OnModuleInit {
         return this.db.data.motivations.find((m) => m.id === id);
     }
 
+    // Gear methods
+    async getAllGear(): Promise<IGear[]> {
+        await this.db.read();
+        return this.db.data.gear;
+    }
+
+    async getGearById(id: string): Promise<IGear | undefined> {
+        await this.db.read();
+        return this.db.data.gear.find((g) => g.id === id);
+    }
+
+    // Gadget methods
+    async getAllGadgets(): Promise<IGadget[]> {
+        await this.db.read();
+        return this.db.data.gadgets;
+    }
+
+    async getGadgetById(id: string): Promise<IGadget | undefined> {
+        await this.db.read();
+        return this.db.data.gadgets.find((g) => g.id === id);
+    }
+
+    // Weapon methods
+    async getAllWeapons(): Promise<IWeapon[]> {
+        await this.db.read();
+        return this.db.data.weapons;
+    }
+
+    async getWeaponById(id: string): Promise<IWeapon | undefined> {
+        await this.db.read();
+        return this.db.data.weapons.find((w) => w.id === id);
+    }
+
+    async getWeaponsByType(type: 'military' | 'lowTech' | 'highTech'): Promise<IWeapon[]> {
+        await this.db.read();
+        return this.db.data.weapons.filter((w) => w.type === type);
+    }
+
     // Utility method to reset database
     async resetDatabase(): Promise<void> {
         await this.db.read();
@@ -513,6 +560,9 @@ export class DatabaseService implements OnModuleInit {
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],
+            gear: [],
+            gadgets: [],
+            weapons: [],
         };
         await this.db.write();
     }
