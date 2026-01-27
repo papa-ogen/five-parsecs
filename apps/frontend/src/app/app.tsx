@@ -6,6 +6,7 @@ import Campaigns from './components/campaigns/Campaigns';
 import CampaignShip from './components/campaigns/CampaignShip';
 import CreateCampaign from './components/campaigns/CreateCampaign';
 import CrewDetails from './components/campaigns/CrewDetails';
+import CrewTable from './components/campaigns/CrewTable';
 import StartCampaign from './components/campaigns/StartCampaign';
 import Crew from './components/crew/Crew';
 import { AppProvider } from './contexts/AppContext';
@@ -46,6 +47,8 @@ export function App() {
               <CampaignShip />
               
               <Crew />
+
+              <CrewTable />
 
               <StartCampaign />
             </Space>

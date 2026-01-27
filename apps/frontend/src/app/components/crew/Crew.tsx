@@ -1,13 +1,32 @@
-import { CrownOutlined, PlusOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  CrownOutlined,
+  PlusOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import type { ICampaignCharacter } from '@five-parsecs/parsec-api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { App, Avatar, Button, Card, Empty, Modal, Space, Spin, Tag, Tooltip, Typography } from 'antd';
+import {
+  App,
+  Avatar,
+  Button,
+  Card,
+  Empty,
+  Modal,
+  Space,
+  Spin,
+  Tag,
+  Tooltip,
+  Typography,
+} from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../../services/api';
 import { useCampaign } from '../../contexts/AppContext';
 
-import CreateCrewMemberModal, { type CrewMemberData } from './CreateCrewMemberModal';
+import CreateCrewMemberModal, {
+  type CrewMemberData,
+} from './CreateCrewMemberModal';
 
 const { Title, Text } = Typography;
 
@@ -15,7 +34,8 @@ export function Crew() {
   const { selectedCampaign } = useCampaign();
   const [modalOpen, setModalOpen] = useState(false);
   const [leaderModalOpen, setLeaderModalOpen] = useState(false);
-  const [selectedCharacterForLeader, setSelectedCharacterForLeader] = useState<ICampaignCharacter | null>(null);
+  const [selectedCharacterForLeader, setSelectedCharacterForLeader] =
+    useState<ICampaignCharacter | null>(null);
   const { message } = App.useApp();
   const queryClient = useQueryClient();
 
@@ -40,28 +60,31 @@ export function Crew() {
 
   // Helper function to get species name by ID
   const getSpeciesName = (speciesId: string) => {
-    const species = allSpecies?.find(s => s.id === speciesId);
+    const species = allSpecies?.find((s) => s.id === speciesId);
     return species?.name || 'Unknown';
   };
 
   const createCharacterMutation = useMutation({
-    mutationFn: (data: Partial<ICampaignCharacter>) => api.campaignCharacters.create(data),
+    mutationFn: (data: Partial<ICampaignCharacter>) =>
+      api.campaignCharacters.create(data),
     onSuccess: (newCharacter) => {
       // Invalidate campaign characters
       queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
-      
+
       // Invalidate campaign crew (because characterIds array and resources are updated)
-      queryClient.invalidateQueries({ queryKey: ['campaignCrew', selectedCampaign?.crewId] });
-      
+      queryClient.invalidateQueries({
+        queryKey: ['campaignCrew', selectedCampaign?.crewId],
+      });
+
       // Invalidate campaigns (because story points may be added)
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
-      
+
       // Optionally update cache directly for instant feedback
       queryClient.setQueryData<ICampaignCharacter[]>(
         ['campaignCharacters'],
         (old) => (old ? [...old, newCharacter] : [newCharacter])
       );
-      
+
       message.success('Crew member created successfully!');
       setModalOpen(false);
     },
@@ -72,8 +95,13 @@ export function Crew() {
   });
 
   const updateCharacterMutation = useMutation({
-    mutationFn: ({ id, data }: { id: string; data: Partial<ICampaignCharacter> }) =>
-      api.campaignCharacters.update(id, data),
+    mutationFn: ({
+      id,
+      data,
+    }: {
+      id: string;
+      data: Partial<ICampaignCharacter>;
+    }) => api.campaignCharacters.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
       message.success('Leader selected successfully!');
@@ -96,9 +124,9 @@ export function Crew() {
   }
 
   // Filter characters for this campaign's crew
-  const crewMembers = allCharacters?.filter(
-    (char) => char.crewId === selectedCampaign.crewId
-  ) || [];
+  const crewMembers =
+    allCharacters?.filter((char) => char.crewId === selectedCampaign.crewId) ||
+    [];
 
   const handleCreateCrew = () => {
     setModalOpen(true);
@@ -112,14 +140,14 @@ export function Crew() {
     // Map crew type to species ID
     // Crew Type IDs: 1=Baseline Human, 2=Primary Alien, 3=Bot, 4=Strange Character
     let speciesId = '1'; // Default to human
-    
+
     if (data.crewType?.id === '3') {
       speciesId = '29'; // Bot
     } else if (data.crewType?.id === '1') {
       speciesId = '1'; // Baseline Human
     }
     // TODO: Add logic for Primary Alien and Strange Character
-    
+
     // Create crew member with all rolled data
     // Backend will calculate stats based on species abilities and effects
     const characterData: Partial<ICampaignCharacter> = {
@@ -174,7 +202,7 @@ export function Crew() {
 
   const hasCrewMembers = crewMembers.length > 0;
   const isCrewFull = crewMembers.length >= 6;
-  const hasLeader = crewMembers.some(char => char.isLeader);
+  const hasLeader = crewMembers.some((char) => char.isLeader);
 
   if (hasCrewMembers) {
     return (
@@ -188,10 +216,12 @@ export function Crew() {
           </Space>
         }
         extra={
-          <Tooltip title={isCrewFull ? "Maximum crew size reached (6 members)" : ""}>
-            <Button 
-              type="primary" 
-              icon={<PlusOutlined />} 
+          <Tooltip
+            title={isCrewFull ? 'Maximum crew size reached (6 members)' : ''}
+          >
+            <Button
+              type="primary"
+              icon={<PlusOutlined />}
               onClick={handleCreateCrew}
               disabled={isCrewFull}
             >
@@ -203,31 +233,14 @@ export function Crew() {
       >
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           {crewMembers.map((character) => (
-            <Card
-              key={character.id}
-              size="small"
-              actions={[
-                <Button key="view" type="link">
-                  View
-                </Button>,
-                ...(!hasLeader && !character.isLeader ? [
-                  <Button 
-                    key="leader" 
-                    type="link" 
-                    icon={<CrownOutlined />}
-                    onClick={() => handleSelectLeader(character)}
-                  >
-                    Select Leader
-                  </Button>
-                ] : []),
-              ]}
-            >
+            <Card key={character.id} size="small">
               <Card.Meta
                 avatar={
                   <Avatar
                     size={48}
                     style={{
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      background:
+                        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     }}
                     icon={<UserOutlined />}
                   />
@@ -240,24 +253,49 @@ export function Crew() {
                         Leader
                       </Tag>
                     )}
-                    <Tag color="purple">{getSpeciesName(character.speciesId)}</Tag>
+                    <Tag color="purple">
+                      {getSpeciesName(character.speciesId)}
+                    </Tag>
                     {character.isDead && <Tag color="red">Dead</Tag>}
                     {character.isInjured && <Tag color="orange">Injured</Tag>}
                     {!character.isActive && <Tag color="default">Inactive</Tag>}
                   </Space>
                 }
                 description={
-                  <Space orientation="vertical" size="small">
-                    <Space size="small" wrap>
-                      <Tag>Level {character.level}</Tag>
-                      <Tag>XP: {character.xp}</Tag>
+                  <Space
+                    orientation="horizontal"
+                    size="small"
+                    style={{ width: '100%', justifyContent: 'space-between' }}
+                  >
+                    <Space direction="vertical" size="small">
+                      <Space size="small" wrap>
+                        <Tag>Level {character.level}</Tag>
+                        <Tag>XP: {character.xp}</Tag>
+                      </Space>
                     </Space>
                     <Space size="small" wrap>
                       <Text type="secondary" style={{ fontSize: '12px' }}>
-                        Reactions: {character.reactions} | Speed: {character.speed} | 
-                        Combat: {character.combat} | Toughness: {character.toughness} | 
-                        Savvy: {character.savvy} {character.luck > 0 ? `| Luck: ${character.luck}` : ''}
+                        Reactions: {character.reactions} | Speed:{' '}
+                        {character.speed} | Combat: {character.combat} |
+                        Toughness: {character.toughness} | Savvy:{' '}
+                        {character.savvy}{' '}
+                        {character.luck > 0 ? `| Luck: ${character.luck}` : ''}
                       </Text>
+                    </Space>
+                    <Space size="small" wrap>
+                      <Button key="view" type="link">
+                        View
+                      </Button>
+                      {!hasLeader && !character.isLeader && (
+                        <Button
+                          key="leader"
+                          type="link"
+                          icon={<CrownOutlined />}
+                          onClick={() => handleSelectLeader(character)}
+                        >
+                          Select Leader
+                        </Button>
+                      )}
                     </Space>
                   </Space>
                 }
@@ -265,7 +303,7 @@ export function Crew() {
             </Card>
           ))}
         </Space>
-        
+
         <CreateCrewMemberModal
           open={modalOpen}
           onClose={handleModalClose}
@@ -290,7 +328,9 @@ export function Crew() {
         >
           <Space orientation="vertical" size="large" style={{ width: '100%' }}>
             <Text>
-              Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
+              Are you sure you want to make{' '}
+              <Text strong>{selectedCharacterForLeader?.name}</Text> the crew
+              leader?
             </Text>
             <Text type="warning" strong>
               ⚠️ This decision cannot be changed later!
@@ -300,12 +340,14 @@ export function Crew() {
                 The selected character will be designated as the crew leader.
                 <br />
                 <Text type="secondary" italic>
-                  Note: Bots do not receive the +1 Luck bonus when selected as leader.
+                  Note: Bots do not receive the +1 Luck bonus when selected as
+                  leader.
                 </Text>
               </Text>
             ) : (
               <Text type="secondary">
-                The selected character will receive +1 Luck and will be designated as the crew leader.
+                The selected character will receive +1 Luck and will be
+                designated as the crew leader.
               </Text>
             )}
           </Space>
@@ -339,10 +381,12 @@ export function Crew() {
           </Space>
         }
       >
-        <Tooltip title={isCrewFull ? "Maximum crew size reached (6 members)" : ""}>
-          <Button 
-            type="primary" 
-            size="large" 
+        <Tooltip
+          title={isCrewFull ? 'Maximum crew size reached (6 members)' : ''}
+        >
+          <Button
+            type="primary"
+            size="large"
             onClick={handleCreateCrew}
             disabled={isCrewFull}
           >
@@ -375,7 +419,9 @@ export function Crew() {
       >
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Text>
-            Are you sure you want to make <Text strong>{selectedCharacterForLeader?.name}</Text> the crew leader?
+            Are you sure you want to make{' '}
+            <Text strong>{selectedCharacterForLeader?.name}</Text> the crew
+            leader?
           </Text>
           <Text type="warning" strong>
             ⚠️ This decision cannot be changed later!
@@ -385,12 +431,14 @@ export function Crew() {
               The selected character will be designated as the crew leader.
               <br />
               <Text type="secondary" italic>
-                Note: Bots do not receive the +1 Luck bonus when selected as leader.
+                Note: Bots do not receive the +1 Luck bonus when selected as
+                leader.
               </Text>
             </Text>
           ) : (
             <Text type="secondary">
-              The selected character will receive +1 Luck and will be designated as the crew leader.
+              The selected character will receive +1 Luck and will be designated
+              as the crew leader.
             </Text>
           )}
         </Space>
