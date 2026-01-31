@@ -241,6 +241,7 @@ export interface ICampaignCharacter {
     weapons: string[];
     armor: string[];
     gear: string[];
+    gadgets: string[];
 
     // Character State
     isActive: boolean; // Is character in the active crew?

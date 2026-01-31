@@ -68,6 +68,16 @@ export function Crew() {
     queryFn: () => api.items.getAllWeapons(),
   });
 
+  // Fetch all gear and gadgets for displaying names (equipped, etc.)
+  const { data: allGear } = useQuery({
+    queryKey: ['gear'],
+    queryFn: () => api.items.getAllGear(),
+  });
+  const { data: allGadgets } = useQuery({
+    queryKey: ['gadgets'],
+    queryFn: () => api.items.getAllGadgets(),
+  });
+
   // Helper function to get species name by ID
   const getSpeciesName = (speciesId: string) => {
     const species = allSpecies?.find((s) => s.id === speciesId);
@@ -83,6 +93,19 @@ export function Crew() {
   // Helper to get full weapon by ID (for unequipping back to crew pool)
   const getWeapon = (weaponId: string) =>
     allWeapons?.find((w) => w.id === weaponId);
+
+  const getGearName = (gearId: string) => {
+    const gear = allGear?.find((g) => g.id === gearId);
+    return gear?.name ?? gearId;
+  };
+  const getGear = (gearId: string) => allGear?.find((g) => g.id === gearId);
+
+  const getGadgetName = (gadgetId: string) => {
+    const gadget = allGadgets?.find((g) => g.id === gadgetId);
+    return gadget?.name ?? gadgetId;
+  };
+  const getGadget = (gadgetId: string) =>
+    allGadgets?.find((g) => g.id === gadgetId);
 
   const createCharacterMutation = useMutation({
     mutationFn: (data: Partial<ICampaignCharacter>) =>
@@ -347,6 +370,10 @@ export function Crew() {
           getSpeciesName={getSpeciesName}
           getWeaponName={getWeaponName}
           getWeapon={getWeapon}
+          getGearName={getGearName}
+          getGear={getGear}
+          getGadgetName={getGadgetName}
+          getGadget={getGadget}
         />
 
         <Modal

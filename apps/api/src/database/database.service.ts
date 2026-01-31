@@ -348,6 +348,7 @@ export class DatabaseService implements OnModuleInit {
             weapons: data.weapons || [],
             armor: data.armor || [],
             gear: data.gear || [],
+            gadgets: data.gadgets || [],
             isActive: data.isActive !== undefined ? data.isActive : true,
             isDead: data.isDead || false,
             createdAt: data.createdAt || new Date().toISOString(),

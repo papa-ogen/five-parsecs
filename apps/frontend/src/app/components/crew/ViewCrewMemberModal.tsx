@@ -1,5 +1,11 @@
 import { CrownOutlined, UserOutlined } from '@ant-design/icons';
-import type { ICampaignCharacter, ICampaignCrew, IWeapon } from '@five-parsecs/parsec-api';
+import type {
+  ICampaignCharacter,
+  ICampaignCrew,
+  IGadget,
+  IGear,
+  IWeapon,
+} from '@five-parsecs/parsec-api';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { App, Avatar, Descriptions, Modal, Select, Space, Table, Tag, Typography } from 'antd';
 
@@ -15,6 +21,10 @@ interface ViewCrewMemberModalProps {
   getSpeciesName: (speciesId: string) => string;
   getWeaponName: (weaponId: string) => string;
   getWeapon: (weaponId: string) => IWeapon | undefined;
+  getGearName: (gearId: string) => string;
+  getGear: (gearId: string) => IGear | undefined;
+  getGadgetName: (gadgetId: string) => string;
+  getGadget: (gadgetId: string) => IGadget | undefined;
 }
 
 export function ViewCrewMemberModal({
@@ -25,9 +35,18 @@ export function ViewCrewMemberModal({
   getSpeciesName,
   getWeaponName,
   getWeapon,
+  getGearName,
+  getGear,
+  getGadgetName,
+  getGadget,
 }: ViewCrewMemberModalProps) {
   const queryClient = useQueryClient();
   const { message } = App.useApp();
+
+  const invalidate = () => {
+    queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
+    queryClient.invalidateQueries({ queryKey: ['campaignCrew', crew?.id] });
+  };
 
   const unequipWeaponMutation = useMutation({
     mutationFn: async ({
@@ -50,8 +69,7 @@ export function ViewCrewMemberModal({
       await api.campaignCrews.update(crew.id, { weapons: newCrewWeapons });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
-      queryClient.invalidateQueries({ queryKey: ['campaignCrew', crew?.id] });
+      invalidate();
       message.success('Weapon unequipped');
     },
     onError: () => {
@@ -74,12 +92,115 @@ export function ViewCrewMemberModal({
       await api.campaignCrews.update(crew.id, { weapons: newCrewWeapons });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['campaignCharacters'] });
-      queryClient.invalidateQueries({ queryKey: ['campaignCrew', crew?.id] });
+      invalidate();
       message.success('Weapon equipped');
     },
     onError: () => {
       message.error('Failed to equip weapon');
+    },
+  });
+
+  const unequipGearMutation = useMutation({
+    mutationFn: async ({
+      gearId,
+      equippedIndex,
+    }: {
+      gearId: string;
+      equippedIndex: number;
+    }) => {
+      if (!character || !crew) return;
+      const gear = getGear(gearId);
+      if (!gear) throw new Error('Gear not found');
+      const newCharacterGear = (character.gear || []).filter(
+        (_, i) => i !== equippedIndex
+      );
+      const newCrewGear = [...crew.gear, gear];
+      await api.campaignCharacters.update(character.id, { gear: newCharacterGear });
+      await api.campaignCrews.update(crew.id, { gear: newCrewGear });
+    },
+    onSuccess: () => {
+      invalidate();
+      message.success('Gear unequipped');
+    },
+    onError: () => {
+      message.error('Failed to unequip gear');
+    },
+  });
+
+  const assignGearMutation = useMutation({
+    mutationFn: async ({
+      gearIndex,
+      gear,
+    }: {
+      gearIndex: number;
+      gear: IGear;
+    }) => {
+      if (!character || !crew) return;
+      const newCharacterGear = [...(character.gear || []), gear.id];
+      const newCrewGear = crew.gear.filter((_, i) => i !== gearIndex);
+      await api.campaignCharacters.update(character.id, { gear: newCharacterGear });
+      await api.campaignCrews.update(crew.id, { gear: newCrewGear });
+    },
+    onSuccess: () => {
+      invalidate();
+      message.success('Gear equipped');
+    },
+    onError: () => {
+      message.error('Failed to equip gear');
+    },
+  });
+
+  const unequipGadgetMutation = useMutation({
+    mutationFn: async ({
+      gadgetId,
+      equippedIndex,
+    }: {
+      gadgetId: string;
+      equippedIndex: number;
+    }) => {
+      if (!character || !crew) return;
+      const gadget = getGadget(gadgetId);
+      if (!gadget) throw new Error('Gadget not found');
+      const newCharacterGadgets = (character.gadgets || []).filter(
+        (_, i) => i !== equippedIndex
+      );
+      const newCrewGadgets = [...crew.gadgets, gadget];
+      await api.campaignCharacters.update(character.id, {
+        gadgets: newCharacterGadgets,
+      });
+      await api.campaignCrews.update(crew.id, { gadgets: newCrewGadgets });
+    },
+    onSuccess: () => {
+      invalidate();
+      message.success('Gadget unequipped');
+    },
+    onError: () => {
+      message.error('Failed to unequip gadget');
+    },
+  });
+
+  const assignGadgetMutation = useMutation({
+    mutationFn: async ({
+      gadgetIndex,
+      gadget,
+    }: {
+      gadgetIndex: number;
+      gadget: IGadget;
+    }) => {
+      if (!character || !crew) return;
+      const newCharacterGadgets = [...(character.gadgets || []), gadget.id];
+      const newCrewGadgets = crew.gadgets.filter((_, i) => i !== gadgetIndex);
+      await api.campaignCharacters.update(character.id, {
+        gadgets: newCharacterGadgets,
+      });
+      await api.campaignCrews.update(crew.id, { gadgets: newCrewGadgets });
+    },
+    onSuccess: () => {
+      invalidate();
+      message.success('Gadget equipped');
+    },
+    onError: () => {
+      message.error('Failed to equip gadget');
     },
   });
 
@@ -89,6 +210,10 @@ export function ViewCrewMemberModal({
 
   const availableWeapons = crew?.weapons ?? [];
   const equippedWeaponIds = character.weapons ?? [];
+  const availableGear = crew?.gear ?? [];
+  const equippedGearIds = character.gear ?? [];
+  const availableGadgets = crew?.gadgets ?? [];
+  const equippedGadgetIds = character.gadgets ?? [];
 
   return (
     <Modal
@@ -193,6 +318,103 @@ export function ViewCrewMemberModal({
                 label: w.name,
               }))}
               loading={assignWeaponMutation.isPending}
+            />
+          )}
+        </div>
+
+        <div>
+          <Text strong>Gear</Text>
+          <div style={{ marginTop: 4 }}>
+            {equippedGearIds.length > 0 ? (
+              <Space size="small" wrap>
+                {equippedGearIds.map((id, index) => (
+                  <Tag
+                    key={`${id}-${index}`}
+                    closable={!unequipGearMutation.isPending}
+                    onClose={() =>
+                      !unequipGearMutation.isPending &&
+                      unequipGearMutation.mutate({
+                        gearId: id,
+                        equippedIndex: index,
+                      })
+                    }
+                  >
+                    {getGearName(id)}
+                  </Tag>
+                ))}
+              </Space>
+            ) : (
+              <Text type="secondary">None equipped</Text>
+            )}
+          </div>
+          {availableGear.length > 0 && (
+            <Select<number>
+              key={`gear-select-${availableGear.length}`}
+              placeholder="Equip from crew pool"
+              style={{ width: '100%', marginTop: 8 }}
+              value={undefined}
+              onChange={(index: number) => {
+                if (index == null) return;
+                const gear = availableGear[index];
+                if (gear) {
+                  assignGearMutation.mutate({ gearIndex: index, gear });
+                }
+              }}
+              options={availableGear.map((g, i) => ({
+                value: i,
+                label: g.name,
+              }))}
+              loading={assignGearMutation.isPending}
+            />
+          )}
+        </div>
+
+        <div>
+          <Text strong>Gadgets</Text>
+          <div style={{ marginTop: 4 }}>
+            {equippedGadgetIds.length > 0 ? (
+              <Space size="small" wrap>
+                {equippedGadgetIds.map((id, index) => (
+                  <Tag
+                    key={`${id}-${index}`}
+                    closable={!unequipGadgetMutation.isPending}
+                    onClose={() =>
+                      !unequipGadgetMutation.isPending &&
+                      unequipGadgetMutation.mutate({
+                        gadgetId: id,
+                        equippedIndex: index,
+                      })
+                    }
+                  >
+                    {getGadgetName(id)}
+                  </Tag>
+                ))}
+              </Space>
+            ) : (
+              <Text type="secondary">None equipped</Text>
+            )}
+          </div>
+          {availableGadgets.length > 0 && (
+            <Select<number>
+              key={`gadget-select-${availableGadgets.length}`}
+              placeholder="Equip from crew pool"
+              style={{ width: '100%', marginTop: 8 }}
+              value={undefined}
+              onChange={(index: number) => {
+                if (index == null) return;
+                const gadget = availableGadgets[index];
+                if (gadget) {
+                  assignGadgetMutation.mutate({
+                    gadgetIndex: index,
+                    gadget,
+                  });
+                }
+              }}
+              options={availableGadgets.map((g, i) => ({
+                value: i,
+                label: g.name,
+              }))}
+              loading={assignGadgetMutation.isPending}
             />
           )}
         </div>
