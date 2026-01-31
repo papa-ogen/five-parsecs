@@ -62,11 +62,27 @@ export function Crew() {
     queryFn: api.species.getAll,
   });
 
+  // Fetch all weapons for displaying weapon names (equipped, etc.)
+  const { data: allWeapons } = useQuery({
+    queryKey: ['weapons'],
+    queryFn: () => api.items.getAllWeapons(),
+  });
+
   // Helper function to get species name by ID
   const getSpeciesName = (speciesId: string) => {
     const species = allSpecies?.find((s) => s.id === speciesId);
     return species?.name || 'Unknown';
   };
+
+  // Helper function to get weapon name by ID
+  const getWeaponName = (weaponId: string) => {
+    const weapon = allWeapons?.find((w) => w.id === weaponId);
+    return weapon?.name ?? weaponId;
+  };
+
+  // Helper to get full weapon by ID (for unequipping back to crew pool)
+  const getWeapon = (weaponId: string) =>
+    allWeapons?.find((w) => w.id === weaponId);
 
   const createCharacterMutation = useMutation({
     mutationFn: (data: Partial<ICampaignCharacter>) =>
@@ -320,8 +336,17 @@ export function Crew() {
             setViewModalOpen(false);
             setSelectedCharacterForView(null);
           }}
-          character={selectedCharacterForView}
+          character={
+            selectedCharacterForView
+              ? (allCharacters?.find(
+                  (c) => c.id === selectedCharacterForView.id
+                ) ?? selectedCharacterForView)
+              : null
+          }
+          crew={crew ?? null}
           getSpeciesName={getSpeciesName}
+          getWeaponName={getWeaponName}
+          getWeapon={getWeapon}
         />
 
         <Modal

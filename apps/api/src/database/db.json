@@ -2598,104 +2598,14 @@
           "description": "Rapid-deployable temporary defensive cover."
         }
       ],
-      "weapons": [
-        {
-          "id": "hold-out-pistol",
-          "name": "Hold out pistol",
-          "type": "lowTech",
-          "range": 4,
-          "shots": 1,
-          "damage": 0,
-          "traits": [
-            "pistol",
-            "melee"
-          ],
-          "description": "Compact pocket-pistol for personal defense."
-        },
-        {
-          "id": "handgun",
-          "name": "Hand gun",
-          "type": "lowTech",
-          "range": 12,
-          "shots": 1,
-          "damage": 0,
-          "traits": [
-            "pistol"
-          ],
-          "description": "Conventional semi-automatic pistol in a medium caliber."
-        },
-        {
-          "id": "frakk-grenade",
-          "name": "Frakk grenade",
-          "type": "lowTech",
-          "range": 6,
-          "shots": 2,
-          "damage": 0,
-          "traits": [
-            "heavy",
-            "area",
-            "single-use"
-          ],
-          "description": "Explosive charge surrounded by a metal casing. Often improvised."
-        },
-        {
-          "id": "machine-pistol",
-          "name": "Machine pistol",
-          "type": "lowTech",
-          "range": 8,
-          "shots": 2,
-          "damage": 0,
-          "traits": [
-            "pistol",
-            "focused"
-          ],
-          "description": "A compact, fully automatic firearm in pistol caliber."
-        },
-        {
-          "id": "ripper-sword",
-          "name": "Ripper sword",
-          "type": "military",
-          "range": 0,
-          "shots": null,
-          "damage": 1,
-          "traits": [
-            "melee"
-          ],
-          "description": "Short, chopping blade fitted with microscopic \"teeth\" for ripping and tearing. Popular with K'Erin marines."
-        },
-        {
-          "id": "needle-rifle",
-          "name": "Needle rifle",
-          "type": "military",
-          "range": 18,
-          "shots": 2,
-          "damage": 0,
-          "traits": [
-            "critical"
-          ],
-          "description": "Uses magnetism to launch a hail of razor-sharp needles at a target."
-        },
-        {
-          "id": "flak-gun",
-          "name": "Flak gun",
-          "type": "military",
-          "range": 8,
-          "shots": 2,
-          "damage": 1,
-          "traits": [
-            "focused",
-            "critical"
-          ],
-          "description": "Powerful military shotgun, designed for boarding operations and bug hunts in close quarters."
-        }
-      ],
+      "weapons": [],
       "gadgetCount": 0,
       "gearCount": 0,
       "lowTechWeaponCount": 0,
       "militaryWeaponCount": 0,
       "highTechWeaponCount": 0,
       "createdAt": "2026-01-27T11:54:43.146Z",
-      "updatedAt": "2026-01-31T18:32:59.878Z",
+      "updatedAt": "2026-01-31T18:55:34.262Z",
       "weMetThrough": "Being old war buddies",
       "caracterizedAs": "Living the dream!",
       "ship": {
@@ -2882,13 +2792,16 @@
       "xp": 2,
       "isInjured": false,
       "injuries": [],
-      "weapons": [],
+      "weapons": [
+        "needle-rifle",
+        "handgun"
+      ],
       "armor": [],
       "gear": [],
       "isActive": true,
       "isDead": false,
       "createdAt": "2026-01-29T08:48:19.832Z",
-      "updatedAt": "2026-01-31T18:45:43.912Z"
+      "updatedAt": "2026-01-31T18:55:10.412Z"
     },
     {
       "id": "1769676568995",
@@ -2908,13 +2821,16 @@
       "xp": 0,
       "isInjured": false,
       "injuries": [],
-      "weapons": [],
+      "weapons": [
+        "hold-out-pistol",
+        "ripper-sword"
+      ],
       "armor": [],
       "gear": [],
       "isActive": true,
       "isDead": false,
       "createdAt": "2026-01-29T08:49:28.995Z",
-      "updatedAt": "2026-01-29T08:49:28.995Z"
+      "updatedAt": "2026-01-31T18:55:23.625Z"
     },
     {
       "id": "1769883294228",
@@ -2934,13 +2850,16 @@
       "xp": 0,
       "isInjured": false,
       "injuries": [],
-      "weapons": [],
+      "weapons": [
+        "frakk-grenade",
+        "machine-pistol"
+      ],
       "armor": [],
       "gear": [],
       "isActive": true,
       "isDead": false,
       "createdAt": "2026-01-31T18:14:54.229Z",
-      "updatedAt": "2026-01-31T18:14:54.229Z"
+      "updatedAt": "2026-01-31T18:55:31.091Z"
     },
     {
       "id": "1769883316149",
@@ -2986,13 +2905,15 @@
       "xp": 0,
       "isInjured": false,
       "injuries": [],
-      "weapons": [],
+      "weapons": [
+        "flak-gun"
+      ],
       "armor": [],
       "gear": [],
       "isActive": true,
       "isDead": false,
       "createdAt": "2026-01-31T18:15:42.821Z",
-      "updatedAt": "2026-01-31T18:15:42.821Z"
+      "updatedAt": "2026-01-31T18:55:34.245Z"
     },
     {
       "id": "1769883369322",
