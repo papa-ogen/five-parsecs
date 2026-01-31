@@ -27,6 +27,7 @@ import { useCampaign } from '../../contexts/AppContext';
 import CreateCrewMemberModal, {
   type CrewMemberData,
 } from './CreateCrewMemberModal';
+import ViewCrewMemberModal from './ViewCrewMemberModal';
 
 const { Title, Text } = Typography;
 
@@ -35,6 +36,9 @@ export function Crew() {
   const [modalOpen, setModalOpen] = useState(false);
   const [leaderModalOpen, setLeaderModalOpen] = useState(false);
   const [selectedCharacterForLeader, setSelectedCharacterForLeader] =
+    useState<ICampaignCharacter | null>(null);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [selectedCharacterForView, setSelectedCharacterForView] =
     useState<ICampaignCharacter | null>(null);
   const { message } = App.useApp();
   const queryClient = useQueryClient();
@@ -152,7 +156,6 @@ export function Crew() {
       backgroundId: data.background?.id || '',
       motivationId: data.motivation?.id || '',
       characterClassId: data.characterClass?.id || '',
-      level: 1,
       isInjured: false,
       injuries: [],
       weapons: [],
@@ -264,7 +267,6 @@ export function Crew() {
                   >
                     <Space orientation="vertical" size="small">
                       <Space size="small" wrap>
-                        <Tag>Level {character.level}</Tag>
                         <Tag>XP: {character.xp}</Tag>
                       </Space>
                     </Space>
@@ -278,7 +280,14 @@ export function Crew() {
                       </Text>
                     </Space>
                     <Space size="small" wrap>
-                      <Button key="view" type="link">
+                      <Button
+                        key="view"
+                        type="link"
+                        onClick={() => {
+                          setSelectedCharacterForView(character);
+                          setViewModalOpen(true);
+                        }}
+                      >
                         View
                       </Button>
                       {!hasLeader && !character.isLeader && (
@@ -303,6 +312,16 @@ export function Crew() {
           open={modalOpen}
           onClose={handleModalClose}
           onSubmit={handleCreateMember}
+        />
+
+        <ViewCrewMemberModal
+          open={viewModalOpen}
+          onClose={() => {
+            setViewModalOpen(false);
+            setSelectedCharacterForView(null);
+          }}
+          character={selectedCharacterForView}
+          getSpeciesName={getSpeciesName}
         />
 
         <Modal

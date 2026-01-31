@@ -343,7 +343,6 @@ export class DatabaseService implements OnModuleInit {
             savvy,
             luck: 0,
             xp,
-            level: data.level || 1,
             isInjured: data.isInjured || false,
             injuries: data.injuries || [],
             weapons: data.weapons || [],

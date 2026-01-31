@@ -234,7 +234,6 @@ export interface ICampaignCharacter {
 
     // Character Status
     xp: number;
-    level: number;
     isInjured: boolean;
     injuries: string[];
 
