@@ -23,7 +23,7 @@ export interface IEffect {
     description: string;
 }
 
-export type ResourceType = 'credits' | 'storyPoints' | 'reputation' | 'patrons' | 'rivals' | 'questRumors' | 'rumor';
+export type ResourceType = 'credits' | 'storyPoints' | 'reputation' | 'patrons' | 'rivals' | 'rumor';
 
 export interface IDiceRoll {
     numDice: number;    // Number of dice to roll
@@ -39,12 +39,12 @@ export interface IResourceEffect {
 }
 
 export type ItemType = 'weapon' | 'gear' | 'gadget' | 'armor';
-export type WeaponSubtype = 'military' | 'lowTech' | 'highTech' | 'any';
+export type WeaponType = 'military' | 'lowTech' | 'highTech';
 
 export interface IStartingItem {
     id: string;
     itemType: ItemType;
-    subtype?: WeaponSubtype;  // Only for weapons
+    subtype?: WeaponType;
     amount: number;
     description: string;
 }
@@ -114,13 +114,20 @@ export interface IShipType {
     description: string;
 }
 
-export type WeaponType = 'military' | 'lowTech' | 'highTech'
-
+export interface IWeaponTrait {
+    id: string;
+    name: string;
+    description: string;
+}
 export interface IWeapon {
     id: string;
     name: string;
     type: WeaponType;
     description: string;
+    range: number;
+    shots: number;
+    damage: number;
+    traits: string[];
 }
 
 export interface IArmor {
@@ -129,6 +136,24 @@ export interface IArmor {
     description: string;
 }
 
+// consumables, gun mods    etc
+
+export interface IWeMetThrough {
+    id: string
+    name: string;
+}
+
+export interface ICaracterizedAs {
+    id: string;
+    name: string
+}
+
+export interface ICampaignCard {
+    id: string;
+    name: string;
+    description: string;
+    isPlayed: boolean;
+}
 
 // Campaign System Interfaces
 export enum CampaignDifficulty {
@@ -154,6 +179,7 @@ export interface ICampaign {
     difficulty?: CampaignDifficulty;
     createdAt: string;
     updatedAt: string;
+    cards: ICampaignCard[];
 }
 
 export interface ICampaignCrew {
@@ -165,7 +191,6 @@ export interface ICampaignCrew {
     reputation: number;
     patrons: number;
     rivals: number;
-    questRumors: number;
     rumors: number;
     location?: string;
     inBattle: boolean;
@@ -182,6 +207,8 @@ export interface ICampaignCrew {
     lowTechWeaponCount: number;
     militaryWeaponCount: number;
     highTechWeaponCount: number;
+    weMetThrough?: string;
+    caracterizedAs?: string;
 }
 
 export interface ICampaignCharacter {

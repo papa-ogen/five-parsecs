@@ -181,7 +181,7 @@
       "reactions": 1,
       "speed": 4,
       "combat": 0,
-      "toughness": 1,
+      "toughness": 3,
       "savvy": 0
     },
     {
@@ -487,7 +487,7 @@
       "resources": [
         {
           "id": "8",
-          "resourceType": "questRumors",
+          "resourceType": "rumor",
           "amount": 2,
           "description": "2 Quest Rumors"
         }
@@ -1745,156 +1745,521 @@
       "description": "High-intensity chemical combat stimulant."
     }
   ],
+  "weaponTraits": [
+    {
+      "id": "area",
+      "name": "Area",
+      "description": "Resolve all shots against the initial target. They cannot be spread. Then resolve one bonus shot against every figure within 2\"."
+    },
+    {
+      "id": "clumsy",
+      "name": "Clumsy",
+      "description": "-1 to Brawling rolls, if opponent has higher Speed."
+    },
+    {
+      "id": "critical",
+      "name": "Critical",
+      "description": "A natural 6 on the Hit roll will inflict 2 Hits on the target."
+    },
+    {
+      "id": "elegant",
+      "name": "Elegant",
+      "description": "When Brawling, the fighter may reroll the die. Enemies will always reroll if they have a lower total than their opponent, and can improve the result."
+    },
+    {
+      "id": "focused",
+      "name": "Focused",
+      "description": "All shots must be against a single target."
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy",
+      "description": "-1 penalty to Hit if the firer moved this round."
+    },
+    {
+      "id": "impact",
+      "name": "Impact",
+      "description": "If target is Stunned, place a second Stun marker."
+    },
+    {
+      "id": "melee",
+      "name": "Melee",
+      "description": "+2 to Brawling rolls."
+    },
+    {
+      "id": "piercing",
+      "name": "Piercing",
+      "description": "Ignore Armor Saving Throws."
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol",
+      "description": "+1 to Brawling rolls."
+    },
+    {
+      "id": "single-use",
+      "name": "Single use",
+      "description": "The item can be used only once and must be deducted from the available supply. The Panic Fire rule (p.46) cannot be used with Single use weapons."
+    },
+    {
+      "id": "snap-shot",
+      "name": "Snap shot",
+      "description": "+1 to Hit within 6\"."
+    },
+    {
+      "id": "stun",
+      "name": "Stun",
+      "description": "All targets are automatically Stunned. No damage rolls takes place."
+    },
+    {
+      "id": "terrifying",
+      "name": "Terrifying",
+      "description": "Any target hit must retreat 1D6\" away from the firer."
+    }
+  ],
   "weapons": [
     {
-      "id": "military-rifle",
-      "name": "Military Rifle",
-      "type": "military",
-      "description": "Standard issue military grade rifle."
-    },
-    {
-      "id": "infantry-laser-military",
-      "name": "Infantry Laser",
-      "type": "military",
-      "description": "Military infantry laser."
-    },
-    {
-      "id": "marksmans-rifle",
-      "name": "Marksman's Rifle",
-      "type": "military",
-      "description": "Precision military rifle."
-    },
-    {
-      "id": "needle-rifle",
-      "name": "Needle Rifle",
-      "type": "military",
-      "description": "Specialized military needle rifle."
-    },
-    {
       "id": "auto-rifle",
-      "name": "Auto Rifle",
+      "name": "Auto rifle",
       "type": "military",
-      "description": "Automatic military rifle."
+      "range": 24,
+      "shots": 2,
+      "damage": 0,
+      "traits": [],
+      "description": "A heavy rifle fitted with an ammo drum, and used for medium-range fire support."
     },
     {
-      "id": "rattle-gun",
-      "name": "Rattle Gun",
-      "type": "military",
-      "description": "Heavy rate of fire military weapon."
-    },
-    {
-      "id": "boarding-saber",
-      "name": "Boarding Saber",
-      "type": "military",
-      "description": "Military grade melee weapon for ship actions."
-    },
-    {
-      "id": "shatter-axe",
-      "name": "Shatter Axe",
-      "type": "military",
-      "description": "Heavy military melee weapon."
-    },
-    {
-      "id": "handgun",
-      "name": "Handgun",
-      "type": "lowTech",
-      "description": "Standard low tech pistol."
-    },
-    {
-      "id": "scrap-pistol",
-      "name": "Scrap Pistol",
-      "type": "lowTech",
-      "description": "Improvised low tech sidearm."
-    },
-    {
-      "id": "machine-pistol",
-      "name": "Machine Pistol",
-      "type": "lowTech",
-      "description": "Rapid fire low tech sidearm."
-    },
-    {
-      "id": "colony-rifle",
-      "name": "Colony Rifle",
-      "type": "lowTech",
-      "description": "Standard issue long arm for colonists."
-    },
-    {
-      "id": "shotgun",
-      "name": "Shotgun",
-      "type": "lowTech",
-      "description": "Reliable low tech scatter weapon."
-    },
-    {
-      "id": "hunting-rifle",
-      "name": "Hunting Rifle",
-      "type": "lowTech",
-      "description": "Low tech rifle designed for long range."
+      "id": "beam-pistol",
+      "name": "Beam pistol",
+      "type": "highTech",
+      "range": 10,
+      "shots": 1,
+      "damage": 1,
+      "traits": [
+        "pistol",
+        "critical"
+      ],
+      "description": "Military-grade heavy-energy pistol with a tightly focused beam."
     },
     {
       "id": "blade",
       "name": "Blade",
       "type": "lowTech",
-      "description": "Common low tech edged weapon."
-    },
-    {
-      "id": "brutal-melee-weapon",
-      "name": "Brutal Melee Weapon",
-      "type": "lowTech",
-      "description": "Heavy or vicious low tech close combat weapon."
-    },
-    {
-      "id": "dueling-pistol",
-      "name": "Dueling Pistol",
-      "type": "highTech",
-      "description": "High tech precision sidearm."
-    },
-    {
-      "id": "hand-cannon",
-      "name": "Hand Cannon",
-      "type": "highTech",
-      "description": "Powerful high tech sidearm."
-    },
-    {
-      "id": "hand-laser",
-      "name": "Hand Laser",
-      "type": "highTech",
-      "description": "Standard high tech laser pistol."
-    },
-    {
-      "id": "beam-pistol",
-      "name": "Beam Pistol",
-      "type": "highTech",
-      "description": "High tech energy beam sidearm."
-    },
-    {
-      "id": "infantry-laser-hightech",
-      "name": "Infantry Laser",
-      "type": "highTech",
-      "description": "High tech version of the infantry laser."
+      "range": 0,
+      "shots": null,
+      "damage": 0,
+      "traits": [
+        "melee"
+      ],
+      "description": "Sturdy, light-weight fencing or slashing blade, favored for boarding actions."
     },
     {
       "id": "blast-pistol",
-      "name": "Blast Pistol",
+      "name": "Blast pistol",
       "type": "highTech",
-      "description": "High tech explosive or concussion sidearm."
+      "range": 8,
+      "shots": 1,
+      "damage": 1,
+      "traits": [
+        "pistol"
+      ],
+      "description": "Projects a bolt of searing energy which detonates on impact. Dissipation is rapid, giving the weapon limited range."
     },
     {
       "id": "blast-rifle",
-      "name": "Blast Rifle",
+      "name": "Blast rifle",
       "type": "highTech",
-      "description": "Heavy high tech concussion or explosive rifle."
+      "range": 16,
+      "shots": 1,
+      "damage": 1,
+      "traits": [],
+      "description": "Rifle or carbine energy bolt weapon. Signifies that the user means business."
     },
     {
-      "id": "plasma-rifle",
-      "name": "Plasma Rifle",
+      "id": "boarding-saber",
+      "name": "Boarding saber",
+      "type": "military",
+      "range": 0,
+      "shots": null,
+      "damage": 1,
+      "traits": [
+        "melee",
+        "elegant"
+      ],
+      "description": "A heavy but carefully balanced sword. Often fitted with hand guards."
+    },
+    {
+      "id": "brutal-melee-weapon",
+      "name": "Brutal melee weapon",
+      "type": "lowTech",
+      "range": 0,
+      "shots": null,
+      "damage": 1,
+      "traits": [
+        "melee",
+        "clumsy"
+      ],
+      "description": "A heavy, unpleasant-looking weapon for smashing and breaking things... or people."
+    },
+    {
+      "id": "cling-fire-pistol",
+      "name": "Cling fire pistol",
       "type": "highTech",
-      "description": "Advanced high tech energy weapon."
+      "range": 12,
+      "shots": 2,
+      "damage": 1,
+      "traits": [
+        "focused",
+        "terrifying"
+      ],
+      "description": "Side arm firing a spray of sticky, burning chemicals."
+    },
+    {
+      "id": "colony-rifle",
+      "name": "Colony rifle",
+      "type": "lowTech",
+      "range": 18,
+      "shots": 1,
+      "damage": 0,
+      "traits": [],
+      "description": "Standard-type defensive rifle, popular with colonists and frontier folk. Simple to maintain. Typically semi-automatic."
+    },
+    {
+      "id": "dazzle-grenade",
+      "name": "Dazzle grenade",
+      "type": "highTech",
+      "range": 6,
+      "shots": 1,
+      "damage": null,
+      "traits": [
+        "area",
+        "stun",
+        "single-use"
+      ],
+      "description": "Shock charge emitting a loud flash and deafening sound."
+    },
+    {
+      "id": "duelling-pistol",
+      "name": "Duelling pistol",
+      "type": "highTech",
+      "range": 8,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "pistol",
+        "critical"
+      ],
+      "description": "Custom-made pistol built for careful aiming. Popular with the fabulously wealthy or old-fashioned."
+    },
+    {
+      "id": "flak-gun",
+      "name": "Flak gun",
+      "type": "military",
+      "range": 8,
+      "shots": 2,
+      "damage": 1,
+      "traits": [
+        "focused",
+        "critical"
+      ],
+      "description": "Powerful military shotgun, designed for boarding operations and bug hunts in close quarters."
+    },
+    {
+      "id": "frakk-grenade",
+      "name": "Frakk grenade",
+      "type": "lowTech",
+      "range": 6,
+      "shots": 2,
+      "damage": 0,
+      "traits": [
+        "heavy",
+        "area",
+        "single-use"
+      ],
+      "description": "Explosive charge surrounded by a metal casing. Often improvised."
+    },
+    {
+      "id": "fury-rifle",
+      "name": "Fury rifle",
+      "type": "highTech",
+      "range": 24,
+      "shots": 1,
+      "damage": 2,
+      "traits": [
+        "heavy",
+        "piercing"
+      ],
+      "description": "High-powered beam weapon modified from military anti-tank designs. Slow build-up before discharge."
     },
     {
       "id": "glare-sword",
-      "name": "Glare Sword",
+      "name": "Glare sword",
       "type": "highTech",
-      "description": "Advanced high tech energy melee weapon."
+      "range": 0,
+      "shots": null,
+      "damage": 0,
+      "traits": [
+        "melee",
+        "elegant",
+        "piercing"
+      ],
+      "description": "Elegant fencing weapon. The blade is encased in a disruptive energy field, allowing it to cut with great precision."
+    },
+    {
+      "id": "hand-cannon",
+      "name": "Hand cannon",
+      "type": "highTech",
+      "range": 8,
+      "shots": 1,
+      "damage": 2,
+      "traits": [
+        "pistol"
+      ],
+      "description": "Heavy pistol in a massive caliber. Appreciated by bug hunters."
+    },
+    {
+      "id": "hand-flamer",
+      "name": "Hand flamer",
+      "type": "highTech",
+      "range": 12,
+      "shots": 2,
+      "damage": 1,
+      "traits": [
+        "focused",
+        "area"
+      ],
+      "description": "Portable flame-throwing device with a broad focus for area effect."
+    },
+    {
+      "id": "hand-laser",
+      "name": "Hand laser",
+      "type": "highTech",
+      "range": 12,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "snap-shot",
+        "pistol"
+      ],
+      "description": "Portable energy-based pistol. Popular due to ease of use and lack of recoil."
+    },
+    {
+      "id": "handgun",
+      "name": "Hand gun",
+      "type": "lowTech",
+      "range": 12,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "pistol"
+      ],
+      "description": "Conventional semi-automatic pistol in a medium caliber."
+    },
+    {
+      "id": "hold-out-pistol",
+      "name": "Hold out pistol",
+      "type": "lowTech",
+      "range": 4,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "pistol",
+        "melee"
+      ],
+      "description": "Compact pocket-pistol for personal defense."
+    },
+    {
+      "id": "hunting-rifle",
+      "name": "Hunting rifle",
+      "type": "lowTech",
+      "range": 30,
+      "shots": 1,
+      "damage": 1,
+      "traits": [
+        "heavy"
+      ],
+      "description": "Typical high-caliber rifle, used for hunting large, dangerous animals."
+    },
+    {
+      "id": "hyper-blaster",
+      "name": "Hyper blaster",
+      "type": "highTech",
+      "range": 24,
+      "shots": 3,
+      "damage": 1,
+      "traits": [],
+      "description": "Rapid-fire blast weapon. Most models rely on three rotating barrels to deal with heat build-up."
+    },
+    {
+      "id": "infantry-laser",
+      "name": "Infantry laser",
+      "type": "military",
+      "range": 30,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "snap-shot"
+      ],
+      "description": "Military energy rifle with detachable battery pack."
+    },
+    {
+      "id": "machine-pistol",
+      "name": "Machine pistol",
+      "type": "lowTech",
+      "range": 8,
+      "shots": 2,
+      "damage": 0,
+      "traits": [
+        "pistol",
+        "focused"
+      ],
+      "description": "A compact, fully automatic firearm in pistol caliber."
+    },
+    {
+      "id": "marksmans-rifle",
+      "name": "Marksman's rifle",
+      "type": "military",
+      "range": 36,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "heavy"
+      ],
+      "description": "Military rifle, built for sharp shooting. Common platoon-level support weapon."
+    },
+    {
+      "id": "military-rifle",
+      "name": "Military rifle",
+      "type": "military",
+      "range": 24,
+      "shots": 1,
+      "damage": 0,
+      "traits": [],
+      "description": "Conventional military automatic rifle. Caseless ammunition is typical."
+    },
+    {
+      "id": "needle-rifle",
+      "name": "Needle rifle",
+      "type": "military",
+      "range": 18,
+      "shots": 2,
+      "damage": 0,
+      "traits": [
+        "critical"
+      ],
+      "description": "Uses magnetism to launch a hail of razor-sharp needles at a target."
+    },
+    {
+      "id": "plasma-rifle",
+      "name": "Plasma rifle",
+      "type": "highTech",
+      "range": 20,
+      "shots": 2,
+      "damage": 1,
+      "traits": [
+        "focused",
+        "piercing"
+      ],
+      "description": "Heavy rifle firing a stream of blue-white energy bolts. Excellent all-round combat weapon, but expensive and difficult to cool."
+    },
+    {
+      "id": "power-claw",
+      "name": "Power claw",
+      "type": "highTech",
+      "range": 0,
+      "shots": null,
+      "damage": 3,
+      "traits": [
+        "melee",
+        "clumsy"
+      ],
+      "description": "Heavy servo-boosted gauntlet that straps to the entire arm. Capable of punching through steel."
+    },
+    {
+      "id": "rattle-gun",
+      "name": "Rattle gun",
+      "type": "military",
+      "range": 24,
+      "shots": 3,
+      "damage": 0,
+      "traits": [
+        "heavy"
+      ],
+      "description": "Conventional machine gun. Fringe models are outdated and somewhat kit-bashed. Typically belt-fed."
+    },
+    {
+      "id": "ripper-sword",
+      "name": "Ripper sword",
+      "type": "military",
+      "range": 0,
+      "shots": null,
+      "damage": 1,
+      "traits": [
+        "melee"
+      ],
+      "description": "Short, chopping blade fitted with microscopic \"teeth\" for ripping and tearing. Popular with K'Erin marines."
+    },
+    {
+      "id": "scrap-pistol",
+      "name": "Scrap pistol",
+      "type": "lowTech",
+      "range": 9,
+      "shots": 1,
+      "damage": 0,
+      "traits": [
+        "pistol"
+      ],
+      "description": "A pistol pieced together from scavenged parts. Common on the frontiers."
+    },
+    {
+      "id": "shatter-axe",
+      "name": "Shatter axe",
+      "type": "military",
+      "range": 0,
+      "shots": null,
+      "damage": 2,
+      "traits": [
+        "melee"
+      ],
+      "description": "This bulky weapon discharges a blast of energy as it strikes. Originally intended for breach-and-clear operations."
+    },
+    {
+      "id": "shell-gun",
+      "name": "Shell gun",
+      "type": "military",
+      "range": 30,
+      "shots": 2,
+      "damage": 0,
+      "traits": [
+        "heavy",
+        "area"
+      ],
+      "description": "Stand-alone grenade launcher. Many of these are custom-built."
+    },
+    {
+      "id": "shotgun",
+      "name": "Shotgun",
+      "type": "lowTech",
+      "range": 12,
+      "shots": 2,
+      "damage": 1,
+      "traits": [
+        "focused"
+      ],
+      "description": "Smooth-bore weapon firing a hail of pellets. Common hunting and defensive weapon."
+    },
+    {
+      "id": "suppression-maul",
+      "name": "Suppression maul",
+      "type": "military",
+      "range": 0,
+      "shots": null,
+      "damage": 1,
+      "traits": [
+        "melee",
+        "impact"
+      ],
+      "description": "Riot-control weapon that overloads pain receptors in most biological lifeforms."
     }
   ],
   "shipTypes": [
@@ -1990,6 +2355,82 @@
       "description": "Heavily Armored patrol vessel."
     }
   ],
+  "weMetThrough": [
+    {
+      "id": "hired-by-random-member",
+      "name": "Hired by a random member of the group"
+    },
+    {
+      "id": "pursuit-of-motivation",
+      "name": "Pursuit of random group member's motivation"
+    },
+    {
+      "id": "trouble-with-authorities",
+      "name": "Being in trouble with the authorities"
+    },
+    {
+      "id": "common-enemy",
+      "name": "A common enemy"
+    },
+    {
+      "id": "common-cause",
+      "name": "A common cause or belief"
+    },
+    {
+      "id": "meeting-in-bar",
+      "name": "A random meeting in a bar"
+    },
+    {
+      "id": "previous-job",
+      "name": "A previous job"
+    },
+    {
+      "id": "mutual-protection",
+      "name": "Mutual protection in a hostile universe"
+    },
+    {
+      "id": "old-war-buddies",
+      "name": "Being old war buddies"
+    }
+  ],
+  "caracterizedAs": [
+    {
+      "id": "lovable-rogues",
+      "name": "Lovable rogues"
+    },
+    {
+      "id": "consummate-professionals",
+      "name": "Consummate professionals"
+    },
+    {
+      "id": "cut-throat-outlaws",
+      "name": "Cut-throat outlaws"
+    },
+    {
+      "id": "defenders-of-downtrodden",
+      "name": "Defenders of the down-trodden"
+    },
+    {
+      "id": "hardened-rebels",
+      "name": "Hardened rebels"
+    },
+    {
+      "id": "starport-scum",
+      "name": "Starport scum"
+    },
+    {
+      "id": "honorable-bandits",
+      "name": "Somewhat honorable bandits"
+    },
+    {
+      "id": "in-it-for-credits",
+      "name": "In it for the credits"
+    },
+    {
+      "id": "living-the-dream",
+      "name": "Living the dream!"
+    }
+  ],
   "campaigns": [
     {
       "id": "21ed59e3-fa2c-4859-87bb-ae8a70e2a5d0",
@@ -2001,6 +2442,17 @@
       "storyPoints": 1,
       "createdAt": "2026-01-25T16:56:48.882Z",
       "updatedAt": "2026-01-25T16:56:48.884Z"
+    },
+    {
+      "id": "acd03a81-118b-4b29-8147-fbe59289d546",
+      "name": "crew traits",
+      "description": "",
+      "status": "in_progress",
+      "crewId": "crew-1769514883144",
+      "campaignTurn": 0,
+      "storyPoints": 3,
+      "createdAt": "2026-01-27T11:54:43.055Z",
+      "updatedAt": "2026-01-27T11:54:43.056Z"
     }
   ],
   "campaignCrews": [
@@ -2020,8 +2472,7 @@
       "reputation": 0,
       "patrons": 1,
       "rivals": 3,
-      "questRumors": 2,
-      "rumors": 1,
+      "rumors": 3,
       "credits": 22,
       "inBattle": false,
       "gear": [
@@ -2102,6 +2553,158 @@
         "description": "Features a Dodgy Drive."
       },
       "debt": 22
+    },
+    {
+      "id": "crew-1769514883144",
+      "campaignId": "acd03a81-118b-4b29-8147-fbe59289d546",
+      "name": "crew traits Crew",
+      "description": "Crew for crew traits",
+      "characterIds": [
+        "1769676499832",
+        "1769676568995",
+        "1769883294228",
+        "1769883316149",
+        "1769883342821",
+        "1769883369322"
+      ],
+      "reputation": 0,
+      "patrons": 4,
+      "rivals": 1,
+      "rumors": 2,
+      "credits": 9,
+      "debt": 12,
+      "inBattle": false,
+      "gear": [
+        {
+          "id": "steel-boots",
+          "name": "Steel Boots",
+          "description": "Reinforced footwear for protection and brawling."
+        },
+        {
+          "id": "med-patch",
+          "name": "Med-patch",
+          "description": "Disposable rapid-healing medical patch."
+        },
+        {
+          "id": "nano-doc",
+          "name": "Nano-doc",
+          "description": "Nanite-based medical intervention system."
+        }
+      ],
+      "gadgets": [
+        {
+          "id": "insta-wall",
+          "name": "Insta-Wall",
+          "description": "Rapid-deployable temporary defensive cover."
+        }
+      ],
+      "weapons": [
+        {
+          "id": "hold-out-pistol",
+          "name": "Hold out pistol",
+          "type": "lowTech",
+          "range": 4,
+          "shots": 1,
+          "damage": 0,
+          "traits": [
+            "pistol",
+            "melee"
+          ],
+          "description": "Compact pocket-pistol for personal defense."
+        },
+        {
+          "id": "handgun",
+          "name": "Hand gun",
+          "type": "lowTech",
+          "range": 12,
+          "shots": 1,
+          "damage": 0,
+          "traits": [
+            "pistol"
+          ],
+          "description": "Conventional semi-automatic pistol in a medium caliber."
+        },
+        {
+          "id": "frakk-grenade",
+          "name": "Frakk grenade",
+          "type": "lowTech",
+          "range": 6,
+          "shots": 2,
+          "damage": 0,
+          "traits": [
+            "heavy",
+            "area",
+            "single-use"
+          ],
+          "description": "Explosive charge surrounded by a metal casing. Often improvised."
+        },
+        {
+          "id": "machine-pistol",
+          "name": "Machine pistol",
+          "type": "lowTech",
+          "range": 8,
+          "shots": 2,
+          "damage": 0,
+          "traits": [
+            "pistol",
+            "focused"
+          ],
+          "description": "A compact, fully automatic firearm in pistol caliber."
+        },
+        {
+          "id": "ripper-sword",
+          "name": "Ripper sword",
+          "type": "military",
+          "range": 0,
+          "shots": null,
+          "damage": 1,
+          "traits": [
+            "melee"
+          ],
+          "description": "Short, chopping blade fitted with microscopic \"teeth\" for ripping and tearing. Popular with K'Erin marines."
+        },
+        {
+          "id": "needle-rifle",
+          "name": "Needle rifle",
+          "type": "military",
+          "range": 18,
+          "shots": 2,
+          "damage": 0,
+          "traits": [
+            "critical"
+          ],
+          "description": "Uses magnetism to launch a hail of razor-sharp needles at a target."
+        },
+        {
+          "id": "flak-gun",
+          "name": "Flak gun",
+          "type": "military",
+          "range": 8,
+          "shots": 2,
+          "damage": 1,
+          "traits": [
+            "focused",
+            "critical"
+          ],
+          "description": "Powerful military shotgun, designed for boarding operations and bug hunts in close quarters."
+        }
+      ],
+      "gadgetCount": 0,
+      "gearCount": 0,
+      "lowTechWeaponCount": 0,
+      "militaryWeaponCount": 0,
+      "highTechWeaponCount": 0,
+      "createdAt": "2026-01-27T11:54:43.146Z",
+      "updatedAt": "2026-01-31T18:32:59.878Z",
+      "weMetThrough": "Being old war buddies",
+      "caracterizedAs": "Living the dream!",
+      "ship": {
+        "id": "repurposed-science-vessel",
+        "name": "ok",
+        "hull": 20,
+        "cost": 10,
+        "description": "Scientific ship converted for frontier use."
+      }
     }
   ],
   "campaignCharacters": [
@@ -2266,6 +2869,200 @@
       "isDead": false,
       "createdAt": "2026-01-25T17:10:12.772Z",
       "updatedAt": "2026-01-25T17:10:12.772Z"
+    },
+    {
+      "id": "1769676499832",
+      "crewId": "crew-1769514883144",
+      "name": "Didde",
+      "speciesId": "1",
+      "backgroundId": "lower-megacity-class",
+      "motivationId": "order",
+      "characterClassId": "explorer",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 2,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-29T08:48:19.832Z",
+      "updatedAt": "2026-01-29T08:48:19.832Z"
+    },
+    {
+      "id": "1769676568995",
+      "crewId": "crew-1769514883144",
+      "name": "sssss",
+      "speciesId": "1",
+      "backgroundId": "wasteland-nomads",
+      "motivationId": "adventure",
+      "characterClassId": "nomad",
+      "isLeader": false,
+      "reactions": 2,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-29T08:49:28.995Z",
+      "updatedAt": "2026-01-29T08:49:28.995Z"
+    },
+    {
+      "id": "1769883294228",
+      "crewId": "crew-1769514883144",
+      "name": "12123",
+      "speciesId": "1",
+      "backgroundId": "isolationist-enclave",
+      "motivationId": "wealth",
+      "characterClassId": "enforcer",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 1,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-31T18:14:54.229Z",
+      "updatedAt": "2026-01-31T18:14:54.229Z"
+    },
+    {
+      "id": "1769883316149",
+      "crewId": "crew-1769514883144",
+      "name": "vvdsdf",
+      "speciesId": "1",
+      "backgroundId": "mining-colony",
+      "motivationId": "survival",
+      "characterClassId": "negotiator",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 5,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-31T18:15:16.149Z",
+      "updatedAt": "2026-01-31T18:15:16.149Z"
+    },
+    {
+      "id": "1769883342821",
+      "crewId": "crew-1769514883144",
+      "name": "vererfwef",
+      "speciesId": "1",
+      "backgroundId": "drifter",
+      "motivationId": "loyalty",
+      "characterClassId": "starship-crew",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 1,
+      "luck": 0,
+      "xp": 0,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-31T18:15:42.821Z",
+      "updatedAt": "2026-01-31T18:15:42.821Z"
+    },
+    {
+      "id": "1769883369322",
+      "crewId": "crew-1769514883144",
+      "name": "vgbrt rtj yjytj tyj t",
+      "speciesId": "1",
+      "backgroundId": "subjugated-colony-on-alien-world",
+      "motivationId": "revenge",
+      "characterClassId": "artist",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 2,
+      "level": 1,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-01-31T18:16:09.323Z",
+      "updatedAt": "2026-01-31T18:16:09.323Z"
+    }
+  ],
+  "campaignCards": [
+    {
+      "id": "story-001",
+      "name": "It's time to go!",
+      "description": "The crew may immediately end a battle, with all remaining characters escaping from the fight.",
+      "isPlayed": false
+    },
+    {
+      "id": "story-002",
+      "name": "Looked worse than it was!",
+      "description": "Ignore a roll on the Injury Table. The character recovers immediately.",
+      "isPlayed": false
+    },
+    {
+      "id": "story-003",
+      "name": "Did you ever meet my mate?",
+      "description": "Add a new character to your team immediately, even mid-battle. Place the model within 6\" of any battlefield edge. They can act immediately.",
+      "isPlayed": false
+    },
+    {
+      "id": "story-004",
+      "name": "Lucky shot!",
+      "description": "If a character just missed a shot, turn it into a hit. Only applies to a single shot, even if the weapon rolls multiple attack dice.",
+      "isPlayed": false
+    },
+    {
+      "id": "story-005",
+      "name": "Rainy day fund!",
+      "description": "Immediately add 1D6+5 credits to your available funds.",
+      "isPlayed": false
     }
   ]
 }

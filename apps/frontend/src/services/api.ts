@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, ICampaignCrew, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
+import type { ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -208,6 +208,23 @@ export const api = {
             if (!response.ok) {
                 throw new Error('Failed to delete campaign character');
             }
+        },
+    },
+
+    crewFlavor: {
+        getWeMetThrough: async (): Promise<IWeMetThrough[]> => {
+            const response = await fetch(`${API_BASE_URL}/crew-flavor/we-met-through`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch we met through options');
+            }
+            return response.json();
+        },
+        getCharacterizedAs: async (): Promise<ICaracterizedAs[]> => {
+            const response = await fetch(`${API_BASE_URL}/crew-flavor/characterized-as`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch characterized as options');
+            }
+            return response.json();
         },
     },
 

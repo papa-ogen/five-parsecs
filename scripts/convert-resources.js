@@ -89,7 +89,7 @@ function mapResourceName(name) {
   if (normalized.includes('reputation')) return 'reputation';
   if (normalized.includes('patron')) return 'patrons';
   if (normalized.includes('rival')) return 'rivals';
-  if (normalized.includes('questrumor') || normalized.includes('quest')) return 'questRumors';
+  if (normalized.includes('questrumor') || normalized.includes('quest')) return 'rumor';
   if (normalized.includes('rumor')) return 'rumor';
   
   console.warn(`Unknown resource type: ${name}`);

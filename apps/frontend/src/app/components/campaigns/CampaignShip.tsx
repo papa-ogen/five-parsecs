@@ -37,6 +37,19 @@ export function CampaignShip() {
     return null;
   }
 
+  // Require full crew (6 members) and no pending item rolls before ship setup
+  const hasFullCrew = (crew.characterIds?.length || 0) >= 6;
+  const noPendingRolls =
+    crew.gadgetCount === 0 &&
+    crew.gearCount === 0 &&
+    crew.lowTechWeaponCount === 0 &&
+    crew.militaryWeaponCount === 0 &&
+    crew.highTechWeaponCount === 0;
+
+  if (!hasFullCrew || !noPendingRolls) {
+    return null;
+  }
+
   // Only show ship setup for campaigns that haven't started AND don't have a ship yet
   if (selectedCampaign.status !== CampaignStatus.NO_STARTED || crew.ship) {
     return null;

@@ -60,11 +60,15 @@ export function StartCampaign() {
     crew.militaryWeaponCount === 0 &&
     crew.highTechWeaponCount === 0;
 
+  // Check if ship is set up
+  const hasShip = !!crew.ship;
+
   // Check if campaign is already started
   const isAlreadyStarted =
     selectedCampaign.status === CampaignStatus.IN_PROGRESS;
 
-  const canStart = hasSixMembers && noPendingRolls && !isAlreadyStarted;
+  const canStart =
+    hasSixMembers && noPendingRolls && hasShip && !isAlreadyStarted;
 
   const handleStartCampaign = () => {
     if (!canStart) {
@@ -126,6 +130,9 @@ export function StartCampaign() {
             </li>
             <li style={{ color: noPendingRolls ? '#52c41a' : '#ff4d4f' }}>
               {noPendingRolls ? '✓' : '✗'} No pending item rolls
+            </li>
+            <li style={{ color: hasShip ? '#52c41a' : '#ff4d4f' }}>
+              {hasShip ? '✓' : '✗'} Ship configured
             </li>
           </ul>
         </div>

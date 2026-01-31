@@ -14,6 +14,8 @@ import {
     IGadget,
     IGear,
     IWeapon,
+    IWeMetThrough,
+    ICaracterizedAs,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -32,6 +34,8 @@ interface DatabaseSchema {
     gear: IGear[];
     gadgets: IGadget[];
     weapons: IWeapon[];
+    weMetThrough: IWeMetThrough[];
+    caracterizedAs: ICaracterizedAs[];
 }
 
 @Injectable()
@@ -56,6 +60,8 @@ export class DatabaseService implements OnModuleInit {
             gear: [],
             gadgets: [],
             weapons: [],
+            weMetThrough: [],
+            caracterizedAs: [],
         };
 
         this.db = await JSONFilePreset<DatabaseSchema>(dbPath, defaultData);
@@ -170,7 +176,6 @@ export class DatabaseService implements OnModuleInit {
             reputation: 0,
             patrons: 0,
             rivals: 0,
-            questRumors: 0,
             rumors: 0,
             credits: 0,
             debt: 0,
@@ -385,9 +390,6 @@ export class DatabaseService implements OnModuleInit {
                         case 'rivals':
                             crew.rivals += amount;
                             break;
-                        case 'questRumors':
-                            crew.questRumors += amount;
-                            break;
                         case 'rumor':
                             crew.rumors += amount;
                             break;
@@ -546,6 +548,16 @@ export class DatabaseService implements OnModuleInit {
         return this.db.data.weapons.filter((w) => w.type === type);
     }
 
+    async getAllWeMetThrough(): Promise<IWeMetThrough[]> {
+        await this.db.read();
+        return this.db.data.weMetThrough ?? [];
+    }
+
+    async getAllCaracterizedAs(): Promise<ICaracterizedAs[]> {
+        await this.db.read();
+        return this.db.data.caracterizedAs ?? [];
+    }
+
     // Utility method to reset database
     async resetDatabase(): Promise<void> {
         await this.db.read();
@@ -563,6 +575,8 @@ export class DatabaseService implements OnModuleInit {
             gear: [],
             gadgets: [],
             weapons: [],
+            weMetThrough: [],
+            caracterizedAs: [],
         };
         await this.db.write();
     }

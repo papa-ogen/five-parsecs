@@ -107,7 +107,6 @@ export type ResourceType =
   | 'reputation' 
   | 'patrons' 
   | 'rivals' 
-  | 'questRumors' 
   | 'rumor';
 
 export interface IResourceEffect {
@@ -133,8 +132,7 @@ export interface IResourceEffect {
 | `storyPoints` | 11 | "+1 story point" |
 | `patrons` | 8 | "Patron" |
 | `rivals` | 5 | "Rival" |
-| `rumor` | 5 | "1 Rumor" |
-| `questRumors` | 1 | "2 Quest Rumors" |
+| `rumor` | 6 | "1 Rumor", "2 Quest Rumors" (all saved to crew.rumors) |
 
 ---
 

@@ -118,11 +118,6 @@ export function Crew() {
     return null;
   }
 
-  // Only show crew setup for campaigns that have a ship
-  if (!crew.ship) {
-    return null;
-  }
-
   // Filter characters for this campaign's crew
   const crewMembers =
     allCharacters?.filter((char) => char.crewId === selectedCampaign.crewId) ||
@@ -267,7 +262,7 @@ export function Crew() {
                     size="small"
                     style={{ width: '100%', justifyContent: 'space-between' }}
                   >
-                    <Space direction="vertical" size="small">
+                    <Space orientation="vertical" size="small">
                       <Space size="small" wrap>
                         <Tag>Level {character.level}</Tag>
                         <Tag>XP: {character.xp}</Tag>

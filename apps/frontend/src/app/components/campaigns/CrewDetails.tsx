@@ -51,7 +51,6 @@ export function CrewDetails() {
           <Statistic title="Reputation" value={crew.reputation} />
           <Statistic title="Patrons" value={crew.patrons} />
           <Statistic title="Rivals" value={crew.rivals} />
-          <Statistic title="Quest Rumors" value={crew.questRumors} />
           <Statistic title="Rumors" value={crew.rumors} />
         </Space>
 

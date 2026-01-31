@@ -15,7 +15,6 @@ export type ResourceType =
   | 'reputation' 
   | 'patrons' 
   | 'rivals' 
-  | 'questRumors' 
   | 'rumor';
 
 export interface IDiceRoll {
@@ -59,8 +58,7 @@ export interface IBackground {
 | `reputation` | `ICampaignCrew.reputation` | Crew reputation |
 | `patrons` | `ICampaignCrew.patrons` | Number of patrons |
 | `rivals` | `ICampaignCrew.rivals` | Number of rivals |
-| `questRumors` | Campaign quest system | Quest rumors |
-| `rumor` | Campaign quest system | General rumors |
+| `rumor` | `ICampaignCrew.rumors` | Rumors (all rumor-related resources) |
 
 ## Amount Format
 
@@ -160,9 +158,9 @@ Structured object for random values:
 "resources": [
   {
     "id": "8",
-    "resourceType": "questRumors",
+    "resourceType": "rumor",
     "amount": "2",
-    "description": "2 Quest Rumors"
+    "description": "2 Rumors"
   }
 ]
 ```
