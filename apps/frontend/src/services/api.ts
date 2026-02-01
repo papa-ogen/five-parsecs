@@ -1,4 +1,4 @@
-import type { ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
+import type { IBattleSize, ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -54,6 +54,23 @@ export const api = {
             const response = await fetch(`${API_BASE_URL}/ship-types`);
             if (!response.ok) {
                 throw new Error('Failed to fetch ship types');
+            }
+            return response.json();
+        },
+    },
+
+    battleSizes: {
+        getAll: async (): Promise<IBattleSize[]> => {
+            const response = await fetch(`${API_BASE_URL}/battle-sizes`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch battle sizes');
+            }
+            return response.json();
+        },
+        getById: async (id: string): Promise<IBattleSize> => {
+            const response = await fetch(`${API_BASE_URL}/battle-sizes/${id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch battle size');
             }
             return response.json();
         },

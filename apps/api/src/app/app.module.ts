@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { BackgroundsController } from '../controllers/background.controller';
+import { BattleSizesController } from '../controllers/battle-sizes.controller';
 import { CampaignCharactersController } from '../controllers/campaign-characters.controller';
 import { CampaignCrewsController } from '../controllers/campaign-crews.controller';
 import { CampaignsController } from '../controllers/campaigns.controller';
@@ -28,6 +29,7 @@ import { AppService } from './app.service';
     CrewTypesController,
     MotivationsController,
     ShipTypesController,
+    BattleSizesController,
     ItemsController,
     CrewFlavorController,
     CampaignsController,

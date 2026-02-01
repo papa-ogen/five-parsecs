@@ -257,7 +257,6 @@ export type UnitSystem = 'imperial' | 'metric';
 export interface IBattleSize {
     id: string;
     name: string;
-    description: string;
     value: number;
 }
 

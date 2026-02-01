@@ -16,6 +16,7 @@ import {
     IWeapon,
     IWeMetThrough,
     ICaracterizedAs,
+    IBattleSize,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -28,6 +29,7 @@ interface DatabaseSchema {
     crewTypes: ICrewType[];
     motivations: IMotivation[];
     shipTypes: IShipType[];
+    battleSizes: IBattleSize[];
     campaigns: ICampaign[];
     campaignCrews: ICampaignCrew[];
     campaignCharacters: ICampaignCharacter[];
@@ -54,6 +56,7 @@ export class DatabaseService implements OnModuleInit {
             crewTypes: [],
             motivations: [],
             shipTypes: [],
+            battleSizes: [],
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],
@@ -499,6 +502,17 @@ export class DatabaseService implements OnModuleInit {
         return this.db.data.shipTypes.find((s) => s.id === id);
     }
 
+    // Battle sizes
+    async getAllBattleSizes(): Promise<IBattleSize[]> {
+        await this.db.read();
+        return this.db.data.battleSizes ?? [];
+    }
+
+    async getBattleSizeById(id: string): Promise<IBattleSize | undefined> {
+        await this.db.read();
+        return this.db.data.battleSizes?.find((b) => b.id === id);
+    }
+
     // Motivations
     async getAllMotivations(): Promise<IMotivation[]> {
         await this.db.read();
@@ -569,6 +583,7 @@ export class DatabaseService implements OnModuleInit {
             crewTypes: [],
             motivations: [],
             shipTypes: [],
+            battleSizes: [],
             campaigns: [],
             campaignCrews: [],
             campaignCharacters: [],

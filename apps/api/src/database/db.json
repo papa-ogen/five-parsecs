@@ -2355,6 +2355,11 @@
       "description": "Heavily Armored patrol vessel."
     }
   ],
+  "battleSizes": [
+    { "id": "battle-size-2", "name": "2 ft", "value": 2 },
+    { "id": "battle-size-2-5", "name": "2.5 ft", "value": 2.5 },
+    { "id": "battle-size-3", "name": "3 ft", "value": 3 }
+  ],
   "weMetThrough": [
     {
       "id": "hired-by-random-member",
