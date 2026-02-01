@@ -3,6 +3,12 @@ export interface ISpecies {
     name: string;
     description: string;
     abilitiesId: string;
+    speciesTypeId: string;
+}
+
+export interface ISpeciesType {
+    id: string;
+    name: string;
 }
 
 export interface ISpeciesAbility {
