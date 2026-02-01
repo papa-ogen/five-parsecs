@@ -4,12 +4,11 @@ import { Card, List, Select, Space, Tag, Typography } from 'antd';
 import { useState } from 'react';
 
 import { api } from '../../services/api';
-import { useCampaign } from '../contexts/AppContext';
+import { useCampaign, useSettings } from '../contexts/AppContext';
 
-import { formatLength, type UnitSystem } from './unitConversion';
+import { formatLength } from './unitConversion';
 
 export type BattleSize = 2 | 2.5 | 3;
-export type { UnitSystem } from './unitConversion';
 
 const BATTLE_SIZE_OPTIONS = [
   { value: 2, label: '2' },
@@ -17,15 +16,10 @@ const BATTLE_SIZE_OPTIONS = [
   { value: 3, label: '3' },
 ];
 
-const UNIT_SYSTEM_OPTIONS = [
-  { value: 'imperial', label: 'Imperial (ft)' },
-  { value: 'metric', label: 'Metric (cm)' },
-];
-
 const BattleHelper = () => {
   const { selectedCampaign } = useCampaign();
+  const { unitSystem } = useSettings();
   const [battleSize, setBattleSize] = useState<BattleSize>(2);
-  const [unitSystem, setUnitSystem] = useState<UnitSystem>('imperial');
 
   const { data: allCharacters } = useQuery({
     queryKey: ['campaignCharacters'],
@@ -40,32 +34,21 @@ const BattleHelper = () => {
   const battleSizeDisplay = formatLength(battleSize, unitSystem);
 
   return (
-    <Space direction="vertical" size="large" style={{ width: '100%' }}>
+    <Space orientation="vertical" size="large" style={{ width: '100%' }}>
       <Card>
         <Space wrap align="center" size="middle">
           <Typography.Title level={4} style={{ margin: 0 }}>
             Battle Helper
           </Typography.Title>
-          <Space wrap align="center" size="middle">
-            <Space align="center" size="small">
-              <Typography.Text type="secondary">Unit system</Typography.Text>
-              <Select<UnitSystem>
-                value={unitSystem}
-                onChange={setUnitSystem}
-                options={UNIT_SYSTEM_OPTIONS}
-                style={{ minWidth: 120 }}
-              />
-            </Space>
+          <Space align="center" size="small">
+            <Typography.Text type="secondary">Battle size</Typography.Text>
+            <Select<BattleSize>
+              value={battleSize}
+              onChange={setBattleSize}
+              options={BATTLE_SIZE_OPTIONS}
+              style={{ minWidth: 80 }}
+            />
           </Space>
-            <Space align="center" size="small">
-              <Typography.Text type="secondary">Battle size</Typography.Text>
-              <Select<BattleSize>
-                value={battleSize}
-                onChange={setBattleSize}
-                options={BATTLE_SIZE_OPTIONS}
-                style={{ minWidth: 80 }}
-              />
-            </Space>
         </Space>
       </Card>
       <Card title="Crew">

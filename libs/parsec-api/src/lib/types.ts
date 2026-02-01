@@ -251,3 +251,18 @@ export interface ICampaignCharacter {
     createdAt: string;
     updatedAt: string;
 }
+
+export type UnitSystem = 'imperial' | 'metric';
+
+export interface IBattleSize {
+    id: string;
+    name: string;
+    description: string;
+    value: number;
+}
+
+export interface IUserSettings {
+    id: string;
+    userId: string;
+    unitSystem: UnitSystem;
+}

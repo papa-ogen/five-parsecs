@@ -1,5 +1,4 @@
-/** Unit system; will later be an app setting. */
-export type UnitSystem = 'imperial' | 'metric';
+import { UnitSystem } from "@five-parsecs/parsec-api";
 
 const FEET_TO_CM = 30.48;
 

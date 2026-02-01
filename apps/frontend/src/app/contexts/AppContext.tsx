@@ -1,5 +1,35 @@
-import type { ICampaign } from '@five-parsecs/parsec-api';
-import React, { createContext, useContext, useState } from 'react';
+import type { ICampaign, UnitSystem } from '@five-parsecs/parsec-api';
+import React, { createContext, useCallback, useContext, useState } from 'react';
+
+const SETTINGS_STORAGE_KEY = 'five-parsecs-settings';
+
+export interface AppSettings {
+  unitSystem: UnitSystem;
+  // Add more generic settings here as needed
+}
+
+function loadSettings(): AppSettings {
+  try {
+    const stored = localStorage.getItem(SETTINGS_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored) as Partial<AppSettings>;
+      if (parsed.unitSystem === 'imperial' || parsed.unitSystem === 'metric') {
+        return { unitSystem: parsed.unitSystem };
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return { unitSystem: 'imperial' };
+}
+
+function persistSettings(settings: AppSettings) {
+  try {
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+  } catch {
+    // ignore
+  }
+}
 
 interface AppContextType {
   // Campaign state
@@ -7,23 +37,25 @@ interface AppContextType {
   setSelectedCampaign: (campaign: ICampaign | null) => void;
   selectedCampaignId: string | undefined;
   setSelectedCampaignId: (id: string | undefined) => void;
-  
-  // Add more state here as needed:
-  // selectedCrew: ICampaignCrew | null;
-  // setSelectedCrew: (crew: ICampaignCrew | null) => void;
-  // etc.
+  // App settings (generic, persisted)
+  settings: AppSettings;
+  setSetting: <K extends keyof AppSettings>(key: K, value: AppSettings[K]) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  // Campaign state
   const [selectedCampaignId, setSelectedCampaignId] = useState<string | undefined>();
   const [selectedCampaign, setSelectedCampaign] = useState<ICampaign | null>(null);
+  const [settings, setSettingsState] = useState<AppSettings>(() => loadSettings());
 
-  // Add more state here as your app grows:
-  // const [selectedCrew, setSelectedCrew] = useState<ICampaignCrew | null>(null);
-  // const [selectedCharacter, setSelectedCharacter] = useState<ICampaignCharacter | null>(null);
+  const setSetting = useCallback(<K extends keyof AppSettings>(key: K, value: AppSettings[K]) => {
+    setSettingsState((prev) => {
+      const next = { ...prev, [key]: value };
+      persistSettings(next);
+      return next;
+    });
+  }, []);
 
   return (
     <AppContext.Provider
@@ -32,7 +64,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setSelectedCampaign,
         selectedCampaignId,
         setSelectedCampaignId,
-        // Add more state to value as needed
+        settings,
+        setSetting,
       }}
     >
       {children}
@@ -52,4 +85,14 @@ export function useApp() {
 export function useCampaign() {
   const { selectedCampaign, setSelectedCampaign, selectedCampaignId, setSelectedCampaignId } = useApp();
   return { selectedCampaign, setSelectedCampaign, selectedCampaignId, setSelectedCampaignId };
+}
+
+export function useSettings() {
+  const { settings, setSetting } = useApp();
+  return {
+    settings,
+    setSetting,
+    unitSystem: settings.unitSystem,
+    setUnitSystem: (unit: UnitSystem) => setSetting('unitSystem', unit),
+  };
 }

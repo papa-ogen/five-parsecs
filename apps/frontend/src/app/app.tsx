@@ -12,6 +12,7 @@ import CrewFlavor from './components/campaigns/CrewFlavor';
 import StartCampaign from './components/campaigns/StartCampaign';
 import Crew from './components/crew/Crew';
 import { AppProvider } from './contexts/AppContext';
+import Settings from './settings/Settings';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -98,6 +99,16 @@ export function App() {
             >
               Battle Helper
             </Link>
+            <Link
+              to="/settings"
+              style={
+                location.pathname === '/settings'
+                  ? headerLinkActiveStyle
+                  : headerLinkStyle
+              }
+            >
+              Settings
+            </Link>
           </Space>
         </Header>
 
@@ -106,6 +117,7 @@ export function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/battle-helper" element={<BattleHelper />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </div>
         </Content>
