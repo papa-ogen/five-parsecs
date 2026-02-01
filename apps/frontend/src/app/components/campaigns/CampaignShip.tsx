@@ -37,8 +37,8 @@ export function CampaignShip() {
     return null;
   }
 
-  // Require full crew (6 members) and no pending item rolls before ship setup
-  const hasFullCrew = (crew.characterIds?.length || 0) >= 6;
+  const crewSize = selectedCampaign.crewSize ?? 6;
+  const hasFullCrew = (crew.characterIds?.length || 0) >= crewSize;
   const noPendingRolls =
     crew.gadgetCount === 0 &&
     crew.gearCount === 0 &&

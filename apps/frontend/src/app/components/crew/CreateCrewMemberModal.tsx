@@ -20,15 +20,24 @@ export interface CrewMemberData {
   characterClass: ICharacterClass | null;
 }
 
+const HUMAN_SPECIES_ID = '1';
+
 interface CreateCrewMemberModalProps {
   open: boolean;
   onClose: () => void;
   onSubmit: (data: CrewMemberData) => void;
+  /** When 'first-timer', auto-select Human as species. */
+  crewCompositionMethod?: string;
 }
 
 type CrewSection = 'crewType' | 'background' | 'motivation' | 'class';
 
-export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMemberModalProps) {
+export function CreateCrewMemberModal({
+  open,
+  onClose,
+  onSubmit,
+  crewCompositionMethod,
+}: CreateCrewMemberModalProps) {
   const [name, setName] = useState('');
   const [activeSection, setActiveSection] = useState<CrewSection>('crewType');
   const { message } = App.useApp();
@@ -47,6 +56,18 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
     queryKey: ['species'],
     queryFn: api.species.getAll,
   });
+
+  // First-timer: auto-select Human and skip species roll section
+  useEffect(() => {
+    if (open && crewCompositionMethod === 'first-timer') {
+      setRolledSpeciesType({
+        speciesTypeId: '1',
+        name: 'Human',
+        speciesId: HUMAN_SPECIES_ID,
+      });
+      setActiveSection('background');
+    }
+  }, [open, crewCompositionMethod]);
 
   const handleSubmit = () => {
     if (!name.trim()) {
@@ -149,9 +170,21 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
     savvy: 0,
   };
 
+  const isFirstTimer = crewCompositionMethod === 'first-timer';
+
   const renderSectionContent = () => {
     switch (activeSection) {
       case 'crewType':
+        if (isFirstTimer) {
+          return (
+            <Card size="small" style={{ background: '#fafafa' }}>
+              <Typography.Text type="secondary">
+                First-timer campaign: all crew members are Human. Continue with
+                Background, Motivation, and Class below.
+              </Typography.Text>
+            </Card>
+          );
+        }
         return (
           <CrewTypeRoller
             selectedSpeciesType={rolledSpeciesType}
@@ -317,13 +350,19 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
 
         <div>
           <Segmented
-            value={activeSection}
+            value={
+              isFirstTimer && activeSection === 'crewType'
+                ? 'background'
+                : activeSection
+            }
             onChange={(value) => setActiveSection(value as CrewSection)}
             options={[
-              { label: 'Species Type', value: 'crewType' },
-              { label: 'Background', value: 'background' },
-              { label: 'Motivation', value: 'motivation' },
-              { label: 'Class', value: 'class' },
+              ...(!isFirstTimer
+                ? [{ label: 'Species Type', value: 'crewType' as CrewSection }]
+                : []),
+              { label: 'Background', value: 'background' as CrewSection },
+              { label: 'Motivation', value: 'motivation' as CrewSection },
+              { label: 'Class', value: 'class' as CrewSection },
             ]}
             block
           />

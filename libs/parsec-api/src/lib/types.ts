@@ -172,6 +172,10 @@ export interface ICampaign {
     description?: string;
     status: CampaignStatus;
     crewId: string;
+    /** Target number of crew members (from create campaign). Default 6 when missing. */
+    crewSize?: number;
+    /** Crew composition method, e.g. 'first-timer' (only humans), 'random', 'miniatures'. */
+    crewCompositionMethod?: string;
     campaignTurn: number;
     storyPoints: number;
     difficulty?: CampaignDifficulty;

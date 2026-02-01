@@ -25,6 +25,8 @@ export function CreateCampaign() {
         description: data.description,
         status: CampaignStatus.NO_STARTED, // Initial status
         crewId: '', // Will be created automatically by backend
+        crewSize: data.crewSize,
+        crewCompositionMethod: data.crewCompositionMethod,
         campaignTurn: 0,
         storyPoints: 0,
         createdAt: new Date().toISOString(),

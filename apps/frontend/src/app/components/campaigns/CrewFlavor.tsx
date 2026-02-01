@@ -37,10 +37,11 @@ export function CrewFlavor() {
     },
   });
 
-  const hasSixMembers = (crew?.characterIds?.length ?? 0) >= 6;
+  const crewSize = selectedCampaign?.crewSize ?? 6;
+  const hasEnoughMembers = (crew?.characterIds?.length ?? 0) >= crewSize;
   const isCampaignStarted = selectedCampaign?.status === CampaignStatus.IN_PROGRESS;
 
-  if (!selectedCampaign || !crew || !hasSixMembers || isCampaignStarted) {
+  if (!selectedCampaign || !crew || !hasEnoughMembers || isCampaignStarted) {
     return null;
   }
 

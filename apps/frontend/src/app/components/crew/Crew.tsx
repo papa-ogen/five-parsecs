@@ -226,8 +226,9 @@ export function Crew() {
     );
   }
 
+  const crewSize = selectedCampaign?.crewSize ?? 6;
   const hasCrewMembers = crewMembers.length > 0;
-  const isCrewFull = crewMembers.length >= 6;
+  const isCrewFull = crewMembers.length >= crewSize;
   const hasLeader = crewMembers.some((char) => char.isLeader);
 
   if (hasCrewMembers) {
@@ -237,13 +238,17 @@ export function Crew() {
           <Space>
             <TeamOutlined />
             <Title level={4} style={{ margin: 0 }}>
-              Crew Members ({crewMembers.length}/6)
+              Crew Members ({crewMembers.length}/{crewSize})
             </Title>
           </Space>
         }
         extra={
           <Tooltip
-            title={isCrewFull ? 'Maximum crew size reached (6 members)' : ''}
+            title={
+              isCrewFull
+                ? `Maximum crew size reached (${crewSize} members)`
+                : ''
+            }
           >
             <Button
               type="primary"
@@ -340,6 +345,7 @@ export function Crew() {
           open={modalOpen}
           onClose={handleModalClose}
           onSubmit={handleCreateMember}
+          crewCompositionMethod={selectedCampaign?.crewCompositionMethod}
         />
 
         <ViewCrewMemberModal
@@ -431,13 +437,18 @@ export function Crew() {
               No crew members yet. Create your crew to start your adventure!
             </Text>
             <Text type="secondary" style={{ fontSize: '12px' }}>
-              You'll generate 6 crew members by rolling their characteristics.
+              You'll generate {selectedCampaign?.crewSize ?? 6} crew members by
+              rolling their characteristics.
             </Text>
           </Space>
         }
       >
         <Tooltip
-          title={isCrewFull ? 'Maximum crew size reached (6 members)' : ''}
+          title={
+            isCrewFull
+              ? `Maximum crew size reached (${crewSize} members)`
+              : ''
+          }
         >
           <Button
             type="primary"
@@ -454,6 +465,7 @@ export function Crew() {
         open={modalOpen}
         onClose={handleModalClose}
         onSubmit={handleCreateMember}
+        crewCompositionMethod={selectedCampaign?.crewCompositionMethod}
       />
 
       <Modal

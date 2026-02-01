@@ -49,8 +49,8 @@ export function StartCampaign() {
   const crewMembers =
     allCharacters?.filter((char) => crew.characterIds.includes(char.id)) || [];
 
-  // Check if we have 6 crew members
-  const hasSixMembers = crewMembers.length === 6;
+  const crewSize = selectedCampaign.crewSize ?? 6;
+  const hasEnoughMembers = crewMembers.length === crewSize;
 
   // Check if there are no pending rolls
   const noPendingRolls =
@@ -68,7 +68,7 @@ export function StartCampaign() {
     selectedCampaign.status === CampaignStatus.IN_PROGRESS;
 
   const canStart =
-    hasSixMembers && noPendingRolls && hasShip && !isAlreadyStarted;
+    hasEnoughMembers && noPendingRolls && hasShip && !isAlreadyStarted;
 
   const handleStartCampaign = () => {
     if (!canStart) {
@@ -124,9 +124,9 @@ export function StartCampaign() {
         <div>
           <strong>Requirements to start:</strong>
           <ul style={{ marginTop: '8px', marginBottom: '8px' }}>
-            <li style={{ color: hasSixMembers ? '#52c41a' : '#ff4d4f' }}>
-              {hasSixMembers ? '✓' : '✗'} 6 crew members ({crewMembers.length}
-              /6)
+            <li style={{ color: hasEnoughMembers ? '#52c41a' : '#ff4d4f' }}>
+              {hasEnoughMembers ? '✓' : '✗'} {crewSize} crew members (
+              {crewMembers.length}/{crewSize})
             </li>
             <li style={{ color: noPendingRolls ? '#52c41a' : '#ff4d4f' }}>
               {noPendingRolls ? '✓' : '✗'} No pending item rolls
