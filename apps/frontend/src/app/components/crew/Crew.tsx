@@ -175,23 +175,11 @@ export function Crew() {
   };
 
   const handleCreateMember = (data: CrewMemberData) => {
-    // Map crew type to species ID
-    // Crew Type IDs: 1=Baseline Human, 2=Primary Alien, 3=Bot, 4=Strange Character
-    let speciesId = '1'; // Default to human
-
-    if (data.crewType?.id === '3') {
-      speciesId = '29'; // Bot
-    } else if (data.crewType?.id === '1') {
-      speciesId = '1'; // Baseline Human
-    }
-    // TODO: Add logic for Primary Alien and Strange Character
-
-    // Create crew member with all rolled data
-    // Backend will calculate stats based on species abilities and effects
+    // speciesId is set by CreateCrewMemberModal (picked from species with rolled species type)
     const characterData: Partial<ICampaignCharacter> = {
       name: data.name,
       crewId: selectedCampaign.crewId,
-      speciesId: speciesId,
+      speciesId: data.speciesId,
       backgroundId: data.background?.id || '',
       motivationId: data.motivation?.id || '',
       characterClassId: data.characterClass?.id || '',
@@ -216,8 +204,9 @@ export function Crew() {
   const handleConfirmLeader = () => {
     if (!selectedCharacterForLeader) return;
 
-    // Bots (speciesId "29") don't receive luck bonus
-    const isBot = selectedCharacterForLeader.speciesId === '29';
+    // Bots (speciesTypeId "2") don't receive luck bonus
+    const species = allSpecies?.find((s) => s.id === selectedCharacterForLeader.speciesId);
+    const isBot = species?.speciesTypeId === '2';
     const luckBonus = isBot ? 0 : 1;
 
     updateCharacterMutation.mutate({

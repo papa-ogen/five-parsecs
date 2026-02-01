@@ -53,11 +53,6 @@ export class SpeciesController {
 - `getClassById(id)` - Get class by ID
 - `addClass(classData)` - Add new class
 
-### Crew Types
-- `getAllCrewTypes()` - Get all crew types
-- `getCrewTypeById(id)` - Get crew type by ID
-- `addCrewType(crewType)` - Add new crew type
-
 ### Utility
 - `resetDatabase()` - Clear all data from database
 

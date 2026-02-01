@@ -7,7 +7,6 @@ import { CampaignCrewsController } from '../controllers/campaign-crews.controlle
 import { CampaignsController } from '../controllers/campaigns.controller';
 import { CharacterClassesController } from '../controllers/character-class.controller';
 import { CrewFlavorController } from '../controllers/crew-flavor.controller';
-import { CrewTypesController } from '../controllers/crew-type.controller';
 import { ItemsController } from '../controllers/items.controller';
 import { MotivationsController } from '../controllers/motivations.controller';
 import { ShipTypesController } from '../controllers/ship-types.controller';
@@ -26,7 +25,6 @@ import { AppService } from './app.service';
     SpeciesAbilitiesController,
     BackgroundsController,
     CharacterClassesController,
-    CrewTypesController,
     MotivationsController,
     ShipTypesController,
     BattleSizesController,

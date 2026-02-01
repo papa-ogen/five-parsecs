@@ -1,73 +1,73 @@
-import type { ICrewType } from '@five-parsecs/parsec-api';
-import { useQuery } from '@tanstack/react-query';
-import { Alert, Card, Spin } from 'antd';
+import { Alert, Card } from 'antd';
 import { useState } from 'react';
 
-import { api } from '../../../services/api';
 import DiceRoller from '../common/DiceRoller';
 
-interface CrewTypeRollerProps {
-  onSelect: (crewType: ICrewType) => void;
-  selectedCrewType?: ICrewType | null;
+/** Roll bands: 1–60 Human (60%), 61–80 Primary Alien (20%), 81–90 Bot (10%), 91–100 Strange (10%). Uses speciesTypeId. */
+const ROLL_BANDS = [
+  { min: 1, max: 60, speciesTypeId: '1', name: 'Human' },
+  { min: 61, max: 80, speciesTypeId: '3', name: 'Primary Alien' },
+  { min: 81, max: 90, speciesTypeId: '2', name: 'Bot' },
+  { min: 91, max: 100, speciesTypeId: '4', name: 'Strange Character' },
+] as const;
+
+export interface RolledSpeciesType {
+  speciesTypeId: string;
+  name: string;
 }
 
-export function CrewTypeRoller({ onSelect, selectedCrewType }: CrewTypeRollerProps) {
+function rollToSpeciesType(): RolledSpeciesType {
+  const diceRoll = Math.floor(Math.random() * 100) + 1;
+  const band =
+    ROLL_BANDS.find((b) => diceRoll >= b.min && diceRoll <= b.max) ?? ROLL_BANDS[0];
+  return { speciesTypeId: band.speciesTypeId, name: band.name };
+}
+
+interface CrewTypeRollerProps {
+  onSelect: (rolled: RolledSpeciesType) => void;
+  selectedSpeciesType?: RolledSpeciesType | null;
+}
+
+export function CrewTypeRoller({
+  onSelect,
+  selectedSpeciesType,
+}: CrewTypeRollerProps) {
   const [isRolling, setIsRolling] = useState(false);
   const [rollingText, setRollingText] = useState('');
 
-  const { data: crewTypes, isLoading } = useQuery({
-    queryKey: ['crewTypes'],
-    queryFn: api.crewTypes.getAll,
-  });
-
   const rollDice = () => {
-    if (!crewTypes || crewTypes.length === 0) return;
-
     setIsRolling(true);
 
     let rollCount = 0;
     const rollInterval = setInterval(() => {
-      const randomCrewType = crewTypes[Math.floor(Math.random() * crewTypes.length)];
-      setRollingText(randomCrewType.name);
+      const randomBand = ROLL_BANDS[Math.floor(Math.random() * ROLL_BANDS.length)];
+      setRollingText(randomBand.name);
       rollCount++;
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        // Roll 1-100 and find matching crew type based on rollMin/rollMax
-        const diceRoll = Math.floor(Math.random() * 100) + 1;
-        const finalCrewType = crewTypes.find(
-          (ct) => diceRoll >= ct.rollMin && diceRoll <= ct.rollMax
-        ) || crewTypes[0];
-        
-        onSelect(finalCrewType);
+        const final = rollToSpeciesType();
+        onSelect(final);
         setRollingText('');
         setIsRolling(false);
       }
     }, 100);
   };
 
-  if (isLoading) {
-    return (
-      <div style={{ textAlign: 'center', padding: '50px' }}>
-        <Spin size="large" />
-      </div>
-    );
-  }
-
   return (
     <div>
       <DiceRoller
         isRolling={isRolling}
         rollingText={rollingText}
-        resultText={selectedCrewType?.name}
+        resultText={selectedSpeciesType?.name}
         onRoll={rollDice}
       />
 
-      {selectedCrewType && !isRolling && (
+      {selectedSpeciesType && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            title={selectedCrewType.name}
-            description={selectedCrewType.description || 'Roll to determine crew member type'}
+            title={selectedSpeciesType.name}
+            description="Roll to determine crew member type (species type). 60% Human, 20% Primary Alien, 10% Bot, 10% Strange Character."
             type="success"
             showIcon
           />

@@ -1,318 +1,318 @@
 {
-    "species": [
-      {
-        "id": "1",
-        "name": "Human",
-        "description": "Versatile and adaptable, humans are the baseline species found across the galaxy.",
-        "abilitiesId": "1",
-        "speciesTypeId": "1"
-      },
-      {
-        "id": "2",
-        "name": "Engineer",
-        "description": "Slim humanoids with a fragile physique and an innate talent for interfacing with machinery.",
-        "abilitiesId": "6",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "3",
-        "name": "K'Erin",
-        "description": "Proud and warlike aliens with a penchant for brutality and a peculiar sense of honor.",
-        "abilitiesId": "7",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "4",
-        "name": "Soulless",
-        "description": "A species of cybernetic organisms connected into a combined hive-intelligence.",
-        "abilitiesId": "8",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "5",
-        "name": "Precursor",
-        "description": "Graceful and refined alien humanoids who were traveling the stars when other species were still lingering in caves.",
-        "abilitiesId": "9",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "6",
-        "name": "Feral",
-        "description": "Humanoid-animal hybrids patterned on Earth predators, originally engineered for military purposes.",
-        "abilitiesId": "1",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "7",
-        "name": "Swift",
-        "description": "Diminutive, winged, lizard people known for their erratic, jerky motions.",
-        "abilitiesId": "10",
-        "speciesTypeId": "3"
-      },
-      {
-        "id": "8",
-        "name": "De-converted",
-        "description": "A prisoner of the Converted who began undergoing cyborg conversion before being rescued.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "9",
-        "name": "Unity Agent",
-        "description": "A secret agent for the Unity administration, whether undercover or on the run.",
-        "abilitiesId": "11",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "10",
-        "name": "Mysterious Past",
-        "description": "A character who never talks about their origins, appearing as though they might not even know.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "11",
-        "name": "Hakshan",
-        "description": "Friendly high-tech aliens traveling the galaxy in search of something.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "12",
-        "name": "Stalker",
-        "description": "Blue-skinned Human gene-mods with an innate teleportation ability from a secret military project.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "13",
-        "name": "Manipulator",
-        "description": "Bizarre-looking aliens renowned for talents at communication and political machination.",
-        "abilitiesId": "12",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "14",
-        "name": "Feeler",
-        "description": "Members of cultures possessing extremely strong emotional output.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "15",
-        "name": "Empath",
-        "description": "A character with a minor psionic inclination useful during negotiations.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "16",
-        "name": "Primitive",
-        "description": "Inhabitants from a technologically regressed world who find it difficult to shed their backwards ways.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "18",
-        "name": "Genetic Uplift",
-        "description": "Super-humans created via expensive genetic adjustments to the basic Human template.",
-        "abilitiesId": "4",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "20",
-        "name": "Hulker",
-        "description": "Bulging with muscles and rage, these gene-mods are perfect for hauling, crushing, and breaking.",
-        "abilitiesId": "5",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "21",
-        "name": "Hopeful Rookie",
-        "description": "Wide-eyed and enthusiastic beginners entering a harsh universe.",
-        "abilitiesId": "14",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "22",
-        "name": "Mutant",
-        "description": "Genetic distorts common around the galaxy due to weaponry, experiments, or pollution.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "23",
-        "name": "Assault Bot",
-        "description": "A work Bot encased in armor and programmed with a homicidal demeanor.",
-        "abilitiesId": "3",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "25",
-        "name": "Emo-suppressed",
-        "description": "A character unable to feel any emotions beyond those needed for rudimentary existence.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "26",
-        "name": "Minor Alien",
-        "description": "One of the many alien species that do not form a major political entity in the Fringe.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "27",
-        "name": "Traveler",
-        "description": "An odd person claiming they are not really from this moment in space and time.",
-        "abilitiesId": "13",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "28",
-        "name": "Bio-upgrade",
-        "description": "Humans given genetic treatments to take full advantage of multiple cybernetic enhancements.",
-        "abilitiesId": "1",
-        "speciesTypeId": "4"
-      },
-      {
-        "id": "29",
-        "name": "Standard Bot",
-        "description": "Typical Bot configurations that fit most general purpose simulations.",
-        "abilitiesId": "2",
-        "speciesTypeId": "2"
-      }
-    ],
-    "speciesAbilities": [
-      {
-        "id": "1",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 3,
-        "savvy": 0
-      },
-      {
-        "id": "2",
-        "reactions": 2,
-        "speed": 4,
-        "combat": 1,
-        "toughness": 4,
-        "savvy": 2
-      },
-      {
-        "id": "3",
-        "reactions": 2,
-        "speed": 4,
-        "combat": 1,
-        "toughness": 4,
-        "savvy": 0
-      },
-      {
-        "id": "4",
-        "reactions": 2,
-        "speed": 5,
-        "combat": 1,
-        "toughness": 4,
-        "savvy": 1
-      },
-      {
-        "id": "5",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 1,
-        "toughness": 5,
-        "savvy": 0
-      },
-      {
-        "id": "6",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 2,
-        "savvy": 1
-      },
-      {
-        "id": "7",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 4,
-        "savvy": 0
-      },
-      {
-        "id": "8",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 4,
-        "savvy": 1
-      },
-      {
-        "id": "9",
-        "reactions": 1,
-        "speed": 5,
-        "combat": 0,
-        "toughness": 2,
-        "savvy": 0
-      },
-      {
-        "id": "10",
-        "reactions": 1,
-        "speed": 5,
-        "combat": 0,
-        "toughness": 3,
-        "savvy": 0
-      },
-      {
-        "id": "11",
-        "reactions": 2,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 3,
-        "savvy": 0
-      },
-      {
-        "id": "12",
-        "reactions": 2,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 3,
-        "savvy": 1
-      },
-      {
-        "id": "13",
-        "reactions": 3,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 4,
-        "savvy": 2
-      },
-      {
-        "id": "14",
-        "reactions": 1,
-        "speed": 4,
-        "combat": 0,
-        "toughness": 3,
-        "savvy": 0,
-        "luck": 1
-      }
-    ],
+  "species": [
+    {
+      "id": "1",
+      "name": "Human",
+      "description": "Versatile and adaptable, humans are the baseline species found across the galaxy.",
+      "abilitiesId": "1",
+      "speciesTypeId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Engineer",
+      "description": "Slim humanoids with a fragile physique and an innate talent for interfacing with machinery.",
+      "abilitiesId": "6",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "3",
+      "name": "K'Erin",
+      "description": "Proud and warlike aliens with a penchant for brutality and a peculiar sense of honor.",
+      "abilitiesId": "7",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "4",
+      "name": "Soulless",
+      "description": "A species of cybernetic organisms connected into a combined hive-intelligence.",
+      "abilitiesId": "8",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "5",
+      "name": "Precursor",
+      "description": "Graceful and refined alien humanoids who were traveling the stars when other species were still lingering in caves.",
+      "abilitiesId": "9",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "6",
+      "name": "Feral",
+      "description": "Humanoid-animal hybrids patterned on Earth predators, originally engineered for military purposes.",
+      "abilitiesId": "1",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "7",
+      "name": "Swift",
+      "description": "Diminutive, winged, lizard people known for their erratic, jerky motions.",
+      "abilitiesId": "10",
+      "speciesTypeId": "3"
+    },
+    {
+      "id": "8",
+      "name": "De-converted",
+      "description": "A prisoner of the Converted who began undergoing cyborg conversion before being rescued.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "9",
+      "name": "Unity Agent",
+      "description": "A secret agent for the Unity administration, whether undercover or on the run.",
+      "abilitiesId": "11",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "10",
+      "name": "Mysterious Past",
+      "description": "A character who never talks about their origins, appearing as though they might not even know.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "11",
+      "name": "Hakshan",
+      "description": "Friendly high-tech aliens traveling the galaxy in search of something.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "12",
+      "name": "Stalker",
+      "description": "Blue-skinned Human gene-mods with an innate teleportation ability from a secret military project.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "13",
+      "name": "Manipulator",
+      "description": "Bizarre-looking aliens renowned for talents at communication and political machination.",
+      "abilitiesId": "12",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "14",
+      "name": "Feeler",
+      "description": "Members of cultures possessing extremely strong emotional output.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "15",
+      "name": "Empath",
+      "description": "A character with a minor psionic inclination useful during negotiations.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "16",
+      "name": "Primitive",
+      "description": "Inhabitants from a technologically regressed world who find it difficult to shed their backwards ways.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "18",
+      "name": "Genetic Uplift",
+      "description": "Super-humans created via expensive genetic adjustments to the basic Human template.",
+      "abilitiesId": "4",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "20",
+      "name": "Hulker",
+      "description": "Bulging with muscles and rage, these gene-mods are perfect for hauling, crushing, and breaking.",
+      "abilitiesId": "5",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "21",
+      "name": "Hopeful Rookie",
+      "description": "Wide-eyed and enthusiastic beginners entering a harsh universe.",
+      "abilitiesId": "14",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "22",
+      "name": "Mutant",
+      "description": "Genetic distorts common around the galaxy due to weaponry, experiments, or pollution.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "23",
+      "name": "Assault Bot",
+      "description": "A work Bot encased in armor and programmed with a homicidal demeanor.",
+      "abilitiesId": "3",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "25",
+      "name": "Emo-suppressed",
+      "description": "A character unable to feel any emotions beyond those needed for rudimentary existence.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "26",
+      "name": "Minor Alien",
+      "description": "One of the many alien species that do not form a major political entity in the Fringe.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "27",
+      "name": "Traveler",
+      "description": "An odd person claiming they are not really from this moment in space and time.",
+      "abilitiesId": "13",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "28",
+      "name": "Bio-upgrade",
+      "description": "Humans given genetic treatments to take full advantage of multiple cybernetic enhancements.",
+      "abilitiesId": "1",
+      "speciesTypeId": "4"
+    },
+    {
+      "id": "29",
+      "name": "Standard Bot",
+      "description": "Typical Bot configurations that fit most general purpose simulations.",
+      "abilitiesId": "2",
+      "speciesTypeId": "2"
+    }
+  ],
+  "speciesAbilities": [
+    {
+      "id": "1",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0
+    },
+    {
+      "id": "2",
+      "reactions": 2,
+      "speed": 4,
+      "combat": 1,
+      "toughness": 4,
+      "savvy": 2
+    },
+    {
+      "id": "3",
+      "reactions": 2,
+      "speed": 4,
+      "combat": 1,
+      "toughness": 4,
+      "savvy": 0
+    },
+    {
+      "id": "4",
+      "reactions": 2,
+      "speed": 5,
+      "combat": 1,
+      "toughness": 4,
+      "savvy": 1
+    },
+    {
+      "id": "5",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 1,
+      "toughness": 5,
+      "savvy": 0
+    },
+    {
+      "id": "6",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 2,
+      "savvy": 1
+    },
+    {
+      "id": "7",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 4,
+      "savvy": 0
+    },
+    {
+      "id": "8",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 4,
+      "savvy": 1
+    },
+    {
+      "id": "9",
+      "reactions": 1,
+      "speed": 5,
+      "combat": 0,
+      "toughness": 2,
+      "savvy": 0
+    },
+    {
+      "id": "10",
+      "reactions": 1,
+      "speed": 5,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0
+    },
+    {
+      "id": "11",
+      "reactions": 2,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0
+    },
+    {
+      "id": "12",
+      "reactions": 2,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 1
+    },
+    {
+      "id": "13",
+      "reactions": 3,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 4,
+      "savvy": 2
+    },
+    {
+      "id": "14",
+      "reactions": 1,
+      "speed": 4,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 1
+    }
+  ],
   "speciesTypes": [
     {
       "id": "1",
       "name": "Human"
     },
     {
-      "id":"2",
+      "id": "2",
       "name": "Bot"
     },
     {
-      "id":"3",
+      "id": "3",
       "name": "Primary Alien"
     },
     {
-      "id":"4",
+      "id": "4",
       "name": "Strange Character"
     }
   ],
@@ -683,36 +683,6 @@
       "effect": [],
       "resources": [],
       "startinRolls": "+1 High-tech Weapon"
-    }
-  ],
-  "crewTypes": [
-    {
-      "id": "1",
-      "name": "Baseline Human",
-      "description": "A human crew member",
-      "rollMin": 1,
-      "rollMax": 60
-    },
-    {
-      "id": "2",
-      "name": "Primary Alien",
-      "description": "An alien crew member",
-      "rollMin": 61,
-      "rollMax": 80
-    },
-    {
-      "id": "3",
-      "name": "Bot",
-      "description": "A bot crew member",
-      "rollMin": 81,
-      "rollMax": 90
-    },
-    {
-      "id": "4",
-      "name": "Strange Character",
-      "description": "A strange character crew member",
-      "rollMin": 91,
-      "rollMax": 100
     }
   ],
   "primaryAliens": [
@@ -2479,9 +2449,21 @@
     }
   ],
   "battleSizes": [
-    { "id": "battle-size-2", "name": "2 ft", "value": 2 },
-    { "id": "battle-size-2-5", "name": "2.5 ft", "value": 2.5 },
-    { "id": "battle-size-3", "name": "3 ft", "value": 3 }
+    {
+      "id": "battle-size-2",
+      "name": "2 ft",
+      "value": 2
+    },
+    {
+      "id": "battle-size-2-5",
+      "name": "2.5 ft",
+      "value": 2.5
+    },
+    {
+      "id": "battle-size-3",
+      "name": "3 ft",
+      "value": 3
+    }
   ],
   "weMetThrough": [
     {
@@ -2581,6 +2563,17 @@
       "storyPoints": 3,
       "createdAt": "2026-01-27T11:54:43.055Z",
       "updatedAt": "2026-01-27T11:54:43.056Z"
+    },
+    {
+      "id": "90c97775-e0d4-4b43-aa08-0225724e1a28",
+      "name": "test",
+      "description": "",
+      "status": "no_started",
+      "crewId": "crew-1769943198229",
+      "campaignTurn": 0,
+      "storyPoints": 0,
+      "createdAt": "2026-02-01T10:53:18.179Z",
+      "updatedAt": "2026-02-01T10:53:18.180Z"
     }
   ],
   "campaignCrews": [
@@ -2721,6 +2714,30 @@
         "cost": 10,
         "description": "Scientific ship converted for frontier use."
       }
+    },
+    {
+      "id": "crew-1769943198229",
+      "campaignId": "90c97775-e0d4-4b43-aa08-0225724e1a28",
+      "name": "test Crew",
+      "description": "Crew for test",
+      "characterIds": [],
+      "reputation": 0,
+      "patrons": 0,
+      "rivals": 0,
+      "rumors": 0,
+      "credits": 0,
+      "debt": 0,
+      "inBattle": false,
+      "gear": [],
+      "gadgets": [],
+      "weapons": [],
+      "gadgetCount": 1,
+      "gearCount": 1,
+      "lowTechWeaponCount": 3,
+      "militaryWeaponCount": 3,
+      "highTechWeaponCount": 0,
+      "createdAt": "2026-02-01T10:53:18.229Z",
+      "updatedAt": "2026-02-01T10:53:18.229Z"
     }
   ],
   "campaignCharacters": [

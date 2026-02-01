@@ -1,4 +1,4 @@
-import type { IBattleSize, ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, ICrewType, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
+import type { IBattleSize, ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -91,16 +91,6 @@ export const api = {
             const response = await fetch(`${API_BASE_URL}/character-classes`);
             if (!response.ok) {
                 throw new Error('Failed to fetch character classes');
-            }
-            return response.json();
-        },
-    },
-
-    crewTypes: {
-        getAll: async (): Promise<ICrewType[]> => {
-            const response = await fetch(`${API_BASE_URL}/crew-types`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch crew types');
             }
             return response.json();
         },

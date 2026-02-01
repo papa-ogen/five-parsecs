@@ -70,18 +70,7 @@ This document outlines all React Query cache keys used in the application and wh
 
 ---
 
-### 6. `['crewTypes']`
-**What it stores:** List of all crew types
-
-**Used in:**
-- `CrewTypeRoller.tsx` - Fetches crew types for rolling
-
-**Invalidated when:**
-- Rarely (this is reference data)
-
----
-
-### 7. `['backgrounds']`
+### 6. `['backgrounds']`
 **What it stores:** List of all backgrounds
 
 **Used in:**

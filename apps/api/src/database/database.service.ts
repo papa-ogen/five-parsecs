@@ -4,7 +4,6 @@ import {
     ISpecies,
     IBackground,
     ICharacterClass,
-    ICrewType,
     ICampaign,
     ICampaignCrew,
     ICampaignCharacter,
@@ -26,7 +25,6 @@ interface DatabaseSchema {
     speciesAbilities: ISpeciesAbility[];
     backgrounds: IBackground[];
     characterClasses: ICharacterClass[];
-    crewTypes: ICrewType[];
     motivations: IMotivation[];
     shipTypes: IShipType[];
     battleSizes: IBattleSize[];
@@ -53,7 +51,6 @@ export class DatabaseService implements OnModuleInit {
             speciesAbilities: [],
             backgrounds: [],
             characterClasses: [],
-            crewTypes: [],
             motivations: [],
             shipTypes: [],
             battleSizes: [],
@@ -133,24 +130,6 @@ export class DatabaseService implements OnModuleInit {
         this.db.data.characterClasses.push(characterClass);
         await this.db.write();
         return characterClass;
-    }
-
-    // Crew Type methods
-    async getAllCrewTypes(): Promise<ICrewType[]> {
-        await this.db.read();
-        return this.db.data.crewTypes;
-    }
-
-    async getCrewTypeById(id: string): Promise<ICrewType | undefined> {
-        await this.db.read();
-        return this.db.data.crewTypes.find((c) => c.id === id);
-    }
-
-    async addCrewType(crewType: ICrewType): Promise<ICrewType> {
-        await this.db.read();
-        this.db.data.crewTypes.push(crewType);
-        await this.db.write();
-        return crewType;
     }
 
     // Campaign methods
@@ -580,7 +559,6 @@ export class DatabaseService implements OnModuleInit {
             speciesAbilities: [],
             backgrounds: [],
             characterClasses: [],
-            crewTypes: [],
             motivations: [],
             shipTypes: [],
             battleSizes: [],

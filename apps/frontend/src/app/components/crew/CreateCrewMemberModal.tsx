@@ -1,5 +1,5 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
-import type { IMotivation, ICharacterClass, ICrewType, IBackground, ISpeciesAbility } from '@five-parsecs/parsec-api';
+import type { IMotivation, ICharacterClass, IBackground, ISpeciesAbility } from '@five-parsecs/parsec-api';
 import { useQuery } from '@tanstack/react-query';
 import { App, Button, Card, Divider, Form, Input, Modal, Segmented, Space, Table, Tag } from 'antd';
 import { useState, useEffect } from 'react';
@@ -9,12 +9,12 @@ import { api } from '../../../services/api';
 import BackgroundRoller from './BackgroundRoller';
 import ClassRoller from './ClassRoller';
 import CrewMemberDescription from './CrewMemberDescription';
-import CrewTypeRoller from './CrewTypeRoller';
+import CrewTypeRoller, { type RolledSpeciesType } from './CrewTypeRoller';
 import MotivationRoller from './MotivationRoller';
 
 export interface CrewMemberData {
   name: string;
-  crewType: ICrewType | null;
+  speciesId: string;
   background: IBackground | null;
   motivation: IMotivation | null;
   characterClass: ICharacterClass | null;
@@ -33,8 +33,9 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
   const [activeSection, setActiveSection] = useState<CrewSection>('crewType');
   const { message } = App.useApp();
 
-  // Crew member attributes
-  const [crewType, setCrewType] = useState<ICrewType | null>(null);
+  // Crew member attributes (species type rolled on frontend; speciesId picked from species with that type)
+  const [rolledSpeciesType, setRolledSpeciesType] = useState<RolledSpeciesType | null>(null);
+  const [speciesId, setSpeciesId] = useState<string | null>(null);
   const [background, setBackground] = useState<IBackground | null>(null);
   const [motivation, setMotivation] = useState<IMotivation | null>(null);
   const [characterClass, setCharacterClass] = useState<ICharacterClass | null>(null);
@@ -51,18 +52,23 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
       message.error('Please enter a crew member name');
       return;
     }
-    
+    if (!speciesId) {
+      message.error('Please roll for crew type');
+      return;
+    }
+
     onSubmit({
       name,
-      crewType,
+      speciesId,
       background,
       motivation,
       characterClass,
     });
-    
+
     // Reset form
     setName('');
-    setCrewType(null);
+    setRolledSpeciesType(null);
+    setSpeciesId(null);
     setBackground(null);
     setMotivation(null);
     setCharacterClass(null);
@@ -70,11 +76,13 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
   };
 
   // Check if all required data is generated
-  const isComplete = name.trim() && crewType && background && motivation && characterClass;
+  const isComplete =
+    name.trim() && speciesId && background && motivation && characterClass;
 
   const handleCancel = () => {
     setName('');
-    setCrewType(null);
+    setRolledSpeciesType(null);
+    setSpeciesId(null);
     setBackground(null);
     setMotivation(null);
     setCharacterClass(null);
@@ -82,43 +90,38 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
     onClose();
   };
 
-  // Determine species ID based on crew type and fetch abilities
+  // When species type is rolled, pick a random species with that type and fetch abilities
   useEffect(() => {
-    if (!crewType || !allSpecies) {
+    if (!rolledSpeciesType || !allSpecies) {
+      setSpeciesId(null);
       setSpeciesAbilities(null);
       return;
     }
 
-    let speciesId: string;
-    
-    // If Bot (crew type ID 3), use species ID 29
-    if (crewType.id === '3') {
-      speciesId = '29';
-    } 
-    // If Baseline Human (crew type ID 1), use species ID 1
-    else if (crewType.id === '1') {
-      speciesId = '1';
-    } 
-    // For other crew types, we'll add logic later
-    else {
+    const matching = allSpecies.filter(
+      (s) => s.speciesTypeId === rolledSpeciesType.speciesTypeId
+    );
+    if (matching.length === 0) {
+      setSpeciesId(null);
       setSpeciesAbilities(null);
       return;
     }
+    const picked = matching[Math.floor(Math.random() * matching.length)];
+    setSpeciesId(picked.id);
+    const species = picked;
 
-    const species = allSpecies.find(s => s.id === speciesId);
-
-    // Fetch species abilities
     if (species?.abilitiesId) {
-      api.speciesAbilities.getById(species.abilitiesId)
-        .then(abilities => setSpeciesAbilities(abilities))
-        .catch(err => {
+      api.speciesAbilities
+        .getById(species.abilitiesId)
+        .then((abilities) => setSpeciesAbilities(abilities))
+        .catch((err) => {
           console.error('Failed to fetch species abilities:', err);
           setSpeciesAbilities(null);
         });
     } else {
       setSpeciesAbilities(null);
     }
-  }, [crewType, allSpecies]);
+  }, [rolledSpeciesType, allSpecies]);
 
   // Calculate stats based on species abilities
   const stats = speciesAbilities ? {
@@ -140,8 +143,8 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
       case 'crewType':
         return (
           <CrewTypeRoller
-            selectedCrewType={crewType}
-            onSelect={setCrewType}
+            selectedSpeciesType={rolledSpeciesType}
+            onSelect={setRolledSpeciesType}
           />
         );
       case 'background':
@@ -232,9 +235,9 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
         >
           <Space orientation="vertical" size="small" style={{ width: '100%' }}>
             <Space>
-              {crewType ? (
+              {rolledSpeciesType ? (
                 <Tag icon={<CheckCircleFilled />} color="success">
-                  Crew Type: {crewType.name}
+                  Crew Type: {rolledSpeciesType.name}
                 </Tag>
               ) : (
                 <Tag icon={<CloseCircleFilled />} color="default">
@@ -294,7 +297,7 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
             value={activeSection}
             onChange={(value) => setActiveSection(value as CrewSection)}
             options={[
-              { label: 'Crew Type', value: 'crewType' },
+              { label: 'Species Type', value: 'crewType' },
               { label: 'Background', value: 'background' },
               { label: 'Motivation', value: 'motivation' },
               { label: 'Class', value: 'class' },

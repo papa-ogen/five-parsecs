@@ -82,14 +82,6 @@ export interface IBackground {
     startingRolls: IStartingItem[];
 }
 
-export interface ICrewType {
-    id: string;
-    name: string;
-    description: string;
-    rollMin: number;
-    rollMax: number;
-}
-
 export interface IPrimaryAlien {
     id: string;
     speciesId: string;
