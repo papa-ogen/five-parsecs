@@ -1,7 +1,7 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
 import type { IMotivation, ICharacterClass, IBackground, ISpeciesAbility } from '@five-parsecs/parsec-api';
 import { useQuery } from '@tanstack/react-query';
-import { App, Button, Card, Divider, Form, Input, Modal, Segmented, Space, Table, Tag } from 'antd';
+import { App, Button, Card, Divider, Form, Input, Modal, Segmented, Space, Table, Tag, Typography } from 'antd';
 import { useState, useEffect } from 'react';
 
 import { api } from '../../../services/api';
@@ -33,7 +33,8 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
   const [activeSection, setActiveSection] = useState<CrewSection>('crewType');
   const { message } = App.useApp();
 
-  // Crew member attributes (species type rolled on frontend; speciesId picked from species with that type)
+  // Crew member attributes: we always resolve to a concrete speciesId (never store speciesTypeId).
+  // Human/Bot: pick random species with that type. Primary Alien/Strange: speciesId from roller.
   const [rolledSpeciesType, setRolledSpeciesType] = useState<RolledSpeciesType | null>(null);
   const [speciesId, setSpeciesId] = useState<string | null>(null);
   const [background, setBackground] = useState<IBackground | null>(null);
@@ -90,7 +91,7 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
     onClose();
   };
 
-  // When species type is rolled, pick a random species with that type and fetch abilities
+  // Resolve rolled type to a concrete speciesId (saved on character; we never persist speciesTypeId)
   useEffect(() => {
     if (!rolledSpeciesType || !allSpecies) {
       setSpeciesId(null);
@@ -98,19 +99,29 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
       return;
     }
 
-    const matching = allSpecies.filter(
-      (s) => s.speciesTypeId === rolledSpeciesType.speciesTypeId
-    );
-    if (matching.length === 0) {
-      setSpeciesId(null);
-      setSpeciesAbilities(null);
-      return;
-    }
-    const picked = matching[Math.floor(Math.random() * matching.length)];
-    setSpeciesId(picked.id);
-    const species = picked;
+    let species: (typeof allSpecies)[number] | undefined;
 
-    if (species?.abilitiesId) {
+    if (rolledSpeciesType.speciesId) {
+      // Primary Alien or Strange Character: use the species we picked from primaryAliens/strangeCharacters
+      species = allSpecies.find((s) => s.id === rolledSpeciesType.speciesId);
+    }
+
+    if (!species) {
+      // No speciesId, or species not found (e.g. Human/Bot, or fallback): pick random species with this type
+      const matching = allSpecies.filter(
+        (s) => s.speciesTypeId === rolledSpeciesType.speciesTypeId
+      );
+      if (matching.length === 0) {
+        setSpeciesId(null);
+        setSpeciesAbilities(null);
+        return;
+      }
+      species = matching[Math.floor(Math.random() * matching.length)];
+    }
+
+    setSpeciesId(species.id);
+
+    if (species.abilitiesId) {
       api.speciesAbilities
         .getById(species.abilitiesId)
         .then((abilities) => setSpeciesAbilities(abilities))
@@ -234,11 +245,23 @@ export function CreateCrewMemberModal({ open, onClose, onSubmit }: CreateCrewMem
           style={{ background: '#fafafa' }}
         >
           <Space orientation="vertical" size="small" style={{ width: '100%' }}>
-            <Space>
+            <Space wrap align="start">
               {rolledSpeciesType ? (
-                <Tag icon={<CheckCircleFilled />} color="success">
-                  Crew Type: {rolledSpeciesType.name}
-                </Tag>
+                <>
+                <Space orientation="vertical" size={0}>
+                  <Tag icon={<CheckCircleFilled />} color="success">
+                    Crew Type:{' '}
+                    {speciesId && allSpecies?.length
+                      ? allSpecies.find((s) => s.id === speciesId)?.name ?? rolledSpeciesType.name
+                      : rolledSpeciesType.name}
+                  </Tag>
+                  {speciesId && allSpecies?.length && (
+                    <Typography.Text type="secondary" style={{ fontSize: '12px', display: 'block', maxWidth: 320 }}>
+                      {allSpecies.find((s) => s.id === speciesId)?.description}
+                    </Typography.Text>
+                  )}
+                </Space>
+                    </>
               ) : (
                 <Tag icon={<CloseCircleFilled />} color="default">
                   Crew Type: Not rolled

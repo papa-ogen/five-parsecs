@@ -1,6 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
 import { Alert, Card } from 'antd';
 import { useState } from 'react';
 
+import { api } from '../../../services/api';
 import DiceRoller from '../common/DiceRoller';
 
 /** Roll bands: 1–60 Human (60%), 61–80 Primary Alien (20%), 81–90 Bot (10%), 91–100 Strange (10%). Uses speciesTypeId. */
@@ -14,13 +16,15 @@ const ROLL_BANDS = [
 export interface RolledSpeciesType {
   speciesTypeId: string;
   name: string;
+  /** Set when Primary Alien or Strange Character: a random species was picked from the list. */
+  speciesId?: string;
 }
 
-function rollToSpeciesType(): RolledSpeciesType {
+function rollToSpeciesType(): (typeof ROLL_BANDS)[number] {
   const diceRoll = Math.floor(Math.random() * 100) + 1;
   const band =
     ROLL_BANDS.find((b) => diceRoll >= b.min && diceRoll <= b.max) ?? ROLL_BANDS[0];
-  return { speciesTypeId: band.speciesTypeId, name: band.name };
+  return band;
 }
 
 interface CrewTypeRollerProps {
@@ -35,6 +39,26 @@ export function CrewTypeRoller({
   const [isRolling, setIsRolling] = useState(false);
   const [rollingText, setRollingText] = useState('');
 
+  const { data: primaryAliens = [], isFetched: primaryAliensFetched } = useQuery({
+    queryKey: ['primaryAliens'],
+    queryFn: api.primaryAliens.getAll,
+  });
+  const { data: strangeCharacters = [], isFetched: strangeCharactersFetched } = useQuery({
+    queryKey: ['strangeCharacters'],
+    queryFn: api.strangeCharacters.getAll,
+  });
+  const { data: allSpecies = [] } = useQuery({
+    queryKey: ['species'],
+    queryFn: api.species.getAll,
+  });
+
+  const listsReady = primaryAliensFetched && strangeCharactersFetched;
+
+  const displayName =
+    selectedSpeciesType?.speciesId && allSpecies.length > 0
+      ? allSpecies.find((s) => s.id === selectedSpeciesType.speciesId)?.name ?? selectedSpeciesType.name
+      : selectedSpeciesType?.name ?? '';
+
   const rollDice = () => {
     setIsRolling(true);
 
@@ -46,8 +70,18 @@ export function CrewTypeRoller({
 
       if (rollCount >= 10) {
         clearInterval(rollInterval);
-        const final = rollToSpeciesType();
-        onSelect(final);
+        const band = rollToSpeciesType();
+        const result: RolledSpeciesType = { speciesTypeId: band.speciesTypeId, name: band.name };
+
+        if (band.name === 'Primary Alien' && primaryAliens.length > 0) {
+          const picked = primaryAliens[Math.floor(Math.random() * primaryAliens.length)];
+          result.speciesId = picked.speciesId;
+        } else if (band.name === 'Strange Character' && strangeCharacters.length > 0) {
+          const picked = strangeCharacters[Math.floor(Math.random() * strangeCharacters.length)];
+          result.speciesId = picked.speciesId;
+        }
+
+        onSelect(result);
         setRollingText('');
         setIsRolling(false);
       }
@@ -59,15 +93,20 @@ export function CrewTypeRoller({
       <DiceRoller
         isRolling={isRolling}
         rollingText={rollingText}
-        resultText={selectedSpeciesType?.name}
+        resultText={displayName}
         onRoll={rollDice}
+        disabled={!listsReady}
       />
 
       {selectedSpeciesType && !isRolling && (
         <Card size="small" style={{ textAlign: 'left' }}>
           <Alert
-            title={selectedSpeciesType.name}
-            description="Roll to determine crew member type (species type). 60% Human, 20% Primary Alien, 10% Bot, 10% Strange Character."
+            title={displayName}
+            description={
+              selectedSpeciesType.speciesId
+                ? `${selectedSpeciesType.name} — randomized species`
+                : 'Roll to determine crew member type. 60% Human, 20% Primary Alien, 10% Bot, 10% Strange Character.'
+            }
             type="success"
             showIcon
           />

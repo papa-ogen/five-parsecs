@@ -175,7 +175,7 @@ export function Crew() {
   };
 
   const handleCreateMember = (data: CrewMemberData) => {
-    // speciesId is set by CreateCrewMemberModal (picked from species with rolled species type)
+    // Character is always saved with speciesId (Human, Bot, Alien, Strange all resolve to a species row)
     const characterData: Partial<ICampaignCharacter> = {
       name: data.name,
       crewId: selectedCampaign.crewId,

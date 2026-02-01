@@ -1,8 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input, Modal } from 'antd';
+import { Input, Modal, Select } from 'antd';
 import { Controller, useForm } from 'react-hook-form';
 
-import { campaignSchema, type CampaignFormData } from './campaignSchema';
+import {
+    CREW_COMPOSITION_METHODS,
+    DEFAULT_CREW_COMPOSITION_METHOD,
+    DEFAULT_CREW_SIZE,
+} from '../../app.const';
+
+import { campaignSchema, CREW_SIZE_OPTIONS, type CampaignFormData } from './campaignSchema';
 
 interface CreateCampaignModalProps {
   open: boolean;
@@ -21,6 +27,8 @@ export function CreateCampaignModal({ open, onClose, onSubmit }: CreateCampaignM
     defaultValues: {
       name: '',
       description: '',
+      crewCompositionMethod: DEFAULT_CREW_COMPOSITION_METHOD,
+      crewSize: DEFAULT_CREW_SIZE,
     },
   });
 
@@ -86,6 +94,60 @@ export function CreateCampaignModal({ open, onClose, onSubmit }: CreateCampaignM
           {errors.description && (
             <div style={{ color: '#ff4d4f', fontSize: '14px', marginTop: '4px' }}>
               {errors.description.message}
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginBottom: '16px' }}>
+          <label style={{ display: 'block', marginBottom: '8px' }}>
+            Crew composition method
+          </label>
+          <Controller
+            name="crewCompositionMethod"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                style={{ width: '100%' }}
+                placeholder="How to build your crew"
+                options={CREW_COMPOSITION_METHODS.map((m) => ({
+                  label: `${m.label} — ${m.description}`,
+                  value: m.value,
+                }))}
+                status={errors.crewCompositionMethod ? 'error' : undefined}
+              />
+            )}
+          />
+          {errors.crewCompositionMethod && (
+            <div style={{ color: '#ff4d4f', fontSize: '14px', marginTop: '4px' }}>
+              {errors.crewCompositionMethod.message}
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginBottom: '16px' }}>
+          <label style={{ display: 'block', marginBottom: '8px' }}>
+            Crew size
+          </label>
+          <Controller
+            name="crewSize"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                style={{ width: '100%' }}
+                placeholder="Number of crew members"
+                options={CREW_SIZE_OPTIONS.map((n) => ({
+                  label: `${n} crew members`,
+                  value: n,
+                }))}
+                status={errors.crewSize ? 'error' : undefined}
+              />
+            )}
+          />
+          {errors.crewSize && (
+            <div style={{ color: '#ff4d4f', fontSize: '14px', marginTop: '4px' }}>
+              {errors.crewSize.message}
             </div>
           )}
         </div>

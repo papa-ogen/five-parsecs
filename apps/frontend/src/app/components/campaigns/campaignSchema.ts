@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+export const CREW_SIZE_OPTIONS = [4, 5, 6] as const;
+export type CrewSizeOption = (typeof CREW_SIZE_OPTIONS)[number];
+
 export const campaignSchema = z.object({
     name: z
         .string()
@@ -10,6 +13,8 @@ export const campaignSchema = z.object({
         .max(500, 'Description must be less than 500 characters')
         .optional()
         .or(z.literal('')),
+    crewCompositionMethod: z.string().min(1, 'Select a crew composition method'),
+    crewSize: z.number().min(4).max(6),
 });
 
 export type CampaignFormData = z.infer<typeof campaignSchema>;

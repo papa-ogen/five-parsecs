@@ -2720,7 +2720,9 @@
       "campaignId": "90c97775-e0d4-4b43-aa08-0225724e1a28",
       "name": "test Crew",
       "description": "Crew for test",
-      "characterIds": [],
+      "characterIds": [
+        "1769950805364"
+      ],
       "reputation": 0,
       "patrons": 0,
       "rivals": 0,
@@ -2732,12 +2734,12 @@
       "gadgets": [],
       "weapons": [],
       "gadgetCount": 1,
-      "gearCount": 1,
+      "gearCount": 2,
       "lowTechWeaponCount": 3,
       "militaryWeaponCount": 3,
       "highTechWeaponCount": 0,
       "createdAt": "2026-02-01T10:53:18.229Z",
-      "updatedAt": "2026-02-01T10:53:18.229Z"
+      "updatedAt": "2026-02-01T13:00:05.364Z"
     }
   ],
   "campaignCharacters": [
@@ -3073,6 +3075,33 @@
       "isDead": false,
       "createdAt": "2026-01-31T18:16:09.323Z",
       "updatedAt": "2026-01-31T18:16:09.323Z"
+    },
+    {
+      "id": "1769950805364",
+      "crewId": "crew-1769943198229",
+      "name": "Russ",
+      "speciesId": "7",
+      "backgroundId": "alien-culture",
+      "motivationId": "freedom",
+      "characterClassId": "explorer",
+      "isLeader": false,
+      "reactions": 1,
+      "speed": 5,
+      "combat": 0,
+      "toughness": 3,
+      "savvy": 0,
+      "luck": 0,
+      "xp": 4,
+      "isInjured": false,
+      "injuries": [],
+      "weapons": [],
+      "armor": [],
+      "gear": [],
+      "gadgets": [],
+      "isActive": true,
+      "isDead": false,
+      "createdAt": "2026-02-01T13:00:05.364Z",
+      "updatedAt": "2026-02-01T13:00:05.364Z"
     }
   ],
   "campaignCards": [

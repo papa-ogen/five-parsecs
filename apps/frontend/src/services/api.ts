@@ -1,4 +1,4 @@
-import type { IBattleSize, ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, IBackground, ISpecies, ISpeciesAbility, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
+import type { IBattleSize, ICampaign, ICampaignCharacter, ICampaignCrew, ICaracterizedAs, IWeMetThrough, IShipType, IMotivation, ICharacterClass, IBackground, ISpecies, ISpeciesAbility, IPrimaryAlien, IStrangeCharacter, IGadget, IGear, IWeapon } from '@five-parsecs/parsec-api';
 
 const API_BASE_URL = 'http://localhost:9999';
 
@@ -128,6 +128,26 @@ export const api = {
             const response = await fetch(`${API_BASE_URL}/species-abilities/${id}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch species abilities');
+            }
+            return response.json();
+        },
+    },
+
+    primaryAliens: {
+        getAll: async (): Promise<IPrimaryAlien[]> => {
+            const response = await fetch(`${API_BASE_URL}/primary-aliens`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch primary aliens');
+            }
+            return response.json();
+        },
+    },
+
+    strangeCharacters: {
+        getAll: async (): Promise<IStrangeCharacter[]> => {
+            const response = await fetch(`${API_BASE_URL}/strange-characters`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch strange characters');
             }
             return response.json();
         },

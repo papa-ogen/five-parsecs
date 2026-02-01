@@ -1,11 +1,14 @@
 import type { ICampaign, UnitSystem } from '@five-parsecs/parsec-api';
 import React, { createContext, useCallback, useContext, useState } from 'react';
 
+import { DEFAULT_CREW_SIZE } from '../app.const';
+
 const SETTINGS_STORAGE_KEY = 'five-parsecs-settings';
 
 export interface AppSettings {
   unitSystem: UnitSystem;
-  // Add more generic settings here as needed
+  crewCompositionMethod: 'first-timer' |'standard' | 'miniatures' | 'random';
+  crewAmount: number;
 }
 
 function loadSettings(): AppSettings {
@@ -14,13 +17,13 @@ function loadSettings(): AppSettings {
     if (stored) {
       const parsed = JSON.parse(stored) as Partial<AppSettings>;
       if (parsed.unitSystem === 'imperial' || parsed.unitSystem === 'metric') {
-        return { unitSystem: parsed.unitSystem };
+        return { unitSystem: parsed.unitSystem, crewCompositionMethod: 'first-timer', crewAmount: 4 };
       }
     }
   } catch {
     // ignore
   }
-  return { unitSystem: 'imperial' };
+  return { unitSystem: 'imperial', crewCompositionMethod: 'first-timer', crewAmount: DEFAULT_CREW_SIZE };
 }
 
 function persistSettings(settings: AppSettings) {
@@ -94,5 +97,9 @@ export function useSettings() {
     setSetting,
     unitSystem: settings.unitSystem,
     setUnitSystem: (unit: UnitSystem) => setSetting('unitSystem', unit),
+    crewCompositionMethod: settings.crewCompositionMethod,
+    setCrewCompositionMethod: (method: 'first-timer' | 'standard' | 'miniatures' | 'random') => setSetting('crewCompositionMethod', method),
+    crewAmount: settings.crewAmount,
+    setCrewAmount: (amount: number) => setSetting('crewAmount', amount),
   };
 }

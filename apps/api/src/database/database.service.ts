@@ -16,6 +16,8 @@ import {
     IWeMetThrough,
     ICaracterizedAs,
     IBattleSize,
+    IPrimaryAlien,
+    IStrangeCharacter,
 } from '@five-parsecs/parsec-api';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { JSONFilePreset } from 'lowdb/node';
@@ -23,6 +25,8 @@ import { JSONFilePreset } from 'lowdb/node';
 interface DatabaseSchema {
     species: ISpecies[];
     speciesAbilities: ISpeciesAbility[];
+    primaryAliens: IPrimaryAlien[];
+    strangeCharacters: IStrangeCharacter[];
     backgrounds: IBackground[];
     characterClasses: ICharacterClass[];
     motivations: IMotivation[];
@@ -49,6 +53,8 @@ export class DatabaseService implements OnModuleInit {
         const defaultData: DatabaseSchema = {
             species: [],
             speciesAbilities: [],
+            primaryAliens: [],
+            strangeCharacters: [],
             backgrounds: [],
             characterClasses: [],
             motivations: [],
@@ -87,6 +93,16 @@ export class DatabaseService implements OnModuleInit {
     async getSpeciesAbilityById(id: string): Promise<ISpeciesAbility | undefined> {
         await this.db.read();
         return this.db.data.speciesAbilities.find((sa) => sa.id === id);
+    }
+
+    async getAllPrimaryAliens(): Promise<IPrimaryAlien[]> {
+        await this.db.read();
+        return this.db.data.primaryAliens ?? [];
+    }
+
+    async getAllStrangeCharacters(): Promise<IStrangeCharacter[]> {
+        await this.db.read();
+        return this.db.data.strangeCharacters ?? [];
     }
 
     async addSpecies(species: ISpecies): Promise<ISpecies> {
@@ -557,6 +573,8 @@ export class DatabaseService implements OnModuleInit {
         this.db.data = {
             species: [],
             speciesAbilities: [],
+            primaryAliens: [],
+            strangeCharacters: [],
             backgrounds: [],
             characterClasses: [],
             motivations: [],
