@@ -1,5 +1,6 @@
 import { CampaignStatus } from '@five-parsecs/parsec-api';
 import { Badge, Card, Space, Statistic } from 'antd';
+import { Link } from 'react-router-dom';
 
 import { useCampaign } from '../../contexts/AppContext';
 
@@ -46,6 +47,7 @@ export function CampaignDetails() {
           <Space size="large" wrap>
             <Statistic title="Turn" value={selectedCampaign.campaignTurn} />
             <Statistic title="Story Points" value={selectedCampaign.storyPoints} />
+            <Link to="/battle-helper">Battle Helper</Link>
           </Space>
         </Space>
       </Card>

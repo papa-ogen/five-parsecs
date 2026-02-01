@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App as AntApp, ConfigProvider } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './app/app';
 import './styles.css';
@@ -28,7 +29,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         }}
       >
         <AntApp>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </AntApp>
       </ConfigProvider>
     </QueryClientProvider>
